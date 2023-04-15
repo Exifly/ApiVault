@@ -1,14 +1,12 @@
+![ApiVault logo](./assets/apivault-dark-nobg.png#gh-dark-mode-only)
+![ApiVault logo](./assets/apivault-dark-nobg.png#gh-light-mode-only)
+
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify">
-  <img src="https://i.postimg.cc/Wzs9v4qh/apivault-dark-nobg.png#gh-dark-mode-only" alt="Markdownify" width="200">
-  <img src="https://i.postimg.cc/Wzs9v4qh/apivault-dark-nobg.png#gh-light-mode-only" alt="Markdownify" width="200">
-  </a>
   <br>
   APIVault
   <br>
 </h1>
-
 <h4 align="center">Your Gateway To A World Of Public APIs.</h4>
 
 <p align="center">
