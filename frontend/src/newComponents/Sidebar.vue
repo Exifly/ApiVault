@@ -93,7 +93,7 @@ const categories = [
 
 <style scoped>
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
 }
 .scrollbox {
   overflow: scroll;
