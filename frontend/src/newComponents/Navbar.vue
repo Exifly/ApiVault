@@ -1,10 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import { ref, inject } from "vue";
 
 const stars = 104;
+const colorScheme = inject("colorScheme");
+
 var iconTheme = ref("fa-solid fa-sun");
-var iconMenuToggleColor = ref("#fff");
 var iconThemeText = ref("Dark Mode");
+var logoPath = ref("/public/img/apivault-dark-nobg.png");
 
 const setMode = () => {
   const theme = document.body.getAttribute("data-theme");
@@ -12,10 +14,14 @@ const setMode = () => {
   if (theme === "dark" || theme === null) {
     document.querySelector("body")?.setAttribute("data-theme", "light");
     iconThemeText.value = "Ligth Mode";
+    colorScheme.value = "dark";
+    logoPath.value = "/public/img/apivault-light-nobg.png";
     return (iconTheme.value = "fa-solid fa-moon");
   } else {
     document.querySelector("body")?.setAttribute("data-theme", "dark");
     iconThemeText.value = "Dark Mode";
+    colorScheme.value = "light";
+    logoPath.value = "/public/img/apivault-dark-nobg.png";
     return (iconTheme.value = "fa-solid fa-sun");
   }
 };
@@ -25,7 +31,7 @@ const setMode = () => {
   <nav class="glass-nav navbar-custom navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <router-link to="/" class="navbar-text-wrapper navbar-brand">
-        <img src="../assets/img/logo.jpeg" alt="" width="30" height="30" />
+        <img :src="logoPath" alt="" width="30" height="30" />
         APIVault
       </router-link>
       <button

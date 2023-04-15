@@ -1,10 +1,37 @@
 <script setup>
 import Logo from "./Logo.vue";
+import { ref, inject, reactive, computed } from "vue";
+
+const state = reactive({
+  theme: "dark",
+});
+
+// Compute the image source based on the current theme
+const imageSource = computed(() => {
+  if (state.theme === "dark") {
+    return "/public/img/apivault-dark-nobg.png";
+  } else {
+    return "/public/img/apivault-light-nobg.png";
+  }
+});
+
+// Watch for changes to the data-theme attribute and update the state
+const observer = new MutationObserver((mutationsList) => {
+  mutationsList.forEach((mutation) => {
+    if (
+      mutation.type === "attributes" &&
+      mutation.attributeName === "data-theme"
+    ) {
+      state.theme = mutation.target.getAttribute("data-theme");
+    }
+  });
+});
+observer.observe(document.body, { attributes: true });
 </script>
 
 <template>
   <center>
-    <Logo height="150" width="150" />
+    <Logo :source="imageSource" height="150" width="150" />
   </center>
   <h1 class="hero-text-wrapper page-title p-3 p-md-5">
     Your Gateway to a World of Public APIs.
