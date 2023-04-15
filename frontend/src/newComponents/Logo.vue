@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 defineProps({
   width: {
     type: String,
@@ -10,14 +11,14 @@ defineProps({
     required: false,
     default: "30",
   },
-  image: {
+  source: {
     type: String,
     required: false,
-    default: "../assets/img/logo.jpeg",
+    default: "/public/img/apivault-dark-nobg.png",
   },
 });
 </script>
 
 <template>
-  <img src="../assets/img/logo.jpeg" alt="" :width="width" :height="height" />
+  <img :src="source" alt="Logo" :width="width" :height="height" />
 </template>

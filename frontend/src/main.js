@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import "./style.css";
 import App from "./App.vue";
 
@@ -41,8 +41,12 @@ library.add(
   faBars
 );
 
+// global variables
+const colorScheme = ref("dark");
+
 createApp(App)
   .use(router)
   .use(bootstrap)
+  .provide("colorScheme", colorScheme)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
