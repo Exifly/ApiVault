@@ -2,65 +2,68 @@ from flask import Flask, jsonify, request
 import json
 import random as rnd
 from flask_cors import CORS, cross_origin
+from search import Search
+import logging
+
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# Utility functions
-def validate_keys(data_dict, required_keys):
-   for key in required_keys:
-      if key not in data_dict:
-         return False
-   return True
-
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Load the JSON data
-with open('data/entries.json', 'r') as f:
-    data = json.load(f)
+try:
+    with open('data/entries.json', 'r') as f:
+        data = json.load(f)
+except FileNotFoundError:
+    logging.error('File data/entries.json not found')
+    raise
 
 
 @app.route('/api/search')
 @cross_origin()
 def search():
+   """
+   1. Get the search query and category from the request arguments
+   2. Filter the data entries based on the search query and category
+   3. Return the filtered results as a JSON object
+   """
    query = request.args.get('q')
+   category = request.args.get('category')
+   results = Search.search_entries(data['entries'], query, category)
 
-   results = [entry for entry in data['entries'] if query.lower() in entry['API'].lower() or query.lower() in entry['Description'].lower()]
+   logging.info(f'Search query="{query}" category="{category}" results={len(results)}')
    return jsonify(results)
 
 
 @app.route('/api/random')
 @cross_origin()
 def random():
+   """
+   1. Get the requested quantity from the request arguments
+   2. Convert the quantity to an integer if it exists, otherwise use the default value of 9
+   3. Generate random data entries and return them as a JSON object
+   """
    query = request.args.get('quantity')
    quantity = int(query) if query != None else 9
-   return jsonify([data['entries'][rnd.randint(0,1000)] for n in range(quantity)])
+   entries = rnd.sample(data['entries'], min(quantity, len(data['entries'])))
+
+   logging.info(f'Random request quantity={quantity} results={len(entries)}')
+   return jsonify(entries)
 
 
 @app.route('/api/all')
 @cross_origin()
 def all():
+   """Get all entries """
    return jsonify(data['entries'])
-
-
-# add an api to entries object
-@app.route('/api/add', methods=['POST'])
-@cross_origin()
-def add_api():
-   required_keys = {'API', 'Description', 'Auth', 'HTTPS', 'Cors', 'Link', 'Cateogry'}
-   data = request.get_json()
-   print(data.keys)
-   if validate_keys(data, required_keys=required_keys):
-      return jsonify(data)
-   else:
-      return jsonify({
-         'error': 'Unprocessable Entity'
-      })
 
 
 @app.route('/api/count')
 @cross_origin()
 def count():
+   """Get the count of entries"""
    return jsonify(data['count'])
 
 
