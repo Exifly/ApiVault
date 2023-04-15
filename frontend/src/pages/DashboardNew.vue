@@ -16,16 +16,16 @@ import Sidebar from "../newComponents/Sidebar.vue";
     </header>
     <Sidebar />
     <div class="flex-adjust container p-4">
+      <div class="row">
+        <div class="col-12 mb-5">
+          <SearchBar />
+        </div>
+      </div>
       <div class="hero container">
         <div class="row">
           <div class="col-12 col-lg-12 col-md-12">
             <Hero />
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 mb-5">
-          <SearchBar />
         </div>
       </div>
       <h1 class="text-wrapper">ALL</h1>
@@ -55,6 +55,14 @@ import Sidebar from "../newComponents/Sidebar.vue";
 hr {
   border-color: var(--hr-color);
 }
+
+.hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .flex-parent {
   display: flex;
   flex-direction: row;

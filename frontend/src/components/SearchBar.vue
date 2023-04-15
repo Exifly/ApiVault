@@ -6,8 +6,9 @@
   <div class="search-bar text-black">
     <label
       ><font-awesome-icon
+        class="icon-color"
         :icon="['fas', 'magnifying-glass']"
-        style="color: #ffffff; margin-left: 1vw; margin-right: 1vw"
+        style="margin-left: 1vw; margin-right: 1vw"
       />
       <input class="input-bar" type="search" placeholder="Search" />
     </label>
@@ -20,6 +21,9 @@
   .input-bar {
     width: 82.5vw;
   }
+}
+.icon-color {
+  color: var(--icon-color);
 }
 .search-bar {
   align-items: center;
@@ -34,7 +38,7 @@
 .input-bar {
   border-style: transparent;
   border-color: transparent;
-  color: white;
+  color: var(--text-color);
   flex-grow: 1;
   margin-bottom: 0vh;
   height: 6vh;
@@ -44,7 +48,7 @@ label {
   align-self: center;
   align-items: center;
   border-radius: 16px;
-  background-color: #212329;
+  background-color: var(--bg-input-field);
   color: #6c757d;
   cursor: text;
   display: grid;
@@ -54,7 +58,7 @@ label {
 }
 
 label:focus-within {
-  border: 0.5px solid #ffffff;
+  border: 0.5px solid var(--icon-color);
 }
 
 label > input {

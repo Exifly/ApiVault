@@ -83,7 +83,10 @@ const setMode = () => {
 .glass-nav {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
-  background-color: rgba(--bg-color 0.78);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(var(--bg-color), 0.76);
+  border-radius: 12px;
 }
 
 .custom-radius {
