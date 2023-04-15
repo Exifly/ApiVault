@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  be_apivault:
+    container_name: be_apivault
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/code
+    tty: true
+    stdin_open: true
+    networks:
+      apivault_network:
+        aliases:
+          - apivault_network
+
+    command: bash -c "/bin/bash /code/docker/start.sh"
+    ports:
+      - "5001:5001"
+
+networks:
+  apivault_network:
+    name: apivault_network
