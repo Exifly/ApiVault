@@ -1,5 +1,7 @@
+<div align="center">
 ![ApiVault logo](./assets/apivault-dark-nobg.png#gh-dark-mode-only)
-![ApiVault logo](./assets/apivault-dark-nobg.png#gh-light-mode-only)
+![ApiVault logo](./assets/apivault-light-nobg.png#gh-light-mode-only)
+</div>
 
 <h1 align="center">
   <br>
