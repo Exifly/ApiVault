@@ -9,6 +9,14 @@
 </template>
 
 <style scoped>
+.glass-card {
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  background-color: var(--bg-card-glass);
+  /* background-color: rgba(var(--bg-color), 0.78); */
+  border-radius: 12px;
+  border: 1px solid var(--border-color-cards);
+}
 .hero-card {
   margin-left: 15vw;
   margin-right: 15vw;
