@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+:root {
+  /* --bg-color: #242424;
+  --nav-color: #1a1a1a;
+  --text-color: white; */
+  --bg-color: rgb(0 0 0);
+  --nav-color: #221F1F;
+  --text-color: #c0c0c0;
+  --text-color-hover: #f2f2f2;
+  --border-radius: 8px;
+}
+
+[data-theme="dark"] {
+  /* Dark/Light mode variables */
+  --bg-color: rgb(0 0 0);
+  --bg-card-glass: rgba(12, 12, 12, 0.78);
+  --border-color-cards: rgba(255, 255, 255, 0.125);
+  --nav-color: #221F1F;
+  --text-color: #c0c0c0;
+  --text-color-hover: #f2f2f2;
+  --hr-color: #919191;
+}
+
+[data-theme="light"] {
+  /* Dark/Light mode variables */
+  --bg-color: rgb(231, 231, 231);
+  --bg-card-glass: rgba(226, 226, 226, 0.78);
+  --border-color-cards: rgba(48, 48, 48, 0.125);
+  --nav-color: #ffffff;
+  --text-color: #000000;
+  --text-color-hover: #313131;
+  --hr-color: #454545;
+}
+
+* {
+  transition: all 0.1s ease-in;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+html {
+  background-color: var(--bg-color);
+  height: 100%;
+}
+
+body {
+  background: var(--bg-color);
+}
+
+.text-wrapper {
+  color: var(--text-color-hover);
+}
+
+#app {
+  background-color: var(--bg-color);
+}
+
+/* Glassmorphism properties */
+.glass-card {
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  background-color: var(--bg-card-glass);
+  border-radius: 12px;
+  border: 1px solid var(--border-color-cards);
+}
+
+/* Responsive properties */
+@media (min-width: 1581px) {
+  #app {
+    background-color: var(--bg-color);
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+
+  body {
+    background: var(--bg-color) !important;
+  }
+
+  nav {
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+}
