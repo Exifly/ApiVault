@@ -2,6 +2,7 @@ from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from search import Search
 import random as rnd
+import datetime
 import logging
 import json
 
@@ -10,7 +11,10 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
+
+filelog_name = 'apivault-{date:%Y%m%d}.txt'.format( date=datetime.datetime.now())
+logging.basicConfig(filename=f'log/{filelog_name}.log', level=logging.INFO)
+
 
 # Load the JSON data
 try:
