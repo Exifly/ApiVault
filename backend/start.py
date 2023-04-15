@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, request
-import json
-import random as rnd
 from flask_cors import CORS, cross_origin
+from flask import Flask, jsonify, request
 from search import Search
+import random as rnd
 import logging
+import json
 
 
 app = Flask(__name__)
