@@ -1,15 +1,17 @@
 <template>
-  <div class="hero-card hero-text-wrapper glass-card card text-center">
-    <div class="card-body">
-      <h4 class="hero-header-text-wrapper">CONTRIBUTE</h4>
-      Help us contributing on the repository. <br />If you want of course.
-    </div>
-    <a href="#" class="btn-wrapper btn btn-outline-primary m-3">REPOSITORY</a>
-  </div>
+  <h1 class="page-title pb-5">Your Gateway to a World of Public APIs.</h1>
 </template>
 
 <style scoped>
+.page-title{
+  color: white;
+  text-transform:capitalize;
+}
+.page-subtitle{
+  color: white;
+}
 .glass-card {
+
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
