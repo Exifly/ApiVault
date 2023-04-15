@@ -1,14 +1,13 @@
-<div align="center">
-![ApiVault logo](./assets/apivault-dark-nobg.png#gh-dark-mode-only)
-![ApiVault logo](./assets/apivault-light-nobg.png#gh-light-mode-only)
-</div>
-
 <h1 align="center">
   <br>
+  <img src="./assets/apivault-dark-nobg.png#gh-dark-mode-only" alt="ApiVault" width="200">
+  <img src="./assets/apivault-light-nobg.png#gh-light-mode-only" alt="ApiVault" width="200">
+  </a>
   <br>
   APIVault
   <br>
 </h1>
+
 <h4 align="center">Your Gateway To A World Of Public APIs.</h4>
 
 <p align="center">
