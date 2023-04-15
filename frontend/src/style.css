@@ -14,6 +14,8 @@
   /* Dark/Light mode variables */
   --bg-color: rgb(0 0 0);
   --bg-card-glass: rgba(12, 12, 12, 0.78);
+  --bg-input-field: #212329;
+  --icon-color: white;
   --border-color-cards: rgba(255, 255, 255, 0.125);
   --nav-color: #221F1F;
   --text-color: #c0c0c0;
@@ -25,6 +27,8 @@
   /* Dark/Light mode variables */
   --bg-color: rgb(231, 231, 231);
   --bg-card-glass: rgba(226, 226, 226, 0.78);
+  --bg-input-field: #c5c5c5;
+  --icon-color: black;
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;
   --text-color: #000000;

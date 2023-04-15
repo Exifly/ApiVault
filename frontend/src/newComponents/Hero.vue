@@ -1,17 +1,27 @@
+<script setup>
+import Logo from "./Logo.vue";
+</script>
+
 <template>
-  <h1 class="page-title pb-5">Your Gateway to a World of Public APIs.</h1>
+  <center>
+    <Logo height="150" width="150" />
+  </center>
+  <h1 class="hero-text-wrapper page-title p-3 p-md-5">
+    Your Gateway to a World of Public APIs.
+    <h5>This tool is completely free and Open-Source!</h5>
+  </h1>
 </template>
 
 <style scoped>
-.page-title{
-  color: white;
-  text-transform:capitalize;
+.page-title {
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
 }
-.page-subtitle{
+.page-subtitle {
   color: white;
 }
 .glass-card {
-
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
