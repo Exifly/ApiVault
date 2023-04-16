@@ -2,6 +2,8 @@
 import Logo from "./Logo.vue";
 import { reactive, computed } from "vue";
 
+const emit = defineEmits(["update:colorScheme"]);
+
 const state = reactive({
   theme: "dark",
 });
@@ -23,6 +25,7 @@ const observer = new MutationObserver((mutationsList) => {
       mutation.attributeName === "data-theme"
     ) {
       state.theme = mutation.target.getAttribute("data-theme");
+      emit("update:colorScheme", state.theme);
     }
   });
 });

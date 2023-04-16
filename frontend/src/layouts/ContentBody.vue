@@ -79,6 +79,7 @@ hr {
 @media (min-width: 1581px) {
   .flex-adjust {
     margin-left: 26vw;
+    margin-right: 8vw;
     margin-top: 7vw;
   }
 }

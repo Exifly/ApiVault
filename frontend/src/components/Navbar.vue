@@ -1,30 +1,62 @@
 <script setup>
-import { ref, inject } from "vue";
+import { ref, inject, reactive, onMounted, watch } from "vue";
+import axios from "axios";
+import gsap from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
 
-const stars = 104;
+// =================== PRE LOGIC SIDE =================== //
+gsap.registerPlugin(CSSPlugin);
+
+// =================== DATA DEFINITION =================== //
+const number = ref(0);
+const github = reactive({
+  number: 0,
+});
 const colorScheme = inject("colorScheme");
 
 var iconTheme = ref("fa-solid fa-sun");
 var iconThemeText = ref("Dark Mode");
-var logoPath = ref("/public/img/apivault-dark-nobg.png");
+var logoPath = ref("/img/apivault-dark-nobg.png");
 
+// =================== FUNCTION & METHODS =================== //
 const setMode = () => {
+  // set night or light mode
   const theme = document.body.getAttribute("data-theme");
 
   if (theme === "dark" || theme === null) {
     document.querySelector("body")?.setAttribute("data-theme", "light");
-    iconThemeText.value = "Ligth Mode";
+    iconThemeText.value = "Ligth Mode"; // to change icon style
     colorScheme.value = "dark";
-    logoPath.value = "/public/img/apivault-light-nobg.png";
-    return (iconTheme.value = "fa-solid fa-moon");
+    logoPath.value = "/img/apivault-light-nobg.png";
+    return (iconTheme.value = "fa-solid fa-moon"); // return icon to display
   } else {
     document.querySelector("body")?.setAttribute("data-theme", "dark");
     iconThemeText.value = "Dark Mode";
     colorScheme.value = "light";
-    logoPath.value = "/public/img/apivault-dark-nobg.png";
+    logoPath.value = "/img/apivault-dark-nobg.png";
     return (iconTheme.value = "fa-solid fa-sun");
   }
 };
+
+const githubData = async () => {
+  await axios
+    .get("https://api.github.com/repos/exifly/tweetyfly")
+    .then((res) => {
+      number.value = res.data.stargazers_count;
+    })
+    .catch((er) => {
+      console.log(er.response.data.message);
+    });
+};
+
+// =================== COMPONENT LOGIC =================== //
+watch(number, (n) => {
+  gsap.to(github, { duration: 0.5, number: Number(n) || 0 });
+});
+
+onMounted(() => {
+  githubData();
+});
 </script>
 
 <template>
@@ -57,7 +89,8 @@ const setMode = () => {
               aria-current="page"
               href="#"
             >
-              <font-awesome-icon :icon="['fab', 'github']" /> Stars {{ stars }}
+              <font-awesome-icon :icon="['fab', 'github']" /> Stars
+              {{ github.number.toFixed(0) }}
             </a>
           </li>
           <li class="nav-item">
@@ -104,7 +137,18 @@ const setMode = () => {
   width: 100%;
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1572px) {
+  .navbar-custom {
+    width: 100vw;
+    margin-left: 11.3vw;
+  }
+  .custom-props-navbar {
+    position: fixed;
+    width: 100vw;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1572px) {
   .navbar-custom {
     width: 100vw;
   }

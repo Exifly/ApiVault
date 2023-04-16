@@ -104,7 +104,7 @@ const categories = [
   position: fixed;
   margin-top: 8vh;
   height: 100vh;
-  width: 23vw;
+  width: 11vw;
   font-size: 14px;
 }
 
@@ -130,5 +130,35 @@ const categories = [
 .search-bar {
   margin-top: 5vh;
   margin-bottom: 5vh;
+}
+
+@media (min-width: 1581px) and (min-width: 1800px) {
+  .custom-props {
+    background-color: var(--bg-color);
+    position: fixed;
+    margin-top: 8vh;
+    margin-left: 1vw;
+    height: 100vh;
+    width: 11vw;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-first {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1581px) {
+  .custom-props {
+    background-color: var(--bg-color);
+    position: fixed;
+    margin-top: 8vh;
+    margin-left: 8vw;
+    height: 100vh;
+    width: 11vw;
+    font-size: 14px;
+  }
 }
 </style>

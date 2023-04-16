@@ -7,6 +7,16 @@ import Navbar from "@/components/Navbar.vue";
 import BodyFlex from "@/layouts/BodyFlex.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
+import { computed, reactive } from "vue";
+
+const scheme = reactive({
+  color: "dark",
+});
+
+const handleChangeScheme = (val) => {
+  scheme.color = val;
+  console.log(scheme.color);
+};
 
 // const githubRepoApi = "https://api.github.com/repos/exifly/tweetyfly";
 </script>
@@ -22,13 +32,13 @@ import Hero from "@/components/Hero.vue";
         <SearchBar />
       </template>
       <template #heroAreaContent>
-        <Hero />
+        <Hero @update:colorScheme="handleChangeScheme" />
       </template>
       <template #cardAreaContent>
         <Card />
       </template>
       <template #footerArea>
-        <Footer />
+        <Footer :scheme="scheme.color" />
       </template>
     </ContentBody>
   </BodyFlex>
