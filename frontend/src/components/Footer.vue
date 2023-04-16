@@ -1,3 +1,20 @@
+<script setup>
+import { reactive, computed } from "vue";
+const props = defineProps({
+  scheme: {
+    type: String,
+    required: false,
+  },
+});
+
+const logoMode = computed(() => {
+  if (props.scheme === "dark") {
+    return "/img/apivault-dark-nobg.png";
+  }
+  return "/img/apivault-light-nobg.png";
+});
+</script>
+
 <template>
   <footer
     class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
@@ -27,7 +44,7 @@
       to="/"
       class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
     >
-      <img src="@/assets/img/logo.jpeg" alt="" width="30" height="30" />
+      <img :src="logoMode" alt="" width="30" height="30" />
     </router-link>
 
     <ul class="nav col-md-4 justify-content-end">
