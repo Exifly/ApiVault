@@ -51,7 +51,7 @@ body {
 }
 
 .text-wrapper {
-  color: var(--text-color-hover);
+  color: var(--text-color-hover) !important;
 }
 
 #app {

@@ -1,5 +1,4 @@
 <script setup>
-import DashboardNew from "./pages/DashboardNew.vue";
 import { onMounted } from "vue";
 
 onMounted(() => {

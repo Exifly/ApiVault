@@ -1,80 +1,164 @@
 <script setup>
-defineProps({
-  categories: {
-    type: Array,
-    required: false,
-  },
-});
+const categories = [
+  "Animals",
+  "Anime",
+  "Anti-Malware",
+  "Art & Design",
+  "Authentication & Authorization",
+  "Blockchain",
+  "Books",
+  "Business",
+  "Calendar",
+  "Cloud Storage & File Sharing",
+  "Continuous Integration",
+  "Cryptocurrency",
+  "Currency Exchange",
+  "Data Validation",
+  "Development",
+  "Dictionaries",
+  "Documents & Productivity",
+  "Email",
+  "Entertainment",
+  "Environment",
+  "Events",
+  "Finance",
+  "Food & Drink",
+  "Games & Comics",
+  "Geocoding",
+  "Government",
+  "Health",
+  "Jobs",
+  "Machine Learning",
+  "Music",
+  "News",
+  "Open Data",
+  "Open Source Projects",
+  "Patent",
+  "Personality",
+  "Phone",
+  "Photography",
+  "Programming",
+  "Science & Math",
+  "Security",
+  "Shopping",
+  "Social",
+  "Sports & Fitness",
+  "Test Data",
+  "Text Analysis",
+  "Tracking",
+  "Transportation",
+  "URL Shorteners",
+  "Vehicle",
+  "Video",
+  "Weather",
+];
 </script>
 
 <template>
-  <div
-    id="responsive"
-    class="flex-shrink-0 bg-normal h-100"
-    style="width: 35vh"
-  >
-    <a
-      href="/"
-      class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"
-    >
-      <svg class="bi me-2" width="30" height="24">
-        <use xlink:href="#bootstrap" />
-      </svg>
-      <span class="fs-5 fw-semibold text-white mt-3">
-        <font-awesome-icon :icon="['fas', 'list-ul']" />
-        Categories: {{}}
-      </span>
-    </a>
+  <div class="custom-props mobile-first border-right" id="sidebar-wrapper">
     <div class="scrollbox">
-      <ul class="list-unstyled ps-0 text-white mx-4">
-        <li
-          class="mb-1 mt-3 category-custom"
-          v-for="category in categories"
-          :key="category"
-        >
-          {{ category }}
-          <hr />
-        </li>
+      <div class="sidebar-heading ms-4">YOU LIKE</div>
+      <ul class="list-unstyled ps-0 text-black mx-4">
+        <li class="sidebar-text-wrapper mt-2 category-custom">Pippo</li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">Pluto</li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">Topolino</li>
       </ul>
+      <div class="sidebar-heading ms-4">CATEGORIES</div>
+      <div class="list-group list-group-flush">
+        <ul class="list-unstyled ps-0 text-black mx-4">
+          <li
+            class="sidebar-text-wrapper mt-2 category-custom"
+            v-for="category in categories"
+            :key="category"
+          >
+            <router-link
+              class="sidebar-text-wrapper"
+              :to="'/categories/' + category"
+              >{{ category }}</router-link
+            >
+          </li>
+          <hr />
+          <li class="sidebar-heading">INFO</li>
+          <li class="sidebar-text-wrapper mt-2 category-custom">
+            API Fetched: <b>1542</b>
+          </li>
+          <li class="sidebar-text-wrapper mt-2 category-custom">
+            N. Categories: <b>{{ categories.length }}</b>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-@media only screen and (max-width: 600px) {
-  #responsive {
-    display: none;
-  }
+::-webkit-scrollbar {
+  width: 0px;
 }
-.bg-normal {
-  background-color: var(--nav-color) !important;
+.scrollbox {
+  overflow: scroll;
+  height: 89vh;
+}
+.custom-props {
+  background-color: var(--bg-color);
   position: fixed;
-}
-
-.category-custom {
-  color: rgb(165, 165, 165);
-  transition: all 0.3s;
+  margin-top: 8vh;
+  height: 100vh;
+  width: 11vw;
+  font-size: 14px;
 }
 
 .category-custom:hover {
-  color: rgb(218, 218, 218);
+  color: rgb(166, 166, 166);
 }
 
-::-webkit-scrollbar {
-  width: 5px;
+.sidebar-text-wrapper {
+  color: var(--text-color) !important;
+  text-decoration: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #fff;
+.sidebar-text-wrapper:hover {
+  color: var(--text-color-hover) !important;
 }
 
-.scrollbox {
-  overflow: scroll;
-  height: 76vh;
+.sidebar-heading {
+  color: var(--text-color-hover);
+  font-size: 18px;
+  font-weight: 600;
 }
 
-#sidebar-custom,
-p {
-  margin-left: 3vw;
+.search-bar {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+@media (min-width: 1581px) and (min-width: 1800px) {
+  .custom-props {
+    background-color: var(--bg-color);
+    position: fixed;
+    margin-top: 8vh;
+    margin-left: 1vw;
+    height: 100vh;
+    width: 11vw;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-first {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1581px) {
+  .custom-props {
+    background-color: var(--bg-color);
+    position: fixed;
+    margin-top: 8vh;
+    margin-left: 8vw;
+    height: 100vh;
+    width: 11vw;
+    font-size: 14px;
+  }
 }
 </style>
