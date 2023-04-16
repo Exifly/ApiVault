@@ -1,6 +1,6 @@
 <script setup>
 import Logo from "./Logo.vue";
-import { ref, inject, reactive, computed } from "vue";
+import { reactive, computed } from "vue";
 
 const state = reactive({
   theme: "dark",

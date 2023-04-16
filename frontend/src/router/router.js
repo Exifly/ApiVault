@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DashboardNew from "@/pages/DashboardNew.vue";
+import Dashboard from "@/pages/Dashboard.vue";
 import Categories from "@/pages/categories/[category].vue";
 
 // Defining the routes
@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/",
     name: "Dashboard",
-    component: DashboardNew,
+    component: Dashboard,
   },
   {
     path: "/categories/:category",

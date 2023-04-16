@@ -1,15 +1,8 @@
-<script setup>
-defineProps({
-  category: {
-    type: String,
-    required: true,
-  },
-});
-</script>
-
 <template>
   <div class="category-container">
-    <p>{{ category }}</p>
+    <p>
+      <slot />
+    </p>
   </div>
 </template>
 
