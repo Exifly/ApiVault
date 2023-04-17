@@ -125,7 +125,6 @@ onMounted(() => {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   background-color: rgba(var(--bg-color), 0.76);
-  border-radius: 12px;
 }
 
 .custom-radius {
