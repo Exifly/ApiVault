@@ -2,12 +2,13 @@
 import ContentBody from "@/layouts/ContentBody.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import { onMounted, reactive, ref } from "vue";
+import BodyFlex from "@/layouts/BodyFlex.vue";
 import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
-import BodyFlex from "@/layouts/BodyFlex.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
-import { computed, reactive } from "vue";
+import axios from "axios";
 
 const scheme = reactive({
   color: "dark",
@@ -18,7 +19,21 @@ const handleChangeScheme = (val) => {
   console.log(scheme.color);
 };
 
-// const githubRepoApi = "https://api.github.com/repos/exifly/tweetyfly";
+let apiData = ref(null);
+const apiCall = async () => {
+  await axios
+    .get("http://localhost:5001/api/random")
+    .then((res) => {
+      apiData.value = res.data;
+    })
+    .catch((er) => {
+      console.error(er);
+    });
+};
+
+onMounted(() => {
+  apiCall();
+});
 </script>
 
 <template>
@@ -35,7 +50,24 @@ const handleChangeScheme = (val) => {
         <Hero @update:colorScheme="handleChangeScheme" />
       </template>
       <template #cardAreaContent>
-        <Card />
+        <div class="row">
+          <div
+            class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+            v-for="api in apiData"
+            :key="api"
+          >
+            <a :href="api.Link" style="text-decoration: none">
+              <Card
+                :title="api.API"
+                :subtitle="api.Category"
+                :body="api.Description"
+                :cors="api.Cors"
+                :https="api.HTTPS"
+                :auth="api.Auth"
+              />
+            </a>
+          </div>
+        </div>
       </template>
       <template #footerArea>
         <Footer :scheme="scheme.color" />

@@ -55,6 +55,7 @@ This software uses the following open source packages:
 - [Vue.js](http://electron.atom.io/)
 - [Flask](https://nodejs.org/)
 - [VueRouter](https://router.vuejs.org/)
+- [GSAP](https://greensock.com/gsap/)
 
 
 ## Support

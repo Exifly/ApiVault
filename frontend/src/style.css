@@ -3,8 +3,8 @@
   /* --bg-color: #242424;
   --nav-color: #1a1a1a;
   --text-color: white; */
-  --bg-color: rgb(0 0 0);
-  --nav-color: #221F1F;
+  --bg-color: #1a1a1a;
+  --nav-color: #1a1a1a;
   --text-color: #c0c0c0;
   --text-color-hover: #f2f2f2;
   --border-radius: 8px;
@@ -12,12 +12,12 @@
 
 [data-theme="dark"] {
   /* Dark/Light mode variables */
-  --bg-color: rgb(0 0 0);
-  --bg-card-glass: rgba(12, 12, 12, 0.78);
+  --bg-color: #1a1a1a;
+  --bg-card-glass: #242424;
   --bg-input-field: #212329;
   --icon-color: white;
   --border-color-cards: rgba(255, 255, 255, 0.125);
-  --nav-color: #221F1F;
+  --nav-color: #1a1a1a;
   --text-color: #c0c0c0;
   --text-color-hover: #f2f2f2;
   --hr-color: #919191;
