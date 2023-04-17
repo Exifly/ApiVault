@@ -1,5 +1,5 @@
 <script setup>
-import CategoryName from "@/components/CategoryName.vue";
+import CardAttributes from "@/components/CardAttributes.vue";
 
 defineProps({
   title: {
@@ -42,7 +42,7 @@ defineProps({
         Some quick example text to build on the card title and make up the bulk
         of the card's content.
       </p>
-      <CategoryName> Pippo </CategoryName>
+      <CardAttributes> Pippo </CardAttributes>
     </div>
   </div>
 </template>
@@ -80,5 +80,25 @@ defineProps({
   align-self: center;
   margin-bottom: -13px;
   margin-top: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+  .text-wrapper-header-card {
+    align-self: center;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 3.3vw;
+  }
+  .favicon-api {
+    background: var(--bg-color);
+    border-radius: 12px;
+    border: 0.01px solid var(--border-color-cards);
+    margin-left: 4vw;
+    width: 64px;
+    height: 64px;
+    align-self: center;
+    margin-bottom: -13px;
+    margin-top: 12px;
+  }
 }
 </style>
