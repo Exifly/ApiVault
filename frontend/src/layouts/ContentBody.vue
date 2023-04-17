@@ -12,21 +12,8 @@
         </div>
       </div>
     </div>
-    <h1 class="text-wrapper">ALL</h1>
-    <div class="row">
-      <div class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4">
-        <slot name="cardAreaContent"></slot>
-      </div>
-      <div class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4">
-        <slot name="cardAreaContent"></slot>
-      </div>
-      <div class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4">
-        <slot name="cardAreaContent"></slot>
-      </div>
-      <div class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4">
-        <slot name="cardAreaContent"></slot>
-      </div>
-    </div>
+    <h1 class="text-wrapper">RANDOM</h1>
+    <slot name="cardAreaContent"></slot>
     <div class="container mt-5">
       <hr />
       <slot name="footerArea"></slot>

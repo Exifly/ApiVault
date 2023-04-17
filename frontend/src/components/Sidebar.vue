@@ -1,57 +1,6 @@
 <script setup>
-const categories = [
-  "Animals",
-  "Anime",
-  "Anti-Malware",
-  "Art & Design",
-  "Authentication & Authorization",
-  "Blockchain",
-  "Books",
-  "Business",
-  "Calendar",
-  "Cloud Storage & File Sharing",
-  "Continuous Integration",
-  "Cryptocurrency",
-  "Currency Exchange",
-  "Data Validation",
-  "Development",
-  "Dictionaries",
-  "Documents & Productivity",
-  "Email",
-  "Entertainment",
-  "Environment",
-  "Events",
-  "Finance",
-  "Food & Drink",
-  "Games & Comics",
-  "Geocoding",
-  "Government",
-  "Health",
-  "Jobs",
-  "Machine Learning",
-  "Music",
-  "News",
-  "Open Data",
-  "Open Source Projects",
-  "Patent",
-  "Personality",
-  "Phone",
-  "Photography",
-  "Programming",
-  "Science & Math",
-  "Security",
-  "Shopping",
-  "Social",
-  "Sports & Fitness",
-  "Test Data",
-  "Text Analysis",
-  "Tracking",
-  "Transportation",
-  "URL Shorteners",
-  "Vehicle",
-  "Video",
-  "Weather",
-];
+import { reactive, inject } from "vue";
+const categoriesAttributes = inject("categoryMapping");
 </script>
 
 <template>
@@ -68,13 +17,19 @@ const categories = [
         <ul class="list-unstyled ps-0 text-black mx-4">
           <li
             class="sidebar-text-wrapper mt-2 category-custom"
-            v-for="category in categories"
+            v-for="category in categoriesAttributes"
             :key="category"
           >
             <router-link
               class="sidebar-text-wrapper"
-              :to="'/categories/' + category"
-              >{{ category }}</router-link
+              :to="'/categories/' + category.name"
+            >
+              <font-awesome-icon
+                class="mx-2"
+                width="12"
+                height="12"
+                :icon="category.icon"
+              />{{ category.name }}</router-link
             >
           </li>
           <hr />
@@ -83,7 +38,7 @@ const categories = [
             API Fetched: <b>1542</b>
           </li>
           <li class="sidebar-text-wrapper mt-2 category-custom">
-            N. Categories: <b>{{ categories.length }}</b>
+            N. Categories: <b>{{ categoriesAttributes.length }}</b>
           </li>
         </ul>
       </div>
@@ -157,7 +112,7 @@ const categories = [
     margin-top: 8vh;
     margin-left: 8vw;
     height: 100vh;
-    width: 11vw;
+    width: 16vw;
     font-size: 14px;
   }
 }

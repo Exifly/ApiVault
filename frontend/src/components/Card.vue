@@ -1,7 +1,10 @@
 <script setup>
 import CardAttributes from "@/components/CardAttributes.vue";
+import { inject, ref, onMounted } from "vue";
 
-defineProps({
+const categoryMap = inject("categoryMapping");
+
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -14,10 +17,39 @@ defineProps({
     type: String,
     required: true,
   },
-  properties: {
-    type: [],
-    required: false,
+  cors: {
+    type: undefined,
+    required: true,
   },
+  https: {
+    type: Boolean,
+    required: true,
+  },
+  auth: {
+    type: String,
+    required: true,
+  },
+});
+
+let isNullProp = ref(null);
+if (props.cors === "no" || props.cors === "unknown") {
+  isNullProp.value = false;
+} else {
+  isNullProp.value = true;
+}
+
+let cat = ref("");
+const iconCategory = () => {
+  categoryMap.find((el) => {
+    if (el.name === props.subtitle) {
+      cat.value = el.icon;
+    }
+  });
+};
+
+onMounted(() => {
+  iconCategory();
+  console.log(props.https);
 });
 </script>
 
@@ -32,17 +64,26 @@ defineProps({
           style="border-radius: 12px"
         />
       </div>
-      <div class="text-wrapper text-wrapper-header-card">Featured</div>
+      <div class="text-wrapper text-wrapper-header-card">{{ title }}</div>
     </div>
     <div class="card-body mt-3">
       <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
-        Card subtitle
+        <font-awesome-icon class="mx-2" width="12" height="12" :icon="cat" />{{
+          subtitle
+        }}
       </h6>
       <p class="text-wrapper card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        {{ body }}
       </p>
-      <CardAttributes> Pippo </CardAttributes>
+      <div class="attributes-container">
+        <CardAttributes v-if="isNullProp">
+          {{ props.cors === "yes" ? "CORS" : null }}
+        </CardAttributes>
+        <CardAttributes> {{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes>
+        <CardAttributes>{{
+          props.auth !== "" ? `Auth: ${props.auth}` : null
+        }}</CardAttributes>
+      </div>
     </div>
   </div>
 </template>
@@ -80,6 +121,11 @@ defineProps({
   align-self: center;
   margin-bottom: -13px;
   margin-top: 12px;
+}
+
+.attributes-container {
+  display: flex;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 600px) {

@@ -146,9 +146,13 @@ library.add(
   faCloudSunRain
 );
 
+// global variables
+const colorScheme = ref("dark");
+
 createApp(App)
   .use(router)
   .use(bootstrap)
   .provide("categoryMapping", categoriesProperties)
+  .provide("colorScheme", colorScheme)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
