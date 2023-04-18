@@ -61,7 +61,10 @@ def random():
 @cross_origin()
 def all():
    """Get all entries """
-   return jsonify(data['entries'])
+   categorie = request.args.get('categorie')
+   if not categorie:
+       return data['entries']
+   return jsonify(data['entries'], Search.all_entries(categorie))
 
 
 @app.route('/api/count')

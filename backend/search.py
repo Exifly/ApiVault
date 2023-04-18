@@ -33,3 +33,21 @@ class Search:
                   filtered_results.append(entry)
 
       return filtered_results
+   
+   @staticmethod
+   def all_entries(data_entries, category=None):
+      """
+      Returns a list of entries from the given data_entries dictionary, optionally filtered by category.
+      Args:
+         data_entries (dict): A dictionary of data entries, where each entry is a dictionary with keys and values.
+         category (str): An optional string representing the category to filter the entries by. Defaults to None.
+      Returns:
+         list: A list of data entries (dictionaries), optionally filtered by category.
+      """
+      
+      filtered_results = []
+      for entry in data_entries:
+            if category is None or Search.matches_query(entry['Category'], category.lower()):
+               filtered_results.append(entry)
+
+      return filtered_results
