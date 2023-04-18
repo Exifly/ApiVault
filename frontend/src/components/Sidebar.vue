@@ -9,12 +9,14 @@ const categoriesAttributes = inject("categoryMapping");
       <div class="sidebar-heading ms-4">MENU</div>
       <ul class="list-unstyled ps-0 text-black mx-4">
         <li class="sidebar-text-wrapper mt-2 category-custom">
-          <font-awesome-icon
-            class="mx-2"
-            width="12"
-            height="12"
-            icon="fa-solid fa-house"
-          />Home
+          <router-link class="sidebar-text-wrapper" to="/">
+            <font-awesome-icon
+              class="mx-2"
+              width="12"
+              height="12"
+              icon="fa-solid fa-house"
+            />Home</router-link
+          >
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
           <font-awesome-icon

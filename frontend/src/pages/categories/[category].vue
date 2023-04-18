@@ -1,8 +1,8 @@
 <script setup>
+import { onMounted, reactive, ref, onBeforeUpdate } from "vue";
 import ContentBody from "@/layouts/ContentBody.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import { onMounted, reactive, ref, onBeforeUpdate } from "vue";
 import BodyFlex from "@/layouts/BodyFlex.vue";
 import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
@@ -39,8 +39,12 @@ const apiCall = async () => {
     });
 };
 
-onBeforeUpdate(() => {
-  apiCall();
+onMounted(async () => {
+  await apiCall();
+});
+
+onBeforeUpdate(async () => {
+  await apiCall();
 });
 </script>
 

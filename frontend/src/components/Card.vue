@@ -107,7 +107,7 @@ onMounted(() => {
   /* background-color: rgba(var(--bg-color), 0.78); */
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
-  height: 35vh;
+  height: 25vh;
 }
 
 .text-wrapper-header-card {
