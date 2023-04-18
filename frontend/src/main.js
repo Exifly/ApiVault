@@ -21,6 +21,7 @@ import {
   faCalendar,
   faCalendarCheck,
   faCameraRetro,
+  faCheck,
   faCircleUser,
   faCloud,
   faCode,
@@ -31,6 +32,8 @@ import {
   faEarthEurope,
   faFilm,
   faGamepad,
+  faHandHoldingDollar,
+  faHouse,
   faHouseLaptop,
   faIdCard,
   faListUl,
@@ -143,7 +146,10 @@ library.add(
   faSitemap,
   faCar,
   faVideo,
-  faCloudSunRain
+  faCloudSunRain,
+  faCheck,
+  faHouse,
+  faHandHoldingDollar
 );
 
 // global variables

@@ -49,7 +49,6 @@ const iconCategory = () => {
 
 onMounted(() => {
   iconCategory();
-  console.log(props.https);
 });
 </script>
 
@@ -72,14 +71,26 @@ onMounted(() => {
           subtitle
         }}
       </h6>
-      <p class="text-wrapper card-text">
+      <p class="text-wrapper card-text-wrapper card-text">
         {{ body }}
       </p>
       <div class="attributes-container">
         <CardAttributes v-if="isNullProp">
-          {{ props.cors === "yes" ? "CORS" : null }}
+          <font-awesome-icon
+            class="me-1"
+            width="12"
+            height="12"
+            icon="fa-solid fa-check"
+          />{{ props.cors === "yes" ? "CORS" : null }}
         </CardAttributes>
-        <CardAttributes> {{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes>
+        <CardAttributes>
+          <font-awesome-icon
+            class="me-1"
+            width="12"
+            height="12"
+            icon="fa-solid fa-check"
+          />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
+        >
         <CardAttributes>{{
           props.auth !== "" ? `Auth: ${props.auth}` : null
         }}</CardAttributes>
@@ -96,6 +107,7 @@ onMounted(() => {
   /* background-color: rgba(var(--bg-color), 0.78); */
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
+  height: 35vh;
 }
 
 .text-wrapper-header-card {
@@ -103,6 +115,10 @@ onMounted(() => {
   font-weight: 600;
   font-size: 20px;
   margin-left: 0.3vw;
+}
+
+.card-text-wrapper {
+  font-size: 12.4px;
 }
 
 .card-header-wrapper {
@@ -145,6 +161,9 @@ onMounted(() => {
     align-self: center;
     margin-bottom: -13px;
     margin-top: 12px;
+  }
+  .glass-card {
+    height: 27vh;
   }
 }
 </style>

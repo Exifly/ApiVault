@@ -50,6 +50,10 @@ body {
   background: var(--bg-color);
 }
 
+hr {
+  border-color: var(--hr-color) !important;
+}
+
 .text-wrapper {
   color: var(--text-color-hover) !important;
 }

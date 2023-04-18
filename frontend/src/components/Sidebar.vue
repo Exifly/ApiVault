@@ -6,11 +6,32 @@ const categoriesAttributes = inject("categoryMapping");
 <template>
   <div class="custom-props mobile-first border-right" id="sidebar-wrapper">
     <div class="scrollbox">
-      <div class="sidebar-heading ms-4">YOU LIKE</div>
+      <div class="sidebar-heading ms-4">MENU</div>
       <ul class="list-unstyled ps-0 text-black mx-4">
-        <li class="sidebar-text-wrapper mt-2 category-custom">Pippo</li>
-        <li class="sidebar-text-wrapper mt-2 category-custom">Pluto</li>
-        <li class="sidebar-text-wrapper mt-2 category-custom">Topolino</li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">
+          <font-awesome-icon
+            class="mx-2"
+            width="12"
+            height="12"
+            icon="fa-solid fa-house"
+          />Home
+        </li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">
+          <font-awesome-icon
+            class="mx-2"
+            width="12"
+            height="12"
+            :icon="['fab', 'github']"
+          />Repository
+        </li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">
+          <font-awesome-icon
+            class="mx-2"
+            width="12"
+            height="12"
+            icon="fa-solid fa-hand-holding-dollar"
+          />Sponsor
+        </li>
       </ul>
       <div class="sidebar-heading ms-4">CATEGORIES</div>
       <div class="list-group list-group-flush">
@@ -59,7 +80,7 @@ const categoriesAttributes = inject("categoryMapping");
   position: fixed;
   margin-top: 8vh;
   height: 100vh;
-  width: 11vw;
+  width: 20vw;
   font-size: 14px;
 }
 

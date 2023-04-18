@@ -1,3 +1,18 @@
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: false,
+    default: "RANDOM",
+  },
+  isNullCategory: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
+</script>
+
 <template>
   <div class="flex-adjust container p-4">
     <div class="row">
@@ -12,7 +27,10 @@
         </div>
       </div>
     </div>
-    <h1 class="text-wrapper">RANDOM</h1>
+    <h1 class="text-wrapper">{{ props.title }}</h1>
+    <h5 class="text-wrapper" v-if="isNullCategory">
+      No Api's found for this category.. Sorry!!
+    </h5>
     <slot name="cardAreaContent"></slot>
     <div class="container mt-5">
       <hr />
@@ -22,10 +40,6 @@
 </template>
 
 <style scoped>
-hr {
-  border-color: var(--hr-color);
-}
-
 .hero {
   align-items: center;
   display: flex;
