@@ -14,7 +14,7 @@ defineProps({
   source: {
     type: String,
     required: false,
-    default: "/public/img/apivault-dark-nobg.png",
+    default: "/img/apivault-dark-nobg.png",
   },
 });
 </script>

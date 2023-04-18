@@ -11,9 +11,9 @@ const state = reactive({
 // Compute the image source based on the current theme
 const imageSource = computed(() => {
   if (state.theme === "dark") {
-    return "/public/img/apivault-dark-nobg.png";
+    return "/img/apivault-dark-nobg.png";
   } else {
-    return "/public/img/apivault-light-nobg.png";
+    return "/img/apivault-light-nobg.png";
   }
 });
 

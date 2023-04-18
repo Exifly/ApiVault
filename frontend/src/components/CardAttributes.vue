@@ -32,7 +32,7 @@ p {
     background: rgba(0, 98, 195, 0.2);
     color: rgb(3, 155, 178);
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 4vw;
     margin-top: 10px;
     margin-bottom: 6px;
     justify-content: center;

@@ -4,10 +4,8 @@ import axios from "axios";
 import gsap from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 
-// =================== PRE LOGIC SIDE =================== //
 gsap.registerPlugin(CSSPlugin);
 
-// =================== DATA DEFINITION =================== //
 const number = ref(0);
 const github = reactive({
   number: 0,
@@ -18,7 +16,6 @@ var iconTheme = ref("fa-solid fa-sun");
 var iconThemeText = ref("Dark Mode");
 var logoPath = ref("/img/apivault-dark-nobg.png");
 
-// =================== FUNCTION & METHODS =================== //
 const setMode = () => {
   // set night or light mode
   const theme = document.body.getAttribute("data-theme");

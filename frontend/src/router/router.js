@@ -14,6 +14,17 @@ const routes = [
     name: "Category",
     component: Categories,
   },
+  // errors
+  {
+    path: "/error404",
+    name: "ErrorNotDound",
+    component: import("@/pages/errors/Error404View.vue"),
+  },
+  {
+    path: "/error500",
+    name: "Error",
+    component: import("@/pages/errors/Error500View.vue"),
+  },
 ];
 
 // Creating the router object
