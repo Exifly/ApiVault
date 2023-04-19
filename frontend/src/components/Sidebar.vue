@@ -1,8 +1,3 @@
-<script setup>
-import { reactive, inject } from "vue";
-const categoriesAttributes = inject("categoryMapping");
-</script>
-
 <template>
   <div class="custom-props mobile-first border-right" id="sidebar-wrapper">
     <div class="scrollbox">
@@ -68,6 +63,12 @@ const categoriesAttributes = inject("categoryMapping");
     </div>
   </div>
 </template>
+
+<script setup>
+import { inject } from "vue";
+
+const categoriesAttributes = inject("categoryMapping");
+</script>
 
 <style scoped>
 ::-webkit-scrollbar {

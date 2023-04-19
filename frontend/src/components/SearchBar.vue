@@ -1,5 +1,46 @@
 <script setup>
-// import Button from './Button.vue';
+import { onMounted, ref, computed } from "vue";
+import axios from "axios";
+
+const emit = defineEmits(["search:apiSearch"]);
+const apiInputSearch = ref("");
+
+let a = [];
+const apiCall = async () => {
+  await axios
+    .get("http://localhost:5001/api/all")
+    .then((res) => {
+      a = res.data;
+    })
+    .catch((er) => {
+      console.error(er);
+    });
+};
+
+// this function filter all apis to get occurrencies in
+// category or API name
+const apis = computed(() => {
+  if (apiInputSearch.value.length >= 4) {
+    // start searching as user write something,
+    // then send an event to parent with fetched data
+    emit(
+      "search:apiSearch",
+      a.filter(
+        (api) =>
+          api.API.toLowerCase().includes(apiInputSearch.value.toLowerCase()) |
+          api.Category.toLowerCase().includes(
+            apiInputSearch.value.toLocaleLowerCase()
+          )
+      )
+    );
+  } else {
+    emit("search:apiSearch", false);
+  }
+});
+
+onMounted(() => {
+  apiCall();
+});
 </script>
 
 <template>
@@ -10,7 +51,15 @@
         :icon="['fas', 'magnifying-glass']"
         style="margin-left: 1vw; margin-right: 1vw"
       />
-      <input class="input-bar" type="search" placeholder="Search" />
+      <input
+        v-model="apiInputSearch"
+        class="input-bar"
+        type="search"
+        placeholder="Search"
+      />
+      <p style="color: white !important" v-for="api in apis" :key="api">
+        {{ api.API }}
+      </p>
     </label>
     <!-- <Button value="Categories" /> -->
   </div>

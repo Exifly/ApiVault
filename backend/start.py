@@ -5,6 +5,7 @@ import random as rnd
 import datetime
 import logging
 import json
+import os
 
 
 app = Flask(__name__)
@@ -13,7 +14,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 filelog_name = 'apivault-{date:%Y%m%d}.txt'.format( date=datetime.datetime.now())
-logging.basicConfig(filename=f'log/{filelog_name}.log', level=logging.INFO)
+os.makedirs(os.path.dirname(f'log/{filelog_name}'), exist_ok=True)
+logging.basicConfig(filename=f'log/{filelog_name}.log', filemode="w+" ,level=logging.INFO)
 
 
 # Load the JSON data
@@ -64,7 +66,7 @@ def all():
    categorie = request.args.get('categorie')
    if not categorie:
        return data['entries']
-   return jsonify(data['entries'], Search.all_entries(categorie))
+   return jsonify(Search.all_entries(data['entries'], categorie))
 
 
 @app.route('/api/count')

@@ -1,18 +1,3 @@
-<script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    required: false,
-    default: "RANDOM",
-  },
-  isNullCategory: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
-});
-</script>
-
 <template>
   <div class="flex-adjust container p-4">
     <div class="row">
@@ -38,6 +23,21 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: false,
+    default: "RANDOM",
+  },
+  isNullCategory: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
+</script>
 
 <style scoped>
 .hero {

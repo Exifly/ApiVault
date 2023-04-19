@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "@/pages/Dashboard.vue";
 import Categories from "@/pages/categories/[category].vue";
+import { inject } from "vue";
 
 // Defining the routes
 const routes = [

@@ -1,3 +1,50 @@
+<template>
+  <div class="glass-card card">
+    <div class="card-header-wrapper">
+      <div class="logo-container">
+        <img
+          src="https://exifly.it/assets/img/no_bg_black%202.png"
+          class="favicon-api"
+          alt="webLogo"
+          style="border-radius: 12px"
+        />
+      </div>
+      <div class="text-wrapper text-wrapper-header-card">{{ title }}</div>
+    </div>
+    <div class="card-body mt-3">
+      <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
+        <font-awesome-icon class="mx-2" width="12" height="12" :icon="cat" />{{
+          subtitle
+        }}
+      </h6>
+      <p class="text-wrapper card-text-wrapper card-text">
+        {{ body }}
+      </p>
+      <div class="attributes-container">
+        <CardAttributes v-if="isNullProp">
+          <font-awesome-icon
+            class="me-1"
+            width="12"
+            height="12"
+            icon="fa-solid fa-check"
+          />{{ props.cors === "yes" ? "CORS" : null }}
+        </CardAttributes>
+        <CardAttributes>
+          <font-awesome-icon
+            class="me-1"
+            width="12"
+            height="12"
+            icon="fa-solid fa-check"
+          />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
+        >
+        <CardAttributes>{{
+          props.auth !== "" ? `Auth: ${props.auth}` : null
+        }}</CardAttributes>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import CardAttributes from "@/components/CardAttributes.vue";
 import { inject, ref, onMounted } from "vue";
@@ -51,53 +98,6 @@ onMounted(() => {
   iconCategory();
 });
 </script>
-
-<template>
-  <div class="glass-card card">
-    <div class="card-header-wrapper">
-      <div class="logo-container">
-        <img
-          src="https://exifly.it/assets/img/no_bg_black%202.png"
-          class="favicon-api"
-          alt="webLogo"
-          style="border-radius: 12px"
-        />
-      </div>
-      <div class="text-wrapper text-wrapper-header-card">{{ title }}</div>
-    </div>
-    <div class="card-body mt-3">
-      <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
-        <font-awesome-icon class="mx-2" width="12" height="12" :icon="cat" />{{
-          subtitle
-        }}
-      </h6>
-      <p class="text-wrapper card-text-wrapper card-text">
-        {{ body }}
-      </p>
-      <div class="attributes-container">
-        <CardAttributes v-if="isNullProp">
-          <font-awesome-icon
-            class="me-1"
-            width="12"
-            height="12"
-            icon="fa-solid fa-check"
-          />{{ props.cors === "yes" ? "CORS" : null }}
-        </CardAttributes>
-        <CardAttributes>
-          <font-awesome-icon
-            class="me-1"
-            width="12"
-            height="12"
-            icon="fa-solid fa-check"
-          />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
-        >
-        <CardAttributes>{{
-          props.auth !== "" ? `Auth: ${props.auth}` : null
-        }}</CardAttributes>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .glass-card {
