@@ -1,3 +1,25 @@
+<template>
+  <div class="search-bar text-black">
+    <label
+      ><font-awesome-icon
+        class="icon-color"
+        :icon="['fas', 'magnifying-glass']"
+        style="margin-left: 1vw; margin-right: 1vw"
+      />
+      <input
+        v-model="apiInputSearch"
+        class="input-bar"
+        type="search"
+        placeholder="Search"
+      />
+      <p style="color: white !important" v-for="api in apis" :key="api">
+        {{ api.API }}
+      </p>
+    </label>
+    <!-- <Button value="Categories" /> -->
+  </div>
+</template>
+
 <script setup>
 import { onMounted, ref, computed } from "vue";
 import axios from "axios";
@@ -42,28 +64,6 @@ onMounted(() => {
   apiCall();
 });
 </script>
-
-<template>
-  <div class="search-bar text-black">
-    <label
-      ><font-awesome-icon
-        class="icon-color"
-        :icon="['fas', 'magnifying-glass']"
-        style="margin-left: 1vw; margin-right: 1vw"
-      />
-      <input
-        v-model="apiInputSearch"
-        class="input-bar"
-        type="search"
-        placeholder="Search"
-      />
-      <p style="color: white !important" v-for="api in apis" :key="api">
-        {{ api.API }}
-      </p>
-    </label>
-    <!-- <Button value="Categories" /> -->
-  </div>
-</template>
 
 <style scoped>
 @media only screen and (max-width: 600px) {
