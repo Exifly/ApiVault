@@ -66,7 +66,7 @@ def all():
    categorie = request.args.get('categorie')
    if not categorie:
        return data['entries']
-   return jsonify(data['entries'], Search.all_entries(categorie))
+   return jsonify(Search.all_entries(data['entries'], categorie))
 
 
 @app.route('/api/count')
