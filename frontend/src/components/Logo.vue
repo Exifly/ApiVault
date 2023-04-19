@@ -1,5 +1,8 @@
+<template>
+  <img :src="source" alt="Logo" :width="width" :height="height" />
+</template>
+
 <script setup>
-import { ref } from "vue";
 defineProps({
   width: {
     type: String,
@@ -18,7 +21,3 @@ defineProps({
   },
 });
 </script>
-
-<template>
-  <img :src="source" alt="Logo" :width="width" :height="height" />
-</template>

@@ -1,20 +1,3 @@
-<script setup>
-import { reactive, computed } from "vue";
-const props = defineProps({
-  scheme: {
-    type: String,
-    required: false,
-  },
-});
-
-const logoMode = computed(() => {
-  if (props.scheme === "dark") {
-    return "/img/apivault-dark-nobg.png";
-  }
-  return "/img/apivault-light-nobg.png";
-});
-</script>
-
 <template>
   <footer
     class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
@@ -68,6 +51,23 @@ const logoMode = computed(() => {
     </ul>
   </footer>
 </template>
+
+<script setup>
+import { computed } from "vue";
+const props = defineProps({
+  scheme: {
+    type: String,
+    required: false,
+  },
+});
+
+const logoMode = computed(() => {
+  if (props.scheme === "dark") {
+    return "/img/apivault-dark-nobg.png";
+  }
+  return "/img/apivault-light-nobg.png";
+});
+</script>
 
 <style scoped>
 .text-wrapper {

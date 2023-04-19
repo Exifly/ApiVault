@@ -1,3 +1,13 @@
+<template>
+  <center>
+    <Logo :source="imageSource" height="150" width="150" />
+  </center>
+  <h1 class="hero-text-wrapper page-title p-3 p-md-5">
+    Your Gateway to a World of Public APIs.
+    <h5>This tool is completely free and Open-Source!</h5>
+  </h1>
+</template>
+
 <script setup>
 import Logo from "./Logo.vue";
 import { reactive, computed } from "vue";
@@ -31,16 +41,6 @@ const observer = new MutationObserver((mutationsList) => {
 });
 observer.observe(document.body, { attributes: true });
 </script>
-
-<template>
-  <center>
-    <Logo :source="imageSource" height="150" width="150" />
-  </center>
-  <h1 class="hero-text-wrapper page-title p-3 p-md-5">
-    Your Gateway to a World of Public APIs.
-    <h5>This tool is completely free and Open-Source!</h5>
-  </h1>
-</template>
 
 <style scoped>
 .page-title {
