@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, inject } from "vue";
+
 const categoriesAttributes = inject("categoryMapping");
 </script>
 

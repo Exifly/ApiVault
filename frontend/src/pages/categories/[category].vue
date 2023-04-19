@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref, onBeforeUpdate } from "vue";
+import { onMounted, reactive, ref, onBeforeUpdate, inject } from "vue";
 import ContentBody from "@/layouts/ContentBody.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
@@ -8,10 +8,13 @@ import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 
+const categoriesAttributes = inject("categoryMapping");
 const route = useRoute();
+const router = useRouter();
+
 const scheme = reactive({
   color: "dark",
 });
@@ -21,15 +24,19 @@ const handleChangeScheme = (val) => {
   console.log(scheme.color);
 };
 
-//http://localhost:5001/api/search?q=data&category=develop
+const categoryExist = categoriesAttributes.some(
+  (category) => category.name === route.params.category
+);
+
+if (!categoryExist) {
+  router.push("/error404");
+}
 
 let isNullCategory = ref(null);
 let apiData = ref(null);
 const apiCall = async () => {
   await axios
-    .get(
-      `http://localhost:5001/api/search?q=data&category=${route.params.category}`
-    )
+    .get(`http://localhost:5001/api/all?categorie=${route.params.category}`)
     .then((res) => {
       apiData.value = res.data;
       isNullCategory.value = true ? apiData.value.length === 0 : false;
