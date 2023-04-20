@@ -36,6 +36,7 @@ import {
   faHouse,
   faHouseLaptop,
   faIdCard,
+  faListOl,
   faListUl,
   faMagnifyingGlass,
   faMobile,
@@ -149,7 +150,8 @@ library.add(
   faCloudSunRain,
   faCheck,
   faHouse,
-  faHandHoldingDollar
+  faHandHoldingDollar,
+  faListOl
 );
 
 // global variables
