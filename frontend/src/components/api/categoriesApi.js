@@ -3,7 +3,7 @@ import axios from "axios";
 const getApiData = async (category) => {
   try {
     return await axios
-      .get(`http://localhost:5001/api/all?categorie=${category}`)
+      .get(`http://192.168.178.20:5001/api/all?categorie=${category}`)
       .then((res) => res.data);
   } catch (er) {
     console.error(er);
