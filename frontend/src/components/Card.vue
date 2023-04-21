@@ -165,4 +165,10 @@ onMounted(() => {
     height: 27vh;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .glass-card {
+    height: 38vh;
+  }
+}
 </style>
