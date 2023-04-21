@@ -1,47 +1,47 @@
 export const categoriesProperties = [
   {
     name: "Animals",
-    icon: "fa-solid fa-paw",
+    icon: "fab-solid fa-paw",
   },
   {
     name: "Anime",
-    icon: "fa-solid fa-film",
+    icon: ["fas", "film"],
   },
   {
     name: "Anti-Malware",
-    icon: "fa-solid fa-virus-slash",
+    icon: "fab-solid fa-virus-slash",
   },
   {
     name: "Art & Design",
-    icon: "fa-solid fa-paintbrush",
+    icon: "fab-solid fa-paintbrush",
   },
   {
     name: "Authentication & Authorization",
-    icon: "fa-solid fa-unlock-keyhole",
+    icon: "fab-solid fa-unlock-keyhole",
   },
   {
     name: "Blockchain",
-    icon: "fa-solid fa-bitcoin-sign",
+    icon: "fab-solid fa-bitcoin-sign",
   },
   {
     name: "Books",
-    icon: "fa-solid fa-book",
+    icon: "fab-solid fa-book",
   },
   {
     name: "Business",
-    icon: "fa-solid fa-money-bill",
+    icon: "fab-solid fa-money-bill",
   },
   {
     name: "Calendar",
-    icon: "fa-solid fa-calendar",
+    icon: "fab-solid fa-calendar",
   },
   {
     name: "Cloud Storage & File Sharing",
-    icon: "fa-solid fa-cloud",
+    icon: "fab-solid fa-cloud",
   },
   {
     name: "Continuous Integration",
-    icon: "fa-solid fa-wrench",
+    icon: "fab-solid fa-wrench",
   },
   {
     name: "Cryptocurrency",
@@ -49,19 +49,19 @@ export const categoriesProperties = [
   },
   {
     name: "Currency Exchange",
-    icon: "fa-solid fa-money-bill-trend-up",
+    icon: "fab-solid fa-money-bill-trend-up",
   },
   {
     name: "Data Validation",
-    icon: "fa-solid fa-square-check",
+    icon: "fab-solid fa-square-check",
   },
   {
     name: "Development",
-    icon: "fa-solid fa-code",
+    icon: "fab-solid fa-code",
   },
   {
     name: "Dictionaries",
-    icon: "fa-solid fa-spell-check",
+    icon: "fab-solid fa-spell-check",
   },
   {
     name: "Documents & Productivity",
@@ -69,7 +69,7 @@ export const categoriesProperties = [
   },
   {
     name: "Email",
-    icon: "fa-solid fa-at",
+    icon: "fab-solid fa-at",
   },
   {
     name: "Entertainment",
@@ -77,55 +77,55 @@ export const categoriesProperties = [
   },
   {
     name: "Environment",
-    icon: "fa-solid fa-seedling",
+    icon: "fab-solid fa-seedling",
   },
   {
     name: "Events",
-    icon: "fa-solid fa-calendar-check",
+    icon: "fab-solid fa-calendar-check",
   },
   {
     name: "Finance",
-    icon: "fa-solid fa-coins",
+    icon: "fab-solid fa-coins",
   },
   {
     name: "Food & Drink",
-    icon: "fa-solid fa-pizza-slice",
+    icon: "fab-solid fa-pizza-slice",
   },
   {
     name: "Games & Comics",
-    icon: "fa-solid fa-gamepad",
+    icon: "fab-solid fa-gamepad",
   },
   {
     name: "Geocoding",
-    icon: "fa-solid fa-earth-europe",
+    icon: "fab-solid fa-earth-europe",
   },
   {
     name: "Government",
-    icon: "fa-solid fa-building-columns",
+    icon: "fab-solid fa-building-columns",
   },
   {
     name: "Health",
-    icon: "fa-solid fa-notes-medical",
+    icon: "fab-solid fa-notes-medical",
   },
   {
     name: "Jobs",
-    icon: "fa-solid fa-house-laptop",
+    icon: "fab-solid fa-house-laptop",
   },
   {
     name: "Machine Learning",
-    icon: "fa-solid fa-robot",
+    icon: "fab-solid fa-robot",
   },
   {
     name: "Music",
-    icon: "fa-solid fa-music",
+    icon: "fab-solid fa-music",
   },
   {
     name: "News",
-    icon: "fa-solid fa-newspaper",
+    icon: "fab-solid fa-newspaper",
   },
   {
     name: "Open Data",
-    icon: "fa-solid fa-database",
+    icon: "fab-solid fa-database",
   },
   {
     name: "Open Source Projects",
@@ -133,74 +133,74 @@ export const categoriesProperties = [
   },
   {
     name: "Patent",
-    icon: "fa-solid fa-id-card",
+    icon: "fab-solid fa-id-card",
   },
   {
     name: "Personality",
-    icon: "fa-solid fa-circle-user",
+    icon: "fab-solid fa-circle-user",
   },
   {
     name: "Phone",
-    icon: "fa-solid fa-mobile",
+    icon: "fab-solid fa-mobile",
   },
   {
     name: "Photography",
-    icon: "fa-solid fa-camera-retro",
+    icon: "fab-solid fa-camera-retro",
   },
   {
     name: "Programming",
-    icon: "fa-solid fa-terminal",
+    icon: "fab-solid fa-terminal",
   },
   {
     name: "Science & Math",
-    icon: "fa-solid fa-brain",
+    icon: "fab-solid fa-brain",
   },
   {
     name: "Security",
-    icon: "fa-solid fa-shield-halved",
+    icon: "fab-solid fa-shield-halved",
   },
   {
     name: "Shopping",
-    icon: "fa-solid fa-bag-shopping",
+    icon: "fab-solid fa-bag-shopping",
   },
   {
     name: "Social",
-    icon: "fa-solid fa-people-arrows",
+    icon: "fab-solid fa-people-arrows",
   },
   {
     name: "Sports & Fitness",
-    icon: "fa-solid fa-dumbbell",
+    icon: "fab-solid fa-dumbbell",
   },
   {
     name: "Test Data",
-    icon: "fa-solid fa-cube",
+    icon: "fab-solid fa-cube",
   },
   {
     name: "Text Analysis",
-    icon: "fa-solid fa-magnifying-glass-chart",
+    icon: "fab-solid fa-magnifying-glass-chart",
   },
   {
     name: "Tracking",
-    icon: "fa-solid fa-chart-gantt",
+    icon: "fab-solid fa-chart-gantt",
   },
   {
     name: "Transportation",
-    icon: "fa-solid fa-shuttle-space",
+    icon: "fab-solid fa-shuttle-space",
   },
   {
     name: "URL Shorteners",
-    icon: "fa-solid fa-sitemap",
+    icon: "fab-solid fa-sitemap",
   },
   {
     name: "Vehicle",
-    icon: "fa-solid fa-car",
+    icon: "fab-solid fa-car",
   },
   {
     name: "Video",
-    icon: "fa-solid fa-video",
+    icon: "fab-solid fa-video",
   },
   {
     name: "Weather",
-    icon: "fa-solid fa-cloud-sun-rain",
+    icon: "fab-solid fa-cloud-sun-rain",
   },
 ];

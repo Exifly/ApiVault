@@ -22,25 +22,15 @@
 
 <script setup>
 import { onMounted, ref, computed } from "vue";
+import getAllApi from "@/components/api/allApis.js";
 import axios from "axios";
 
 const emit = defineEmits(["search:apiSearch"]);
 const apiInputSearch = ref("");
 
-let a = [];
-const apiCall = async () => {
-  await axios
-    .get("http://localhost:5001/api/all")
-    .then((res) => {
-      a = res.data;
-    })
-    .catch((er) => {
-      console.error(er);
-    });
-};
-
 // this function filter all apis to get occurrencies in
 // category or API name
+let a = [];
 const apis = computed(() => {
   if (apiInputSearch.value.length >= 4) {
     // start searching as user write something,
@@ -60,8 +50,8 @@ const apis = computed(() => {
   }
 });
 
-onMounted(() => {
-  apiCall();
+onMounted(async () => {
+  a = await getAllApi();
 });
 </script>
 

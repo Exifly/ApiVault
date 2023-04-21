@@ -5,11 +5,11 @@
     </header>
     <Sidebar />
     <ContentBody
-      :title="route.params.category.toUpperCase()"
+      :title="categorySearched.category"
       :isNullCategory="isNullCategory"
     >
       <template #topAreaContent>
-        <SearchBar />
+        <SearchBar @search:apiSearch="handleSearch" />
       </template>
       <template #heroAreaContent>
         <Hero @update:colorScheme="handleChangeScheme" />
@@ -18,7 +18,7 @@
         <div class="row">
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
-            v-for="api in apiData"
+            v-for="api in apiSearched"
             :key="api"
           >
             <a :href="api.Link" style="text-decoration: none">
@@ -52,11 +52,23 @@ import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
-import axios from "axios";
+import getApiData from "@/components/api/categoriesApi.js";
 
 const categoriesAttributes = inject("categoryMapping");
 const route = useRoute();
 const router = useRouter();
+const isNullCategory = ref(null);
+const apiData = ref(null);
+
+onMounted(async () => {
+  apiData.value = await getApiData(route.params.category);
+  isNullCategory.value = true ? apiData.value.length === 0 : false;
+});
+
+onBeforeUpdate(async () => {
+  apiData.value = await getApiData(route.params.category);
+  isNullCategory.value = true ? apiData.value.length === 0 : false;
+});
 
 const scheme = reactive({
   color: "dark",
@@ -75,25 +87,18 @@ if (!categoryExist) {
   router.push("/error404");
 }
 
-let isNullCategory = ref(null);
-let apiData = ref(null);
-const apiCall = async () => {
-  await axios
-    .get(`http://localhost:5001/api/all?categorie=${route.params.category}`)
-    .then((res) => {
-      apiData.value = res.data;
-      isNullCategory.value = true ? apiData.value.length === 0 : false;
-    })
-    .catch((er) => {
-      console.error(er);
-    });
+let apiSearched = ref(null);
+let categorySearched = reactive({
+  category: null,
+});
+
+const handleSearch = (val) => {
+  if (val.length > 0) {
+    categorySearched.category = val[0].Category.toUpperCase();
+    apiSearched.value = val;
+  } else {
+    categorySearched.category = route.params.category.toUpperCase();
+    apiSearched.value = apiData.value;
+  }
 };
-
-onMounted(async () => {
-  await apiCall();
-});
-
-onBeforeUpdate(async () => {
-  await apiCall();
-});
 </script>

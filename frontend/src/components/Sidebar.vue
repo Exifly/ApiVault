@@ -66,7 +66,6 @@
 
 <script setup>
 import { inject } from "vue";
-
 const categoriesAttributes = inject("categoryMapping");
 </script>
 
