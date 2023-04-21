@@ -48,7 +48,7 @@ import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
-import axios from "axios";
+import getApiData from "@/components/api/randomApis.js";
 
 const scheme = reactive({
   color: "dark",
@@ -59,21 +59,11 @@ const handleChangeScheme = (val) => {
 };
 
 let apiData = ref(null);
-const apiCall = async () => {
-  await axios
-    .get("http://localhost:5001/api/random")
-    .then((res) => {
-      apiData.value = res.data;
-    })
-    .catch((er) => {
-      console.error(er);
-    });
-};
-
 let apiSearched = ref(null);
 let categorySearched = reactive({
   category: null,
 });
+
 const handleSearch = (val) => {
   if (val.length > 0) {
     categorySearched.category = val[0].Category.toUpperCase();
@@ -84,7 +74,7 @@ const handleSearch = (val) => {
   }
 };
 
-onMounted(() => {
-  apiCall();
+onMounted(async () => {
+  apiData.value = await getApiData();
 });
 </script>

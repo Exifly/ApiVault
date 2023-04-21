@@ -36,6 +36,7 @@ import {
   faHouse,
   faHouseLaptop,
   faIdCard,
+  faListOl,
   faListUl,
   faMagnifyingGlass,
   faMobile,
@@ -60,6 +61,15 @@ import {
   faUserSecret,
   faVirusSlash,
   faWrench,
+  faCar,
+  faVideo,
+  faMagnifyingGlassChart,
+  faSitemap,
+  faShuttleSpace,
+  faChartGantt,
+  faCloudSunRain,
+  fas,
+  faB,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -75,16 +85,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import router from "./router/router";
-import { faMagnifyingGlassChart } from "@fortawesome/free-solid-svg-icons";
-import { faChartGantt } from "@fortawesome/free-solid-svg-icons";
-import { faShuttleSpace } from "@fortawesome/free-solid-svg-icons";
-import { faSitemap } from "@fortawesome/free-solid-svg-icons";
-import { faCar } from "@fortawesome/free-solid-svg-icons";
-import { faVideo } from "@fortawesome/free-solid-svg-icons";
-import { faCloudSunRain } from "@fortawesome/free-solid-svg-icons";
 import { categoriesProperties } from "@/utilities/categoryMapping.js";
 
 library.add(
+  fas,
+  faB,
   faUserSecret,
   faFlag,
   faListUl,
@@ -149,7 +154,8 @@ library.add(
   faCloudSunRain,
   faCheck,
   faHouse,
-  faHandHoldingDollar
+  faHandHoldingDollar,
+  faListOl
 );
 
 // global variables

@@ -1,7 +1,7 @@
 <template>
-  <center>
+  <div align="center">
     <Logo :source="imageSource" height="150" width="150" />
-  </center>
+  </div>
   <h1 class="hero-text-wrapper page-title p-3 p-md-5">
     Your Gateway to a World of Public APIs.
     <h5>This tool is completely free and Open-Source!</h5>
@@ -13,7 +13,6 @@ import Logo from "./Logo.vue";
 import { reactive, computed } from "vue";
 
 const emit = defineEmits(["update:colorScheme"]);
-
 const state = reactive({
   theme: "dark",
 });

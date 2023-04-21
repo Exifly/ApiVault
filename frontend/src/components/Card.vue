@@ -26,7 +26,7 @@
             class="me-1"
             width="12"
             height="12"
-            icon="fa-solid fa-check"
+            :icon="['fas', 'check']"
           />{{ props.cors === "yes" ? "CORS" : null }}
         </CardAttributes>
         <CardAttributes>
@@ -34,7 +34,7 @@
             class="me-1"
             width="12"
             height="12"
-            icon="fa-solid fa-check"
+            :icon="['fas', 'check']"
           />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
         >
         <CardAttributes>{{
@@ -50,7 +50,6 @@ import CardAttributes from "@/components/CardAttributes.vue";
 import { inject, ref, onMounted } from "vue";
 
 const categoryMap = inject("categoryMapping");
-
 const props = defineProps({
   title: {
     type: String,

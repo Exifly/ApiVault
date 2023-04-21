@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <h1 class="text-wrapper">{{ props.title }}</h1>
+    <h1 class="text-wrapper mb-3">{{ props.title }}</h1>
     <h5 class="text-wrapper" v-if="isNullCategory">
       No Api's found for this category.. Sorry!!
     </h5>

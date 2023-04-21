@@ -11,7 +11,7 @@
   align-self: center;
   border-radius: 4px;
   border-color: rgb(153, 0, 0);
-  background: rgba(0, 98, 195, 0.2);
+  background: rgba(0, 57, 114, 0.2);
   color: rgb(3, 155, 178);
   margin-left: 0;
   margin-right: 1vw;
@@ -29,7 +29,7 @@ p {
   .category-container {
     border-radius: 4px;
     border-color: rgb(153, 0, 0);
-    background: rgba(0, 98, 195, 0.2);
+    background: rgba(0, 57, 114, 0.2);
     color: rgb(3, 155, 178);
     margin-left: 0;
     margin-right: 4vw;
