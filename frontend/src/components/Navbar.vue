@@ -21,79 +21,81 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="scrollbox">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="navbar-text-wrapper nav-link active"
-                aria-current="page"
-                href="#"
-              >
-                <font-awesome-icon :icon="['fab', 'github']" /> Stars
-                {{ github.number.toFixed(0) }}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="navbar-text-wrapper nav-link" href="#">
-                <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-              </a>
-            </li>
-            <li class="nav-item">
-              <a @click="setMode()" class="navbar-text-wrapper nav-link">
-                <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
-              </a>
-            </li>
-            <hr />
-            <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
-            <li class="navbar-text-wrapper mt-2 category-custom">
-              <router-link class="navbar-text-wrapper" to="/">
-                <font-awesome-icon
-                  class="mx-2"
-                  width="12"
-                  height="12"
-                  icon="fa-solid fa-house"
-                />Home</router-link
-              >
-            </li>
-            <li class="navbar-text-wrapper mt-2 category-custom">
-              <font-awesome-icon
-                class="mx-2"
-                width="12"
-                height="12"
-                :icon="['fab', 'github']"
-              />Repository
-            </li>
-            <li class="navbar-text-wrapper mt-2 category-custom">
-              <font-awesome-icon
-                class="mx-2"
-                width="12"
-                height="12"
-                icon="fa-solid fa-hand-holding-dollar"
-              />Sponsor
-            </li>
-            <hr />
-            <h5 class="navbar-text-wrapper navbar-header-wrapper">
-              CATEGORIES
-            </h5>
-            <li
-              class="navbar-text-wrapper mt-2 category-custom"
-              v-for="category in categoriesAttributes"
-              :key="category"
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="navbar-text-wrapper nav-link active"
+              aria-current="page"
+              href="#"
             >
-              <router-link
-                class="navbar-text-wrapper"
-                :to="'/categories/' + category.name"
-              >
+              <font-awesome-icon :icon="['fab', 'github']" /> Stars
+              {{ github.number.toFixed(0) }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-text-wrapper nav-link" href="#">
+              <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
+            </a>
+          </li>
+          <li class="nav-item">
+            <a @click="setMode()" class="navbar-text-wrapper nav-link">
+              <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
+            </a>
+          </li>
+          <hr />
+          <div id="scrollb" class="scrollbox">
+            <div class="d-block d-sm-none">
+              <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <router-link class="navbar-text-wrapper" to="/">
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    icon="fa-solid fa-house"
+                  />Home</router-link
+                >
+              </li>
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <font-awesome-icon
                   class="mx-2"
                   width="12"
                   height="12"
-                  :icon="category.icon"
-                />{{ category.name }}</router-link
+                  :icon="['fab', 'github']"
+                />Repository
+              </li>
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <font-awesome-icon
+                  class="mx-2"
+                  width="12"
+                  height="12"
+                  icon="fa-solid fa-hand-holding-dollar"
+                />Sponsor
+              </li>
+              <hr />
+              <h5 class="navbar-text-wrapper navbar-header-wrapper">
+                CATEGORIES
+              </h5>
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                v-for="category in categoriesAttributes"
+                :key="category"
               >
-            </li>
-          </ul>
-        </div>
+                <router-link
+                  class="navbar-text-wrapper"
+                  :to="'/categories/' + category.name"
+                >
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    :icon="category.icon"
+                  />{{ category.name }}</router-link
+                >
+              </li>
+            </div>
+          </div>
+        </ul>
       </div>
     </div>
   </nav>
@@ -148,6 +150,11 @@ const githubData = async () => {
     });
 };
 
+if (window.screen.height > 768) {
+  document.querySelectorAll("#scrollb").remove;
+  console.log("This is a mobile device.");
+}
+
 // =================== COMPONENT LOGIC =================== //
 watch(number, (n) => {
   gsap.to(github, { duration: 0.5, number: Number(n) || 0 });
@@ -158,14 +165,48 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
+@media (min-width: 1281px) and (max-width: 1572px) {
+  .navbar-custom {
+    width: 100vw;
+  }
+  .custom-props-navbar {
+    position: fixed;
+    width: 100vw;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .navbar-custom {
+    height: 8vh;
+    width: 100vw;
+  }
+  .custom-props-navbar {
+    position: fixed;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .navbar-custom {
+    width: 100%;
+  }
+  .glass-nav {
+    background-color: var(--bg-color);
+  }
+  .scrollbox {
+    overflow: scroll;
+    height: 76vh !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }
 
 .scrollbox {
   overflow: scroll;
-  height: 89vh;
+  height: 0;
 }
 
 .navbar-custom {
@@ -205,36 +246,6 @@ onMounted(() => {
   .custom-props-navbar {
     position: fixed;
     width: 100vw;
-  }
-}
-
-@media (min-width: 1281px) and (max-width: 1572px) {
-  .navbar-custom {
-    width: 100vw;
-  }
-  .custom-props-navbar {
-    position: fixed;
-    width: 100vw;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .navbar-custom {
-    height: 8vh;
-    width: 100vw;
-  }
-  .custom-props-navbar {
-    position: fixed;
-    width: 100%;
-  }
-}
-
-@media only screen and (min-heigth: 680px) {
-  .navbar-custom {
-    width: 100%;
-  }
-  .glass-nav {
-    background-color: var(--bg-color);
   }
 }
 </style>
