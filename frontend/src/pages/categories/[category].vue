@@ -29,6 +29,7 @@
                 :cors="api.Cors"
                 :https="api.HTTPS"
                 :auth="api.Auth"
+                :faviconSrc="api.Link"
               />
             </a>
           </div>
@@ -76,7 +77,6 @@ const scheme = reactive({
 
 const handleChangeScheme = (val) => {
   scheme.color = val;
-  console.log(scheme.color);
 };
 
 const categoryExist = categoriesAttributes.some(

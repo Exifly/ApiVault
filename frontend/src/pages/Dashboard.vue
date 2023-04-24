@@ -26,6 +26,7 @@
                 :cors="api.Cors"
                 :https="api.HTTPS"
                 :auth="api.Auth"
+                :faviconSrc="api.Link"
               />
             </a>
           </div>
