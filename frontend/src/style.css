@@ -18,12 +18,14 @@
   --text-color: #c0c0c0;
   --text-color-hover: #f2f2f2;
   --hr-color: #919191;
+  --card-attribute-color: rgb(247 54 51);
+  --bg-card-attribute: rgba(114, 0, 0, 0.2);
 }
 
 [data-theme="light"] {
   /* Dark/Light mode variables */
-  --bg-color: rgb(231, 231, 231);
-  --bg-card-glass: rgba(226, 226, 226, 0.78);
+  --bg-color: rgb(252, 252, 252);
+  --bg-card-glass: rgba(236, 236, 236, 0.78);
   --bg-input-field: #c5c5c5;
   --icon-color: black;
   --border-color-cards: rgba(48, 48, 48, 0.125);
@@ -31,6 +33,8 @@
   --text-color: #000000;
   --text-color-hover: #313131;
   --hr-color: #454545;
+  --card-attribute-color: rgb(213, 44, 41);
+  --bg-card-attribute: rgb(255 0 0 / 20%);
 }
 
 html {
