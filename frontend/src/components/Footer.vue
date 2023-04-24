@@ -7,7 +7,7 @@
       <br />
       Coded by
       <a
-        href="/"
+        href="https://github.com/gdjohn4s"
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
       >
@@ -15,7 +15,7 @@
       </a>
       &
       <a
-        href="/"
+        href="https://github.com/FlavioAdamo"
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
       >
@@ -37,16 +37,16 @@
         /></a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-wrapper">Contact</a>
+        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper"
+          >Contact</a
+        >
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-wrapper">Sponsor</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-wrapper">FAQs</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-wrapper">About</a>
+        <a
+          href="https://www.buymeacoffee.com/exifly"
+          class="nav-link px-2 text-wrapper"
+          >Sponsor</a
+        >
       </li>
     </ul>
   </footer>

@@ -33,7 +33,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="navbar-text-wrapper nav-link" href="#">
+            <a
+              class="navbar-text-wrapper nav-link"
+              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
+            >
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
@@ -141,7 +144,7 @@ const setMode = () => {
 
 const githubData = async () => {
   await axios
-    .get("https://api.github.com/repos/exifly/tweetyfly")
+    .get("https://api.github.com/repos/exifly/ApiVault")
     .then((res) => {
       number.value = res.data.stargazers_count;
     })
