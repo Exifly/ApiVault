@@ -14,20 +14,32 @@
           >
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
-          <font-awesome-icon
-            class="mx-2"
-            width="12"
-            height="12"
-            :icon="['fab', 'github']"
-          />Repository
+          <a
+            class="sidebar-text-wrapper"
+            style="text-decoration: none"
+            href="https://github.com/Exifly/ApiVault"
+          >
+            <font-awesome-icon
+              class="mx-2"
+              width="12"
+              height="12"
+              :icon="['fab', 'github']"
+            />Repository</a
+          >
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
-          <font-awesome-icon
-            class="mx-2"
-            width="12"
-            height="12"
-            icon="fa-solid fa-hand-holding-dollar"
-          />Sponsor
+          <a
+            class="sidebar-text-wrapper"
+            style="text-decoration: none"
+            href="https://www.buymeacoffee.com/exifly"
+          >
+            <font-awesome-icon
+              class="mx-2"
+              width="12"
+              height="12"
+              icon="fa-solid fa-hand-holding-dollar"
+            />Sponsor</a
+          >
         </li>
       </ul>
       <div class="sidebar-heading ms-4">CATEGORIES</div>

@@ -146,13 +146,12 @@ const githubData = async () => {
       number.value = res.data.stargazers_count;
     })
     .catch((er) => {
-      console.log(er.response.data.message);
+      console.error(er.response.data.message);
     });
 };
 
 if (window.screen.height > 768) {
   document.querySelectorAll("#scrollb").remove;
-  console.log("This is a mobile device.");
 }
 
 // =================== COMPONENT LOGIC =================== //

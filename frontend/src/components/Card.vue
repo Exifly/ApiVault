@@ -2,12 +2,7 @@
   <div class="glass-card card">
     <div class="card-header-wrapper">
       <div class="logo-container">
-        <img
-          src="https://exifly.it/assets/img/no_bg_black%202.png"
-          class="favicon-api"
-          alt="webLogo"
-          style="border-radius: 12px"
-        />
+        <FaviconCardApi :url="getFavicon(faviconSrc, 128)" />
       </div>
       <div class="text-wrapper text-wrapper-header-card">{{ title }}</div>
     </div>
@@ -47,6 +42,7 @@
 
 <script setup>
 import CardAttributes from "@/components/CardAttributes.vue";
+import FaviconCardApi from "@/components/FaviconCardApi.vue";
 import { inject, ref, onMounted } from "vue";
 
 const categoryMap = inject("categoryMapping");
@@ -75,6 +71,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  faviconSrc: {
+    type: String,
+    required: false,
+  },
 });
 
 let isNullProp = ref(null);
@@ -91,6 +91,10 @@ const iconCategory = () => {
       cat.value = el.icon;
     }
   });
+};
+
+const getFavicon = (url, size) => {
+  return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 };
 
 onMounted(() => {
@@ -143,6 +147,30 @@ onMounted(() => {
   flex-direction: row;
 }
 
+@media only screen and (min-width: 1500px) {
+  .glass-card {
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    background-color: var(--bg-card-glass);
+    /* background-color: rgba(var(--bg-color), 0.78); */
+    border-radius: 12px;
+    border: 1px solid var(--border-color-cards);
+    height: 17vh;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .glass-card {
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    background-color: var(--bg-card-glass);
+    /* background-color: rgba(var(--bg-color), 0.78); */
+    border-radius: 12px;
+    border: 1px solid var(--border-color-cards);
+    height: 25vh;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .text-wrapper-header-card {
     align-self: center;
@@ -168,7 +196,7 @@ onMounted(() => {
 
 @media only screen and (max-width: 400px) {
   .glass-card {
-    height: 38vh;
+    height: 28vh;
   }
 }
 </style>

@@ -33,18 +33,9 @@
   --hr-color: #454545;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: #1a1a1a !important;
-    height: 100%;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  html {
-    background-color: rgb(231, 231, 231) !important;
-    height: 100%;
-  }
+html {
+  background-color: var(--bg-color) !important;
+  height: 100%;
 }
 
 * {
