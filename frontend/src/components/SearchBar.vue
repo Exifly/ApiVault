@@ -24,7 +24,7 @@
 import { onMounted, ref, computed } from "vue";
 import getAllApi from "@/components/api/allApis.js";
 
-const emit = defineEmits(["search:apiSearch"]);
+const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
 const apiInputSearch = ref("");
 
 // this function filter all apis to get occurrencies in
@@ -42,7 +42,8 @@ const apis = computed(() => {
           api.Category.toLowerCase().includes(
             apiInputSearch.value.toLocaleLowerCase()
           )
-      )
+      ),
+      apiInputSearch
     );
   } else {
     emit("search:apiSearch", false);
