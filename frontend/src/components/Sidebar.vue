@@ -65,7 +65,7 @@
           <hr />
           <li class="sidebar-heading">INFO</li>
           <li class="sidebar-text-wrapper mt-2 category-custom">
-            API Fetched: <b>1542</b>
+            API Fetched: <b>{{ api.count }}</b>
           </li>
           <li class="sidebar-text-wrapper mt-2 category-custom">
             N. Categories: <b>{{ categoriesAttributes.length }}</b>
@@ -77,8 +77,17 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, reactive, onMounted } from "vue";
+import apiCount from "@/components/api/countApis";
+
 const categoriesAttributes = inject("categoryMapping");
+const api = reactive({
+  count: 0,
+});
+
+onMounted(async () => {
+  api.count = await apiCount();
+});
 </script>
 
 <style scoped>
@@ -152,5 +161,4 @@ const categoriesAttributes = inject("categoryMapping");
     font-size: 14px;
   }
 }
-
 </style>

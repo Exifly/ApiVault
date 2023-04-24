@@ -32,7 +32,9 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-wrapper"
+        <a
+          href="https://github.com/Exifly/ApiVault"
+          class="nav-link px-2 text-wrapper"
           ><font-awesome-icon :icon="['fab', 'github']"
         /></a>
       </li>

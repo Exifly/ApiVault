@@ -44,6 +44,12 @@ html {
   height: 100%;
 }
 
+
+body {
+  background: var(--bg-color) !important;
+}
+
+
 * {
   transition: all 0.1s ease-in;
   font-family: 'Titillium Web', sans-serif;

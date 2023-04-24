@@ -65,12 +65,15 @@ let categorySearched = reactive({
   category: null,
 });
 
-const handleSearch = (val) => {
-  if (val.length > 0) {
-    categorySearched.category = val[0].Category.toUpperCase();
+const handleSearch = (val, title) => {
+  if (title === undefined) {
+    categorySearched.category = "RANDOM";
+    apiSearched.value = apiData.value;
+  } else if (val.length > 0) {
+    categorySearched.category = title.value.toUpperCase();
     apiSearched.value = val;
   } else {
-    categorySearched.category = "RANDOM";
+    categorySearched.category = "NO MATCH";
     apiSearched.value = apiData.value;
   }
 };
