@@ -95,7 +95,7 @@ const categoriesAttributes = inject("categoryMapping");
   margin-top: 8vh;
   height: 100vh;
   width: 20vw;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .category-custom:hover {
@@ -109,6 +109,7 @@ const categoriesAttributes = inject("categoryMapping");
 
 .sidebar-text-wrapper:hover {
   color: var(--text-color-hover) !important;
+  scale: 1.05;
 }
 
 .sidebar-heading {
@@ -151,4 +152,5 @@ const categoriesAttributes = inject("categoryMapping");
     font-size: 14px;
   }
 }
+
 </style>

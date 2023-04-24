@@ -11,6 +11,7 @@
   /* Dark/Light mode variables */
   --bg-color: #1a1a1a;
   --bg-card-glass: #242424;
+  --bg-card-glass-hover: #343434;
   --bg-input-field: #212329;
   --icon-color: white;
   --border-color-cards: rgba(255, 255, 255, 0.125);
@@ -25,8 +26,9 @@
 [data-theme="light"] {
   /* Dark/Light mode variables */
   --bg-color: rgb(252, 252, 252);
-  --bg-card-glass: rgba(236, 236, 236, 0.78);
-  --bg-input-field: #c5c5c5;
+  --bg-card-glass: #ffffff;
+  --bg-card-glass-hover: rgba(236, 236, 236, 0.916);
+  --bg-input-field: #ededed;
   --icon-color: black;
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;

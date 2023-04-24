@@ -178,4 +178,10 @@ onMounted(() => {
     height: 28vh;
   }
 }
+
+.glass-card:hover{
+  scale: 1.05;
+  background-color: var(--bg-card-glass-hover);
+
+}
 </style>
