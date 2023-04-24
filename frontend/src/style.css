@@ -9,8 +9,8 @@
 
 [data-theme="dark"] {
   /* Dark/Light mode variables */
-  --bg-color: #1a1a1a;
-  --bg-card-glass: #242424;
+  --bg-color: #0f0f0f;
+  --bg-card-glass: #1d1d1d;
   --bg-card-glass-hover: #343434;
   --bg-input-field: #212329;
   --icon-color: white;
