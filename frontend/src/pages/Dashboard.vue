@@ -5,11 +5,11 @@
     </header>
     <Sidebar />
     <ContentBody :title="categorySearched.category">
-      <template #topAreaContent>
-        <SearchBar @search:apiSearch="handleSearch" />
-      </template>
       <template #heroAreaContent>
         <Hero @update:colorScheme="handleChangeScheme" />
+      </template>
+      <template #topAreaContent>
+        <SearchBar @search:apiSearch="handleSearch" />
       </template>
       <template #cardAreaContent>
         <div class="row">

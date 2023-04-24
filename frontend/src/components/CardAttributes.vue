@@ -10,9 +10,10 @@
 .category-container {
   align-self: center;
   border-radius: 4px;
-  border-color: rgb(153, 0, 0);
-  background: rgba(0, 57, 114, 0.2);
-  color: rgb(3, 155, 178);
+  border: 1px solid;
+  border-color: var(--card-attribute-color);
+  background: var(--bg-card-attribute);
+  color: var(--card-attribute-color);
   margin-left: 0;
   margin-right: 1vw;
   justify-content: center;
@@ -28,9 +29,10 @@ p {
 @media only screen and (max-width: 600px) {
   .category-container {
     border-radius: 4px;
-    border-color: rgb(153, 0, 0);
-    background: rgba(0, 57, 114, 0.2);
-    color: rgb(3, 155, 178);
+    border: 1px solid;
+    border-color: var(--card-attribute-color);
+    background: var(--bg-card-attribute);
+    color: var(--card-attribute-color);
     margin-left: 0;
     margin-right: 4vw;
     margin-top: 10px;
