@@ -1,8 +1,6 @@
+![screenshot](./assets/Hero.jpg)
+
 <h1 align="center">
-  <br>
-  <img src="./assets/apivault-dark-nobg.png#gh-dark-mode-only" alt="ApiVault" width="200">
-  <img src="./assets/apivault-light-nobg.png#gh-light-mode-only" alt="ApiVault" width="200">
-  </a>
   <br>
   APIVault
   <br>
@@ -17,8 +15,6 @@
   <a href="#support">Support</a> •
   <a href="#license">License</a>
 </p>
-
-![screenshot](./assets/screenshot-demo.gif)
 
 ## Key Features
 
