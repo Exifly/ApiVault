@@ -21,4 +21,3 @@ services:
 
 networks:
   apivault_network:
-    name: apivault_network
