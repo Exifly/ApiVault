@@ -1,15 +1,16 @@
 <template>
+  
   <div class="flex-adjust container p-4">
-    <div class="row">
-      <div class="col-12 mb-5">
-        <slot name="topAreaContent"></slot>
-      </div>
-    </div>
     <div class="hero container">
       <div class="row">
         <div class="col-12 col-lg-12 col-md-12">
           <slot name="heroAreaContent"></slot>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-5">
+        <slot name="topAreaContent"></slot>
       </div>
     </div>
     <h1 class="text-wrapper mb-3">{{ props.title }}</h1>

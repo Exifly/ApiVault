@@ -16,3 +16,32 @@ const props = defineProps({
   },
 });
 </script>
+
+<style scoped>
+.favicon-api {
+  background: var(--bg-color);
+  border-radius: 12px;
+  border: 0.01px solid var(--border-color-cards);
+  margin-left: 1vw;
+  width: 48px;
+  height: 48px;
+  align-self: center;
+  margin-bottom: -13px;
+  margin-top: 12px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .favicon-api {
+    background: var(--bg-color);
+    border-radius: 12px;
+    border: 0.01px solid var(--border-color-cards);
+    margin-left: 4vw;
+    width: 48px;
+    height: 48px;
+    align-self: center;
+    margin-bottom: -13px;
+    margin-top: 12px;
+  }
+}
+</style>
