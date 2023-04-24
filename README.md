@@ -57,7 +57,7 @@ cat .env.sample > .env
 This software uses the following open source packages:
 
 - [Vue.js](http://electron.atom.io/)
-- [Flask](https://nodejs.org/)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 - [VueRouter](https://router.vuejs.org/)
 - [GSAP](https://greensock.com/gsap/)
 
