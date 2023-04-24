@@ -7,7 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
 
 // firebase
-import firebase from "firebase";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 // fontawesome
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -174,7 +175,8 @@ const firebaseConfig = {
 
 // global variables
 const colorScheme = ref("dark");
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 createApp(App)
   .use(router)
   .use(bootstrap)
