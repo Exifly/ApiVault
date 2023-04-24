@@ -36,13 +36,19 @@ To clone and run this application in developer mode, you'll need [Git](https://g
 $ git clone https://github.com/exifly/ApiVault
 
 # Go into the repository
-$ cd ApiVault
+$ cd ApiVault/frontend
 
 # Install dependencies
 $ npm install
 
 # Run the app
 $ npm run dev
+```
+
+## Set .env file
+Inside /frontend
+```bash
+cat .env.sample > .env
 ```
 
 
