@@ -21,6 +21,7 @@
   --hr-color: #919191;
   --card-attribute-color: rgb(247 54 51);
   --bg-card-attribute: rgba(114, 0, 0, 0.2);
+  --nav-item-hover:#f0f0f0;
 }
 
 [data-theme="light"] {
@@ -37,6 +38,7 @@
   --hr-color: #454545;
   --card-attribute-color: rgb(213, 44, 41);
   --bg-card-attribute: rgb(255 0 0 / 20%);
+  --nav-item-hover: #000;
 }
 
 html {
