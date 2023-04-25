@@ -26,7 +26,7 @@
             <a
               class="navbar-text-wrapper nav-link active"
               aria-current="page"
-              href="#"
+              href="https://github.com/Exifly/ApiVault"
             >
               <font-awesome-icon :icon="['fab', 'github']" /> Stars
               {{ github.number.toFixed(0) }}
@@ -249,5 +249,11 @@ onMounted(() => {
     position: fixed;
     width: 100vw;
   }
+}
+
+.nav-item:hover{
+  color: var(--nav-item-hover);
+  scale: 1.05;
+
 }
 </style>
