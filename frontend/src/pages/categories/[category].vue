@@ -16,6 +16,7 @@
       </template>
       <template #cardAreaContent>
         <div class="row">
+          <LoadingEffect v-if="isLoading" />
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
@@ -54,6 +55,7 @@ import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
 import getApiData from "@/components/api/categoriesApi.js";
+import LoadingEffect from "@/components/LoadingEffect.vue";
 
 const categoriesAttributes = inject("categoryMapping");
 const route = useRoute();
@@ -64,11 +66,13 @@ const apiData = ref(null);
 onMounted(async () => {
   apiData.value = await getApiData(route.params.category);
   isNullCategory.value = true ? apiData.value.length === 0 : false;
+  isLoading.value = false;
 });
 
 onBeforeUpdate(async () => {
   apiData.value = await getApiData(route.params.category);
   isNullCategory.value = true ? apiData.value.length === 0 : false;
+  isLoading.value = false;
 });
 
 const scheme = reactive({
@@ -91,6 +95,7 @@ let apiSearched = ref(null);
 let categorySearched = reactive({
   category: null,
 });
+let isLoading = ref(true);
 
 const handleSearch = (val, title) => {
   if (title === undefined) {

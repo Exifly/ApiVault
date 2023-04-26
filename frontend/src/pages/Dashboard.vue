@@ -13,6 +13,7 @@
       </template>
       <template #cardAreaContent>
         <div class="row">
+          <LoadingEffect v-if="isLoading" />
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
@@ -50,6 +51,7 @@ import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
 import getApiData from "@/components/api/randomApis.js";
+import LoadingEffect from "@/components/LoadingEffect.vue";
 
 const scheme = reactive({
   color: "dark",
@@ -64,6 +66,7 @@ let apiSearched = ref(null);
 let categorySearched = reactive({
   category: null,
 });
+let isLoading = ref(true);
 
 const handleSearch = (val, title) => {
   if (title === undefined) {
@@ -80,5 +83,6 @@ const handleSearch = (val, title) => {
 
 onMounted(async () => {
   apiData.value = await getApiData();
+  isLoading.value = false;
 });
 </script>
