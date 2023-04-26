@@ -21,6 +21,7 @@
 - Dark/Light mode
 - Search bar to find your API needs
 - Possibility to send or upload your own public API to get listed
+- Submit your API
 
 
 ## How To Use
