@@ -25,6 +25,7 @@
 
 ## How To Use
 
+### Frontend
 To clone and run this application in developer mode, you'll need [Git](https://git-scm.com) and [npm](http://npmjs.com) installed on your computer. From your command line:
 
 ```bash
@@ -47,6 +48,20 @@ Inside /frontend
 cat .env.sample > .env
 ```
 
+### Backend
+To clone and run this application in developer mode, you'll need [docker](https://www.docker.com/) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/exifly/ApiVault
+
+# Go into the repository
+$ cd ApiVault/backend
+
+# Run docker-compose
+$ docker-compose up
+
+```
 
 ## Credits
 
