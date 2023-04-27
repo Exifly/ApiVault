@@ -46,6 +46,9 @@ svg rect {
   animation: rotation 0.2s linear infinite;
 }
 
+/*
+  Create the rotate animation
+*/
 @keyframes rotation {
   0% {
     transform: rotate(0deg);

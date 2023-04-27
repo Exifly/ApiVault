@@ -16,7 +16,6 @@
         {{ api.API }}
       </p>
     </label>
-    <!-- <Button value="Categories" /> -->
   </div>
 </template>
 
@@ -27,13 +26,16 @@ import getAllApi from "@/components/api/allApis.js";
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
 const apiInputSearch = ref("");
 
-// this function filter all apis to get occurrencies in
-// category or API name
+/**
+Computes a filtered list of API data based on the value of apiInputSearch. 
+If apiInputSearch has at least 4 characters, emits a "search:apiSearch" event 
+with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a 
+"search:apiSearch" event with a value of false.
+@returns {undefined}
+*/
 let data = [];
 const apis = computed(() => {
   if (apiInputSearch.value.length >= 4) {
-    // start searching as user write something,
-    // then send an event to parent with fetched data
     emit(
       "search:apiSearch",
       data.filter(
@@ -71,7 +73,6 @@ onMounted(async () => {
   justify-content: center;
   transition: all 0.3s ease-in-out;
   width: 100%;
-  /* justify-content: center; */
 }
 
 .input-bar {
