@@ -1,18 +1,19 @@
 import { createApp, ref } from "vue";
-import "./style.css";
 import App from "./App.vue";
+import "./normalize.css";
+import "./style.css";
 
 // bootstrap import
-import "bootstrap/dist/css/bootstrap.css";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
+import "bootstrap/dist/css/bootstrap.css";
 
 // firebase
 import firebase from "firebase/app";
 import "firebase/analytics";
 
 // fontawesome
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAnglesRight,
   faAt,

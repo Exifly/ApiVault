@@ -85,6 +85,14 @@ if (props.cors === "no" || props.cors === "unknown") {
 }
 
 let cat = ref("");
+/**
+
+Finds an element in the categoryMap array with a name property 
+that matches the subtitle property passed in as a prop. 
+If a match is found, sets the value of cat.value to the icon 
+property of the matching element.
+@returns {String} icon
+*/
 const iconCategory = () => {
   categoryMap.find((el) => {
     if (el.name === props.subtitle) {
@@ -107,7 +115,6 @@ onMounted(() => {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
-  /* background-color: rgba(var(--bg-color), 0.78); */
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
   height: 25vh;
@@ -130,7 +137,6 @@ onMounted(() => {
   flex-direction: row;
 }
 
-
 .attributes-container {
   display: flex;
   flex-direction: row;
@@ -141,7 +147,6 @@ onMounted(() => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    /* background-color: rgba(var(--bg-color), 0.78); */
     border-radius: 12px;
     border: 1px solid var(--border-color-cards);
     height: 17vh;
@@ -153,7 +158,6 @@ onMounted(() => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    /* background-color: rgba(var(--bg-color), 0.78); */
     border-radius: 12px;
     border: 1px solid var(--border-color-cards);
     height: 25vh;
@@ -167,7 +171,7 @@ onMounted(() => {
     font-size: 20px;
     margin-left: 3.3vw;
   }
-  
+
   .glass-card {
     height: 27vh;
   }
@@ -179,9 +183,8 @@ onMounted(() => {
   }
 }
 
-.glass-card:hover{
+.glass-card:hover {
   scale: 1.05;
   background-color: var(--bg-card-glass-hover);
-
 }
 </style>

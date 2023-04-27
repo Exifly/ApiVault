@@ -45,6 +45,8 @@
 
 <script setup>
 import { onMounted, reactive, ref, onBeforeUpdate, inject } from "vue";
+import getApiData from "@/components/api/categoriesApi.js";
+import LoadingEffect from "@/components/LoadingEffect.vue";
 import ContentBody from "@/layouts/ContentBody.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import { useRoute, useRouter } from "vue-router";
@@ -54,8 +56,6 @@ import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
-import getApiData from "@/components/api/categoriesApi.js";
-import LoadingEffect from "@/components/LoadingEffect.vue";
 
 const categoriesAttributes = inject("categoryMapping");
 const route = useRoute();
@@ -65,13 +65,13 @@ const apiData = ref(null);
 
 onMounted(async () => {
   apiData.value = await getApiData(route.params.category);
-  isNullCategory.value = true ? apiData.value.length === 0 : false;
+  isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = false;
 });
 
 onBeforeUpdate(async () => {
   apiData.value = await getApiData(route.params.category);
-  isNullCategory.value = true ? apiData.value.length === 0 : false;
+  isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = false;
 });
 
