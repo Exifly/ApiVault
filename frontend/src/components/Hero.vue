@@ -3,10 +3,10 @@
     <div id="hero-logo" class="col-2">
       <Logo :source="imageSource" height="150" width="150" />
     </div>
-    <div class=" col-12 col-md-10">
-      <h1 class="hero-text-wrapper page-title p-3 p-md-5">
-      Your Gateway to a World of Public APIs.
-      <h5>This tool is completely free and Open-Source!</h5>
+    <div class="col-12 col-md-10">
+      <h1 class="text-wrapper page-title mb-4 p-md-5">
+        Your Gateway to a World of Public APIs.
+        <h5>This tool is completely free and Open-Source!</h5>
       </h1>
     </div>
   </div>
@@ -30,7 +30,14 @@ const imageSource = computed(() => {
   }
 });
 
-// Watch for changes to the data-theme attribute and update the state
+/**
+
+Creates a new MutationObserver that listens for mutations in the 
+mutationsList passed to the function. When a mutation of type "attributes" 
+occurs and the data-theme attribute has changed, sets the value of state.theme 
+to the new data-theme attribute and emits an "update:colorScheme" 
+event with the new state.theme value.
+*/
 const observer = new MutationObserver((mutationsList) => {
   mutationsList.forEach((mutation) => {
     if (
@@ -58,7 +65,6 @@ observer.observe(document.body, { attributes: true });
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
-  /* background-color: rgba(var(--bg-color), 0.78); */
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
 }
@@ -67,10 +73,6 @@ observer.observe(document.body, { attributes: true });
   margin-right: 15vw;
   margin-bottom: 4vh;
   width: 30vw;
-}
-
-.hero-text-wrapper {
-  color: var(--text-color) !important;
 }
 
 .hero-header-text-wrapper {
@@ -94,7 +96,7 @@ observer.observe(document.body, { attributes: true });
     align-self: center;
   }
 
-  #hero-logo{
+  #hero-logo {
     display: none;
   }
 }

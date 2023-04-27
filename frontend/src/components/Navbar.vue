@@ -106,9 +106,10 @@
 
 <script setup>
 import { ref, inject, reactive, onMounted, watch } from "vue";
+import { CSSPlugin } from "gsap/CSSPlugin";
+import getStars from "@/components/api/githubStarsApi.js";
 import axios from "axios";
 import gsap from "gsap";
-import { CSSPlugin } from "gsap/CSSPlugin";
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -123,16 +124,22 @@ var iconTheme = ref("fa-solid fa-sun");
 var iconThemeText = ref("Dark Mode");
 var logoPath = ref("/img/apivault-dark-nobg.png");
 
+/**
+
+Toggles the color scheme of the document body between light and dark mode. 
+Updates the values of iconThemeText, colorScheme, logoPath, and iconTheme 
+based on the new color scheme. Returns the new value of iconTheme to display.
+@returns {String} - The new value of iconTheme to display
+*/
 const setMode = () => {
-  // set night or light mode
   const theme = document.body.getAttribute("data-theme");
 
   if (theme === "dark" || theme === null) {
     document.querySelector("body")?.setAttribute("data-theme", "light");
-    iconThemeText.value = "Ligth Mode"; // to change icon style
+    iconThemeText.value = "Ligth Mode";
     colorScheme.value = "dark";
     logoPath.value = "/img/apivault-light-nobg.png";
-    return (iconTheme.value = "fa-solid fa-moon"); // return icon to display
+    return (iconTheme.value = "fa-solid fa-moon");
   } else {
     document.querySelector("body")?.setAttribute("data-theme", "dark");
     iconThemeText.value = "Dark Mode";
@@ -142,22 +149,21 @@ const setMode = () => {
   }
 };
 
+/**
+Fetch repository data using github Api and get the stars count
+*/
 const githubData = async () => {
-  await axios
-    .get("https://api.github.com/repos/exifly/ApiVault")
-    .then((res) => {
-      number.value = res.data.stargazers_count;
-    })
-    .catch((er) => {
-      console.error(er.response.data.message);
-    });
+  let data = await getStars();
+  number.value = data.stargazers_count;
 };
 
 if (window.screen.height > 768) {
   document.querySelectorAll("#scrollb").remove;
 }
 
-// =================== COMPONENT LOGIC =================== //
+/**
+Watch for number variable ref to change and apply an animation to it
+ */
 watch(number, (n) => {
   gsap.to(github, { duration: 0.5, number: Number(n) || 0 });
 });
@@ -251,9 +257,8 @@ onMounted(() => {
   }
 }
 
-.nav-item:hover{
+.nav-item:hover {
   color: var(--nav-item-hover);
   scale: 1.05;
-
 }
 </style>
