@@ -136,7 +136,7 @@ const setMode = () => {
 
   if (theme === "dark" || theme === null) {
     document.querySelector("body")?.setAttribute("data-theme", "light");
-    iconThemeText.value = "Ligth Mode";
+    iconThemeText.value = "Light Mode";
     colorScheme.value = "dark";
     logoPath.value = "/img/apivault-light-nobg.png";
     return (iconTheme.value = "fa-solid fa-moon");
@@ -174,40 +174,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@media (min-width: 1281px) and (max-width: 1572px) {
-  .navbar-custom {
-    width: 100vw;
-  }
-  .custom-props-navbar {
-    position: fixed;
-    width: 100vw;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .navbar-custom {
-    height: 8vh;
-    width: 100vw;
-  }
-  .custom-props-navbar {
-    position: fixed;
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .navbar-custom {
-    width: 100%;
-  }
-  .glass-nav {
-    background-color: var(--bg-color);
-  }
-  .scrollbox {
-    overflow: scroll;
-    height: 76vh !important;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -246,19 +212,32 @@ onMounted(() => {
   width: 100%;
 }
 
-@media (min-width: 1572px) {
+.nav-item:hover {
+  cursor: pointer;
+  color: var(--nav-item-hover);
+  scale: 1.05;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
   .navbar-custom {
-    width: 100vw;
-    margin-left: 11.3vw;
-  }
-  .custom-props-navbar {
-    position: fixed;
-    width: 100vw;
+    height: 8vh;
   }
 }
 
-.nav-item:hover {
-  color: var(--nav-item-hover);
-  scale: 1.05;
+@media (min-width: 1572px) {
+  .navbar-custom {
+    max-width: calc(100vw - (11.3vw * 2));
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .glass-nav {
+    background-color: var(--bg-color);
+  }
+  .scrollbox {
+    overflow: scroll;
+    height: 76vh !important;
+  }
 }
 </style>
