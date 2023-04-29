@@ -41,6 +41,20 @@
             />Sponsor</a
           >
         </li>
+        <li class="sidebar-text-wrapper mt-2 category-custom">
+          <router-link
+            class="sidebar-text-wrapper"
+            style="text-decoration: none"
+            to="/contributors"
+          >
+            <font-awesome-icon
+              class="mx-2"
+              width="12"
+              height="12"
+              icon="fa-solid fa-users"
+            />Contributors</router-link
+          >
+        </li>
       </ul>
       <div class="sidebar-heading ms-4">CATEGORIES</div>
       <div class="list-group list-group-flush">

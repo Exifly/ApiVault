@@ -75,6 +75,7 @@ import {
   faCloudSunRain,
   fas,
   faB,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -160,7 +161,8 @@ library.add(
   faCheck,
   faHouse,
   faHandHoldingDollar,
-  faListOl
+  faListOl,
+  faUsers
 );
 
 // global variables
