@@ -96,6 +96,7 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/gdjohn4s"><img src="https://avatars.githubusercontent.com/u/19678157?v=4?s=100" width="100px;" alt="gdjohn4s"/><br /><sub><b>gdjohn4s</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/FlavioAdamo"><img src="https://avatars.githubusercontent.com/u/46765573?v=4?s=100" width="100px;" alt="Flavio Adamo"/><br /><sub><b>Flavio Adamo</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/NirajD10"><img src="https://avatars.githubusercontent.com/u/66014487?v=4" width="100px;" alt="NirajD10"/><br /><sub><b>NirajD10</b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/kiabq"><img src="https://avatars.githubusercontent.com/u/44178907?v=4" width="100px;" alt="kiabq"/><br /><sub><b>kiabq</b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
