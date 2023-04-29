@@ -92,9 +92,4 @@ hr {
   body {
     background: var(--bg-color) !important;
   }
-
-  nav {
-    margin-left: 3vw;
-    margin-right: 3vw;
-  }
 }
