@@ -4,7 +4,7 @@
       ><font-awesome-icon
         class="icon-color"
         :icon="['fas', 'magnifying-glass']"
-        style="margin-left: 1vw; margin-right: 1vw"
+        style="margin-left: 1em; margin-right: 1vw"
       />
       <input
         v-model="apiInputSearch"
