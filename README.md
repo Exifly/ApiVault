@@ -80,7 +80,8 @@ This software uses the following open source packages:
 
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
-> When contributing to this repository, please first discuss the change you wish to make via issues with the authors of this repository before making a change.
+> When contributing to this repository, please first discuss the change you wish to make via issues with the authors of this repository before making a change. <br>
+> Make sure to go through the **[CODE OF CONDUCT](https://github.com/Exifly/ApiVault/blob/main/CODE_OF_CONDUCT.md)** once before making changes!
 
 ### How to Contribute 🤔
 
@@ -91,6 +92,7 @@ If you've ever wanted to contribute to open source, and a great cause, now is yo
 - Create a **[Pull Request](https://github.com/Exifly/ApiVault/compare)** (_PR_), which will be promptly reviewed and given suggestions for improvements by the community.
 - Add screenshots or screen captures to your Pull Request to help us understand the effects of the changes proposed in your PR.
 
+> For more detailed instructions ---> **[CONTRIBUTING.md](https://github.com/Exifly/ApiVault/blob/main/CONTRIBUTING.md)**
 
 ## Contributors ✨
 
