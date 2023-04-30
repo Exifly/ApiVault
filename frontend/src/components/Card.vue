@@ -117,7 +117,7 @@ onMounted(() => {
   background-color: var(--bg-card-glass);
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
-  height: 25vh;
+  height: 100%;
 }
 
 .text-wrapper-header-card {
@@ -160,7 +160,7 @@ onMounted(() => {
     background-color: var(--bg-card-glass);
     border-radius: 12px;
     border: 1px solid var(--border-color-cards);
-    height: 25vh;
+    height: 100%;
   }
 }
 
