@@ -1,5 +1,5 @@
 {
-   "count": 1425,
+   "count": 1426,
    "entries": [
       {
          "API": "AdoptAPet",
@@ -2007,6 +2007,15 @@
          "Cors": "unknown",
          "Link": "https://www.cryptonator.com/api/",
          "Category": "Cryptocurrency"
+      },
+      {
+         "API": "DigiDates.de",
+         "Description": "Open Rest API for various date and time calculations",
+         "Auth": "",
+         "HTTPS": true,
+         "Cors": "yes",
+         "Link": "https://digidates.de/en/",
+         "Category": "Calendar"
       },
       {
          "API": "dYdX",
