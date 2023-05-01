@@ -67,22 +67,27 @@ let categorySearched = reactive({
   category: null,
 });
 let isLoading = ref(true);
+let showList = ref(true);
 
 const handleSearch = (val, title) => {
   if (title === undefined) {
     categorySearched.category = "RANDOM";
     apiSearched.value = apiData.value;
+    showList.value= true;
   } else if (val.length > 0) {
     categorySearched.category = title.value.toUpperCase();
     apiSearched.value = val;
+    showList.value= true;
   } else {
     categorySearched.category = "NO MATCH";
     apiSearched.value = apiData.value;
+    showList.value = false;
   }
 };
 
 onMounted(async () => {
   apiData.value = await getApiData();
   isLoading.value = false;
+  showList.value= true;
 });
 </script>
