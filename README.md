@@ -110,6 +110,9 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/kiabq"><img src="https://avatars.githubusercontent.com/u/44178907?v=4" width="100px;" alt="kiabq"/><br /><sub><b>kiabq</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/the-amazing-atharva"><img src="https://avatars.githubusercontent.com/u/121221252?v=4" width="100px;" alt="Atharva Salitri"/><br /><sub><b>Atharva Salitri</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/caickPassarella"><img src="https://avatars.githubusercontent.com/u/25408543?v=4" width="100px;" alt="Caick"/><br /><sub><b>Caick</b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/kotkaravishkar"><img src="https://avatars.githubusercontent.com/u/94035734?v=4" width="100px;" alt="Avishkar Kotkar
+"/><br /><sub><b>Avishkar Kotkar
+</b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
