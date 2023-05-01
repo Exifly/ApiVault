@@ -35,7 +35,7 @@ with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a
 */
 let data = [];
 const apis = computed(() => {
-  if (apiInputSearch.value.length >= 4) {
+  if (apiInputSearch.value.length >= 3) {
     emit(
       "search:apiSearch",
       data.filter(
