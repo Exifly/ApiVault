@@ -75,6 +75,16 @@
                   icon="fa-solid fa-hand-holding-dollar"
                 />Sponsor
               </li>
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <router-link class="navbar-text-wrapper" to="/contributors">
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    icon="fa-solid fa-users"
+                  />Contributors</router-link
+                >
+              </li>
               <hr />
               <h5 class="navbar-text-wrapper navbar-header-wrapper">
                 CATEGORIES
