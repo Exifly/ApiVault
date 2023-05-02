@@ -15,6 +15,7 @@
         <div class="row">
           <LoadingEffect v-if="isLoading" />
           <div
+            v-if="showList"
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
             :key="api"
@@ -73,11 +74,11 @@ const handleSearch = (val, title) => {
   if (title === undefined) {
     categorySearched.category = "RANDOM";
     apiSearched.value = apiData.value;
-    showList.value= true;
+    showList.value = true;
   } else if (val.length > 0) {
     categorySearched.category = title.value.toUpperCase();
     apiSearched.value = val;
-    showList.value= true;
+    showList.value = true;
   } else {
     categorySearched.category = "NO MATCH";
     apiSearched.value = apiData.value;
@@ -88,6 +89,6 @@ const handleSearch = (val, title) => {
 onMounted(async () => {
   apiData.value = await getApiData();
   isLoading.value = false;
-  showList.value= true;
+  showList.value = true;
 });
 </script>
