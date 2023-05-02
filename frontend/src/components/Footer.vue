@@ -1,3 +1,4 @@
+import packageJson from '../../package.json';
 <template>
   <footer
     class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
@@ -32,6 +33,11 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
+        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper"
+          >{{packageJson.version}}</a
+        >
+      </li>
+      <li class="nav-item">
         <a
           href="https://github.com/Exifly/ApiVault"
           class="nav-link px-2 text-wrapper"
@@ -55,6 +61,7 @@
 </template>
 
 <script setup>
+import packageJson from '../../package.json';
 import { computed } from "vue";
 const props = defineProps({
   scheme: {
@@ -62,7 +69,6 @@ const props = defineProps({
     required: false,
   },
 });
-
 const logoMode = computed(() => {
   if (props.scheme === "dark") {
     return "/img/apivault-dark-nobg.png";
