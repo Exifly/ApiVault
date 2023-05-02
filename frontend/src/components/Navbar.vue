@@ -60,20 +60,30 @@
                 >
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <a
+                  class="navbar-text-wrapper"
+                  style="text-decoration: none"
+                  href="https://github.com/Exifly/ApiVault"
+                >
                 <font-awesome-icon
                   class="mx-2"
                   width="12"
                   height="12"
                   :icon="['fab', 'github']"
-                />Repository
-              </li>
+                />Repository</a>
+              </li>          
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <a
+                  class="navbar-text-wrapper"
+                  style="text-decoration: none"
+                  href="https://www.buymeacoffee.com/exifly"
+                >
                 <font-awesome-icon
                   class="mx-2"
                   width="12"
                   height="12"
                   icon="fa-solid fa-hand-holding-dollar"
-                />Sponsor
+                />Sponsor</a>
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <router-link class="navbar-text-wrapper" to="/contributors">
