@@ -16,6 +16,10 @@
   <a href="#license">License</a>
 </p>
 
+<h1 align="center">
+  <a href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D">Click here to submit your API</a>
+</h1>
+
 ## Key Features 
 
 - Dark/Light mode
