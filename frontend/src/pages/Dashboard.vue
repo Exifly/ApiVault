@@ -6,7 +6,7 @@
     <Sidebar />
     <ContentBody :title="categorySearched.category">
       <template #heroAreaContent>
-        <Hero @update:colorScheme="handleChangeScheme" />
+        <Hero />
       </template>
       <template #topAreaContent>
         <SearchBar @search:apiSearch="handleSearch" />
@@ -35,7 +35,7 @@
         </div>
       </template>
       <template #footerArea>
-        <Footer :scheme="scheme.color" />
+        <Footer />
       </template>
     </ContentBody>
   </BodyFlex>
@@ -53,14 +53,6 @@ import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
 import getApiData from "@/components/api/randomApis.js";
 import LoadingEffect from "@/components/LoadingEffect.vue";
-
-const scheme = reactive({
-  color: "dark",
-});
-
-const handleChangeScheme = (val) => {
-  scheme.color = val;
-};
 
 let apiData = ref(null);
 let apiSearched = ref(null);

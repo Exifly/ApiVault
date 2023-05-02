@@ -6,7 +6,7 @@
     <Sidebar />
     <ContentBody title="WONDERFUL PEOPLE ❤️">
       <template #heroAreaContent>
-        <Hero @update:colorScheme="handleChangeScheme" />
+        <Hero />
       </template>
       <template #cardAreaContent>
         <div class="row">
@@ -24,7 +24,7 @@
         </div>
       </template>
       <template #footerArea>
-        <Footer :scheme="scheme.color" />
+        <Footer />
       </template>
     </ContentBody>
   </BodyFlex>
@@ -48,12 +48,4 @@ onMounted(async () => {
   contributors.value = await getContributors();
   isLoading.value = false;
 });
-
-const scheme = reactive({
-  color: "dark",
-});
-
-const handleChangeScheme = (val) => {
-  scheme.color = val;
-};
 </script>

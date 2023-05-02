@@ -1,8 +1,10 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, inject } from "vue";
+
+const theme = inject("theme");
 
 onMounted(() => {
-  document.body.setAttribute("data-theme", "dark");
+  document.body.setAttribute("data-theme", theme.value);
 });
 </script>
 

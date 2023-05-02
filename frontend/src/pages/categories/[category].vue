@@ -12,7 +12,7 @@
         <SearchBar @search:apiSearch="handleSearch" />
       </template>
       <template #heroAreaContent>
-        <Hero @update:colorScheme="handleChangeScheme" />
+        <Hero />
       </template>
       <template #cardAreaContent>
         <div class="row">
@@ -37,7 +37,7 @@
         </div>
       </template>
       <template #footerArea>
-        <Footer :scheme="scheme.color" />
+        <Footer />
       </template>
     </ContentBody>
   </BodyFlex>
@@ -74,14 +74,6 @@ onBeforeUpdate(async () => {
   isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = false;
 });
-
-const scheme = reactive({
-  color: "dark",
-});
-
-const handleChangeScheme = (val) => {
-  scheme.color = val;
-};
 
 const categoryExist = categoriesAttributes.some(
   (category) => category.name === route.params.category
