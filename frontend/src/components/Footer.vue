@@ -1,4 +1,3 @@
-import packageJson from '../../package.json';
 <template>
   <footer
     class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"
