@@ -69,6 +69,14 @@ hr {
   background-color: var(--bg-color);
 }
 
+.flex{
+  display: flex;
+}
+
+.items-center{
+  align-items: center;
+}
+
 /* Glassmorphism properties */
 
 .glass-card {

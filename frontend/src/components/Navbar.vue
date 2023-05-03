@@ -22,9 +22,9 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item navbar-text-wrapper mt-2">
             <a
-              class="navbar-text-wrapper nav-link active"
+              class="navbar-text-wrapper flex items-center gap-2 active"
               aria-current="page"
               href="https://github.com/Exifly/ApiVault"
             >
@@ -32,16 +32,16 @@
               {{ github.number.toFixed(0) }}
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navbar-text-wrapper mt-2">
             <a
-              class="navbar-text-wrapper nav-link"
+              class="navbar-text-wrapper flex items-center gap-2"
               href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
             >
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
-          <li class="nav-item">
-            <a @click="setMode()" class="navbar-text-wrapper nav-link">
+          <li class="nav-item navbar-text-wrapper mt-2">
+            <a @click="setMode()" class="navbar-text-wrapper flex items-center gap-2">
               <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
             </a>
           </li>
@@ -50,9 +50,9 @@
             <div class="d-block d-sm-none">
               <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link class="navbar-text-wrapper" to="/">
+                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/">
                   <font-awesome-icon
-                    class="mx-2"
+                    class=""
                     width="12"
                     height="12"
                     icon="fa-solid fa-house"
@@ -61,12 +61,12 @@
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <a
-                  class="navbar-text-wrapper"
+                  class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
                   href="https://github.com/Exifly/ApiVault"
                 >
                   <font-awesome-icon
-                    class="mx-2"
+                    class=""
                     width="12"
                     height="12"
                     :icon="['fab', 'github']"
@@ -75,12 +75,12 @@
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <a
-                  class="navbar-text-wrapper"
+                  class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
                   href="https://www.buymeacoffee.com/exifly"
                 >
                   <font-awesome-icon
-                    class="mx-2"
+                    class=""
                     width="12"
                     height="12"
                     icon="fa-solid fa-hand-holding-dollar"
@@ -88,9 +88,9 @@
                 >
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link class="navbar-text-wrapper" to="/contributors">
+                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/contributors">
                   <font-awesome-icon
-                    class="mx-2"
+                    class=""
                     width="12"
                     height="12"
                     icon="fa-solid fa-users"
@@ -107,11 +107,11 @@
                 :key="category"
               >
                 <router-link
-                  class="navbar-text-wrapper"
+                  class="navbar-text-wrapper flex items-center gap-2"
                   :to="'/categories/' + category.name"
                 >
                   <font-awesome-icon
-                    class="mx-2"
+                    class=""
                     width="12"
                     height="12"
                     :icon="category.icon"
@@ -214,6 +214,8 @@ onMounted(() => {
 .navbar-text-wrapper {
   color: var(--text-color) !important;
   text-decoration: none;
+  padding: .3rem .2rem; 
+  border-radius: 5px;
 }
 
 .navbar-header-wrapper {
@@ -238,7 +240,9 @@ onMounted(() => {
 .nav-item:hover {
   cursor: pointer;
   color: var(--nav-item-hover);
-  scale: 1.05;
+  background-color: var(--bg-card-glass-hover);
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
