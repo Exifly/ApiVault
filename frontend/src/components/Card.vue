@@ -117,7 +117,6 @@ onMounted(() => {
   background-color: var(--bg-card-glass);
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
-  height: 25vh;
 }
 
 .text-wrapper-header-card {
@@ -149,7 +148,6 @@ onMounted(() => {
     background-color: var(--bg-card-glass);
     border-radius: 12px;
     border: 1px solid var(--border-color-cards);
-    height: 17vh;
   }
 }
 
@@ -160,7 +158,6 @@ onMounted(() => {
     background-color: var(--bg-card-glass);
     border-radius: 12px;
     border: 1px solid var(--border-color-cards);
-    height: 25vh;
   }
 }
 
@@ -171,20 +168,11 @@ onMounted(() => {
     font-size: 20px;
     margin-left: 3.3vw;
   }
-
-  .glass-card {
-    height: 27vh;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .glass-card {
-    height: 28vh;
-  }
 }
 
 .glass-card:hover {
-  scale: 1.05;
   background-color: var(--bg-card-glass-hover);
+  scale: 1.05;
+  transition: scale 0.1s ease-in-out;
 }
 </style>

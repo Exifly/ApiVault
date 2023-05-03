@@ -1,5 +1,5 @@
 {
-   "count": 1425,
+   "count": 1426,
    "entries": [
       {
          "API": "AdoptAPet",
@@ -773,6 +773,15 @@
          "HTTPS": true,
          "Cors": "yes",
          "Link": "https://sawolabs.com",
+         "Category": "Authentication & Authorization"
+      },
+      {
+         "API": "SpamPatrol",
+         "Description": "Intent-based spam detection for web forms",
+         "Auth": "apiKey",
+         "HTTPS": true,
+         "Cors": "yes",
+         "Link": "https://spampatrol.io/docs",
          "Category": "Authentication & Authorization"
       },
       {
@@ -2007,6 +2016,15 @@
          "Cors": "unknown",
          "Link": "https://www.cryptonator.com/api/",
          "Category": "Cryptocurrency"
+      },
+      {
+         "API": "DigiDates.de",
+         "Description": "Open Rest API for various date and time calculations",
+         "Auth": "",
+         "HTTPS": true,
+         "Cors": "yes",
+         "Link": "https://digidates.de/en/",
+         "Category": "Calendar"
       },
       {
          "API": "dYdX",
@@ -4247,6 +4265,15 @@
          "HTTPS": true,
          "Cors": "unknown",
          "Link": "https://data.nationalgrideso.com/",
+         "Category": "Environment"
+      },
+      {
+         "API": "Official Carbon Intensity API",
+         "Description": "API about carbon produced by National Grid in UK",
+         "Auth": "",
+         "HTTPS": true,
+         "Cors": "no",
+         "Link": "https://api.carbonintensity.org.uk",
          "Category": "Environment"
       },
       {
@@ -10835,6 +10862,15 @@
          "HTTPS": true,
          "Cors": "unknown",
          "Link": "https://strava.github.io/api/",
+         "Category": "Sports & Fitness"
+      },
+      {
+         "API": "Sumo-api",
+         "Description": "A free database of grand sumo statistics from 1958 to today",
+         "Auth": "",
+         "HTTPS": true,
+         "Cors": "yes",
+         "Link": "https://www.sumo-api.com/",
          "Category": "Sports & Fitness"
       },
       {

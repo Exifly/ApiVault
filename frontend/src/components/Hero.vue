@@ -14,42 +14,18 @@
 
 <script setup>
 import Logo from "./Logo.vue";
-import { reactive, computed } from "vue";
+import { reactive, computed, inject } from "vue";
 
-const emit = defineEmits(["update:colorScheme"]);
-const state = reactive({
-  theme: "dark",
-});
+const theme = inject("theme");
 
 // Compute the image source based on the current theme
 const imageSource = computed(() => {
-  if (state.theme === "dark") {
+  if (theme.value === "dark") {
     return "/img/apivault-dark-nobg.png";
   } else {
     return "/img/apivault-light-nobg.png";
   }
 });
-
-/**
-
-Creates a new MutationObserver that listens for mutations in the 
-mutationsList passed to the function. When a mutation of type "attributes" 
-occurs and the data-theme attribute has changed, sets the value of state.theme 
-to the new data-theme attribute and emits an "update:colorScheme" 
-event with the new state.theme value.
-*/
-const observer = new MutationObserver((mutationsList) => {
-  mutationsList.forEach((mutation) => {
-    if (
-      mutation.type === "attributes" &&
-      mutation.attributeName === "data-theme"
-    ) {
-      state.theme = mutation.target.getAttribute("data-theme");
-      emit("update:colorScheme", state.theme);
-    }
-  });
-});
-observer.observe(document.body, { attributes: true });
 </script>
 
 <style scoped>

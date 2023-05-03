@@ -1,4 +1,4 @@
-import { createApp, ref } from "vue";
+import { createApp, ref, reactive } from "vue";
 import App from "./App.vue";
 import "./normalize.css";
 import "./style.css";
@@ -92,6 +92,7 @@ import {
 
 import router from "./router/router";
 import { categoriesProperties } from "@/utilities/categoryMapping.js";
+import { getTheme } from "./utilities/themeHandler";
 
 library.add(
   fas,
@@ -166,7 +167,9 @@ library.add(
 );
 
 // global variables
-const colorScheme = ref("dark");
+const scheme = ref(getTheme());
+const theme = reactive(scheme);
+
 if (import.meta.env.VITE_APP_MODE === "prod") {
   // firebase config
   const firebaseConfig = {
@@ -185,6 +188,6 @@ createApp(App)
   .use(router)
   .use(bootstrap)
   .provide("categoryMapping", categoriesProperties)
-  .provide("colorScheme", colorScheme)
+  .provide("theme", theme)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

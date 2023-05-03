@@ -16,6 +16,10 @@
   <a href="#license">License</a>
 </p>
 
+<h1 align="center">
+  <a href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D">Click here to submit your API</a>
+</h1>
+
 ## Key Features 
 
 - Dark/Light mode
@@ -80,7 +84,8 @@ This software uses the following open source packages:
 
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
-> When contributing to this repository, please first discuss the change you wish to make via issues with the authors of this repository before making a change.
+> When contributing to this repository, please first discuss the change you wish to make via issues with the authors of this repository before making a change. <br>
+> Make sure to go through the **[CODE OF CONDUCT](https://github.com/Exifly/ApiVault/blob/main/CODE_OF_CONDUCT.md)** once before making changes!
 
 ### How to Contribute 🤔
 
@@ -91,6 +96,7 @@ If you've ever wanted to contribute to open source, and a great cause, now is yo
 - Create a **[Pull Request](https://github.com/Exifly/ApiVault/compare)** (_PR_), which will be promptly reviewed and given suggestions for improvements by the community.
 - Add screenshots or screen captures to your Pull Request to help us understand the effects of the changes proposed in your PR.
 
+> For more detailed instructions ---> **[CONTRIBUTING.md](https://github.com/Exifly/ApiVault/blob/main/CONTRIBUTING.md)**
 
 ## Contributors ✨
 
@@ -107,6 +113,10 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/NirajD10"><img src="https://avatars.githubusercontent.com/u/66014487?v=4" width="100px;" alt="NirajD10"/><br /><sub><b>NirajD10</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/kiabq"><img src="https://avatars.githubusercontent.com/u/44178907?v=4" width="100px;" alt="kiabq"/><br /><sub><b>kiabq</b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/the-amazing-atharva"><img src="https://avatars.githubusercontent.com/u/121221252?v=4" width="100px;" alt="Atharva Salitri"/><br /><sub><b>Atharva Salitri</b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/caickPassarella"><img src="https://avatars.githubusercontent.com/u/25408543?v=4" width="100px;" alt="Caick"/><br /><sub><b>Caick</b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/kotkaravishkar"><img src="https://avatars.githubusercontent.com/u/94035734?v=4" width="100px;" alt="Avishkar Kotkar
+"/><br /><sub><b>Avishkar Kotkar
+</b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>

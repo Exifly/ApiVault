@@ -60,20 +60,42 @@
                 >
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <font-awesome-icon
-                  class="mx-2"
-                  width="12"
-                  height="12"
-                  :icon="['fab', 'github']"
-                />Repository
+                <a
+                  class="navbar-text-wrapper"
+                  style="text-decoration: none"
+                  href="https://github.com/Exifly/ApiVault"
+                >
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    :icon="['fab', 'github']"
+                  />Repository</a
+                >
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <font-awesome-icon
-                  class="mx-2"
-                  width="12"
-                  height="12"
-                  icon="fa-solid fa-hand-holding-dollar"
-                />Sponsor
+                <a
+                  class="navbar-text-wrapper"
+                  style="text-decoration: none"
+                  href="https://www.buymeacoffee.com/exifly"
+                >
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    icon="fa-solid fa-hand-holding-dollar"
+                  />Sponsor</a
+                >
+              </li>
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+                <router-link class="navbar-text-wrapper" to="/contributors">
+                  <font-awesome-icon
+                    class="mx-2"
+                    width="12"
+                    height="12"
+                    icon="fa-solid fa-users"
+                  />Contributors</router-link
+                >
               </li>
               <hr />
               <h5 class="navbar-text-wrapper navbar-header-wrapper">
@@ -117,36 +139,37 @@ const number = ref(0);
 const github = reactive({
   number: 0,
 });
-const colorScheme = inject("colorScheme");
+const theme = inject("theme");
 const categoriesAttributes = inject("categoryMapping");
-
-var iconTheme = ref("fa-solid fa-sun");
-var iconThemeText = ref("Dark Mode");
-var logoPath = ref("/img/apivault-dark-nobg.png");
+const themeIcons = {
+  light: "fa-solid fa-sun",
+  dark: "fa-solid fa-moon"
+}
+const iconTheme = ref(themeIcons[theme.value]);
+const iconThemeText = ref(theme.value[0].toUpperCase() + theme.value.slice(1, theme.value.length) + " Mode");
+const logoPath = ref(`/img/apivault-${theme.value}-nobg.png`);
 
 /**
 
 Toggles the color scheme of the document body between light and dark mode. 
-Updates the values of iconThemeText, colorScheme, logoPath, and iconTheme 
+Updates the values of iconThemeText, theme, logoPath, and iconTheme 
 based on the new color scheme. Returns the new value of iconTheme to display.
 @returns {String} - The new value of iconTheme to display
 */
 const setMode = () => {
-  const theme = document.body.getAttribute("data-theme");
-
-  if (theme === "dark" || theme === null) {
-    document.querySelector("body")?.setAttribute("data-theme", "light");
-    iconThemeText.value = "Light Mode";
-    colorScheme.value = "dark";
-    logoPath.value = "/img/apivault-light-nobg.png";
-    return (iconTheme.value = "fa-solid fa-moon");
+  if (theme.value === "dark" || theme.value === undefined) {
+    theme.value = "light";
+    localStorage.setItem("APIVaultTheme", "light");
   } else {
-    document.querySelector("body")?.setAttribute("data-theme", "dark");
-    iconThemeText.value = "Dark Mode";
-    colorScheme.value = "light";
-    logoPath.value = "/img/apivault-dark-nobg.png";
-    return (iconTheme.value = "fa-solid fa-sun");
+    theme.value = "dark";
+    localStorage.setItem("APIVaultTheme", "dark");
   }
+  const themeText = theme.value[0].toUpperCase() + theme.value.slice(1, theme.value.length) + " Mode";
+
+  document.querySelector("body")?.setAttribute("data-theme", theme.value);
+  iconThemeText.value = themeText;
+  iconTheme.value = themeIcons[theme.value];
+  logoPath.value = `/img/apivault-${theme.value}-nobg.png`;
 };
 
 /**
@@ -237,7 +260,7 @@ onMounted(() => {
   }
   .scrollbox {
     overflow: scroll;
-    height: 76vh !important;
+    height: 73vh !important;
   }
 }
 </style>

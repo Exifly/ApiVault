@@ -32,6 +32,11 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
+        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper"
+          >{{packageJson.version}}</a
+        >
+      </li>
+      <li class="nav-item">
         <a
           href="https://github.com/Exifly/ApiVault"
           class="nav-link px-2 text-wrapper"
@@ -55,16 +60,13 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-const props = defineProps({
-  scheme: {
-    type: String,
-    required: false,
-  },
-});
+import packageJson from '../../package.json';
+import { computed, inject } from "vue";
+
+const theme = inject("theme");
 
 const logoMode = computed(() => {
-  if (props.scheme === "dark") {
+  if (theme.value === "dark") {
     return "/img/apivault-dark-nobg.png";
   }
   return "/img/apivault-light-nobg.png";
