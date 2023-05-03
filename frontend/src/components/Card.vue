@@ -171,7 +171,8 @@ onMounted(() => {
 }
 
 .glass-card:hover {
-  scale: 1.05;
   background-color: var(--bg-card-glass-hover);
+  scale: 1.05;
+  transition: scale 0.1s ease-in-out;
 }
 </style>
