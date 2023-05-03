@@ -61,15 +61,12 @@
 
 <script setup>
 import packageJson from '../../package.json';
-import { computed } from "vue";
-const props = defineProps({
-  scheme: {
-    type: String,
-    required: false,
-  },
-});
+import { computed, inject } from "vue";
+
+const theme = inject("theme");
+
 const logoMode = computed(() => {
-  if (props.scheme === "dark") {
+  if (theme.value === "dark") {
     return "/img/apivault-dark-nobg.png";
   }
   return "/img/apivault-light-nobg.png";
