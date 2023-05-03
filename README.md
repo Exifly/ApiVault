@@ -117,6 +117,9 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/kotkaravishkar"><img src="https://avatars.githubusercontent.com/u/94035734?v=4" width="100px;" alt="Avishkar Kotkar
 "/><br /><sub><b>Avishkar Kotkar
 </b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/iamjamesfrancis"><img src="https://avatars.githubusercontent.com/u/55175085?v=4" width="100px;" alt="James Francis
+"/><br /><sub><b>James Francis
+</b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
