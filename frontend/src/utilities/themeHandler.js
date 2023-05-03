@@ -1,14 +1,14 @@
 export function getTheme() {
-    const theme = localStorage.getItem("APIVaultTheme");
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+  const theme = localStorage.getItem("APIVaultTheme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-    if (theme !== "dark" && theme !== "light") {
-        if (prefersLight) {
-            localStorage.setItem("APIVaultTheme", "light");
-        } else {
-            localStorage.setItem("APIVaultTheme", "dark");
-        }
+  if (theme !== "dark" && theme !== "light") {
+    if (prefersDark) {
+      localStorage.setItem("APIVaultTheme", "dark");
+    } else {
+      localStorage.setItem("APIVaultTheme", "light");
     }
+  }
 
-    return localStorage.getItem('APIVaultTheme');
+  return localStorage.getItem("APIVaultTheme");
 }
