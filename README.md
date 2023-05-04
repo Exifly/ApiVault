@@ -4,12 +4,9 @@
   <br>
 </h1>
 
-![screenshot](./assets/Hero.jpg)
-
-<h3 align="center">Your Gateway To A World Of Public APIs.</h3>
+![screenshot](./assets/hero-apivaulot.jpg)
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
@@ -19,13 +16,6 @@
 <h1 align="center">
   <a href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D">Click here to submit your API</a>
 </h1>
-
-## Key Features 
-
-- Dark/Light mode
-- Search bar to find your API needs
-- Possibility to send or upload your own public API to get listed
-- Submit your API
 
 
 ## How To Use 
@@ -131,7 +121,6 @@ We would love to have you, feel free to open issues and pull requests and **Don'
 <a href="https://www.buymeacoffee.com/exifly" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## License 
-
 ApiVault is licensed under the terms of **MIT License**. Check out [LICENSE](https://github.com/Exifly/ApiVault/blob/main/LICENSE) for details.
 
 <br>
