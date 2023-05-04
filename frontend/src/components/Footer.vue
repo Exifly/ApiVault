@@ -5,21 +5,13 @@
     <p class="col-md-4 mb-0 text-wrapper-no-hover">
       &copy; 2023 Exifly
       <br />
-      Coded by
+      Coded by those 
       <a
-        href="https://github.com/gdjohn4s"
+        href="https://apivault.dev/contributors"
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
       >
-        gdjohn4s
-      </a>
-      &
-      <a
-        href="https://github.com/FlavioAdamo"
-        class="text-wrapper-authors"
-        style="text-decoration: none; font-weight: 600"
-      >
-        flavioad
+      wonderful people
       </a>
     </p>
 
