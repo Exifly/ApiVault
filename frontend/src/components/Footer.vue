@@ -5,22 +5,14 @@
     <p class="col-md-4 mb-0 text-wrapper-no-hover">
       &copy; 2023 Exifly
       <br />
-      Coded by
-      <a
-        href="https://github.com/gdjohn4s"
+      Coded by those 
+      <router-link 
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
+        to="/contributors"
       >
-        gdjohn4s
-      </a>
-      &
-      <a
-        href="https://github.com/FlavioAdamo"
-        class="text-wrapper-authors"
-        style="text-decoration: none; font-weight: 600"
-      >
-        flavioad
-      </a>
+      wonderful people
+    </router-link>
     </p>
 
     <router-link
