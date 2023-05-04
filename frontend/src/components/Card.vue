@@ -1,5 +1,5 @@
 <template>
-  <div class="glass-card card">
+  <div class="glass-card card h-100">
     <div class="card-header-wrapper">
       <div class="logo-container">
         <FaviconCardApi :url="getFavicon(faviconSrc, 128)" />
@@ -15,27 +15,27 @@
       <p class="text-wrapper card-text-wrapper card-text">
         {{ body }}
       </p>
-      <div class="attributes-container">
-        <CardAttributes v-if="isNullProp">
-          <font-awesome-icon
-            class="me-1"
-            width="12"
-            height="12"
-            :icon="['fas', 'check']"
-          />{{ props.cors === "yes" ? "CORS" : null }}
-        </CardAttributes>
-        <CardAttributes>
-          <font-awesome-icon
-            class="me-1"
-            width="12"
-            height="12"
-            :icon="['fas', 'check']"
-          />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
-        >
-        <CardAttributes v-if="props.auth !== ''">{{
-          props.auth !== "" ? `Auth: ${props.auth}` : null
-        }}</CardAttributes>
-      </div>
+    </div>
+    <div class="card-body attributes-container">
+      <CardAttributes v-if="isNullProp">
+        <font-awesome-icon
+          class="me-1"
+          width="12"
+          height="12"
+          :icon="['fas', 'check']"
+        />{{ props.cors === "yes" ? "CORS" : null }}
+      </CardAttributes>
+      <CardAttributes>
+        <font-awesome-icon
+          class="me-1"
+          width="12"
+          height="12"
+          :icon="['fas', 'check']"
+        />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
+      >
+      <CardAttributes v-if="props.auth !== ''">{{
+        props.auth !== "" ? `Auth: ${props.auth}` : null
+      }}</CardAttributes>
     </div>
   </div>
 </template>
