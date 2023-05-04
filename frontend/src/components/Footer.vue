@@ -6,13 +6,13 @@
       &copy; 2023 Exifly
       <br />
       Coded by those 
-      <a
-        href="https://apivault.dev/contributors"
+      <router-link 
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
+        to="/contributors"
       >
       wonderful people
-      </a>
+    </router-link>
     </p>
 
     <router-link
