@@ -79,5 +79,23 @@ def count():
     return jsonify(len(data.get('entries')))
 
 
+@app.route('/api/categories/trending')
+@cross_origin
+def trending_categories():
+    category_counts = {}
+    for entry in data['entries']:
+        category = entry['Category']
+        if category in category_counts:
+            category_counts[category] += 1
+        else:
+            category_counts = 1
+    sorted_categories = sorted(category_counts.items(), key=lambda x: x[1], reverse = True)
+    top_categories = [{"category_name": category[0], "api_count": category[1]} for category in sorted_categories[:10]]
+    response = {
+        "trending_categories": top_categories
+    }
+    return jsonify(response)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=False)
