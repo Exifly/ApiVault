@@ -57,7 +57,7 @@ const props = defineProps({
 
 .flex-adjust {
   margin-left: 22vw;
-  margin-top: 7vw;
+  margin-top: 4vw;
 }
 
 .sidebar {
