@@ -2,6 +2,7 @@ from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from search import Search
 import random as rnd
+import collections
 import datetime
 import logging
 import json
@@ -77,6 +78,25 @@ def all():
 def count():
     """Get the count of entries"""
     return jsonify(len(data.get('entries')))
+
+
+@app.route('/api/categories/trending')
+@cross_origin()
+def trending_categories():
+    """
+    Uses the 'Category' field from each entry to count
+    the number of occurrences of each category. Then, returns 
+    the name and count of the top 10 categories, sorted in descending order
+
+    Returns:
+        A JSON response containing a list of the top 10 categories and their API counts.
+    """
+    categories = collections.Counter(
+        entry['Category'] for entry in data['entries'])
+    top_categories = [{"category_name": category, "api_count": count}
+                      for category, count in categories.most_common(10)]
+
+    return jsonify(top_categories)
 
 
 if __name__ == '__main__':
