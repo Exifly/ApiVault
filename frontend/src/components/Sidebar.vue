@@ -18,6 +18,7 @@
             class="flex items-center gap-2 px-2"
             style="text-decoration: none"
             href="https://github.com/Exifly/ApiVault"
+            target="_blank"
           >
             <font-awesome-icon
               class=""
