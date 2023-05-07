@@ -20,6 +20,7 @@
           <a
             class="text-white text-decoration-none"
             :href="api.Link"
+            target="_blank"
             v-for="api in apiSearched"
             :key="api"
           >
