@@ -110,6 +110,9 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/iamjamesfrancis"><img src="https://avatars.githubusercontent.com/u/55175085?v=4" width="100px;" alt="James Francis
 "/><br /><sub><b>James Francis
 </b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/MOHDNEHALKHAN"><img src="https://avatars.githubusercontent.com/u/125626654?v=4" width="100px;" alt="MOHD NEHAL KHAN
+"/><br /><sub><b>MOHD NEHAL KHAN
+</b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
