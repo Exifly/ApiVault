@@ -20,7 +20,8 @@
                   width="12"
                   height="12"
                   :icon="categoryMap[category.category_name]"
-                />{{ category.category_name }} ({{ category.api_count }})
+                />{{ category.category_name }} 
+                <span class="api_count">({{ category.api_count }})</span>
               </router-link>
             </TrendCategory>
           </div>
@@ -70,6 +71,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+
+.api_count{
+  color: #8b8b8b;
+}
 .trend-container {
   display: flex;
   flex-direction: row;
