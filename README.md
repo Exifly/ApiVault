@@ -111,7 +111,9 @@ Thanks go to these wonderful people ✨:
 "/><br /><sub><b>James Francis
 </b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/MOHDNEHALKHAN"><img src="https://avatars.githubusercontent.com/u/125626654?v=4" width="100px;" alt="MOHD NEHAL KHAN
-"/><br /><sub><b>MOHD NEHAL KHAN
+"/><br /><sub><b>MOHD NEHAL
+</b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/tarunsamanta2k20"><img src="https://avatars.githubusercontent.com/u/55488549?v=4" width="100px;" alt="Tarun Samanta"/><br /><sub><b>Tarun Samanta
 </b></sub></a><br />🥳</td>
     </tr>
   </tbody>
