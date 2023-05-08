@@ -92,6 +92,7 @@ import {
 
 import router from "./router/router";
 import { categoriesProperties } from "@/utilities/categoryMapping.js";
+import { categoriesDict } from "./utilities/categoryMapping";
 import { getTheme } from "./utilities/themeHandler";
 
 library.add(
@@ -188,6 +189,7 @@ createApp(App)
   .use(router)
   .use(bootstrap)
   .provide("categoryMapping", categoriesProperties)
+  .provide("categoryDict", categoriesDict)
   .provide("theme", theme)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

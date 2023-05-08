@@ -4,9 +4,9 @@
       <div class="sidebar-heading ms-4">MENU</div>
       <ul class="list-unstyled ps-0 text-black mx-4">
         <li class="sidebar-text-wrapper mt-2 category-custom">
-          <router-link class="sidebar-text-wrapper" to="/">
+          <router-link class="flex items-center gap-2 px-2" to="/">
             <font-awesome-icon
-              class="mx-2"
+              class=""
               width="12"
               height="12"
               icon="fa-solid fa-house"
@@ -15,12 +15,13 @@
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
           <a
-            class="sidebar-text-wrapper"
+            class="flex items-center gap-2 px-2"
             style="text-decoration: none"
             href="https://github.com/Exifly/ApiVault"
+            target="_blank"
           >
             <font-awesome-icon
-              class="mx-2"
+              class=""
               width="12"
               height="12"
               :icon="['fab', 'github']"
@@ -29,12 +30,12 @@
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
           <a
-            class="sidebar-text-wrapper"
+            class="flex items-center gap-2 px-2"
             style="text-decoration: none"
             href="https://www.buymeacoffee.com/exifly"
           >
             <font-awesome-icon
-              class="mx-2"
+              class=""
               width="12"
               height="12"
               icon="fa-solid fa-hand-holding-dollar"
@@ -43,12 +44,12 @@
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom">
           <router-link
-            class="sidebar-text-wrapper"
-            style="text-decoration: none"
+            class="flex items-center gap-2 px-2"
+            style="text-decoration: none;"
             to="/contributors"
           >
             <font-awesome-icon
-              class="mx-2"
+              class=""
               width="12"
               height="12"
               icon="fa-solid fa-users"
@@ -65,11 +66,11 @@
             :key="category"
           >
             <router-link
-              class="sidebar-text-wrapper"
+              class="flex items-center gap-2 px-2"
               :to="'/categories/' + category.name"
             >
               <font-awesome-icon
-                class="mx-2"
+                class=""
                 width="12"
                 height="12"
                 :icon="category.icon"
@@ -115,7 +116,7 @@ onMounted(async () => {
 .custom-props {
   background-color: var(--bg-color);
   position: fixed;
-  margin-top: 8vh;
+  margin-top: 10vh;
   height: 100vh;
   width: 20vw;
   font-size: 15px;
@@ -128,11 +129,20 @@ onMounted(async () => {
 .sidebar-text-wrapper {
   color: var(--text-color) !important;
   text-decoration: none;
+  padding: .4rem .2rem;
+}
+
+.sidebar-text-wrapper a {
+  color: var(--text-color-hover) !important;
+  text-decoration: none;
 }
 
 .sidebar-text-wrapper:hover {
   color: var(--text-color-hover) !important;
-  scale: 1.05;
+  background-color: var(--bg-card-glass-hover);
+  cursor: pointer;
+  border-radius: 5px;
+  
 }
 
 .sidebar-heading {

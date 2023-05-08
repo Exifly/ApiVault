@@ -1,14 +1,3 @@
-## Configuration
-To deploy the backend ApiVault services run docker compose inside backend root directory.
-Note: make sure docker is installed.
->ApiVault/backend/docker-compose.yml
-```bash
-docker-compose up
-```
-<div align="center">
-  <h1>API List</h1>
-</div>
- 
 # Animals
 
 | API | Description | Auth | HTTPS | Cors |
@@ -119,6 +108,7 @@ docker-compose up
 | [Micro User Service](https://m3o.com/user) | User management and authentication | apiKey | True | no |
 | [MojoAuth](https://mojoauth.com) | Secure and modern passwordless authentication platform | apiKey | True | yes |
 | [SAWO Labs](https://sawolabs.com) | Simplify login and improve user experience by integrating passwordless authentication in your app | apiKey | True | yes |
+| [SpamPatrol](https://spampatrol.io/docs) | Intent-based spam detection for web forms | apiKey | True | yes |
 | [Stytch](https://stytch.com/) | User infrastructure for modern applications | apiKey | True | no |
 | [Warrant](https://warrant.dev/) | APIs for authorization and access control | apiKey | True | yes |
 
@@ -581,6 +571,7 @@ docker-compose up
 | [IQAir](https://www.iqair.com/air-pollution-data-api) | Air quality and weather data | apiKey | True | unknown |
 | [Luchtmeetnet](https://api-docs.luchtmeetnet.nl/) | Predicted and actual air quality components for The Netherlands (RIVM) |  | True | unknown |
 | [National Grid ESO](https://data.nationalgrideso.com/) | Open data from Great Britain’s Electricity System Operator |  | True | unknown |
+| [Official Carbon Intensity API](https://api.carbonintensity.org.uk) | API about carbon produced by National Grid in UK |  | True | no |
 | [OpenAQ](https://docs.openaq.org/) | Open air quality data | apiKey | True | unknown |
 | [PM2.5 Open Data Portal](https://pm25.lass-net.org/#apis) | Open low-cost PM2.5 sensor data |  | True | unknown |
 | [PM25.in](http://www.pm25.in/api_doc) | Air quality of China | apiKey | False | unknown |
@@ -1428,6 +1419,7 @@ docker-compose up
 | [Sportmonks Football](https://docs.sportmonks.com/football/) | Football score/schedule, news api, tv channels, stats, history, display standing e.g. epl, la liga | apiKey | True | unknown |
 | [Squiggle](https://api.squiggle.com.au) | Fixtures, results and predictions for Australian Football League matches |  | True | yes |
 | [Strava](https://strava.github.io/api/) | Connect with athletes, activities and more | OAuth | True | unknown |
+| [Sumo-api](https://www.sumo-api.com/) | A free database of grand sumo statistics from 1958 to today |  | True | yes |
 | [SuredBits](https://suredbits.com/api/) | Query sports data, including teams, players, games, scores and statistics |  | False | no |
 | [TheSportsDB](https://www.thesportsdb.com/api.php) | Crowd-Sourced Sports Data and Artwork | apiKey | True | yes |
 | [Tredict](https://www.tredict.com/blog/oauth_docs/) | Get and set activities, health data and more | OAuth | True | unknown |
@@ -1689,3 +1681,4 @@ docker-compose up
 | [WeatherAPI](https://www.weatherapi.com/) | Weather API with other stuff like Astronomy and Geolocation API | apiKey | True | yes |
 | [Weatherbit](https://www.weatherbit.io/api) | Weather | apiKey | True | unknown |
 | [Yandex.Weather](https://yandex.com/dev/weather/) | Assesses weather condition in specific locations | apiKey | True | no |
+

@@ -69,6 +69,22 @@ hr {
   background-color: var(--bg-color);
 }
 
+.flex{
+  display: flex;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.grid {
+  display: grid !important;
+}
+
+.grid-template-col-auto-03 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 /* Glassmorphism properties */
 
 .glass-card {

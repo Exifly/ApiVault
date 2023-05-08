@@ -20,7 +20,7 @@
             v-for="api in apiSearched"
             :key="api"
           >
-            <a :href="api.Link" style="text-decoration: none">
+            <a :href="api.Link" target="_blank" style="text-decoration: none">
               <Card
                 :title="api.API"
                 :subtitle="api.Category"

@@ -15,25 +15,25 @@
         <Hero />
       </template>
       <template #cardAreaContent>
-        <div class="row">
+        <div class="grid grid-template-col-auto-03" style="grid-gap: 1.5rem;">
           <LoadingEffect v-if="isLoading" />
-          <div
-            class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+          <a
+            class="text-white text-decoration-none"
+            :href="api.Link"
+            target="_blank"
             v-for="api in apiSearched"
             :key="api"
           >
-            <a :href="api.Link" style="text-decoration: none">
-              <Card
-                :title="api.API"
-                :subtitle="api.Category"
-                :body="api.Description"
-                :cors="api.Cors"
-                :https="api.HTTPS"
-                :auth="api.Auth"
-                :faviconSrc="api.Link"
-              />
-            </a>
-          </div>
+            <Card
+              :title="api.API"
+              :subtitle="api.Category"
+              :body="api.Description"
+              :cors="api.Cors"
+              :https="api.HTTPS"
+              :auth="api.Auth"
+              :faviconSrc="api.Link"
+            />
+          </a>
         </div>
       </template>
       <template #footerArea>
