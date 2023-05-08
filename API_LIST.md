@@ -2,7 +2,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [AdoptAPet](https://www.adoptapet.com/public/apis/pet_list.html) | Resource to help get pets adopted | apiKey | True | yes |
+Pippo| [AdoptAPet](https://www.adoptapet.com/public/apis/pet_list.html) | Resource to help get pets adopted | apiKey | True | yes |
 | [Axolotl](https://theaxolotlapi.netlify.app/) | Collection of axolotl pictures and facts |  | True | no |
 | [Cat Facts](https://alexwohlbruck.github.io/cat-facts/) | Daily cat facts |  | True | no |
 | [Cataas](https://cataas.com/) | Cat as a service (cats pictures and gifs) |  | True | no |
@@ -34,7 +34,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [AniAPI](https://aniapi.com/docs/) | Anime discovery, streaming & syncing with trackers | OAuth | True | yes |
+Pippo| [AniAPI](https://aniapi.com/docs/) | Anime discovery, streaming & syncing with trackers | OAuth | True | yes |
 | [AniDB](https://wiki.anidb.net/HTTP_API_Definition) | Anime Database | apiKey | False | unknown |
 | [AniList](https://github.com/AniList/ApiV2-GraphQL-Docs) | Anime discovery & tracking | OAuth | True | unknown |
 | [AnimeChan](https://github.com/RocktimSaikia/anime-chan) | Anime quotes (over 10k+) |  | True | no |
@@ -58,7 +58,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [AbuseIPDB](https://docs.abuseipdb.com/) | IP/domain/URL reputation | apiKey | True | unknown |
+Pippo| [AbuseIPDB](https://docs.abuseipdb.com/) | IP/domain/URL reputation | apiKey | True | unknown |
 | [AlienVault Open Threat Exchange (OTX)](https://otx.alienvault.com/api) | IP/domain/URL reputation | apiKey | True | unknown |
 | [CAPEsandbox](https://capev2.readthedocs.io/en/latest/usage/api.html) | Malware execution and analysis | apiKey | True | unknown |
 | [Google Safe Browsing](https://developers.google.com/safe-browsing/) | Google Link/Domain Flagging | apiKey | True | unknown |
@@ -78,7 +78,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Améthyste](https://api.amethyste.moe/) | Generate images for Discord users | apiKey | True | unknown |
+Pippo| [Améthyste](https://api.amethyste.moe/) | Generate images for Discord users | apiKey | True | unknown |
 | [Art Institute of Chicago](https://api.artic.edu/docs/) | Art |  | True | yes |
 | [Colormind](http://colormind.io/api-access/) | Color scheme generator |  | False | unknown |
 | [ColourLovers](http://www.colourlovers.com/api) | Get various patterns, palettes and images |  | False | unknown |
@@ -103,7 +103,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Auth0](https://auth0.com) | Easy to implement, adaptable authentication and authorization platform | apiKey | True | yes |
+Pippo| [Auth0](https://auth0.com) | Easy to implement, adaptable authentication and authorization platform | apiKey | True | yes |
 | [GetOTP](https://otp.dev/en/docs/) | Implement OTP flow quickly | apiKey | True | no |
 | [Micro User Service](https://m3o.com/user) | User management and authentication | apiKey | True | no |
 | [MojoAuth](https://mojoauth.com) | Secure and modern passwordless authentication platform | apiKey | True | yes |
@@ -116,7 +116,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Bitquery](https://graphql.bitquery.io/ide) | Onchain GraphQL APIs & DEX APIs | apiKey | True | yes |
+Pippo| [Bitquery](https://graphql.bitquery.io/ide) | Onchain GraphQL APIs & DEX APIs | apiKey | True | yes |
 | [Chainlink](https://chain.link/developer-resources) | Build hybrid smart contracts with Chainlink |  | True | unknown |
 | [Chainpoint](https://tierion.com/chainpoint/) | Chainpoint is a global network for anchoring data to the Bitcoin blockchain |  | True | unknown |
 | [Covalent](https://www.covalenthq.com/docs/api/) | Multi-blockchain data aggregator platform | apiKey | True | unknown |
@@ -132,7 +132,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [A Bíblia Digital](https://www.abibliadigital.com.br/en) | Do not worry about managing the multiple versions of the Bible | apiKey | True | no |
+Pippo| [A Bíblia Digital](https://www.abibliadigital.com.br/en) | Do not worry about managing the multiple versions of the Bible | apiKey | True | no |
 | [Bhagavad Gita](https://docs.bhagavadgitaapi.in) | Open Source Shrimad Bhagavad Gita API including 21+ authors translation in Sanskrit/English/Hindi | apiKey | True | yes |
 | [Bhagavad Gita](https://bhagavadgita.io/api) | Bhagavad Gita text | OAuth | True | yes |
 | [Bhagavad Gita telugu](https://gita-api.vercel.app) | Bhagavad Gita API in telugu and odia languages |  | True | yes |
@@ -160,7 +160,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Apache Superset](https://superset.apache.org/docs/api) | API to manage your BI dashboards and data sources on Superset | apiKey | True | yes |
+Pippo| [Apache Superset](https://superset.apache.org/docs/api) | API to manage your BI dashboards and data sources on Superset | apiKey | True | yes |
 | [Charity Search](http://charityapi.orghunter.com/) | Non-profit charity data | apiKey | False | unknown |
 | [Clearbit Logo](https://clearbit.com/docs#logo-api) | Search for company logos and embed them in your projects | apiKey | True | unknown |
 | [Domainsdb.info](https://domainsdb.info/) | Registered Domain Names Search |  | True | no |
@@ -188,7 +188,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Abstract Public Holidays](https://www.abstractapi.com/holidays-api) | Data on national, regional, and religious holidays via API | apiKey | True | yes |
+Pippo| [Abstract Public Holidays](https://www.abstractapi.com/holidays-api) | Data on national, regional, and religious holidays via API | apiKey | True | yes |
 | [Calendarific](https://calendarific.com/) | Worldwide Holidays | apiKey | True | unknown |
 | [Checkiday - National Holiday API](https://apilayer.com/marketplace/checkiday-api) | Industry-leading Holiday API. Over 5,000 holidays and thousands of descriptions. Trusted by the World’s leading companies | apiKey | True | unknown |
 | [Church Calendar](http://calapi.inadiutorium.cz/) | Catholic liturgical calendar |  | False | unknown |
@@ -210,7 +210,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [AnonFiles](https://anonfiles.com/docs/api) | Upload and share your files anonymously |  | True | unknown |
+Pippo| [AnonFiles](https://anonfiles.com/docs/api) | Upload and share your files anonymously |  | True | unknown |
 | [BayFiles](https://bayfiles.com/docs/api) | Upload and share your files |  | True | unknown |
 | [Box](https://developer.box.com/) | File Sharing and Storage | OAuth | True | unknown |
 | [ddownload](https://ddownload.com/api) | File Sharing and Storage | apiKey | True | unknown |
@@ -234,7 +234,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Azure DevOps Health](https://docs.microsoft.com/en-us/rest/api/resourcehealth) | Resource health helps you diagnose and get support when an Azure issue impacts your resources | apiKey | False | no |
+Pippo| [Azure DevOps Health](https://docs.microsoft.com/en-us/rest/api/resourcehealth) | Resource health helps you diagnose and get support when an Azure issue impacts your resources | apiKey | False | no |
 | [Bitrise](https://api-docs.bitrise.io/) | Build tool and processes integrations to create efficient development pipelines | apiKey | True | unknown |
 | [Buddy](https://buddy.works/docs/api/getting-started/overview) | The fastest continuous integration and continuous delivery platform | OAuth | True | unknown |
 | [CircleCI](https://circleci.com/docs/api/v1-reference/) | Automate the software development process using continuous integration and continuous delivery | apiKey | True | unknown |
@@ -245,7 +245,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [0x](https://0x.org/api) | API for querying token and pool stats across various liquidity pools |  | True | yes |
+Pippo| [0x](https://0x.org/api) | API for querying token and pool stats across various liquidity pools |  | True | yes |
 | [1inch](https://1inch.io/api/) | API for querying decentralize exchange |  | True | unknown |
 | [Alchemy Ethereum](https://docs.alchemy.com/alchemy/) | Ethereum Node-as-a-Service Provider | apiKey | True | yes |
 | [apilayer coinlayer](https://coinlayer.com) | Real-time Crypto Currency Exchange Rates | apiKey | True | unknown |
@@ -314,7 +314,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [1Forge](https://1forge.com/forex-data-api/api-documentation) | Forex currency market data | apiKey | True | unknown |
+Pippo| [1Forge](https://1forge.com/forex-data-api/api-documentation) | Forex currency market data | apiKey | True | unknown |
 | [Amdoren](https://www.amdoren.com/currency-api/) | Free currency API with over 150 currencies | apiKey | True | unknown |
 | [apilayer fixer.io](https://fixer.io) | Exchange rates and currency conversion | apiKey | False | unknown |
 | [Bank of Russia](https://www.cbr.ru/development/SXML/) | Exchange rates and currency conversion |  | True | unknown |
@@ -336,7 +336,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Lob.com](https://lob.com/) | US Address Verification | apiKey | True | unknown |
+Pippo| [Lob.com](https://lob.com/) | US Address Verification | apiKey | True | unknown |
 | [Postman Echo](https://www.postman-echo.com) | Test api server to receive and return value from HTTP method |  | True | unknown |
 | [PurgoMalum](http://www.purgomalum.com) | Content validator against profanity & obscenity |  | False | unknown |
 | [US Autocomplete](https://www.smarty.com/docs/cloud/us-autocomplete-pro-api) | Enter address data quickly with real-time address suggestions | apiKey | True | yes |
@@ -348,7 +348,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [24 Pull Requests](https://24pullrequests.com/api) | Project to promote open source collaboration during December |  | True | yes |
+Pippo| [24 Pull Requests](https://24pullrequests.com/api) | Project to promote open source collaboration during December |  | True | yes |
 | [Abstract Screenshot](https://www.abstractapi.com/website-screenshot-api) | Take programmatic screenshots of web pages from any website | apiKey | True | yes |
 | [Agify.io](https://agify.io) | Estimates the age from a first name |  | True | yes |
 | [API Grátis](https://apigratis.com.br/) | Multiples services and public APIs |  | True | unknown |
@@ -473,7 +473,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Chinese Character Web](http://ccdb.hemiola.com/) | Chinese character definitions and pronunciations |  | False | no |
+Pippo| [Chinese Character Web](http://ccdb.hemiola.com/) | Chinese character definitions and pronunciations |  | False | no |
 | [Chinese Text Project](https://ctext.org/tools/api) | Online open-access digital library for pre-modern Chinese texts |  | True | unknown |
 | [Collins](https://api.collinsdictionary.com/api/v1/documentation/html/) | Bilingual Dictionary and Thesaurus Data | apiKey | True | unknown |
 | [Free Dictionary](https://dictionaryapi.dev/) | Definitions, phonetics, pronounciations, parts of speech, examples, synonyms |  | True | unknown |
@@ -491,7 +491,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Airtable](https://airtable.com/api) | Integrate with Airtable | apiKey | True | unknown |
+Pippo| [Airtable](https://airtable.com/api) | Integrate with Airtable | apiKey | True | unknown |
 | [Api2Convert](https://www.api2convert.com/) | Online File Conversion API | apiKey | True | unknown |
 | [apilayer pdflayer](https://pdflayer.com) | HTML/URL to PDF | apiKey | True | unknown |
 | [Asana](https://developers.asana.com/docs) | Programmatic access to all data in your asana system | apiKey | True | yes |
@@ -524,7 +524,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Abstract Email Validation](https://www.abstractapi.com/email-verification-validation-api) | Validate email addresses for deliverability and spam | apiKey | True | yes |
+Pippo| [Abstract Email Validation](https://www.abstractapi.com/email-verification-validation-api) | Validate email addresses for deliverability and spam | apiKey | True | yes |
 | [apilayer mailboxlayer](https://mailboxlayer.com) | Email address validation | apiKey | True | unknown |
 | [Cloudmersive Validate](https://cloudmersive.com/validate-api) | Validate email addresses, phone numbers, VAT numbers and domain names | apiKey | True | yes |
 | [Disify](https://www.disify.com/) | Validate and detect disposable and temporary email addresses |  | True | yes |
@@ -546,7 +546,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [chucknorris.io](https://api.chucknorris.io) | JSON API for hand curated Chuck Norris jokes |  | True | unknown |
+Pippo| [chucknorris.io](https://api.chucknorris.io) | JSON API for hand curated Chuck Norris jokes |  | True | unknown |
 | [Corporate Buzz Words](https://github.com/sameerkumar18/corporate-bs-generator-api) | REST API for Corporate Buzz Words |  | True | yes |
 | [Excuser](https://excuser.herokuapp.com/) | Get random excuses for various situations |  | True | unknown |
 | [Fun Fact](https://api.aakhilv.me) | A simple HTTPS api that can randomly select and return a fact from the FFA database |  | True | yes |
@@ -561,7 +561,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [BreezoMeter Pollen](https://docs.breezometer.com/api-documentation/pollen-api/v2/) | Daily Forecast pollen conditions data for a specific location | apiKey | True | unknown |
+Pippo| [BreezoMeter Pollen](https://docs.breezometer.com/api-documentation/pollen-api/v2/) | Daily Forecast pollen conditions data for a specific location | apiKey | True | unknown |
 | [Carbon Interface](https://docs.carboninterface.com/) | API to calculate carbon (C02) emissions estimates for common C02 emitting activities | apiKey | True | yes |
 | [Climatiq](https://docs.climatiq.io) | Calculate the environmental footprint created by a broad range of emission-generating activities | apiKey | True | yes |
 | [Cloverly](https://www.cloverly.com/carbon-offset-documentation) | API calculates the impact of common carbon-intensive activities in real time | apiKey | True | unknown |
@@ -584,7 +584,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Eventbrite](https://www.eventbrite.com/platform/api/) | Find events | OAuth | True | unknown |
+Pippo| [Eventbrite](https://www.eventbrite.com/platform/api/) | Find events | OAuth | True | unknown |
 | [SeatGeek](https://platform.seatgeek.com/) | Search events, venues and performers | apiKey | True | unknown |
 | [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Search events, attractions, or venues | apiKey | True | unknown |
 
@@ -592,7 +592,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Abstract VAT Validation](https://www.abstractapi.com/vat-validation-rates-api) | Validate VAT numbers and calculate VAT rates | apiKey | True | yes |
+Pippo| [Abstract VAT Validation](https://www.abstractapi.com/vat-validation-rates-api) | Validate VAT numbers and calculate VAT rates | apiKey | True | yes |
 | [Aletheia](https://aletheiaapi.com/) | Insider trading data, earnings call analysis, financial statements, and more | apiKey | True | yes |
 | [Alpaca](https://alpaca.markets/docs/api-documentation/api-v2/market-data/alpaca-data-api-v2/) | Realtime and historical market data on all US equities and ETFs | apiKey | True | yes |
 | [Alpha Vantage](https://www.alphavantage.co/) | Realtime and historical stock data | apiKey | True | unknown |
@@ -642,7 +642,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [BaconMockup](https://baconmockup.com/) | Resizable bacon placeholder images |  | True | yes |
+Pippo| [BaconMockup](https://baconmockup.com/) | Resizable bacon placeholder images |  | True | yes |
 | [Chomp](https://chompthis.com/api/) | Data about various grocery products and foods | apiKey | True | unknown |
 | [Coffee](https://coffee.alexflipnote.dev/) | Random pictures of coffee |  | True | unknown |
 | [Edamam nutrition](https://developer.edamam.com/edamam-docs-nutrition-api) | Nutrition Analysis | apiKey | True | unknown |
@@ -671,7 +671,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Age of Empires II](https://age-of-empires-2-api.herokuapp.com) | Get information about Age of Empires II resources |  | True | no |
+Pippo| [Age of Empires II](https://age-of-empires-2-api.herokuapp.com) | Get information about Age of Empires II resources |  | True | no |
 | [AmiiboAPI](https://amiiboapi.com/) | Nintendo Amiibo Information |  | True | yes |
 | [Animal Crossing: New Horizons](http://acnhapi.com/) | API for critters, fossils, art, music, furniture and villagers |  | True | unknown |
 | [Autochess VNG](https://github.com/didadadida93/autochess-vng-api) | Rest Api for Autochess VNG |  | True | yes |
@@ -772,7 +772,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Abstract IP Geolocation](https://www.abstractapi.com/ip-geolocation-api) | Geolocate website visitors from their IPs | apiKey | True | yes |
+Pippo| [Abstract IP Geolocation](https://www.abstractapi.com/ip-geolocation-api) | Geolocate website visitors from their IPs | apiKey | True | yes |
 | [Actinia Grass GIS](https://actinia.mundialis.de/api_docs/) | Actinia is an open source REST API for geographical data that uses GRASS GIS | apiKey | True | unknown |
 | [administrative-divisons-db](https://github.com/kamikazechaser/administrative-divisions-db) | Get all administrative divisions of a country |  | True | yes |
 | [adresse.data.gouv.fr](https://adresse.data.gouv.fr) | Address database of France, geocoding and reverse |  | True | unknown |
@@ -863,7 +863,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Bank Negara Malaysia Open Data](https://apikijangportal.bnm.gov.my/) | Malaysia Central Bank Open Data |  | True | unknown |
+Pippo| [Bank Negara Malaysia Open Data](https://apikijangportal.bnm.gov.my/) | Malaysia Central Bank Open Data |  | True | unknown |
 | [BCLaws](https://www.bclaws.gov.bc.ca/civix/template/complete/api/index.html) | Access to the laws of British Columbia |  | False | unknown |
 | [Brazil](https://brasilapi.com.br/) | Community driven API for Brazil Public Data |  | True | yes |
 | [Brazil Central Bank Open Data](https://dadosabertos.bcb.gov.br/) | Brazil Central Bank Open Data |  | True | unknown |
@@ -954,7 +954,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [CMS.gov](https://data.cms.gov/provider-data/) | Access to the data from the CMS - medicare.gov | apiKey | True | unknown |
+Pippo| [CMS.gov](https://data.cms.gov/provider-data/) | Access to the data from the CMS - medicare.gov | apiKey | True | unknown |
 | [Coronavirus](https://pipedream.com/@pravin/http-api-for-latest-wuhan-coronavirus-data-2019-ncov-p_G6CLVM/readme) | HTTP API for Latest Covid-19 Data |  | True | unknown |
 | [Coronavirus in the UK](https://coronavirus.data.gov.uk/details/developers-guide) | UK Government coronavirus data, including deaths and cases by region |  | True | unknown |
 | [Covid Tracking Project](https://covidtracking.com/data/api/version-2) | Covid-19  data for the US |  | True | no |
@@ -990,7 +990,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Adzuna](https://developer.adzuna.com/overview) | Job board aggregator | apiKey | True | unknown |
+Pippo| [Adzuna](https://developer.adzuna.com/overview) | Job board aggregator | apiKey | True | unknown |
 | [Arbeitnow](https://documenter.getpostman.com/view/18545278/UVJbJdKh) | API for Job board aggregator in Europe / Remote |  | True | yes |
 | [Arbeitsamt](https://jobsuche.api.bund.dev/) | API for the "Arbeitsamt", which is a german Job board aggregator | OAuth | True | unknown |
 | [Careerjet](https://www.careerjet.com/partners/api/) | Job search engine | apiKey | False | unknown |
@@ -1012,7 +1012,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [AI For Thai](https://aiforthai.in.th/index.php) | Free Various Thai AI API | apiKey | True | yes |
+Pippo| [AI For Thai](https://aiforthai.in.th/index.php) | Free Various Thai AI API | apiKey | True | yes |
 | [Clarifai](https://docs.clarifai.com/api-guide/api-overview) | Computer Vision | OAuth | True | unknown |
 | [Cloudmersive](https://www.cloudmersive.com/image-recognition-and-processing-api) | Image captioning, face recognition, NSFW classification | apiKey | True | yes |
 | [Deepcode](https://www.deepcode.ai) | AI for code review |  | True | unknown |
@@ -1039,7 +1039,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [7digital](https://docs.7digital.com/reference) | Api of Music store 7digital | OAuth | True | unknown |
+Pippo| [7digital](https://docs.7digital.com/reference) | Api of Music store 7digital | OAuth | True | unknown |
 | [AI Mastering](https://aimastering.com/api_docs/) | Automated Music Mastering | apiKey | True | yes |
 | [Audiomack](https://www.audiomack.com/data-api/docs) | Api of the streaming music hub Audiomack | OAuth | True | unknown |
 | [Bandcamp](https://bandcamp.com/developer) | API of Music store Bandcamp | OAuth | True | unknown |
@@ -1077,7 +1077,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [apilayer mediastack](https://mediastack.com/) | Free, Simple REST API for Live News & Blog Articles | apiKey | True | unknown |
+Pippo| [apilayer mediastack](https://mediastack.com/) | Free, Simple REST API for Live News & Blog Articles | apiKey | True | unknown |
 | [Associated Press](https://developer.ap.org/) | Search for news and metadata from Associated Press | apiKey | True | unknown |
 | [Chronicling America](http://chroniclingamerica.loc.gov/about/api/) | Provides access to millions of pages of historic US newspapers from the Library of Congress |  | False | unknown |
 | [Currents](https://currentsapi.services/) | Latest news published in various news sources, blogs and forums | apiKey | True | yes |
@@ -1101,7 +1101,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [18F](http://18f.github.io/API-All-the-X/) | Unofficial US Federal Government API Development |  | False | unknown |
+Pippo| [18F](http://18f.github.io/API-All-the-X/) | Unofficial US Federal Government API Development |  | False | unknown |
 | [API Setu](https://www.apisetu.gov.in/) | An Indian Government platform that provides a lot of APIS for KYC, business, education & employment |  | True | yes |
 | [Archive.org](https://archive.readme.io/docs) | The Internet Archive |  | True | no |
 | [Black History Facts](https://www.blackhistoryapi.io/docs) | Contribute or search one of the largest black history fact databases on the web | apiKey | True | yes |
@@ -1141,7 +1141,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Countly](https://api.count.ly/reference) | Countly web analytics |  | False | unknown |
+Pippo| [Countly](https://api.count.ly/reference) | Countly web analytics |  | False | unknown |
 | [Creative Commons Catalog](https://api.creativecommons.engineering/) | Search among openly licensed and public domain works | OAuth | True | yes |
 | [Datamuse](https://www.datamuse.com/api/) | Word-finding query engine |  | True | unknown |
 | [Drupal.org](https://www.drupal.org/drupalorg/docs/api) | Drupal.org |  | True | unknown |
@@ -1155,7 +1155,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [EPO](https://developers.epo.org/) | European patent search system api | OAuth | True | unknown |
+Pippo| [EPO](https://developers.epo.org/) | European patent search system api | OAuth | True | unknown |
 | [PatentsView ](https://patentsview.org/apis/purpose) | API is intended to explore and visualize trends/patterns across the US innovation landscape |  | True | unknown |
 | [TIPO](https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD05.aspx?QryDS=API00) | Taiwan patent search system api | apiKey | True | unknown |
 | [USPTO](https://www.uspto.gov/learning-and-resources/open-data-and-mobility) | USA patent api services |  | True | unknown |
@@ -1164,7 +1164,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Advice Slip](http://api.adviceslip.com/) | Generate random advice slips |  | True | unknown |
+Pippo| [Advice Slip](http://api.adviceslip.com/) | Generate random advice slips |  | True | unknown |
 | [Biriyani As A Service](https://biriyani.anoram.com/) | Biriyani images placeholder |  | True | no |
 | [Dev.to](https://developers.forem.com/api) | Access Forem articles, users and other resources via API | apiKey | True | unknown |
 | [Dictum](https://github.com/fisenkodv/dictum) | API to get access to the collection of the most inspiring expressions of mankind |  | True | unknown |
@@ -1192,7 +1192,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Abstract Phone Validation](https://www.abstractapi.com/phone-validation-api) | Validate phone numbers globally | apiKey | True | yes |
+Pippo| [Abstract Phone Validation](https://www.abstractapi.com/phone-validation-api) | Validate phone numbers globally | apiKey | True | yes |
 | [apilayer numverify](https://numverify.com) | Phone number validation | apiKey | True | unknown |
 | [Cloudmersive Validate](https://cloudmersive.com/phone-number-validation-API) | Validate international phone numbers | apiKey | True | yes |
 | [Phone Specification](https://github.com/azharimm/phone-specs-api) | Rest Api for Phone specifications |  | True | yes |
@@ -1202,7 +1202,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [apilayer screenshotlayer](https://screenshotlayer.com) | URL 2 Image |  | True | unknown |
+Pippo| [apilayer screenshotlayer](https://screenshotlayer.com) | URL 2 Image |  | True | unknown |
 | [APITemplate.io](https://apitemplate.io) | Dynamically generate images and PDFs from templates with a simple API | apiKey | True | yes |
 | [Bruzu](https://docs.bruzu.com) | Image generation with query string | apiKey | True | yes |
 | [CheetahO](https://cheetaho.com/docs/getting-started/) | Photo optimization and resize | apiKey | True | unknown |
@@ -1235,7 +1235,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Codeforces](https://codeforces.com/apiHelp) | Get access to Codeforces data | apiKey | True | unknown |
+Pippo| [Codeforces](https://codeforces.com/apiHelp) | Get access to Codeforces data | apiKey | True | unknown |
 | [Hackerearth](https://www.hackerearth.com/docs/wiki/developers/v4/) | For compiling and running code in several languages | apiKey | True | unknown |
 | [Judge0 CE](https://ce.judge0.com/) | Online code execution system | apiKey | True | unknown |
 | [KONTESTS](https://kontests.net/api) | For upcoming and ongoing competitive coding contests |  | True | unknown |
@@ -1245,7 +1245,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [arcsecond.io](https://api.arcsecond.io/) | Multiple astronomy data sources |  | True | unknown |
+Pippo| [arcsecond.io](https://api.arcsecond.io/) | Multiple astronomy data sources |  | True | unknown |
 | [arXiv](https://arxiv.org/help/api/user-manual) | Curated research-sharing platform: physics, mathematics, quantitative finance, and economics |  | True | unknown |
 | [CORE](https://core.ac.uk/services#api) | Access the world's Open Access research papers | apiKey | True | unknown |
 | [GBIF](https://www.gbif.org/developer/summary) | Global Biodiversity Information Facility |  | True | yes |
@@ -1283,7 +1283,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Application Environment Verification](https://github.com/fingerprintjs/aev) | Android library and API to verify the safety of user devices, detect rooted devices and other risks | apiKey | True | yes |
+Pippo| [Application Environment Verification](https://github.com/fingerprintjs/aev) | Android library and API to verify the safety of user devices, detect rooted devices and other risks | apiKey | True | yes |
 | [BinaryEdge](https://docs.binaryedge.io/api-v2.html) | Provide access to BinaryEdge 40fy scanning platform | apiKey | True | yes |
 | [BitWarden](https://bitwarden.com/help/api/) | Best open-source password manager | OAuth | True | unknown |
 | [Botd](https://github.com/fingerprintjs/botd) | Botd is a browser library for JavaScript bot detection | apiKey | True | yes |
@@ -1326,7 +1326,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Best Buy](https://bestbuyapis.github.io/api-documentation/#overview) | Products, Buying Options, Categories, Recommendations, Stores and Commerce | apiKey | True | unknown |
+Pippo| [Best Buy](https://bestbuyapis.github.io/api-documentation/#overview) | Products, Buying Options, Categories, Recommendations, Stores and Commerce | apiKey | True | unknown |
 | [Digi-Key](https://www.digikey.com/en/resources/api-solutions) | Retrieve price and inventory of electronic components as well as place orders | OAuth | True | unknown |
 | [Dummy Products](https://dummyproducts-api.herokuapp.com/) | An api to fetch dummy e-commerce products JSON data with placeholder images | apiKey | True | yes |
 | [eBay](https://developer.ebay.com/) | Sell and Buy on eBay | OAuth | True | unknown |
@@ -1345,7 +1345,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [4chan](https://github.com/4chan/4chan-API) | Simple image-based bulletin board dedicated to a variety of topics |  | True | yes |
+Pippo| [4chan](https://github.com/4chan/4chan-API) | Simple image-based bulletin board dedicated to a variety of topics |  | True | yes |
 | [Ayrshare](https://www.ayrshare.com) | Social media APIs to post, get analytics, and manage multiple users social media accounts | apiKey | True | yes |
 | [aztro](https://aztro.sameerkumar.website/) | Daily horoscope info for yesterday, today, and tomorrow |  | True | unknown |
 | [Blogger](https://developers.google.com/blogger/) | The Blogger APIs allows client applications to view and update Blogger content | OAuth | True | unknown |
@@ -1390,7 +1390,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [API-FOOTBALL](https://www.api-football.com/documentation-v3) | Get information about Football Leagues & Cups | apiKey | True | yes |
+Pippo| [API-FOOTBALL](https://www.api-football.com/documentation-v3) | Get information about Football Leagues & Cups | apiKey | True | yes |
 | [ApiMedic](https://apimedic.com/) | ApiMedic offers a medical symptom checker API primarily for patients | apiKey | True | unknown |
 | [balldontlie](https://www.balldontlie.io) | Balldontlie provides access to stats data from the NBA |  | True | yes |
 | [Canadian Football League (CFL)](http://api.cfl.ca/) | Official JSON API providing real-time league, team and player statistics about the CFL | apiKey | True | no |
@@ -1429,7 +1429,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Bacon Ipsum](https://baconipsum.com/json-api/) | A Meatier Lorem Ipsum Generator |  | True | unknown |
+Pippo| [Bacon Ipsum](https://baconipsum.com/json-api/) | A Meatier Lorem Ipsum Generator |  | True | unknown |
 | [Dicebear Avatars](https://avatars.dicebear.com/) | Generate random pixel-art avatars |  | True | no |
 | [English Random Words](https://random-words-api.vercel.app/word) | Generate English Random Words with Pronunciation |  | True | no |
 | [FakeJSON](https://fakejson.com) | Service to generate test and fake data | apiKey | True | yes |
@@ -1459,7 +1459,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Code Detection API](https://codedetectionapi.runtime.dev) | Detect, label, format and enrich the code in your app or in your data pipeline | OAuth | True | unknown |
+Pippo| [Code Detection API](https://codedetectionapi.runtime.dev) | Detect, label, format and enrich the code in your app or in your data pipeline | OAuth | True | unknown |
 | [apilayer languagelayer](https://languagelayer.com/) | Language Detection JSON API supporting 173 languages | OAuth | True | unknown |
 | [Aylien Text Analysis](https://docs.aylien.com/textapi/#getting-started) | A collection of information retrieval and natural language APIs | apiKey | True | unknown |
 | [Cloudmersive Natural Language Processing](https://www.cloudmersive.com/nlp-api) | Natural language processing and text analysis | apiKey | True | yes |
@@ -1479,7 +1479,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Aftership](https://developers.aftership.com/reference/quick-start) | API to update, manage and track shipment efficiently | apiKey | True | yes |
+Pippo| [Aftership](https://developers.aftership.com/reference/quick-start) | API to update, manage and track shipment efficiently | apiKey | True | yes |
 | [Correios](https://cws.correios.com.br/ajuda) | Integration to provide information and prepare shipments using Correio's services | apiKey | True | unknown |
 | [Pixela](https://pixe.la) | API for recording and tracking habits or effort, routines | X-Mashape-Key | True | yes |
 | [PostalPinCode](http://www.postalpincode.in/Api-Details) | API for getting Pincode details in India |  | True | unknown |
@@ -1493,7 +1493,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [ADS-B Exchange](https://www.adsbexchange.com/data/) | Access real-time and historical data of any and all airborne aircraft |  | True | unknown |
+Pippo| [ADS-B Exchange](https://www.adsbexchange.com/data/) | Access real-time and historical data of any and all airborne aircraft |  | True | unknown |
 | [airportsapi](https://airport-web.appspot.com/api/docs/) | Get name and website-URL for airports by ICAO code |  | True | unknown |
 | [AIS Hub](http://www.aishub.net/api) | Real-time data of any marine and inland vessel equipped with AIS tracking system | apiKey | False | unknown |
 | [Amadeus for Developers](https://developers.amadeus.com/self-service) | Travel Search - Limited usage | OAuth | True | unknown |
@@ -1567,7 +1567,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [1pt](https://github.com/1pt-co/api/blob/main/README.md) | A simple URL shortener |  | True | yes |
+Pippo| [1pt](https://github.com/1pt-co/api/blob/main/README.md) | A simple URL shortener |  | True | yes |
 | [Bitly](http://dev.bitly.com/get_started.html) | URL shortener and link management | OAuth | True | unknown |
 | [CleanURI](https://cleanuri.com/docs) | URL shortener service |  | True | yes |
 | [ClickMeter](https://support.clickmeter.com/hc/en-us/categories/201474986) | Monitor, compare and optimize your marketing links | apiKey | True | unknown |
@@ -1591,7 +1591,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [Brazilian Vehicles and Prices](https://deividfortuna.github.io/fipe/) | Vehicles information from Fundação Instituto de Pesquisas Econômicas - Fipe |  | True | no |
+Pippo| [Brazilian Vehicles and Prices](https://deividfortuna.github.io/fipe/) | Vehicles information from Fundação Instituto de Pesquisas Econômicas - Fipe |  | True | no |
 | [Helipaddy sites](https://helipaddy.com/api/) | Helicopter and passenger drone landing site directory, Helipaddy data and much more | apiKey | True | unknown |
 | [Kelley Blue Book](http://developer.kbb.com/#!/data/1-Default) | Vehicle info, pricing, configuration, plus much more | apiKey | True | no |
 | [Mercedes-Benz](https://developer.mercedes-benz.com/apis) | Telematics data, remotely access vehicle functions, car configurator, locate service dealers | apiKey | True | no |
@@ -1602,7 +1602,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [An API of Ice And Fire](https://anapioficeandfire.com/) | Game Of Thrones API |  | True | unknown |
+Pippo| [An API of Ice And Fire](https://anapioficeandfire.com/) | Game Of Thrones API |  | True | unknown |
 | [Bob's Burgers](https://bobs-burgers-api-ui.herokuapp.com) | Bob's Burgers API |  | True | yes |
 | [Breaking Bad](https://breakingbadapi.com/documentation) | Breaking Bad API |  | True | unknown |
 | [Breaking Bad Quotes](https://github.com/shevabam/breaking-bad-quotes) | Some Breaking Bad quotes |  | True | unknown |
@@ -1650,7 +1650,7 @@
 
 | API | Description | Auth | HTTPS | Cors |
 | --- | --- | --- | --- | --- |
-| [7Timer!](http://www.7timer.info/doc.php?lang=en) | Weather, especially for Astroweather |  | False | unknown |
+Pippo| [7Timer!](http://www.7timer.info/doc.php?lang=en) | Weather, especially for Astroweather |  | False | unknown |
 | [AccuWeather](https://developer.accuweather.com/apis) | Weather and forecast data | apiKey | False | unknown |
 | [Aemet](https://opendata.aemet.es/centrodedescargas/inicio) | Weather and forecast data from Spain | apiKey | True | unknown |
 | [apilayer weatherstack](https://weatherstack.com/) | Real-Time & Historical World Weather Data API | apiKey | True | unknown |
