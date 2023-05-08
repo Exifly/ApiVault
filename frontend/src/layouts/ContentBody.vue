@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 col-lg-12 col-md-12">
           <slot name="heroAreaContent"></slot>
-          <h1 class="text-wrapper mb-3 element">TRENDING</h1>
+          <h1 id="title-trending" class="text-wrapper mb-3">TRENDING</h1>
           <div class="trend-container mb-5">
             <TrendCategory
               v-for="category in trendCategoriesList"
@@ -122,6 +122,10 @@ onMounted(async () => {
   .trend-container {
     display: none;
   }
+
+  #title-trending{
+    display: none;
+  }
   
 }
 
@@ -132,7 +136,9 @@ onMounted(async () => {
     margin-top: 7vw;
   }
 }
+
 @media only screen 
+    and (max-width: 600px)
     and (device-width: 390px) 
     and (device-height: 844px) 
     and (-webkit-device-pixel-ratio: 3) {
