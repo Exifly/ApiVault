@@ -15,7 +15,7 @@ services:
         aliases:
           - apivault_network
 
-    command: bash -c "/bin/bash /code/docker/start.sh"
+    command: "python3 /code/docker/start_server.py"
     ports:
       - "5001:5001"
 
