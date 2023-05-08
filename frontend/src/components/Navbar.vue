@@ -2,8 +2,7 @@
   <nav class="glass-nav navbar-custom navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <router-link to="/" class="navbar-text-wrapper navbar-brand">
-        <img :src="logoPath" alt="" width="30" height="30" />
-        APIVault
+        <img :src="logoPath" alt="" width="150" />
       </router-link>
       <button
         class="navbar-toggler"
@@ -147,7 +146,7 @@ const themeIcons = {
 }
 const iconTheme = ref(themeIcons[theme.value]);
 const iconThemeText = ref(theme.value[0].toUpperCase() + theme.value.slice(1, theme.value.length) + " Mode");
-const logoPath = ref(`/img/apivault-${theme.value}-nobg.png`);
+const logoPath = ref(`/img/apivault-full-${theme.value}-nobg.png`);
 
 /**
 
@@ -169,7 +168,7 @@ const setMode = () => {
   document.querySelector("body")?.setAttribute("data-theme", theme.value);
   iconThemeText.value = themeText;
   iconTheme.value = themeIcons[theme.value];
-  logoPath.value = `/img/apivault-${theme.value}-nobg.png`;
+  logoPath.value = `/img/apivault-full-${theme.value}-nobg.png`;
 };
 
 /**
@@ -197,6 +196,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -207,8 +208,8 @@ onMounted(() => {
 }
 
 .navbar-custom {
+  margin-left: 10px;
   background-color: var(--bg-color);
-  width: 100vw;
 }
 
 .navbar-text-wrapper {

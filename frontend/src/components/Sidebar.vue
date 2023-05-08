@@ -116,7 +116,7 @@ onMounted(async () => {
 .custom-props {
   background-color: var(--bg-color);
   position: fixed;
-  margin-top: 8vh;
+  margin-top: 10vh;
   height: 100vh;
   width: 20vw;
   font-size: 15px;
