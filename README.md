@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-![screenshot](./assets/hero-apivaulot.jpg)
+![screenshot](./assets/Hero.png)
 
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
