@@ -89,6 +89,12 @@ onMounted(async () => {
   flex-direction: column;
   justify-content: center;
 }
+.container {
+  padding-right: 15px;
+  padding-left: 2px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .flex-child {
   flex-direction: column;
