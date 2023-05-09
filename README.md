@@ -116,6 +116,10 @@ Thanks go to these wonderful people ✨:
       <td align="center"><a href="https://github.com/tarunsamanta2k20"><img src="https://avatars.githubusercontent.com/u/55488549?v=4" width="100px;" alt="Tarun Samanta"/><br /><sub><b>Tarun Samanta
 </b></sub></a><br />🥳</td>
     </tr>
+    <tr>
+       <td align="center"><a href="https://github.com/realrohitgurav"><img src="https://avatars.githubusercontent.com/u/110970889?v=4" width="100px;" alt="Rohit Gurav"/><br /><sub><b>Rohit Gurav
+</b></sub></a><br />🥳</td>
+    </tr>
   </tbody>
 </table>
 
