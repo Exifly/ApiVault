@@ -213,7 +213,7 @@ onMounted(() => {
 }
 
 .navbar-text-wrapper {
-  color: var(--text-color) !important;
+  color: #e7e7e7 !important;
   text-decoration: none;
   padding: .3rem .2rem; 
   border-radius: 5px;
