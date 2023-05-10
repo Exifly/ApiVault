@@ -45,7 +45,7 @@
         <li class="sidebar-text-wrapper mt-2 category-custom">
           <router-link
             class="flex items-center gap-2 px-2"
-            style="text-decoration: none;"
+            style="text-decoration: none"
             to="/contributors"
           >
             <font-awesome-icon
@@ -79,10 +79,14 @@
           </li>
           <hr />
           <li class="sidebar-heading">INFO</li>
-          <li class="sidebar-text-wrapper mt-2 category-custom">
+          <li
+            class="sidebar-text-wrapper sidebar-info-text mt-2 category-custom"
+          >
             API Fetched: <b>{{ api.count }}</b>
           </li>
-          <li class="sidebar-text-wrapper mt-2 category-custom">
+          <li
+            class="sidebar-text-wrapper sidebar-info-text mt-2 category-custom"
+          >
             N. Categories: <b>{{ categoriesAttributes.length }}</b>
           </li>
         </ul>
@@ -129,12 +133,15 @@ onMounted(async () => {
 .sidebar-text-wrapper {
   color: var(--text-color) !important;
   text-decoration: none;
-  padding: .4rem .2rem;
 }
 
+.sidebar-info-text {
+  padding: 0.4rem 0.2rem;
+}
 .sidebar-text-wrapper a {
   color: var(--text-color-hover) !important;
   text-decoration: none;
+  padding: 0.4rem 0.2rem;
 }
 
 .sidebar-text-wrapper:hover {
@@ -142,7 +149,6 @@ onMounted(async () => {
   background-color: var(--bg-card-glass-hover);
   cursor: pointer;
   border-radius: 5px;
-  
 }
 
 .sidebar-heading {
