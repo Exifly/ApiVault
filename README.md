@@ -119,6 +119,8 @@ Thanks go to these wonderful people ✨:
     <tr>
        <td align="center"><a href="https://github.com/realrohitgurav"><img src="https://avatars.githubusercontent.com/u/110970889?v=4" width="100px;" alt="Rohit Gurav"/><br /><sub><b>Rohit Gurav
 </b></sub></a><br />🥳</td>
+       <td align="center"><a href="https://github.com/Badrnyali"><img src="https://avatars.githubusercontent.com/u/71897147?v=4" width="100px;" alt="Badrnyali"/><br /><sub><b>Badrnyali
+         </b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
