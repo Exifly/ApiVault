@@ -69,6 +69,7 @@ This software uses the following open source packages:
 ### Tools 🔧
 - [VueRouter](https://router.vuejs.org/)
 - [GSAP](https://greensock.com/gsap/)
+- [public-apis](https://github.com/public-apis/public-apis) (a portion of our data)
 
 ## Contributing 
 
