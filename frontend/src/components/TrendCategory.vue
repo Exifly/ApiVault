@@ -10,7 +10,7 @@
 .trend-category-container {
   align-self: center;
   border-radius: 4px;
-  background: var(--bg-card-attribute);
+  background: var(--bg-trending-category);
   color: var(--card-attribute-color);
   margin-left: 0;
   margin-right: 1vw;
@@ -38,7 +38,7 @@ p {
 @media only screen and (max-width: 600px) {
   .trend-category-container {
     border-radius: 4px;
-    background: var(--bg-card-attribute);
+    background: var(--bg-trending-category);
     color: var(--card-attribute-color);
     margin-left: 0;
     margin-right: 4vw;
