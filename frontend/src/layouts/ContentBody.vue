@@ -16,11 +16,11 @@
                 style="text-decoration: none"
               >
                 <font-awesome-icon
-                  class="me-1 icon-color"
+                  class="me-2 icon-color"
                   width="12"
                   height="12"
                   :icon="categoryMap[category.category_name]"
-                />{{ category.category_name }} 
+                />{{ category.category_name }}
                 <span class="api_count">({{ category.api_count }})</span>
               </router-link>
             </TrendCategory>
@@ -71,8 +71,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-
-.api_count{
+.api_count {
   color: #8b8b8b;
 }
 .trend-container {
@@ -129,10 +128,9 @@ onMounted(async () => {
     display: none;
   }
 
-  #title-trending{
+  #title-trending {
     display: none;
   }
-  
 }
 
 @media (min-width: 1581px) {
@@ -143,14 +141,9 @@ onMounted(async () => {
   }
 }
 
-@media only screen 
-    and (max-width: 600px)
-    and (device-width: 390px) 
-    and (device-height: 844px) 
-    and (-webkit-device-pixel-ratio: 3) {
-      .element {
-          display: none;
-        }
-     }
-
+@media only screen and (max-width: 600px) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .element {
+    display: none;
+  }
+}
 </style>
