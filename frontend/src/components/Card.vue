@@ -1,17 +1,24 @@
 <template>
   <div class="glass-card card h-100">
     <div class="card-header-wrapper">
+      <div class="card-header-column">
+        <div class="text-wrapper text-wrapper-header-card mb-2">
+          {{ title }}
+        </div>
+        <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
+          <font-awesome-icon
+            class="mx-2"
+            width="12"
+            height="12"
+            :icon="cat"
+          />{{ subtitle }}
+        </h6>
+      </div>
       <div class="logo-container">
         <FaviconCardApi :url="getFavicon(faviconSrc, 128)" />
       </div>
-      <div class="text-wrapper text-wrapper-header-card">{{ title }}</div>
     </div>
-    <div class="card-body mt-3">
-      <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
-        <font-awesome-icon class="mx-2" width="12" height="12" :icon="cat" />{{
-          subtitle
-        }}
-      </h6>
+    <div class="card-body">
       <p class="text-wrapper card-text-wrapper card-text">
         {{ body }}
       </p>
@@ -19,7 +26,8 @@
     <div class="card-body attributes-container">
       <CardAttributes v-if="isNullProp">
         <font-awesome-icon
-          class="me-1"
+          id="icon1"
+          class="me-1 icon-color"
           width="12"
           height="12"
           :icon="['fas', 'check']"
@@ -27,15 +35,22 @@
       </CardAttributes>
       <CardAttributes>
         <font-awesome-icon
-          class="me-1"
+          id="icon2"
+          class="me-1 icon-color"
           width="12"
           height="12"
           :icon="['fas', 'check']"
         />{{ props.HTTPS ? "HTTP" : "HTTPS" }}</CardAttributes
       >
-      <CardAttributes v-if="props.auth !== ''">{{
-        props.auth !== "" ? `Auth: ${props.auth}` : null
-      }}</CardAttributes>
+      <CardAttributes v-if="props.auth !== ''">
+        <font-awesome-icon
+          id="icon2"
+          class="me-1 icon-color"
+          width="12"
+          height="12"
+          :icon="['fas', 'check']"
+        />{{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
+      >
     </div>
   </div>
 </template>
@@ -116,24 +131,45 @@ onMounted(() => {
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
   border-radius: 12px;
-  border: 1px solid var(--border-color-cards);
+  /* border: 1px solid var(--border-color-cards); */
+}
+
+.logo-container {
+  align-self: center;
+}
+
+#icon1,
+#icon2 {
+  color: var(--text-color) !important;
 }
 
 .text-wrapper-header-card {
-  align-self: center;
+  /* align-self: center; */
   font-weight: 600;
   font-size: 20px;
   margin-left: 0.3vw;
 }
 
+.text-body-secondary {
+  font-weight: 600;
+}
+
 .card-text-wrapper {
-  font-size: 12.4px;
+  font-size: 17.4px;
 }
 
 .card-header-wrapper {
-  border-bottom: 0.3px solid gray;
+  /* border-bottom: 0.3px solid gray; */
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-bottom: 0;
+}
+
+.card-header-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .attributes-container {
@@ -147,7 +183,7 @@ onMounted(() => {
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
     border-radius: 12px;
-    border: 1px solid var(--border-color-cards);
+    /* border: 1px solid var(--border-color-cards); */
   }
 }
 
@@ -157,16 +193,19 @@ onMounted(() => {
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
     border-radius: 12px;
-    border: 1px solid var(--border-color-cards);
+    /* border: 1px solid var(--border-color-cards); */
   }
 }
 
 @media only screen and (max-width: 600px) {
   .text-wrapper-header-card {
-    align-self: center;
     font-weight: 600;
     font-size: 20px;
-    margin-left: 3.3vw;
+    margin-left: 2vw;
+  }
+  .card-text-wrapper {
+    font-size: 17.4px;
+    margin-left: 2vw;
   }
 }
 
