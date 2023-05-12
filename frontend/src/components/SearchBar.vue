@@ -85,25 +85,69 @@ onMounted(async () => {
 }
 
 label {
+  --search-radius: 16px;
+  --border-width: 2px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
   align-self: center;
   align-items: center;
-  border-radius: 16px;
+  border-radius: var(--search-radius);
+  border: 1px solid transparent;
   background-color: var(--bg-input-field);
   color: #6c757d;
   cursor: text;
   display: grid;
   grid-template: 1fr / auto 1fr;
   gap: 12px;
-  width: 95%;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+label::before {
+  content: "";
+  height: 1200px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--bg-input-field), #fe332f);
+  position: absolute;
+  z-index: -2;
+  animation: borderGradient 3.5s linear infinite;
+}
+
+label::after {
+  content: "";
+  height: calc(100% - var(--border-width));
+  width: calc(100% - var(--border-width));
+  background: var(--bg-input-field);
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: -1;
+  border-radius: calc(var(--search-radius) - var(--border-width));
 }
 
 label:focus-within {
-  border: 0.5px solid var(--icon-color);
+  border: 1px solid var(--icon-color);
+}
+
+label:focus-within::before,
+label:focus-within::after {
+  opacity: 0;
 }
 
 label > input {
   outline: none;
   border: none;
   background: transparent;
+}
+
+@keyframes borderGradient {
+  0% {
+    transform: rotateZ(1deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 </style>
