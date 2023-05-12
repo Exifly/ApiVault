@@ -10,8 +10,6 @@
 .category-container {
   align-self: center;
   border-radius: 4px;
-  border: 1px solid;
-  border-color: var(--card-attribute-color);
   background: var(--bg-card-attribute);
   color: var(--card-attribute-color);
   margin-left: 0;
@@ -29,8 +27,6 @@ p {
 @media only screen and (max-width: 600px) {
   .category-container {
     border-radius: 4px;
-    border: 1px solid;
-    border-color: var(--card-attribute-color);
     background: var(--bg-card-attribute);
     color: var(--card-attribute-color);
     margin-left: 0;
