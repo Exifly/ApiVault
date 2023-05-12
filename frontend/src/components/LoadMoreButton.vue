@@ -5,7 +5,7 @@
 <style scoped>
 .load-more-button {
   background: var(--bg-card-glass);
-  color: var(--card-attribute-color);
+  color: var(--text-color);
   border: 1px solid var(--border-color-cards);
   border-radius: 12px;
   font-weight: 600;
