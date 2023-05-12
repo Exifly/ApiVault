@@ -26,10 +26,7 @@ const props = defineProps({
   width: 48px;
   height: 48px;
   align-self: center;
-  margin-bottom: -13px;
-  margin-top: 12px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .favicon-api {
@@ -40,8 +37,6 @@ const props = defineProps({
     width: 48px;
     height: 48px;
     align-self: center;
-    margin-bottom: -13px;
-    margin-top: 12px;
   }
 }
 </style>
