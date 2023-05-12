@@ -13,14 +13,15 @@
   --bg-card-glass: #1d1d1d;
   --bg-card-glass-hover: #343434;
   --bg-input-field: #212329;
+  --bg-card-attribute: #72eb3a08;
+  --bg-trending-category: #4d4d4d33;
   --icon-color: white;
   --border-color-cards: rgba(255, 255, 255, 0.125);
   --nav-color: #1a1a1a;
   --text-color: #e7e7e7;
   --text-color-hover: #f2f2f2;
   --hr-color: #919191;
-  --card-attribute-color: rgb(245, 245, 245);
-  --bg-card-attribute: rgb(77 77 77 / 20%);
+  --card-attribute-color: #71e33c;
   --nav-item-hover:#f0f0f0;
 }
 
@@ -30,14 +31,15 @@
   --bg-card-glass: #ffffff;
   --bg-card-glass-hover: rgba(236, 236, 236, 0.916);
   --bg-input-field: #ededed;
+  --bg-card-attribute: #72eb3a08;
+  --bg-trending-category: #4d4d4d14;
   --icon-color: black;
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;
   --text-color: #000000;
   --text-color-hover: #313131;
   --hr-color: #454545;
-  --card-attribute-color: rgb(31, 31, 31);
-  --bg-card-attribute: rgb(77 77 77 / 20%);
+  --card-attribute-color: #226d00;
   --nav-item-hover: #000;
 }
 
