@@ -1,6 +1,6 @@
 <template>
-  <div class="search-bar text-black">
-    <label
+  <div class="search-bar text-black ">
+    <label class="animation-box"
       ><font-awesome-icon
         class="icon-color"
         :icon="['fas', 'magnifying-glass']"
@@ -8,7 +8,7 @@
       />
       <input
         v-model="apiInputSearch"
-        class="input-bar"
+        class="input-bar "
         type="search"
         placeholder="Search"
       />
@@ -83,6 +83,33 @@ onMounted(async () => {
   margin-bottom: 0vh;
   height: 6vh;
 }
+
+.animation-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #0000;
+  border-radius: 16px;
+  background: linear-gradient(#060606, #060606) padding-box, linear-gradient(
+        var(--angle),
+       #e02b0b,#fe957d,#ffffff,#fe957d,#e02b0b,#fe957d
+      ) border-box;
+  animation: 2s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 
 label {
   align-self: center;
