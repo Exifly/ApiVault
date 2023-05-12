@@ -155,7 +155,7 @@ onMounted(() => {
 }
 
 .card-text-wrapper {
-  font-size: 17.4px;
+  font-size: 15px;
 }
 
 .card-header-wrapper {
@@ -204,7 +204,7 @@ onMounted(() => {
     margin-left: 2vw;
   }
   .card-text-wrapper {
-    font-size: 17.4px;
+    font-size: 15px;
     margin-left: 2vw;
   }
 }
