@@ -146,7 +146,6 @@ onMounted(() => {
 }
 
 .text-wrapper-header-card {
-  /* align-self: center; */
   font-weight: 600;
   font-size: 20px;
   margin-left: 0.3vw;
@@ -161,7 +160,6 @@ onMounted(() => {
 }
 
 .card-header-wrapper {
-  /* border-bottom: 0.3px solid gray; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -185,7 +183,6 @@ onMounted(() => {
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
     border-radius: 12px;
-    /* border: 1px solid var(--border-color-cards); */
   }
 }
 
@@ -195,7 +192,6 @@ onMounted(() => {
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
     border-radius: 12px;
-    /* border: 1px solid var(--border-color-cards); */
   }
 }
 
