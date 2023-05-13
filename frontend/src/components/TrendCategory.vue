@@ -18,6 +18,8 @@
   min-width: 3rem;
   max-width: 12rem;
   justify-content: center;
+  border: 1px solid var(--border-color-cards);
+
 }
 
 .trend-category-container p {
@@ -46,6 +48,7 @@ p {
     margin-bottom: 6px;
     justify-content: center;
     width: 20vw;
+    border: 1px solid var(--border-color-cards);
   }
 }
 </style>

@@ -131,7 +131,7 @@ onMounted(() => {
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
   border-radius: 12px;
-  /* border: 1px solid var(--border-color-cards); */
+  border: 1px solid var(--border-color-cards);
   transition-property: scale, background-color;
   transition: 0.3s ease !important;
 }
