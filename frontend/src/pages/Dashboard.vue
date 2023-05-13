@@ -33,7 +33,13 @@
             </a>
           </div>
         </div>
-        <LoadMoreButton v-if="showLoadMore" @click="handleLoadMore" />
+        <div class="row mt-4">
+          <LoadMoreButton
+            v-if="showLoadMore"
+            @click="handleLoadMore"
+            :isLoading="isLoadingState"
+          />
+        </div>
       </template>
       <template #footerArea>
         <Footer />
@@ -55,6 +61,7 @@ import Hero from "@/components/Hero.vue";
 import LoadMoreButton from "@/components/LoadMoreButton.vue";
 import getApiData from "@/components/api/randomApis.js";
 import LoadingEffect from "@/components/LoadingEffect.vue";
+import { set } from "@vueuse/core";
 
 let apiData = ref(null);
 let apiSearched = ref(null);
@@ -62,6 +69,7 @@ let categorySearched = reactive({
   category: null,
 });
 let isLoading = ref(true);
+let isLoadingState = ref(false);
 let showList = ref(true);
 let hasMoreData = ref(true);
 
@@ -90,19 +98,23 @@ const showLoadMore = computed(() => {
 });
 
 const handleLoadMore = async () => {
-  const newData = await getApiData();
+  isLoadingState.value = true;
+  setTimeout(async () => {
+    const newData = await getApiData();
+    const filteredData = newData.filter((newItem) => {
+      return !apiData.value.some(
+        (existingItem) => existingItem.Link === newItem.Link
+      );
+    });
 
-  const filteredData = newData.filter((newItem) => {
-    return !apiData.value.some(
-      (existingItem) => existingItem.Link === newItem.Link
-    );
-  });
-
-  if (filteredData.length === 0) {
-    hasMoreData.value = false;
-  } else {
-    apiData.value = [...apiData.value, ...filteredData];
-  }
+    if (filteredData.length === 0) {
+      hasMoreData.value = false;
+      isLoadingState.value = false;
+    } else {
+      apiData.value = [...apiData.value, ...filteredData];
+      isLoadingState.value = false;
+    }
+  }, 200);
 };
 
 onMounted(async () => {
