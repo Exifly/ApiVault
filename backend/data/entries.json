@@ -8407,6 +8407,15 @@
          "Category": "News"
       },
       {
+         "API": "MaaS | Musk as a Service",
+         "Description": " API to fetch random news articles which mention Elon Musk",
+         "Auth": "",
+         "HTTPS": true,
+         "Cors": "no",
+         "Link": "https://elonmu.sh/api",
+         "Category": "News"
+      },
+      {
          "API": "New York Times",
          "Description": "The New York Times Developer Network",
          "Auth": "apiKey",
