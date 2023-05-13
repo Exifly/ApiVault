@@ -10,9 +10,7 @@
 .trend-category-container {
   align-self: center;
   border-radius: 4px;
-  border: 1px solid;
-  border-color: var(--card-attribute-color);
-  background: var(--bg-card-attribute);
+  background: var(--bg-trending-category);
   color: var(--card-attribute-color);
   margin-left: 0;
   margin-right: 1vw;
@@ -20,6 +18,8 @@
   min-width: 3rem;
   max-width: 12rem;
   justify-content: center;
+  border: 1px solid var(--border-color-cards);
+
 }
 
 .trend-category-container p {
@@ -40,9 +40,7 @@ p {
 @media only screen and (max-width: 600px) {
   .trend-category-container {
     border-radius: 4px;
-    border: 1px solid;
-    border-color: var(--card-attribute-color);
-    background: var(--bg-card-attribute);
+    background: var(--bg-trending-category);
     color: var(--card-attribute-color);
     margin-left: 0;
     margin-right: 4vw;
@@ -50,6 +48,7 @@ p {
     margin-bottom: 6px;
     justify-content: center;
     width: 20vw;
+    border: 1px solid var(--border-color-cards);
   }
 }
 </style>

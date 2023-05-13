@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-![screenshot](./assets/hero-apivaulot.jpg)
+![screenshot](./assets/Hero.png)
 
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
@@ -69,6 +69,7 @@ This software uses the following open source packages:
 ### Tools 🔧
 - [VueRouter](https://router.vuejs.org/)
 - [GSAP](https://greensock.com/gsap/)
+- [public-apis](https://github.com/public-apis/public-apis) (a portion of our data)
 
 ## Contributing 
 
@@ -111,8 +112,16 @@ Thanks go to these wonderful people ✨:
 "/><br /><sub><b>James Francis
 </b></sub></a><br />🥳</td>
       <td align="center"><a href="https://github.com/MOHDNEHALKHAN"><img src="https://avatars.githubusercontent.com/u/125626654?v=4" width="100px;" alt="MOHD NEHAL KHAN
-"/><br /><sub><b>MOHD NEHAL KHAN
+"/><br /><sub><b>MOHD NEHAL
 </b></sub></a><br />🥳</td>
+      <td align="center"><a href="https://github.com/tarunsamanta2k20"><img src="https://avatars.githubusercontent.com/u/55488549?v=4" width="100px;" alt="Tarun Samanta"/><br /><sub><b>Tarun Samanta
+</b></sub></a><br />🥳</td>
+    </tr>
+    <tr>
+       <td align="center"><a href="https://github.com/realrohitgurav"><img src="https://avatars.githubusercontent.com/u/110970889?v=4" width="100px;" alt="Rohit Gurav"/><br /><sub><b>Rohit Gurav
+</b></sub></a><br />🥳</td>
+       <td align="center"><a href="https://github.com/Badrnyali"><img src="https://avatars.githubusercontent.com/u/71897147?v=4" width="100px;" alt="Badrnyali"/><br /><sub><b>Badrnyali
+         </b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>

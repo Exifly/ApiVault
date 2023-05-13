@@ -34,13 +34,17 @@
           <li class="nav-item navbar-text-wrapper mt-2">
             <a
               class="navbar-text-wrapper flex items-center gap-2"
-              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
+              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&projects=&template=add-your-api.md&title=%5BAPIFT%5D+Submit+new+API"
+              target="_blank"
             >
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
           <li class="nav-item navbar-text-wrapper mt-2">
-            <a @click="setMode()" class="navbar-text-wrapper flex items-center gap-2">
+            <a
+              @click="setMode()"
+              class="navbar-text-wrapper flex items-center gap-2"
+            >
               <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
             </a>
           </li>
@@ -49,7 +53,10 @@
             <div class="d-block d-sm-none">
               <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/">
+                <router-link
+                  class="navbar-text-wrapper flex items-center gap-2"
+                  to="/"
+                >
                   <font-awesome-icon
                     class=""
                     width="12"
@@ -87,7 +94,10 @@
                 >
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/contributors">
+                <router-link
+                  class="navbar-text-wrapper flex items-center gap-2"
+                  to="/contributors"
+                >
                   <font-awesome-icon
                     class=""
                     width="12"
@@ -142,10 +152,14 @@ const theme = inject("theme");
 const categoriesAttributes = inject("categoryMapping");
 const themeIcons = {
   light: "fa-solid fa-sun",
-  dark: "fa-solid fa-moon"
-}
+  dark: "fa-solid fa-moon",
+};
 const iconTheme = ref(themeIcons[theme.value]);
-const iconThemeText = ref(theme.value[0].toUpperCase() + theme.value.slice(1, theme.value.length) + " Mode");
+const iconThemeText = ref(
+  theme.value[0].toUpperCase() +
+    theme.value.slice(1, theme.value.length) +
+    " Mode"
+);
 const logoPath = ref(`/img/apivault-full-${theme.value}-nobg.png`);
 
 /**
@@ -163,7 +177,10 @@ const setMode = () => {
     theme.value = "dark";
     localStorage.setItem("APIVaultTheme", "dark");
   }
-  const themeText = theme.value[0].toUpperCase() + theme.value.slice(1, theme.value.length) + " Mode";
+  const themeText =
+    theme.value[0].toUpperCase() +
+    theme.value.slice(1, theme.value.length) +
+    " Mode";
 
   document.querySelector("body")?.setAttribute("data-theme", theme.value);
   iconThemeText.value = themeText;
@@ -196,8 +213,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -215,7 +230,7 @@ onMounted(() => {
 .navbar-text-wrapper {
   color: var(--text-color) !important;
   text-decoration: none;
-  padding: .3rem .2rem; 
+  padding: 0.3rem 0.2rem;
   border-radius: 5px;
 }
 

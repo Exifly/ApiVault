@@ -24,7 +24,7 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
-        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper"
+        <a href="https://github.com/Exifly/ApiVault/releases/" class="nav-link px-2 text-wrapper"
           >{{packageJson.version}}</a
         >
       </li>

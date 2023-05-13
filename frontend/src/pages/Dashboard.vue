@@ -33,6 +33,13 @@
             </a>
           </div>
         </div>
+        <div class="row mt-4">
+          <LoadMoreButton
+            v-if="showLoadMore"
+            @click="handleLoadMore"
+            :isLoading="isLoadingState"
+          />
+        </div>
       </template>
       <template #footerArea>
         <Footer />
@@ -45,14 +52,16 @@
 import ContentBody from "@/layouts/ContentBody.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref, computed } from "vue";
 import BodyFlex from "@/layouts/BodyFlex.vue";
 import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import Card from "@/components/Card.vue";
 import Hero from "@/components/Hero.vue";
+import LoadMoreButton from "@/components/LoadMoreButton.vue";
 import getApiData from "@/components/api/randomApis.js";
 import LoadingEffect from "@/components/LoadingEffect.vue";
+import { set } from "@vueuse/core";
 
 let apiData = ref(null);
 let apiSearched = ref(null);
@@ -60,7 +69,9 @@ let categorySearched = reactive({
   category: null,
 });
 let isLoading = ref(true);
+let isLoadingState = ref(false);
 let showList = ref(true);
+let hasMoreData = ref(true);
 
 const handleSearch = (val, title) => {
   if (title === undefined) {
@@ -76,6 +87,34 @@ const handleSearch = (val, title) => {
     apiSearched.value = apiData.value;
     showList.value = false;
   }
+};
+
+const showLoadMore = computed(() => {
+  return (
+    hasMoreData.value &&
+    categorySearched.category === "RANDOM" &&
+    !isLoading.value
+  );
+});
+
+const handleLoadMore = async () => {
+  isLoadingState.value = true;
+  setTimeout(async () => {
+    const newData = await getApiData();
+    const filteredData = newData.filter((newItem) => {
+      return !apiData.value.some(
+        (existingItem) => existingItem.Link === newItem.Link
+      );
+    });
+
+    if (filteredData.length === 0) {
+      hasMoreData.value = false;
+      isLoadingState.value = false;
+    } else {
+      apiData.value = [...apiData.value, ...filteredData];
+      isLoadingState.value = false;
+    }
+  }, 200);
 };
 
 onMounted(async () => {
