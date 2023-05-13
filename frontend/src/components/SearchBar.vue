@@ -101,10 +101,9 @@ label {
   grid-template: 1fr / auto 1fr;
   gap: 12px;
   width: 100%;
-  transition: all 0.1s ease-in-out;
 }
 
-label::before {
+label:focus-within::before {
   content: "";
   height: 1200px;
   width: 100%;
@@ -114,7 +113,7 @@ label::before {
   animation: borderGradient 3.5s linear infinite;
 }
 
-label::after {
+label:focus-within::after {
   content: "";
   height: calc(100% - var(--border-width));
   width: calc(100% - var(--border-width));
@@ -125,15 +124,6 @@ label::after {
   position: absolute;
   z-index: -1;
   border-radius: calc(var(--search-radius) - var(--border-width));
-}
-
-label:focus-within {
-  border: 1px solid var(--icon-color);
-}
-
-label:focus-within::before,
-label:focus-within::after {
-  opacity: 0;
 }
 
 label > input {
