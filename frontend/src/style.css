@@ -12,11 +12,11 @@
   --bg-color: #0f0f0f;
   --bg-card-glass: #1d1d1d;
   --bg-card-glass-hover: #343434;
-  --bg-input-field: #212329;
+  --bg-input-field: #1d1d1d;
   --bg-card-attribute: #72eb3a08;
   --bg-trending-category: #4d4d4d33;
   --icon-color: white;
-  --border-color-cards: rgba(255, 255, 255, 0.125);
+  --border-color-cards: rgb(255 255 255 / 6%);
   --nav-color: #1a1a1a;
   --text-color: #e7e7e7;
   --text-color-hover: #f2f2f2;
