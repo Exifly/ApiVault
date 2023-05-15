@@ -5,7 +5,7 @@
         <div class="col-12 col-lg-12 col-md-12">
           <slot name="heroAreaContent"></slot>
           <h1 id="title-trending" class="text-wrapper mb-3">TRENDING</h1>
-          <div class="trend-container mb-5">
+          <div class="trend-container mb-3">
             <TrendCategory
               v-for="category in trendCategoriesList"
               :key="category"
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 mb-5">
+      <div class="col-12 mb-3">
         <slot name="topAreaContent"></slot>
       </div>
     </div>
@@ -74,20 +74,24 @@ onMounted(async () => {
 .api_count {
   color: #8b8b8b;
 }
+
 .trend-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .icon-color {
   color: #ff3130;
 }
+
 .hero {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .container {
   padding-right: 15px;
   padding-left: 2px;
@@ -104,7 +108,7 @@ onMounted(async () => {
 
 .flex-adjust {
   margin-left: 22vw;
-  margin-top: 4vw;
+  margin-top: 1vw;
 }
 
 .sidebar {
@@ -119,6 +123,7 @@ onMounted(async () => {
   .mobile-first {
     display: none;
   }
+
   .flex-adjust {
     margin-left: 0vw;
     margin-top: 8vh;
@@ -137,7 +142,7 @@ onMounted(async () => {
   .flex-adjust {
     margin-left: 26vw;
     margin-right: 8vw;
-    margin-top: 7vw;
+    margin-top: 2vw;
   }
 }
 
