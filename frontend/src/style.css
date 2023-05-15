@@ -29,7 +29,7 @@
   /* Dark/Light mode variables */
   --bg-color: rgb(252, 252, 252);
   --bg-card-glass: #ffffff;
-  --bg-card-glass-hover: rgba(236, 236, 236, 0.916);
+  --bg-card-glass-hover: rgba(219, 219, 219, 0.916);
   --bg-input-field: #ededed;
   --bg-card-attribute: #72eb3a08;
   --bg-trending-category: #4d4d4d14;
