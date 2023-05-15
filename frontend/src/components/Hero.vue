@@ -4,7 +4,7 @@
       <Logo :source="imageSource" height="150" width="150" />
     </div>
     <div class="col-12 col-md-10">
-      <h1 class="text-wrapper page-title mb-4 p-md-5">
+      <h1 class="text-wrapper page-title mb-4 pt-md-5 px-md-5">
         Your Gateway to a World of Public APIs.
         <h5>This tool is completely free and Open-Source!</h5>
       </h1>
@@ -34,9 +34,11 @@ const imageSource = computed(() => {
   justify-content: center;
   text-transform: capitalize;
 }
+
 .page-subtitle {
   color: white;
 }
+
 .glass-card {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
@@ -44,6 +46,7 @@ const imageSource = computed(() => {
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
 }
+
 .hero-card {
   margin-left: 15vw;
   margin-right: 15vw;
@@ -67,6 +70,7 @@ const imageSource = computed(() => {
     margin-bottom: 4vh;
     width: 100%;
   }
+
   .btn-wrapper {
     width: 70%;
     align-self: center;
