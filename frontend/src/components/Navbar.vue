@@ -4,128 +4,61 @@
       <router-link to="/" class="navbar-text-wrapper navbar-brand">
         <img :src="logoPath" alt="" width="150" />
       </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span
-          ><font-awesome-icon
-            :icon="['fas', 'bars']"
-            style="color: var(--text-color)"
-        /></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span><font-awesome-icon :icon="['fas', 'bars']" style="color: var(--text-color)" /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item navbar-text-wrapper mt-2">
-            <a
-              class="navbar-text-wrapper flex items-center gap-2 active"
-              aria-current="page"
-              href="https://github.com/Exifly/ApiVault"
-            >
+            <a class="navbar-text-wrapper flex items-center gap-2 active" aria-current="page"
+              href="https://github.com/Exifly/ApiVault">
               <font-awesome-icon :icon="['fab', 'github']" /> Stars
               {{ github.number.toFixed(0) }}
             </a>
           </li>
           <li class="nav-item navbar-text-wrapper mt-2">
-            <a
-              class="navbar-text-wrapper flex items-center gap-2"
+            <a class="navbar-text-wrapper flex items-center gap-2"
               href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&projects=&template=add-your-api.md&title=%5BAPIFT%5D+Submit+new+API"
-              target="_blank"
-            >
+              target="_blank">
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
-            <a
-              @click="setMode()"
-              class="navbar-text-wrapper flex items-center gap-2"
-            >
-              <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
-            </a>
+          <li class=" navbar-text-wrapper mt-2">
+            <toggle-button @click="setMode()" class="flex items-center gap-2">
+            </toggle-button>
           </li>
           <hr />
           <div id="scrollb" class="scrollbox">
             <div class="d-block d-sm-none">
               <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link
-                  class="navbar-text-wrapper flex items-center gap-2"
-                  to="/"
-                >
-                  <font-awesome-icon
-                    class=""
-                    width="12"
-                    height="12"
-                    icon="fa-solid fa-house"
-                  />Home</router-link
-                >
+                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/">
+                  <font-awesome-icon class="" width="12" height="12" icon="fa-solid fa-house" />Home</router-link>
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <a
-                  class="navbar-text-wrapper flex items-center gap-2"
-                  style="text-decoration: none"
-                  href="https://github.com/Exifly/ApiVault"
-                >
-                  <font-awesome-icon
-                    class=""
-                    width="12"
-                    height="12"
-                    :icon="['fab', 'github']"
-                  />Repository</a
-                >
+                <a class="navbar-text-wrapper flex items-center gap-2" style="text-decoration: none"
+                  href="https://github.com/Exifly/ApiVault">
+                  <font-awesome-icon class="" width="12" height="12" :icon="['fab', 'github']" />Repository</a>
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <a
-                  class="navbar-text-wrapper flex items-center gap-2"
-                  style="text-decoration: none"
-                  href="https://www.buymeacoffee.com/exifly"
-                >
-                  <font-awesome-icon
-                    class=""
-                    width="12"
-                    height="12"
-                    icon="fa-solid fa-hand-holding-dollar"
-                  />Sponsor</a
-                >
+                <a class="navbar-text-wrapper flex items-center gap-2" style="text-decoration: none"
+                  href="https://www.buymeacoffee.com/exifly">
+                  <font-awesome-icon class="" width="12" height="12" icon="fa-solid fa-hand-holding-dollar" />Sponsor</a>
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
-                <router-link
-                  class="navbar-text-wrapper flex items-center gap-2"
-                  to="/contributors"
-                >
-                  <font-awesome-icon
-                    class=""
-                    width="12"
-                    height="12"
-                    icon="fa-solid fa-users"
-                  />Contributors</router-link
-                >
+                <router-link class="navbar-text-wrapper flex items-center gap-2" to="/contributors">
+                  <font-awesome-icon class="" width="12" height="12" icon="fa-solid fa-users" />Contributors</router-link>
               </li>
               <hr />
               <h5 class="navbar-text-wrapper navbar-header-wrapper">
                 CATEGORIES
               </h5>
-              <li
-                class="nav-item navbar-text-wrapper mt-2 category-custom"
-                v-for="category in categoriesAttributes"
-                :key="category"
-              >
-                <router-link
-                  class="navbar-text-wrapper flex items-center gap-2"
-                  :to="'/categories/' + category.name"
-                >
-                  <font-awesome-icon
-                    class=""
-                    width="12"
-                    height="12"
-                    :icon="category.icon"
-                  />{{ category.name }}</router-link
-                >
+              <li class="nav-item navbar-text-wrapper mt-2 category-custom" v-for="category in categoriesAttributes"
+                :key="category">
+                <router-link class="navbar-text-wrapper flex items-center gap-2" :to="'/categories/' + category.name">
+                  <font-awesome-icon class="" width="12" height="12" :icon="category.icon" />{{ category.name
+                  }}</router-link>
               </li>
             </div>
           </div>
@@ -141,6 +74,7 @@ import { CSSPlugin } from "gsap/CSSPlugin";
 import getStars from "@/components/api/githubStarsApi.js";
 import axios from "axios";
 import gsap from "gsap";
+import ToggleButton from './ToggleButton.vue';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -157,8 +91,8 @@ const themeIcons = {
 const iconTheme = ref(themeIcons[theme.value]);
 const iconThemeText = ref(
   theme.value[0].toUpperCase() +
-    theme.value.slice(1, theme.value.length) +
-    " Mode"
+  theme.value.slice(1, theme.value.length) +
+  " Mode"
 );
 const logoPath = ref(`/img/apivault-full-${theme.value}-nobg.png`);
 
@@ -278,9 +212,15 @@ onMounted(() => {
   .glass-nav {
     background-color: var(--bg-color);
   }
+
   .scrollbox {
     overflow: scroll;
     height: 73vh !important;
   }
 }
 </style>
+
+
+
+
+
