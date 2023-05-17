@@ -8,11 +8,6 @@
 
 <script>
 import { ref, computed } from "vue";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faSun, faMoon);
-
 export default {
   setup() {
     const isActive = ref(false);
