@@ -40,13 +40,9 @@
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
-            <a
-              @click="setMode()"
-              class="navbar-text-wrapper flex items-center gap-2"
-            >
-              <font-awesome-icon :icon="iconTheme" /> {{ iconThemeText }}
-            </a>
+          <li class="navbar-text-wrapper mt-2">
+            <toggle-button @click="setMode()" class="flex items-center gap-2">
+            </toggle-button>
           </li>
           <hr />
           <div id="scrollb" class="scrollbox">
@@ -141,6 +137,7 @@ import { CSSPlugin } from "gsap/CSSPlugin";
 import getStars from "@/components/api/githubStarsApi.js";
 import axios from "axios";
 import gsap from "gsap";
+import ToggleButton from "./ToggleButton.vue";
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -278,6 +275,7 @@ onMounted(() => {
   .glass-nav {
     background-color: var(--bg-color);
   }
+
   .scrollbox {
     overflow: scroll;
     height: 73vh !important;
