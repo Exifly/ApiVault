@@ -43,6 +43,7 @@
 [![MIT License][license-shield]][license-url]
 
 # Disclaimer
+### UNDER ACTIVE DEVELOPMENT
 This is the beta version using typescript and Nuxt.js! Please report any issues you found!! Thanks.
 
 <!-- TABLE OF CONTENTS -->
