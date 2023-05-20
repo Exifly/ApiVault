@@ -1,0 +1,58 @@
+version: "3"
+services:
+
+  #---------------------------------------------
+  # The traefik reverse proxy is needed
+  # only in developer mode to handle client
+  # side nuxt requests.
+  #---------------------------------------------
+  traefik:
+    image: "traefik:v2.10"
+    container_name: "traefik"
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+    ports:
+      - "8082:80"
+      - "8083:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      apivault-network:
+        aliases:
+          - apivault-network
+
+  whoami:
+    image: "traefik/whoami"
+    container_name: "traefik-whoami"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
+
+  client:
+    environment:
+      - NUXT_HOST=0.0.0.0
+      - STRAPI_URL=http://server:9001/
+      - API_URL_BROWSER=/api
+    user: node
+    volumes:
+      - .:/code
+    command: sh -c "python3 frontend/docker/start_server.py"
+
+  server:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.server.rule=Host(`server`) && PathPrefix(`/`)"
+      - "traefik.http.routers.server.entrypoints=web"
+      - "traefik.http.services.server.loadbalancer.server.port=9001"
+    command: bash -c "/bin/bash backend/docker/command/start.sh"
+    networks:
+      apivault-network:
+        aliases:
+          - apivault-network
+    

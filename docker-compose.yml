@@ -1,0 +1,89 @@
+version: '3'
+
+networks:
+  apivault-network:
+    name: "apivault-network"
+    driver: bridge
+
+services:
+  #---------------
+  # Postgres DB
+  #---------------
+  database:
+    image: postgis/postgis:15-3.3
+    container_name: database
+    volumes:
+      - ./data-db/db:/var/lib/postgresql/data
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata/
+      - POSTGRES_HOST=db_postgis_apivault
+      - POSTGRES_DB=apivault
+      - POSTGRES_PASSWORD=apivault
+      - POSTGRES_USER=apivault
+    ports:
+      - "5432:5432"
+    networks:
+      apivault-network:
+        aliases:
+          - apivault-network
+
+  #---------------
+  # Backend
+  #---------------
+  server:
+    container_name: server
+    build:
+      context: ./backend
+      # dockerfile: ./docker_prod/Dockerfile
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - DB_ENGINE=django.contrib.gis.db.backends.postgis
+      - DB_HOST=db_postgis_apivault
+      - DB_NAME=apivault
+      - DB_USER=apivault
+      - DB_PASSWORD=apivault
+      - DB_PORT=5432
+      - DEBUG=true
+    depends_on:
+      - database
+    volumes:
+      - .:/code
+    tty: true
+    stdin_open: true
+    networks:
+      apivault-network:
+        aliases:
+          - apivault-network
+
+    # command: python backend/docker/command/start_server.py
+    command: bash -c "/bin/bash docker/command/start.sh"
+    ports:
+      - "9001:9001"
+      - "80:80"
+
+  #--------------
+  # Frontend App
+  #--------------
+  client:
+    container_name: client
+    labels:
+      - "com.host.project=apivault-nuxt"
+    depends_on:
+      - server
+    build:
+      context: ./frontend
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/code
+    tty: true
+    stdin_open: true
+    networks:
+      apivault-network:
+        aliases:
+          - apivault-network
+    command: sh -c "node .output/server/index.mjs"
+    ports:
+      - "8080:3000"
+      - "24678:24678"
+      - "9222:9222"
+      - "5454:5555"

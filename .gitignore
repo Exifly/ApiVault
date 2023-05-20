@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Postgres and config
+config/
+.config/
+data-db
+data-db/
+.data-db/
+
 # C extensions
 *.so
 
@@ -152,3 +159,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
