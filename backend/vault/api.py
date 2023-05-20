@@ -28,6 +28,16 @@ class RandomAPIListView(generics.ListAPIView):
       API view that returns 9 random APIs.
       """
       return sample(list(API.objects.all()), 9)
+   
+
+
+@method_decorator(cache_page(86400), name='get')
+class APIListView(generics.ListAPIView):
+   """
+   List all APIs.
+   """
+   queryset = API.objects.all()
+   serializer_class = APISerializer
 
 
 
@@ -91,5 +101,6 @@ class APIDetailView(RetrieveAPIView):
       api.view_count += 1
       api.save()
       return api
+   
 
 

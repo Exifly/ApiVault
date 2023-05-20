@@ -4,7 +4,8 @@ from vault.api import (
    CategoryAPIListView,
    RandomAPIListView,
    APIDetailView,
-   APICountView
+   APICountView,
+   APIListView
 )
 
 urlpatterns = [
@@ -12,6 +13,8 @@ urlpatterns = [
 
    path('random/', RandomAPIListView.as_view()),
    path('count/', APICountView.as_view()),
+   path('all/', APIListView.as_view()),
+
 
    path('category/<str:category_name>/', CategoryAPIListView.as_view()),
    path('categories/trending/', TrendingCategoriesView.as_view()),

@@ -5,6 +5,7 @@ from vault.models import(
 )
 
 class APISerializer(serializers.ModelSerializer):
+    category = serializers.CharField(source='category.name')
     class Meta:
         model = API
         fields = ('id', 'name', 'auth', 'category', 'cors', 'description', 'https', 'url')
