@@ -117,9 +117,12 @@ $ docker-compose up
 This docker configuration will prepare Server/Client side on the same stack using the same docker network.
 ### Stack screenshot
 ![screenshot](/assets/docker-img/stack-config.png)
+
 It's little bit broken, some errors can appear on your screen blocking the execution, you can found the old **How to** version below this chapter.
-**Note**
-Please open an [Issue]() if you see docker errors! (You can try fix on your own if you want)
+
+**Note**:
+
+Please open an [Issue](https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=) if you see docker errors! (You can try fix on your own if you want)
 
 Now just go on **localhost:8080** from your browser.
 
