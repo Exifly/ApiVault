@@ -7,6 +7,19 @@
 ![screenshot](./assets/Hero.png)
 
 <p align="center">
+    <a href="https://github.com/Exifly/ApiVault/tree/main" alt="Stable">
+        <img src="https://img.shields.io/badge/stable-1.4.0-green?style=for-the-badge" /></a>
+    <a href="https://github.com/Exifly/ApiVault/tree/beta_v2.0.0-b1" alt="Beta">
+        <img src="https://img.shields.io/badge/beta-2.0.0-blue?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/exifly/apivault?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a>
+</p>
+
+<p align="center">
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
   <a href="#support">Support</a> •
@@ -35,12 +48,6 @@
 </div>
 
 <hr />
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 # Disclaimer
 ### UNDER ACTIVE DEVELOPMENT
