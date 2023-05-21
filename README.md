@@ -17,8 +17,10 @@
         <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a>
+    <a href="https://discord.gg/ShqYJynSnq" alt="Discord server">
+        <img src="https://img.shields.io/discord/1105161392463560849?style=for-the-badge
+" /></a>
 </p>
-
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
