@@ -43,6 +43,7 @@
 }
 
 html {
+  color-scheme: light dark;
   background-color: var(--bg-color) !important;
   height: 100%;
 }
