@@ -62,11 +62,10 @@ This is the beta version using typescript and Nuxt.js! Please report any issues 
     <a href="#prerequisites">Prerequisites</a>
   </li>
   <li>
-    <a href="#how-to-use">How to use (NEW) ⚠️</a>
+    <a href="#how-to-use">How to use (NEW)</a>
     <ul>
       <li><a href="#built-with">Set .env file</a></li>
       <li><a href="#how-to-use">Client/Server side using Docker</a></li>
-      <li><a href="#how-to-use">Set server hostname</a></li>
     </ul>
   </li>
   <li>
@@ -110,7 +109,7 @@ Inside /frontend folder rename .env.sample file
 ```bash
 cat .env.sample > .env
 ```
-### Client/Server side using Docker [ ⚠️ : it may be broken ]
+### Client/Server side using Docker
 To run everything using docker you need to be in repo root path and run those commands:
 
 ```bash
@@ -128,26 +127,13 @@ This docker configuration will prepare Server/Client side on the same stack usin
 ### Stack screenshot
 ![screenshot](/assets/docker-img/stack-config.png)
 
-It's little bit broken, some errors can appear on your screen blocking the execution, you can found the old **How to** version below this chapter.
+If errors appear on your screen blocking the execution, you can found the old **How to** version below this chapter.
 
 **Note**:
 
 Please open an [Issue](https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=) if you see docker errors! (You can try fix on your own if you want)
 
-Now just go on **localhost:8080** from your browser.
-
-### Set server hostname
-You probably got a `CONNECTION REFUSED 127.0.0.1:9001` on the frontend. That's because your local environment doesn't know how to resolve `server` hostname (only on Nuxt.js client side).
-
-For now to solve this (as temp workaround), you need to add this entry below your localhost configuration in your **hosts** file.
-```bash
-127.0.0.1     localhost
-127.0.0.1     server
-```
-
-**hosts** file location:
-- on Mac/Linux: `/etc/hosts`
-- on Windows: `C:\Windows\system32\drivers\etc`
+Now just go on **localhost:3000** on your browser.
 
 
 ### Done
