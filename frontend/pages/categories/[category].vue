@@ -21,7 +21,7 @@
             :href="api.url"
             target="_blank"
           >
-            <Card
+            <CardAPI
               :title="api.name"
               :subtitle="api.category"
               :body="api.description"

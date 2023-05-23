@@ -10,7 +10,7 @@
 .trend-category-container {
   align-self: center;
   border-radius: 4px;
-  background: var(--bg-trending-category);
+  background: var(--bg-card-glass);
   color: var(--card-attribute-color);
   margin-left: 0;
   margin-right: 0.4vw;
@@ -18,11 +18,12 @@
   min-width: 3rem;
   max-width: 13rem;
   justify-content: center;
-  border: 1px solid var(--border-color-cards);
+  /* border: 1px solid var(--border-color-cards); */
 }
 
 .trend-category-container p {
   font-size: 16px;
+  padding: 3px;
 }
 
 .trend-category-container:hover {
