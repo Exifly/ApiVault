@@ -47,10 +47,6 @@ defineProps({
   transition: 0.3s ease !important;
 }
 
-.logo-container {
-  align-self: center;
-}
-
 #icon1,
 #icon2 {
   color: var(--text-color) !important;

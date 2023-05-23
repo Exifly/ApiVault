@@ -21,6 +21,7 @@ p {
   font-size: 12px;
   font-weight: 600;
   margin: 0;
+  padding: 3px;
   text-align: center;
 }
 

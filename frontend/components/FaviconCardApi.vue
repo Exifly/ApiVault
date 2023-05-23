@@ -3,7 +3,7 @@
     :src="url"
     class="favicon-api"
     alt="webLogo"
-    style="border-radius: 12px"
+    style="border-radius: 4px"
   />
 </template>
 
@@ -21,7 +21,7 @@ const props = defineProps({
 <style scoped>
 .favicon-api {
   background: var(--bg-color);
-  border-radius: 12px;
+  border-radius: 4px;
   border: 0.01px solid var(--border-color-cards);
   margin-left: 1vw;
   width: 48px;
@@ -32,7 +32,7 @@ const props = defineProps({
 @media only screen and (max-width: 600px) {
   .favicon-api {
     background: var(--bg-color);
-    border-radius: 12px;
+    border-radius: 4px;
     border: 0.01px solid var(--border-color-cards);
     margin-left: 4vw;
     width: 48px;

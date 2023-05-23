@@ -44,7 +44,7 @@
             target="_blank"
             style="text-decoration: none"
           >
-            <Card
+            <CardAPI
               :title="api.name"
               :subtitle="api.category"
               :body="api.description"

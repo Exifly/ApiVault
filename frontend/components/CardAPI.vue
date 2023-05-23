@@ -5,51 +5,36 @@
         <div class="text-wrapper text-wrapper-header-card mb-2">
           {{ title }}
         </div>
-        <h6 class="text-wrapper card-subtitle mb-2 text-body-secondary">
+        <p
+          style="padding: 3px"
+          class="text-wrapper card-subtitle mb-2 pe-2 category-container text-body-secondary"
+        >
           <font-awesome-icon
-            class="mx-2"
+            class="mx-2 icon-color"
             width="12"
             height="12"
             :icon="cat"
           />{{ subtitle }}
-        </h6>
+        </p>
       </div>
-      <div class="logo-container">
+      <div>
         <FaviconCardApi :url="getFavicon(faviconSrc, 128)" />
       </div>
     </div>
-    <div class="card-body">
+    <div class="padding-wrapper card-body">
       <p class="text-wrapper card-text-wrapper card-text">
         {{ body }}
       </p>
     </div>
     <div class="card-body attributes-container">
       <CardAttributes v-if="isNullProp">
-        <font-awesome-icon
-          id="icon1"
-          class="me-1 icon-color"
-          width="12"
-          height="12"
-          :icon="['fas', 'check']"
-        />{{ props.cors ? "CORS" : null }}
+        {{ props.cors ? "CORS" : null }}
       </CardAttributes>
-      <CardAttributes>
-        <font-awesome-icon
-          id="icon2"
-          class="me-1 icon-color"
-          width="12"
-          height="12"
-          :icon="['fas', 'check']"
-        />{{ props.https ? "HTTP" : "HTTPS" }}</CardAttributes
+      <CardAttributes :id="props.https ? 'none' : 'warnOrNot'">
+        {{ props.https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
       >
       <CardAttributes v-if="props.auth !== ''">
-        <font-awesome-icon
-          id="icon2"
-          class="me-1 icon-color"
-          width="12"
-          height="12"
-          :icon="['fas', 'check']"
-        />{{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
+        {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
       >
     </div>
   </div>
@@ -130,6 +115,38 @@ onMounted(() => {
 </script>
 
 <style scoped>
+#warnOrNot {
+  background: var(--bg-attribute-warn) !important;
+  color: var(--text-attribute-warn) !important;
+}
+
+.warn-attribute p {
+  color: var(--text-attribute-warn) !important;
+}
+
+.icon-color {
+  color: var(--icon-color);
+}
+
+.padding-wrapper {
+  padding: 12px !important;
+}
+
+.category-container {
+  align-self: start;
+  border-radius: 4px;
+  background: var(--bg-trending-category);
+  color: var(--text-card-color) !important;
+  font-size: small;
+  margin-left: 0;
+  margin-right: 4px;
+  margin-top: auto;
+  min-width: 3rem;
+  max-width: 15rem;
+  justify-content: center;
+  /* border: 1px solid var(--border-color-cards); */
+}
+
 .glass-card {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
@@ -140,10 +157,6 @@ onMounted(() => {
   transition: 0.3s ease !important;
 }
 
-.logo-container {
-  align-self: center;
-}
-
 #icon1,
 #icon2 {
   color: var(--text-color) !important;
@@ -151,8 +164,7 @@ onMounted(() => {
 
 .text-wrapper-header-card {
   font-weight: 600;
-  font-size: 20px;
-  margin-left: 0.3vw;
+  font-size: 18px;
 }
 
 .text-body-secondary {
@@ -167,7 +179,7 @@ onMounted(() => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1rem;
+  margin: 12px;
   margin-bottom: 0;
 }
 
@@ -179,6 +191,7 @@ onMounted(() => {
 .attributes-container {
   display: flex;
   flex-direction: row;
+  padding: 12px;
 }
 
 @media only screen and (min-width: 1500px) {
