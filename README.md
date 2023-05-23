@@ -16,7 +16,7 @@
     <a href="https://github.com/exifly/apivault/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a>
+        <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a><br>
     <a href="https://discord.gg/ShqYJynSnq" alt="Discord server">
         <img src="https://img.shields.io/discord/1105161392463560849?style=for-the-badge
 " /></a>
