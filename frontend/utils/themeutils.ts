@@ -12,7 +12,6 @@ export function getTheme(): string {
       }
     }
   }
-  
     return localStorage.getItem("APIVaultTheme")!;
 }
 
@@ -26,6 +25,9 @@ export const setThemeElements = (theme: globalThis.Ref<string>): string => {
   theme.value[0].toUpperCase() +
   theme.value.slice(1, theme.value.length) +
   " Mode";
+  if (theme.value === null) {
+    document.querySelector("body")?.setAttribute("data-theme", "dark");  
+  }
   document.querySelector("body")?.setAttribute("data-theme", theme.value);
   return themeText;
 }
