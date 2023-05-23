@@ -25,15 +25,12 @@ services:
       apivault-network:
         aliases:
           - apivault-network
-
-  whoami:
-    image: "traefik/whoami"
-    container_name: "traefik-whoami"
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`localhost`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
-
+      - "traefik.http.routers.server.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.routers.server.entrypoints=web"
+      - "traefik.http.routers.server.service=server"
+      - "traefik.http.services.server.loadbalancer.server.port=9001"
+    
   client:
     environment:
       - NUXT_HOST=0.0.0.0
@@ -42,17 +39,28 @@ services:
     user: node
     volumes:
       - .:/code
+      - ./frontend/docker/envhosts:/etc/hosts
     command: sh -c "python3 frontend/docker/start_server.py"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=nuxt"
+      - "traefik.http.routers.server.rule=Host(`server`) && PathPrefix(`/`)"  # Update the rule to match localhost
+      - "traefik.http.routers.server.entrypoints=web"
+      - "traefik.http.routers.server.service=server"
+      - "traefik.http.services.server.loadbalancer.server.port=9001"
 
   server:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.server.rule=Host(`server`) && PathPrefix(`/`)"
-      - "traefik.http.routers.server.entrypoints=web"
+      - "traefik.backend=django"
+      - "traefik.http.services.server.loadbalancer.server.scheme=http"
       - "traefik.http.services.server.loadbalancer.server.port=9001"
+      - "traefik.http.routers.server.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.routers.server.entrypoints=web"
     command: bash -c "/bin/bash backend/docker/command/start.sh"
     networks:
       apivault-network:
+        ipv4_address: 172.18.0.10
         aliases:
           - apivault-network
     

@@ -1,13 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
 import { TrendingCategory, APIType } from '../models/types';
 
+
 class ApivaultService {
 
     private readonly axiosInstance: AxiosInstance;
-    // private readonly baseUrl: string = `${process.env.APIVAULT_SERVICES_ENDPOINT}/api`;
-    private readonly baseUrl: string = "http://server:9001/api";
-    // private readonly baseUrl: string = "https://api.apivault.dev/api";
-
+    private readonly baseUrl: string = "http://localhost:9001/api";
 
     constructor() {
         this.axiosInstance = axios.create({

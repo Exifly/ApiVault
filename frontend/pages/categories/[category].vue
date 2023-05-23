@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="layouts" :title="categoryTitle.toUpperCase()">
+  <NuxtLayout :name="layouts" :title="categorySearched.category">
     <template #heroAreaContent>
       <Hero />
     </template>
@@ -57,7 +57,15 @@ const categorySearched = reactive({
 const showList = ref(true);
 
 const handleSearchCategory = (val: string, title: string) => {
-  handleSearch(val, title, apiData, apiSearched, categorySearched, showList);
+  handleSearch(
+    val,
+    title,
+    apiData,
+    apiSearched,
+    categorySearched,
+    categoryTitle.toUpperCase(),
+    showList
+  );
 };
 
 onMounted(async () => {

@@ -20,7 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, computed } from "vue";
 import ApivaultServices from "~/services/ApivaultServices";
 
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
@@ -40,14 +39,14 @@ const apis = computed(() => {
       "search:apiSearch",
       data.filter(
         (api: {
-          API: {
+          name: {
             toLowerCase: () => {
               (): any;
               new (): any;
               includes: { (arg0: string): number; new (): any };
             };
           };
-          Category: {
+          category: {
             toLowerCase: () => {
               (): any;
               new (): any;
@@ -55,10 +54,10 @@ const apis = computed(() => {
             };
           };
         }) =>
-          api.API.toLowerCase().includes(apiInputSearch.value.toLowerCase()) |
-          api.Category.toLowerCase().includes(
-            apiInputSearch.value.toLocaleLowerCase()
-          )
+          api.name.toLowerCase().includes(apiInputSearch.value.toLowerCase()) |
+          api.category
+            .toLowerCase()
+            .includes(apiInputSearch.value.toLocaleLowerCase())
       ),
       apiInputSearch
     );
@@ -68,7 +67,7 @@ const apis = computed(() => {
 });
 
 onMounted(async () => {
-  // data = await ApivaultServices.allApis();
+  data = await ApivaultServices.allApis();
 });
 </script>
 

@@ -22,7 +22,7 @@
               class="me-2 icon-color"
               width="12"
               height="12"
-              :icon="categoryMap[category.name]"
+              :icon="categoriesDict[category.name]"
             />{{ category.name }}
             <span class="api_count mx-1">({{ category.api_count }})</span>
           </NuxtLink>
@@ -36,7 +36,7 @@
         <div
           class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
           v-for="api in apiSearched"
-          :key="api.id"
+          :key="api.name"
         >
           <a
             v-if="showList"
@@ -77,26 +77,41 @@ import { categoriesDict } from "~/utils/categoryMapping";
 import { TrendingCategory } from "~/models/types";
 import { APIType } from "~/models/types";
 
+// layout name
 const layouts: string = "body-content";
-const categoryMap = categoriesDict;
 
-const apiData: Ref<APIType[]> = ref([]);
+// trending and random data
+const trendCategoriesList = ref<TrendingCategory[]>();
+const apiData: any = ref([]);
+
+// search bar data
 const apiSearched: Ref<APIType[]> = ref([]);
 const categorySearched = reactive({
   category: "",
 });
+
+// loading state animation
 const isLoading = ref(true);
 const showList = ref(true);
+
+// loading more state
 let isLoadingState = ref(false);
 let hasMoreData = ref(true);
 
-const trendCategoriesList = ref<TrendingCategory[]>([]);
-trendCategoriesList.value = await ApivaultServices.getTrendingCategories()!;
-
+// wrapper for handleSearch function
 const handleSearchDashboard = (val: string, title: string) => {
-  handleSearch(val, title, apiData, apiSearched, categorySearched, showList);
+  handleSearch(
+    val,
+    title,
+    apiData,
+    apiSearched,
+    categorySearched,
+    "RANDOM",
+    showList
+  );
 };
 
+// this computed property is used for manage the data state for load more
 const showLoadMore = computed(() => {
   return (
     hasMoreData.value &&
@@ -105,13 +120,14 @@ const showLoadMore = computed(() => {
   );
 });
 
+// this function is used to handle the load more event
 const handleLoadMore = async () => {
   isLoadingState.value = true;
   setTimeout(async () => {
     const newData = await ApivaultServices.randomApis();
     const filteredData = newData.filter((newItem) => {
       return !apiData.value.some(
-        (existingItem) => existingItem.url === newItem.url
+        (existingItem: any) => existingItem.url === newItem.url
       );
     });
 
@@ -125,9 +141,12 @@ const handleLoadMore = async () => {
   }, 200);
 };
 
-onMounted(async () => {
+onBeforeMount(async () => {
+  trendCategoriesList.value = await ApivaultServices.getTrendingCategories()!;
   apiData.value = await ApivaultServices.randomApis();
-  console.log(apiData.value);
+});
+
+onMounted(async () => {
   isLoading.value = false;
   showList.value = true;
 });

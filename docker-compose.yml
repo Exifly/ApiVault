@@ -77,13 +77,15 @@ services:
       - .:/code
     tty: true
     stdin_open: true
+    stop_grace_period: 10s
+    stop_signal: SIGTERM
     networks:
       apivault-network:
         aliases:
           - apivault-network
     command: sh -c "node .output/server/index.mjs"
     ports:
-      - "8080:3000"
+      - "3000:3000"
       - "24678:24678"
       - "9222:9222"
       - "5454:5555"
