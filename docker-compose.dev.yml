@@ -1,35 +1,6 @@
 version: "3"
 services:
 
-  #---------------------------------------------
-  # The traefik reverse proxy is needed
-  # only in developer mode to handle client
-  # side nuxt requests.
-  #---------------------------------------------
-  traefik:
-    image: "traefik:v2.10"
-    container_name: "traefik"
-    command:
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--api.dashboard=true"
-      - "--api.insecure=true"
-    ports:
-      - "8082:80"
-      - "8083:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    networks:
-      apivault-network:
-        aliases:
-          - apivault-network
-    labels:
-      - "traefik.http.routers.server.rule=Host(`localhost`) && PathPrefix(`/`)"
-      - "traefik.http.routers.server.entrypoints=web"
-      - "traefik.http.routers.server.service=server"
-      - "traefik.http.services.server.loadbalancer.server.port=9001"
     
   client:
     environment:
@@ -39,28 +10,12 @@ services:
     user: node
     volumes:
       - .:/code
-      - ./frontend/docker/envhosts:/etc/hosts
     command: sh -c "python3 frontend/docker/start_server.py"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=nuxt"
-      - "traefik.http.routers.server.rule=Host(`server`) && PathPrefix(`/`)"  # Update the rule to match localhost
-      - "traefik.http.routers.server.entrypoints=web"
-      - "traefik.http.routers.server.service=server"
-      - "traefik.http.services.server.loadbalancer.server.port=9001"
 
   server:
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=django"
-      - "traefik.http.services.server.loadbalancer.server.scheme=http"
-      - "traefik.http.services.server.loadbalancer.server.port=9001"
-      - "traefik.http.routers.server.rule=Host(`localhost`) && PathPrefix(`/`)"
-      - "traefik.http.routers.server.entrypoints=web"
-    command: bash -c "/bin/bash backend/docker/command/start.sh"
+    command: sh -c "python3 backend/docker/command/start_server.py"
     networks:
       apivault-network:
-        ipv4_address: 172.18.0.10
         aliases:
           - apivault-network
     

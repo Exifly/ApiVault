@@ -55,8 +55,7 @@ services:
         aliases:
           - apivault-network
 
-    # command: python backend/docker/command/start_server.py
-    command: bash -c "/bin/bash docker/command/start.sh"
+    command: python3 backend/docker/command/start_server.py
     ports:
       - "9001:9001"
       - "80:80"
