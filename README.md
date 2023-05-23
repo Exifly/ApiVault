@@ -1,6 +1,6 @@
 <h1 align="center">
-  <br>
-   APIVault v2.x 🛡️ Beta 1
+    <img src="https://raw.githubusercontent.com/Exifly/ApiVault/main/frontend/public/img/apivault-full-dark-nobg.png#gh-dark-mode-only" alt="apivault dark" width="200">
+    <img src="https://raw.githubusercontent.com/Exifly/ApiVault/main/frontend/public/img/apivault-full-light-nobg.png#gh-light-mode-only" alt="ApiVault" width="200">
   <br>
 </h1>
 
@@ -17,13 +17,13 @@
         <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a><br>
-    <a href="https://discord.gg/ShqYJynSnq" alt="Discord server">
-        <img src="https://img.shields.io/discord/1105161392463560849?style=for-the-badge
-" /></a>
 </p>
+
 <p align="center">
+  <a href="#prerequisites">Prerequisites</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#support">Support</a> •
   <a href="#license">License</a>
 </p>
@@ -34,16 +34,11 @@
 
 <div align="center">
 
-  # Finally with
-  <a href="">
-  <img width="67" src="./assets/logos/nuxt-logo.png">
-  </a>
-  <a href="">
-    <img width="50" src="./assets/logos/typescript_logo.png">
-  </a>
-  <a href="">
-    <img width="50" src="./assets/logos/django-logo.png">
-  </a>
+  # Built with
+  [![Vue.js](https://img.shields.io/badge/nuxt.js-35495E?style=for-the-badge&logo=nuxtdotjs&logoColor=4FC08D)](http://electron.atom.io/)
+  [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](http://electron.atom.io/)
+[![Flask](https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=django&logoColor=white)](https://flask.palletsprojects.com/en/2.2.x/)
+
 
 
 
@@ -51,33 +46,17 @@
 
 <hr />
 
-<!-- TABLE OF CONTENTS -->
-# Table of contents
-<ol>
-  <li>
-    <a href="#prerequisites">Prerequisites</a>
-  </li>
-  <li>
-    <a href="#how-to-use">How to use</a>
-  </li>
-  <li>
-    <a href="#credits">Credits</a>
-  </li>
-  <li>
-    <a href="#contributing">Contributing</a>
-  </li>
-  <li><a href="#license">License</a></li>
-  <li><a href="#support">Support</a></li>
-</ol>
-<hr />
-
-## Prerequisites
-Before start using the software make sure you have:
-- docker
+# Prerequisites
+Before starting to use the software make sure you have <a href="https://www.docker.com/">docker</a> installed.
 
 # How To Use
 
-### Set .env file
+## Clone the repository
+```bash
+git clone https://github.com/exifly/ApiVault
+```
+
+## Set .env file
 Inside root repository folder rename .env.dev file
 ```bash
 cat .env.dev > .env
@@ -85,25 +64,17 @@ cat .env.dev > .env
 
 Inside /frontend folder rename .env.sample file
 ```bash
+cd frontend
 cat .env.sample > .env
 ```
-### Client/Server side using Docker
-To run everything using docker you need to be in repo root path and run those commands:
-
+## Client/Server side using Docker
 ```bash
-# Clone this repository
-$ git clone https://github.com/exifly/ApiVault
+# Go into the root folder
+cd ApiVault
 
-# Go into the repository
-$ cd ApiVault
-
-# Install dependencies
-$ docker-compose up
+# Run docker
+docker-compose up
 ```
-
-This docker configuration will prepare Server/Client side on the same stack using the same docker network.
-
-If errors appear on your screen blocking the execution, you can found the old **How to** version below this chapter.
 
 **Note**:
 
@@ -119,11 +90,6 @@ Now just go on **localhost:3000** on your browser.
 # Credits 
 
 This software uses the following open source packages:
- 
-### Frameworks 🛠️
-- [![Vue.js](https://img.shields.io/badge/nuxt.js-35495E?style=for-the-badge&logo=nuxtdotjs&logoColor=4FC08D)](http://electron.atom.io/)
-- [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](http://electron.atom.io/)
-- [![Flask](https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=django&logoColor=white)](https://flask.palletsprojects.com/en/2.2.x/)
 
 ### Tools 🔧
 - [GSAP](https://greensock.com/gsap/)
