@@ -6,9 +6,10 @@ export const handleSearch = (
   apiData: Ref<APIType[]>,
   apiSearched: Ref<APIType[]>,
   categorySearched: any,
+  categoryTitle: string,
   showList: Ref<boolean>) => {
   if (title === undefined) {
-    categorySearched.category = "RANDOM";
+    categorySearched.category = categoryTitle;
     apiSearched.value = apiData.value;
     showList.value = true;
   } else if (val.length > 0) {
