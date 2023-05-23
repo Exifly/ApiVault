@@ -35,9 +35,9 @@
 <div align="center">
 
   # Built with
-  [![Vue.js](https://img.shields.io/badge/nuxt.js-35495E?style=for-the-badge&logo=nuxtdotjs&logoColor=4FC08D)](http://electron.atom.io/)
-  [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](http://electron.atom.io/)
-[![Flask](https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=django&logoColor=white)](https://flask.palletsprojects.com/en/2.2.x/)
+  [![Nuxt.js](https://img.shields.io/badge/nuxt.js-35495E?style=for-the-badge&logo=nuxtdotjs&logoColor=4FC08D)](https://nuxt.com/)
+  [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
+  [![Django](https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/start/overview/)
 
 
 
