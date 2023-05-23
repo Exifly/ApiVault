@@ -13,6 +13,10 @@ data-db/
 # C extensions
 *.so
 
+# Database and nuxt files
+data-db/
+frontend/.nuxt/
+
 # Distribution / packaging
 .Python
 build/
