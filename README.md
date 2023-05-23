@@ -51,10 +51,6 @@
 
 <hr />
 
-# Disclaimer
-### UNDER ACTIVE DEVELOPMENT
-This is the beta version using typescript and Nuxt.js! Please report any issues you found!! Thanks.
-
 <!-- TABLE OF CONTENTS -->
 # Table of contents
 <ol>
@@ -62,28 +58,13 @@ This is the beta version using typescript and Nuxt.js! Please report any issues 
     <a href="#prerequisites">Prerequisites</a>
   </li>
   <li>
-    <a href="#how-to-use">How to use (NEW)</a>
-    <ul>
-      <li><a href="#built-with">Set .env file</a></li>
-      <li><a href="#how-to-use">Client/Server side using Docker</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#how-to-use">How to use (OLD)</a>
-    <ul>
-      <li><a href="#prerequisites">Frontend</a></li>
-      <li><a href="#installation">Backend</a></li>
-    </ul>
+    <a href="#how-to-use">How to use</a>
   </li>
   <li>
     <a href="#credits">Credits</a>
   </li>
   <li>
     <a href="#contributing">Contributing</a>
-    <ul>
-      <li><a href="#how-to-contribute">How to contribute</a></li>
-      <li><a href="#contributors">Wonderful people</a></li>
-    </ul>
   </li>
   <li><a href="#license">License</a></li>
   <li><a href="#support">Support</a></li>
@@ -92,14 +73,11 @@ This is the beta version using typescript and Nuxt.js! Please report any issues 
 
 ## Prerequisites
 Before start using the software make sure you have:
-- Node > 16.x
-- npm > 8.x
-- yarn >= 1.x
 - docker
 
-## How To Use (New Version)
+# How To Use
 
-## Set .env file
+### Set .env file
 Inside root repository folder rename .env.dev file
 ```bash
 cat .env.dev > .env
@@ -124,8 +102,6 @@ $ docker-compose up
 ```
 
 This docker configuration will prepare Server/Client side on the same stack using the same docker network.
-### Stack screenshot
-![screenshot](/assets/docker-img/stack-config.png)
 
 If errors appear on your screen blocking the execution, you can found the old **How to** version below this chapter.
 
@@ -137,47 +113,6 @@ Now just go on **localhost:3000** on your browser.
 
 
 ### Done
-<hr />
-
-## How To Use (Old Version)
-### Frontend
-To clone and run this application in developer mode, you'll need [Git](https://git-scm.com) and [yarn](https://yarnpkg.com/) installed on your computer. You can use [npm](https://www.npmjs.com/) if you want.
-From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/exifly/ApiVault
-
-# Go into the repository
-$ cd ApiVault/frontend
-
-# Install dependencies
-$ yarn install
-
-# Run the app
-$ yarn dev
-```
-
-## Set .env file
-Inside /frontend folder
-```bash
-cat .env.sample > .env
-```
-
-### Backend
-To clone and run this application in developer mode, you'll need [docker](https://www.docker.com/) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/exifly/ApiVault
-
-# Go into the repository
-$ cd ApiVault/backend
-
-# Run docker-compose
-$ docker-compose up
-
-```
 
 <hr />
 
