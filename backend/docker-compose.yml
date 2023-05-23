@@ -1,23 +1,56 @@
 version: '2'
 
 services:
-  be_apivault:
-    container_name: be_apivault
+
+  db_postgis_apivault:
+    image: postgis/postgis:15-3.3
+    container_name: db_postgis_apivault
+    volumes:
+      - ./data-db/db:/var/lib/postgresql/data
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata/
+      - POSTGRES_HOST=db_postgis_apivault
+      - POSTGRES_DB=apivault
+      - POSTGRES_PASSWORD=apivault
+      - POSTGRES_USER=apivault
+    ports:
+      - "5432:5432"
+    networks:
+      backend_apivault:
+        aliases:
+          - apivault-network
+
+
+  apivault_be:
+    container_name: apivault_be
     build:
       context: .
+      # dockerfile: ./docker_prod/Dockerfile
       dockerfile: ./docker/Dockerfile
+    environment:
+      - DB_ENGINE=django.contrib.gis.db.backends.postgis
+      - DB_HOST=db_postgis_apivault
+      - DB_NAME=apivault
+      - DB_USER=apivault
+      - DB_PASSWORD=apivault
+      - DB_PORT=5432
+      - DEBUG=true
+    depends_on:
+      - db_postgis_apivault
     volumes:
       - .:/code
     tty: true
     stdin_open: true
     networks:
-      apivault_network:
+      backend_apivault:
         aliases:
-          - apivault_network
+          - apivault-network
 
-    command: "python3 /code/docker/start_server.py"
+    command: bash -c "/bin/bash /code/docker/command/start.sh"
     ports:
-      - "5001:5001"
+      - "9001:9001"
+      - "80:80"
 
 networks:
-  apivault_network:
+  backend_apivault:
+    name: apivault-network

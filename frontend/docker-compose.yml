@@ -1,0 +1,29 @@
+version: '3'
+
+services: 
+  #--------------
+  # Frontend App
+  #--------------
+  apivault-client:
+    container_name: apivault-client
+    labels:
+      - "com.host.project=apivault-nuxt"
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/code
+    tty: true
+    stdin_open: true
+    networks:
+      apivault-network-client:
+        aliases:
+          - apivault-network-client
+    command: "python3 docker/start_server.py"
+    ports:
+      - "3010:3000"
+    restart: always
+
+networks:
+  apivault-network-client:
+    name: "apivault-network-client"

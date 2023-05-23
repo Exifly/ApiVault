@@ -1,3 +1,14 @@
+node_modules
+*.log*
+.nuxt
+.vscode
+.nitro
+.cache
+.output
+.env
+dist
+.DS_Store
+
 # Logs
 logs
 *.log
