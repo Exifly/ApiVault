@@ -94,12 +94,10 @@ hr {
 }
 
 /* Glassmorphism properties */
-
 .glass-card {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
-  /* background-color: rgba(var(--bg-color), 0.78); */
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
 }
@@ -108,6 +106,23 @@ hr {
   color: var(--icon-color);
   opacity: 40%;
 }
+
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.25s;
+}
+
+.page-enter-from {
+  opacity: 0;
+  filter: blur(0%);
+}
+
+.page-leave-from {
+  opacity: 100%;
+  filter: blur(100%);
+}
+
 
 /* Responsive properties */
 @media (min-width: 1581px) {
