@@ -53,13 +53,13 @@
 
 <script setup lang="ts">
 import packageJson from "../package.json";
-import { computed, inject, Ref } from "vue";
 
 const theme = useState("APIVaultTheme", () =>
   process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
 );
+
 const logoMode = computed(() => {
-  if (theme!.value === "dark") {
+  if (theme!.value === "dark" || theme.value === null) {
     return "/img/apivault-dark-nobg.png";
   }
   return "/img/apivault-light-nobg.png";
