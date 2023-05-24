@@ -1,32 +1,21 @@
 <template>
   <button class="toggle-button" :class="{ active: isActive }" @click="toggle">
     <span class="toggle-icon">
-      <font-awesome-icon :icon="icon" />
+      <font-awesome-icon :icon="['fas', icon]" />
     </span>
   </button>
 </template>
 
-<script lang="ts">
-import { ref, computed } from "vue";
-export default {
-  setup() {
-    const isActive = ref(false);
+<script lang="ts" setup>
+const isActive = ref(false);
 
-    const toggle = () => {
-      isActive.value = !isActive.value;
-    };
-
-    const icon = computed(() => {
-      return isActive.value ? "sun" : "moon";
-    });
-
-    return {
-      isActive,
-      toggle,
-      icon,
-    };
-  },
+const toggle = () => {
+  isActive.value = !isActive.value;
 };
+
+const icon = computed(() => {
+  return isActive.value ? "sun" : "moon";
+});
 </script>
 
 <style>
