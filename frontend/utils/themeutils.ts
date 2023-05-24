@@ -1,5 +1,3 @@
-export type Theme = "light" | "dark";
-
 export function getTheme(): string {
   const theme = localStorage.getItem("APIVaultTheme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -20,16 +18,11 @@ export const themeIcons: { [key: string]: string } = {
   dark: "fa-solid fa-moon",
 };
 
-export const setThemeElements = (theme: globalThis.Ref<string>): string => {
-  const themeText =
-  theme.value[0].toUpperCase() +
-  theme.value.slice(1, theme.value.length) +
-  " Mode";
+export const setThemeElements = (theme: globalThis.Ref<string>): void => {
   if (theme.value === null) {
     document.querySelector("body")?.setAttribute("data-theme", "dark");  
   }
   document.querySelector("body")?.setAttribute("data-theme", theme.value);
-  return themeText;
 }
 
 export const setThemeLogoPath = (theme: globalThis.Ref<string>): string => {
