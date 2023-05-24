@@ -43,6 +43,7 @@
           <li class="nav-item navbar-text-wrapper mt-2">
             <ToggleButton
               @click="setModeLocal"
+              :theme="theme"
               class="flex items-center gap-2 ms-2"
             />
           </li>
@@ -140,7 +141,6 @@ import {
   setThemeElements,
   themeIcons,
   setThemeLogoPath,
-  setIconThemeText,
   setLocalStorage,
 } from "../utils/themeutils";
 
@@ -151,8 +151,14 @@ const theme = useState("APIVaultTheme", () =>
   process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
 );
 const iconTheme = ref(themeIcons[theme.value]);
-const iconThemeText = ref(setIconThemeText(theme));
 const logoPath = ref(setThemeLogoPath(theme));
+
+useHead({
+  bodyAttrs: {
+    "data-theme": theme,
+  },
+});
+
 /**
 Toggles the color scheme of the document body between light and dark mode.
 Updates the values of iconThemeText, theme, logoPath, and iconTheme
@@ -163,25 +169,19 @@ const setModeLocal = (): void => {
   if (process.client) {
     setLocalStorage(theme);
   }
-  const themeText = setThemeElements(theme);
-  iconThemeText.value = themeText;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
 };
 
+/**
+This is needed to set the attribute data-theme to default for first
+visit on the website.
+*/
 onMounted(() => {
-  document
-    .querySelector("body")
-    ?.setAttribute("data-theme", localStorage.getItem("APIVaultTheme")!);
-  if (localStorage.getItem("APIVaultTheme") === null) {
-    localStorage.setItem("APIVaultTheme", "dark");
-  } else {
-    theme.value = localStorage.getItem("APIVaultTheme")!;
-    const themeText = setThemeElements(theme);
-    iconThemeText.value = themeText;
-    iconTheme.value = themeIcons[theme.value];
-    logoPath.value = setThemeLogoPath(theme);
-  }
+  theme.value = localStorage.getItem("APIVaultTheme")!;
+  setThemeElements(theme);
+  iconTheme.value = themeIcons[theme.value];
+  logoPath.value = setThemeLogoPath(theme);
 });
 </script>
 
