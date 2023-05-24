@@ -1,4 +1,4 @@
-export function getTheme(): string {
+export function setTheme(): string {
   const theme = localStorage.getItem("APIVaultTheme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
   if (process.client) {
@@ -18,35 +18,28 @@ export const themeIcons: { [key: string]: string } = {
   dark: "fa-solid fa-moon",
 };
 
-export const setThemeElements = (theme: globalThis.Ref<string>): void => {
-  if (theme.value === null) {
-    document.querySelector("body")?.setAttribute("data-theme", "dark");  
+export const getThemeElements = (theme: globalThis.Ref<string>): boolean => {
+  if (theme.value === null || theme.value === 'dark') {
+    return true
   }
-  document.querySelector("body")?.setAttribute("data-theme", theme.value);
+  return false;
 }
 
 export const setThemeLogoPath = (theme: globalThis.Ref<string>): string => {
+  if (theme.value === null || theme.value === undefined) {
+    return `/img/apivault-full-dark-nobg.png`;
+  }
   return `/img/apivault-full-${theme.value}-nobg.png`;
 }
 
-/**
-This code generates a string that represents the mode of the theme,
-either "Light Mode" or "Dark Mode", depending on the theme.value
-*/
-export const setIconThemeText = (theme: globalThis.Ref<string>): string => {
-  return theme.value
-    ? theme.value[0].toUpperCase() +
-        theme.value.slice(1, theme.value.length) +
-        " Mode"
-    : " Mode"
-}
-
-export const setLocalStorage = (theme: globalThis.Ref<string>): void => {
+export const setLocalStorage = (theme: globalThis.Ref<string>): boolean => {
   if (theme.value === "dark" || theme.value === undefined) {
     theme.value = "light";
     localStorage.setItem("APIVaultTheme", "light");
+    return false;
   } else {
     theme.value = "dark";
     localStorage.setItem("APIVaultTheme", "dark");
+    return true;
   }
 }
