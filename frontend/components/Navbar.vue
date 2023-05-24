@@ -138,7 +138,7 @@
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubService from "../services/GithubServices";
 import {
-  setThemeElements,
+  getThemeElements,
   themeIcons,
   setThemeLogoPath,
   setLocalStorage,
@@ -148,16 +148,10 @@ const stargazers = await GithubService.repoStars();
 console.log(stargazers);
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
+  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
 );
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
-
-useHead({
-  bodyAttrs: {
-    "data-theme": theme,
-  },
-});
 
 /**
 Toggles the color scheme of the document body between light and dark mode.
@@ -165,21 +159,33 @@ Updates the values of iconThemeText, theme, logoPath, and iconTheme
 based on the new color scheme. Returns the new value of iconTheme to display.
 @returns {String} - The new value of iconTheme to display
 */
+let defaultTheme = ref<boolean>(true);
 const setModeLocal = (): void => {
   if (process.client) {
-    setLocalStorage(theme);
+    defaultTheme.value = setLocalStorage(theme);
+    defaultTheme.value = getThemeElements(theme);
   }
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
 };
 
 /**
-This is needed to set the attribute data-theme to default for first
+This is needed to set the dafault theme class for first
 visit on the website.
 */
+useHead({
+  htmlAttrs: {
+    class: computed(() => {
+      return defaultTheme.value ? "" : "light";
+    }),
+  },
+});
+
 onMounted(() => {
-  theme.value = localStorage.getItem("APIVaultTheme")!;
-  setThemeElements(theme);
+  theme.value = setTheme();
+  const isDarkTheme: boolean =
+    theme.value === "dark" || theme.value === null ? true : false;
+  defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
 });
