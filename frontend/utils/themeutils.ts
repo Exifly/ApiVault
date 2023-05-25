@@ -19,10 +19,7 @@ export const themeIcons: { [key: string]: string } = {
 };
 
 export const getThemeElements = (theme: globalThis.Ref<string>): boolean => {
-  if (theme.value === null || theme.value === 'dark') {
-    return true
-  }
-  return false;
+  return theme.value === null || theme.value === 'dark';
 }
 
 export const setThemeLogoPath = (theme: globalThis.Ref<string>): string => {
