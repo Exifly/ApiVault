@@ -183,8 +183,7 @@ useHead({
 
 onMounted(() => {
   theme.value = setTheme();
-  const isDarkTheme: boolean =
-    theme.value === "dark" || theme.value === null ? true : false;
+  const isDarkTheme: boolean = theme.value === "dark" || theme.value === null;
   defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
