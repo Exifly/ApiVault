@@ -13,23 +13,13 @@ export default defineNuxtConfig({
   plugins: [
     '@/plugins/fontawesome',
   ],
-  modules: ['@nuxtjs/color-mode'],
-  css: [
-    '~/assets/styles/bootstrap.scss',
-    '~/assets/styles/main.css', 
-    '~/assets/styles/normalize.css',
-    '~/assets/styles/animations.scss',
-    '@fortawesome/fontawesome-svg-core/styles.css'
-  ],
-  build: {
-    transpile: ['@fortawesome/vue-fontawesome']
-  },
   app: {
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
+    },
     head: {
       title: "A free API database list for developers",
-      bodyAttrs: {
-        'data-theme': 'dark'
-      },
       meta: [
         { name: "keywords", content: "free api, apivault, api list, open-source, public APIs, software developer" },
         { name: "description", content: "ApiVault - The largest collection of free public APIs, categorized for easy search." },
@@ -49,5 +39,15 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website"}
       ]
     }
-  }
+  },
+  css: [
+    '~/assets/styles/bootstrap.scss',
+    '~/assets/styles/main.css', 
+    '~/assets/styles/normalize.css',
+    '~/assets/styles/animations.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
+  build: {
+    transpile: ['@fortawesome/vue-fontawesome']
+  },
 })

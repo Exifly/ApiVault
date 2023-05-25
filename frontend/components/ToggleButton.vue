@@ -1,32 +1,26 @@
 <template>
   <button class="toggle-button" :class="{ active: isActive }" @click="toggle">
     <span class="toggle-icon">
-      <font-awesome-icon :icon="icon" />
+      <font-awesome-icon :icon="['fas', icon]" />
     </span>
   </button>
 </template>
 
-<script lang="ts">
-import { ref, computed } from "vue";
-export default {
-  setup() {
-    const isActive = ref(false);
+<script lang="ts" setup>
+const isActive = ref(false);
 
-    const toggle = () => {
-      isActive.value = !isActive.value;
-    };
-
-    const icon = computed(() => {
-      return isActive.value ? "sun" : "moon";
-    });
-
-    return {
-      isActive,
-      toggle,
-      icon,
-    };
-  },
+const toggle = () => {
+  isActive.value = !isActive.value;
 };
+
+const icon = computed(() => {
+  return isActive.value ? "sun" : "moon";
+});
+
+onMounted(() => {
+  const isLight = localStorage.getItem("APIVaultTheme");
+  isActive.value = true ? isLight === "light" : false;
+});
 </script>
 
 <style>
@@ -50,15 +44,16 @@ export default {
 }
 
 .toggle-icon {
-  display: flex;
-  position: absolute;
-  left: 0;
-  justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
   background-color: #fff;
   border-radius: 50%;
+  color: var(--icon-color);
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  left: 0;
+  position: absolute;
   transition: transform 0.3s ease;
+  width: 30px;
 }
 </style>

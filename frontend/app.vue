@@ -6,7 +6,7 @@
   </NuxtLayout>
 </template>
 
-<script>
+<script lang="ts">
 // workaround for bootstrap javascript
 export default {
   head() {

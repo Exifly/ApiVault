@@ -43,6 +43,7 @@
           <li class="nav-item navbar-text-wrapper mt-2">
             <ToggleButton
               @click="setModeLocal"
+              :theme="theme"
               class="flex items-center gap-2 ms-2"
             />
           </li>
@@ -137,10 +138,9 @@
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubService from "../services/GithubServices";
 import {
-  setThemeElements,
+  getThemeElements,
   themeIcons,
   setThemeLogoPath,
-  setIconThemeText,
   setLocalStorage,
 } from "../utils/themeutils";
 
@@ -148,40 +148,45 @@ const stargazers = await GithubService.repoStars();
 console.log(stargazers);
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
+  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
 );
 const iconTheme = ref(themeIcons[theme.value]);
-const iconThemeText = ref(setIconThemeText(theme));
 const logoPath = ref(setThemeLogoPath(theme));
+
 /**
 Toggles the color scheme of the document body between light and dark mode.
 Updates the values of iconThemeText, theme, logoPath, and iconTheme
 based on the new color scheme. Returns the new value of iconTheme to display.
 @returns {String} - The new value of iconTheme to display
 */
+let defaultTheme = ref<boolean>(true);
 const setModeLocal = (): void => {
   if (process.client) {
-    setLocalStorage(theme);
+    defaultTheme.value = setLocalStorage(theme);
+    defaultTheme.value = getThemeElements(theme);
   }
-  const themeText = setThemeElements(theme);
-  iconThemeText.value = themeText;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
 };
 
+/**
+This is needed to set the dafault theme class for first
+visit on the website.
+*/
+useHead({
+  htmlAttrs: {
+    class: computed(() => {
+      return defaultTheme.value ? "" : "light";
+    }),
+  },
+});
+
 onMounted(() => {
-  document
-    .querySelector("body")
-    ?.setAttribute("data-theme", localStorage.getItem("APIVaultTheme")!);
-  if (localStorage.getItem("APIVaultTheme") === null) {
-    localStorage.setItem("APIVaultTheme", "dark");
-  } else {
-    theme.value = localStorage.getItem("APIVaultTheme")!;
-    const themeText = setThemeElements(theme);
-    iconThemeText.value = themeText;
-    iconTheme.value = themeIcons[theme.value];
-    logoPath.value = setThemeLogoPath(theme);
-  }
+  theme.value = setTheme();
+  const isDarkTheme: boolean = theme.value === "dark" || theme.value === null;
+  defaultTheme.value = isDarkTheme;
+  iconTheme.value = themeIcons[theme.value];
+  logoPath.value = setThemeLogoPath(theme);
 });
 </script>
 

@@ -103,12 +103,6 @@ const getFavicon = (url: string, size: number) => {
   return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 };
 
-// const handleFavicon = () => {
-//   return props.faviconSrc
-//     ? props.faviconSrc !== null
-//     : getFavicon(props.faviconSrc, 128);
-// };
-
 onMounted(() => {
   iconCategory?.();
 });
