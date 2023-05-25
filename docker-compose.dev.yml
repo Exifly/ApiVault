@@ -1,7 +1,5 @@
 version: "3"
 services:
-
-    
   client:
     environment:
       - NUXT_HOST=0.0.0.0
