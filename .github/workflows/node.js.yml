@@ -23,6 +23,6 @@ jobs:
       with:
         node-version: 18.x
         cache: 'yarn'
-        cache-dependency-path: '**/yarn.json'
+        cache-dependency-path: '**/yarn.lock'
     - run: yarn install
     - run: yarn build --if-present
