@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Docker production file
+docker-compose.prod.yml
+
 # Postgres and config
 config/
 .config/
