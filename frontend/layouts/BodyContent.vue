@@ -45,7 +45,6 @@ const { title, isNullCategory } = defineProps({
 
 <style scoped>
 .hero {
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
