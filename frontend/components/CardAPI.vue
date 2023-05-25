@@ -9,7 +9,7 @@
           style="padding: 3px"
           class="text-wrapper card-subtitle mb-2 pe-2 category-container text-body-secondary"
         >
-        <NuxtLink :to="'/categories/'+subtitle" class="subtitle-link">
+        <NuxtLink :to="`/categories/${subtitle}`" class="subtitle-link">
           <font-awesome-icon
             class="mx-2 icon-color"
             width="12"
