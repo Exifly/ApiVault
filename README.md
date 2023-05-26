@@ -76,6 +76,23 @@ cd ApiVault
 docker-compose up
 ```
 
+## Important note:
+On first docker-compose launch, your terminal could tell you:
+```bash
+database_dev  | 2023-05-26 13:38:01.598 UTC [83] ERROR:  relation "vault_api" does not exist at character 232
+database_dev  | 2023-05-26 13:38:01.598 UTC [83] STATEMENT:  SELECT "vault_api"."id", "vault_api"."name", "vault_api"."auth", "vault_api"."category_id", "vault_api"."cors", "vault_api"."description", "vault_api"."https", "vault_api"."url", "vault_api"."view_count", "vault_api"."source" FROM "vault_api" LIMIT 21
+database_dev  | 2023-05-26 13:38:01.624 UTC [83] ERROR:  relation "vault_api" does not exist at character 232
+```
+or
+```bash
+server_dev    |   File "/usr/local/lib/python3.8/dist-packages/psycopg2/__init__.py", line 122, in connect
+server_dev    |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+server_dev    | psycopg2.OperationalError: connection to server at "database" (172.20.0.2), port 5432 failed: Connection refused
+server_dev    |         Is the server running on that host and accepting TCP/IP connections?
+```
+
+To fix those erros just stop it and relaunch `docker-compose up`
+
 **Note**:
 
 Please open an [Issue](https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=) if you see docker errors! (You can try fix on your own if you want)
