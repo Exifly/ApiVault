@@ -9,12 +9,14 @@
           style="padding: 3px"
           class="text-wrapper card-subtitle mb-2 pe-2 category-container text-body-secondary"
         >
+        <NuxtLink :to="`/categories/${subtitle}`" class="subtitle-link">
           <font-awesome-icon
             class="mx-2 icon-color"
             width="12"
             height="12"
             :icon="cat"
           />{{ subtitle }}
+        </NuxtLink>
         </p>
       </div>
       <div>
@@ -186,6 +188,11 @@ onMounted(() => {
   display: flex;
   flex-direction: row;
   padding: 12px;
+}
+
+.subtitle-link {
+  color: var(--text-card-color);
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 1500px) {
