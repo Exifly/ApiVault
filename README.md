@@ -65,8 +65,15 @@ cat .env.dev > .env
 Inside /frontend folder rename .env.sample file
 ```bash
 cd frontend
-cat .env.sample > .env
+cat .env.dev > .env
 ```
+
+Same action inside /backend folder
+```bash
+cd backend
+cat .env.dev > .env
+```
+
 ## Client/Server side using Docker
 ```bash
 # Go into the root folder
