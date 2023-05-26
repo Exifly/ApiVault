@@ -136,7 +136,7 @@
 
 <script lang="ts" setup>
 import { categoriesProperties } from "../utils/categoryMapping";
-import GithubService from "../services/GithubServices";
+import GithubServices from "~/services/GithubServices";
 import {
   getThemeElements,
   themeIcons,
@@ -144,7 +144,7 @@ import {
   setLocalStorage,
 } from "../utils/themeutils";
 
-const stargazers = await GithubService.repoStars();
+const stargazers = await GithubServices.repoStars();
 console.log(stargazers);
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>

@@ -17,8 +17,4 @@ RUN \
 
 RUN rm -rf node_modules
 
-# RUN cd frontend/ && \
-#   yarn install && \
-#   yarn build
-
 COPY . .

@@ -1,6 +1,21 @@
 version: "3"
+
 services:
+
+  database:
+    container_name: apivault_database_dev
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata/
+      - POSTGRES_HOST=db_postgis_apivault
+      - POSTGRES_DB=apivault
+      - POSTGRES_PASSWORD=apivault
+      - POSTGRES_USER=apivault
+
   client:
+    container_name: apivault_client_dev
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
     environment:
       - NUXT_HOST=0.0.0.0
       - STRAPI_URL=http://server:9001/
@@ -9,11 +24,20 @@ services:
     volumes:
       - .:/code
     command: sh -c "python3 frontend/docker/start_server.py"
-
+  
   server:
+    container_name: apivault_server_dev
+    environment:
+      - DB_ENGINE=django.contrib.gis.db.backends.postgis
+      - DB_HOST=db_postgis_apivault
+      - DB_NAME=apivault
+      - DB_USER=apivault
+      - DB_PASSWORD=apivault
+      - DB_PORT=5432
+      - DEBUG=true
     command: sh -c "python3 backend/docker/command/start_server.py"
     networks:
       apivault-network:
         aliases:
           - apivault-network
-    
+          

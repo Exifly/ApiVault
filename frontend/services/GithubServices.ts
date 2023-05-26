@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from 'axios';
 class GithubService {
 
   private readonly axiosInstance: AxiosInstance;
-  private readonly baseUrl: string = "https://api.github.com";
+  private readonly baseUrl: string = import.meta.env.VITE_GITHUB_ENDPOINT;
 
   constructor() {
       this.axiosInstance = axios.create({

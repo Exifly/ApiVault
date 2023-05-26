@@ -1,11 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 import { TrendingCategory, APIType } from '../models/types';
 
-
 class ApivaultService {
 
     private readonly axiosInstance: AxiosInstance;
-    private readonly baseUrl: string = "http://localhost:9001/api";
+    private readonly baseUrl: string = `${import.meta.env.VITE_APIVAULT_SERVICES_ENDPOINT}api`;
 
     constructor() {
         this.axiosInstance = axios.create({
