@@ -2,11 +2,6 @@ import { resolve } from "path";
 
 export default defineNuxtConfig({
   components: true,
-  runtimeConfig: {
-    public: {
-      apiUrl: process.env.STRAPI_URL || "http://localhost:9001/"
-    }
-  },
   alias: {
     '@': resolve(__dirname, "/")
   },
