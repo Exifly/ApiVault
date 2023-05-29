@@ -73,10 +73,4 @@ onMounted(async () => {
   isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = false;
 });
-
-onBeforeUpdate(async () => {
-  apiData.value = await ApivaultServices.apiCategoryData(route.params.category);
-  isNullCategory.value ? apiData.value.length === 0 : false;
-  isLoading.value = false;
-});
 </script>
