@@ -1,7 +1,7 @@
 ---
 name: Make a question
 about: Ask contributors and maintainers a question
-title: 'Question: '
+title: '[ Question ]: '
 labels: 'question, open to ideas'
 assignees: ''
 
