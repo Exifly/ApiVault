@@ -159,6 +159,11 @@ onMounted(async () => {
   font-weight: 600;
 }
 
+.router-link-active {
+  background-color: var(--bg-card-glass-hover);
+  border-radius: 5px;
+}
+
 .search-bar {
   margin-top: 5vh;
   margin-bottom: 5vh;
