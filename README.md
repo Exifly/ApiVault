@@ -190,10 +190,10 @@ Thanks go to these wonderful people ✨:
 </table>
 
 ## Support 
+Feel free to open issues and pull requests and **Don't forget to leave a star ⭐**
+If you want to support us with a coffee, that's how to do it! ❤️
 
-We would love to have you, feel free to open issues and pull requests and **Don't forget to leave a star ⭐**
-
-<a href="https://www.buymeacoffee.com/exifly" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T0LL2YG)
 
 ## License 
 ApiVault is licensed under the terms of **MIT License**. Check out [LICENSE](https://github.com/Exifly/ApiVault/blob/main/LICENSE) for details.
