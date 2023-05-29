@@ -38,4 +38,10 @@ p {
     width: 20vw;
   }
 }
+
+@media only screen and (max-width: 396px) {
+  .category-container {
+    width: max-content;
+  }
+}
 </style>
