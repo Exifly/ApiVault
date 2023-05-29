@@ -1,7 +1,7 @@
 ---
 name: Add Your API
 about: Create an API requesto to add your API's on the website
-title: "[APIFT] Submit new API"
+title: "[NEW API] Submit new API"
 labels: add api
 assignees: ''
 
