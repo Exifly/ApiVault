@@ -157,7 +157,6 @@ import {
 } from "../utils/themeutils";
 
 const stargazers = await GithubServices.repoStars();
-console.log(stargazers);
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>
   process.client ? localStorage.getItem("APIVaultTheme")! : "light"
