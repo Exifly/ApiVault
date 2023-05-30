@@ -6,21 +6,21 @@
       &copy; 2023 Exifly
       <br />
       Coded by those
-      <router-link
+      <NuxtLink
         class="text-wrapper-authors"
         style="text-decoration: none; font-weight: 600"
         to="/contributors"
       >
         wonderful people
-      </router-link>
+      </NuxtLink>
     </p>
 
-    <router-link
+    <NuxtLink
       to="/"
       class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
     >
       <img :src="logoMode" alt="" width="30" height="30" />
-    </router-link>
+    </NuxtLink>
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
