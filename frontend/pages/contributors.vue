@@ -38,12 +38,17 @@
 <script lang="ts" setup>
 import { GithubContributor } from "~/models/types";
 import GithubService from "~/services/GithubServices";
+
+useHead({
+  title: "APIVault contributors",
+});
+
 const layouts = "body-content";
 let isLoading = ref(true);
 let contributors = ref<GithubContributor[]>([]);
+
 onMounted(async () => {
   contributors.value = await GithubService.contributors();
-  console.log(contributors.value);
   isLoading.value = false;
 });
 </script>
