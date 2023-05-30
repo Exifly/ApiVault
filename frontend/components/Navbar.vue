@@ -24,8 +24,8 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item navbar-text-wrapper mt-2">
+        <ul class="navbar-nav" role="tablist">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
               title="Check out our github repository"
               tabindex="1"
@@ -38,7 +38,7 @@
               Stars {{ stargazers }}
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
               title="Submit your API"
               tabindex="2"
@@ -48,8 +48,9 @@
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <ToggleButton
+              title="Light mode Button"
               @click="setModeLocal"
               :theme="theme"
               class="flex items-center gap-2 ms-2"
@@ -59,7 +60,10 @@
           <div id="scrollb" class="scrollbox">
             <div class="d-block d-sm-none">
               <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <NuxtLink
                   class="navbar-text-wrapper flex items-center gap-2"
                   to="/"
@@ -72,7 +76,10 @@
                   />Home</NuxtLink
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <a
                   title="check out our github repository"
                   class="navbar-text-wrapper flex items-center gap-2"
@@ -87,7 +94,10 @@
                   />Repository</a
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <a
                   title="Sponsor APIVault"
                   class="navbar-text-wrapper flex items-center gap-2"
@@ -102,7 +112,10 @@
                   />Sponsor</a
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <NuxtLink
                   title="Our Contributors"
                   class="navbar-text-wrapper flex items-center gap-2"
@@ -122,6 +135,7 @@
               </h5>
               <li
                 class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
                 v-for="category in categoriesAttributes"
                 :key="category.name"
               >
