@@ -9,14 +9,14 @@
           style="padding: 3px"
           class="text-wrapper card-subtitle mb-2 pe-2 category-container text-body-secondary"
         >
-        <NuxtLink :to="`/categories/${subtitle}`" class="subtitle-link">
-          <font-awesome-icon
-            class="mx-2 icon-color"
-            width="12"
-            height="12"
-            :icon="cat"
-          />{{ subtitle }}
-        </NuxtLink>
+          <NuxtLink :to="`/categories/${subtitle}`" class="subtitle-link">
+            <font-awesome-icon
+              class="mx-2 icon-color"
+              width="12"
+              height="12"
+              :icon="cat"
+            />{{ subtitle }}
+          </NuxtLink>
         </p>
       </div>
       <div>
@@ -140,7 +140,6 @@ onMounted(() => {
   min-width: 3rem;
   max-width: 15rem;
   justify-content: center;
-  /* border: 1px solid var(--border-color-cards); */
 }
 
 .glass-card {
@@ -226,8 +225,7 @@ onMounted(() => {
 }
 
 .glass-card:hover {
-  background-color: var(--bg-card-glass-hover);
-  scale: 1.01;
+  border: solid 1px var(--icon-color);
   transition: scale 0.1s ease-in-out;
 }
 </style>

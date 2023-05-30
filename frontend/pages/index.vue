@@ -38,22 +38,24 @@
           v-for="api in apiSearched"
           :key="api.name"
         >
-          <a
-            v-if="showList"
-            :href="api.url"
-            target="_blank"
-            style="text-decoration: none"
-          >
-            <CardAPI
-              :title="api.name"
-              :subtitle="api.category"
-              :body="api.description"
-              :cors="api.cors"
-              :https="api.https"
-              :auth="api.auth"
-              :faviconSrc="api.url"
-            />
-          </a>
+          <Transition>
+            <a
+              v-if="showList"
+              :href="api.url"
+              target="_blank"
+              style="text-decoration: none"
+            >
+              <CardAPI
+                :title="api.name"
+                :subtitle="api.category"
+                :body="api.description"
+                :cors="api.cors"
+                :https="api.https"
+                :auth="api.auth"
+                :faviconSrc="api.url"
+              />
+            </a>
+          </Transition>
         </div>
       </div>
       <div class="row mt-4">
@@ -153,6 +155,16 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 @media only screen and (max-width: 600px) {
   #title-trending {
     display: none;
