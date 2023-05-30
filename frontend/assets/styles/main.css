@@ -11,6 +11,7 @@
   --bg-trending-category: #222428;
   --bg-attribute-warn: #352919;
   --icon-color: #96a2b5e5;
+  --icon-text-color: #ffffffc2;
   --border-color-cards: rgb(255 255 255 / 6%);
   --nav-color: #1a1a1a;
   --text-color: #e7e7e7;
@@ -33,6 +34,7 @@
   --bg-trending-category: #4d4d4d14;
   --bg-attribute-warn: #352919;
   --icon-color: rgba(0, 0, 0, 0.8);
+  --icon-text-color: rgba(0, 0, 0, 0.8);
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;
   --text-color: #000000;
@@ -100,7 +102,7 @@ hr {
 }
 
 .api_count {
-  color: var(--icon-color);
+  color: var(--icon-text-color);
   opacity: 40%;
 }
 
