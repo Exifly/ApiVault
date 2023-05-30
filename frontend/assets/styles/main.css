@@ -106,23 +106,6 @@ hr {
   opacity: 40%;
 }
 
-/* Page Transitions */
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.25s;
-}
-
-.page-enter-from {
-  opacity: 0;
-  filter: blur(0%);
-}
-
-.page-leave-from {
-  opacity: 100%;
-  filter: blur(100%);
-}
-
-
 /* Responsive properties */
 @media (min-width: 1581px) {
   #__nuxt {
