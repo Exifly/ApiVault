@@ -24,26 +24,44 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item">
-        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper">{{
-          packageJson.version
-        }}</a>
+        <a
+          id="emailSupport"
+          title="Send us an Email"
+          tabindex="3"
+          href="mailto:info@exifly.it"
+          class="nav-link px-2 text-wrapper"
+          target="_blank"
+          >{{ packageJson.version }}</a
+        >
       </li>
       <li class="nav-item">
         <a
+          id="githubRepository"
+          title="Check out our github repository"
+          tabindex="4"
           href="https://github.com/Exifly/ApiVault"
           class="nav-link px-2 text-wrapper"
+          target="_blank"
           ><font-awesome-icon :icon="['fab', 'github']"
         /></a>
       </li>
       <li class="nav-item">
-        <a href="mailto:info@exifly.it" class="nav-link px-2 text-wrapper"
+        <a
+          title="Send us an Email"
+          tabindex="5"
+          href="mailto:info@exifly.it"
+          class="nav-link px-2 text-wrapper"
+          target="_blank"
           >Contact</a
         >
       </li>
       <li class="nav-item">
         <a
-          href="https://www.buymeacoffee.com/exifly"
+          title="Sponsor APIVault"
+          tabindex="6"
+          href="https://ko-fi.com/apivault"
           class="nav-link px-2 text-wrapper"
+          target="_blank"
           >Sponsor</a
         >
       </li>
