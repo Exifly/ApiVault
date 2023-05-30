@@ -44,6 +44,7 @@
 import { APIType } from "~/models/types";
 import ApivaultServices from "~/services/ApivaultServices";
 import { handleSearch } from "~/pages/functions/searchEngine";
+
 const layouts = "body-content";
 const route = useRoute();
 const categoryTitle = route.params.category as string;
@@ -55,6 +56,10 @@ const categorySearched = reactive({
   category: "",
 });
 const showList = ref(true);
+
+useHead({
+  title: `${route.params.category} APIs List`,
+});
 
 const handleSearchCategory = (val: string, title: string) => {
   handleSearch(
