@@ -3,29 +3,13 @@
     <div>
       <h1 class="text-wrapper page-title">
         Your Gateway to a World of Public APIs.
-        <h5>This tool is completely free and Open-Source!</h5>
       </h1>
+      <h5 class="text-wrapper">
+        This tool is completely free and Open-Source!
+      </h5>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from "vue";
-
-// TODO: set theme variable in nuxt.config.ts as public value (global state)
-const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
-);
-
-// Compute the image source based on the current theme
-const imageSource = computed(() => {
-  if (theme.value === "dark") {
-    return "/img/apivault-dark-nobg.png";
-  } else {
-    return "/img/apivault-light-nobg.png";
-  }
-});
-</script>
 
 <style scoped>
 .hero-flex {
@@ -36,6 +20,7 @@ const imageSource = computed(() => {
   align-self: center;
   font-size: calc(1.375rem + 1vw);
   justify-content: center;
+  margin-bottom: 0;
   text-transform: capitalize;
 }
 
