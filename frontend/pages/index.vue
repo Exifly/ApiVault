@@ -33,12 +33,12 @@
     <template #cardAreaContent>
       <div class="row">
         <LoadingEffect v-if="isLoading" />
-        <div
-          class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
-          v-for="api in apiSearched"
-          :key="api.name"
-        >
-          <Transition>
+        <TransitionGroup name="cards">
+          <div
+            class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+            v-for="api in apiSearched"
+            :key="api.id"
+          >
             <a
               v-if="showList"
               :href="api.url"
@@ -55,8 +55,8 @@
                 :faviconSrc="api.url"
               />
             </a>
-          </Transition>
-        </div>
+          </div>
+        </TransitionGroup>
       </div>
       <div class="row mt-4">
         <LoadMoreButton
@@ -155,16 +155,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
 @media only screen and (max-width: 600px) {
   #title-trending {
     display: none;

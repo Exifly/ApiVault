@@ -74,3 +74,14 @@
   }
 }
 // CARD GLOW EFFECT - End
+
+// Nuxt Trantitions - Start //
+.cards-enter-active,
+.cards-leave-active {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.cards-enter-from,
+.cards-leave-to {
+  opacity: 0;
+}
