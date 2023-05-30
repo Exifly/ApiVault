@@ -1,7 +1,11 @@
 <template>
   <nav class="glass-nav navbar-custom navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
-      <NuxtLink to="/" class="navbar-text-wrapper navbar-brand">
+      <NuxtLink
+        to="/"
+        class="navbar-text-wrapper navbar-brand"
+        title="Go back to the Homepage"
+      >
         <img :src="logoPath" alt="logo" width="150" />
       </NuxtLink>
       <button
@@ -23,6 +27,8 @@
         <ul class="navbar-nav">
           <li class="nav-item navbar-text-wrapper mt-2">
             <a
+              title="Check out our github repository"
+              tabindex="1"
               class="navbar-text-wrapper flex items-center gap-2 active"
               aria-current="page"
               href="https://github.com/Exifly/ApiVault"
@@ -34,6 +40,8 @@
           </li>
           <li class="nav-item navbar-text-wrapper mt-2">
             <a
+              title="Submit your API"
+              tabindex="2"
               class="navbar-text-wrapper flex items-center gap-2"
               href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
             >
@@ -66,6 +74,7 @@
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <a
+                  title="check out our github repository"
                   class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
                   href="https://github.com/Exifly/ApiVault"
@@ -80,9 +89,10 @@
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <a
+                  title="Sponsor APIVault"
                   class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
-                  href="https://www.buymeacoffee.com/exifly"
+                  href="https://ko-fi.com/apivault"
                 >
                   <font-awesome-icon
                     class=""
@@ -94,6 +104,7 @@
               </li>
               <li class="nav-item navbar-text-wrapper mt-2 category-custom">
                 <NuxtLink
+                  title="Our Contributors"
                   class="navbar-text-wrapper flex items-center gap-2"
                   to="/contributors"
                 >
@@ -115,6 +126,7 @@
                 :key="category.name"
               >
                 <NuxtLink
+                  :title="category.name + ' APIs'"
                   class="navbar-text-wrapper flex items-center gap-2"
                   :to="'/categories/' + category.name"
                 >
