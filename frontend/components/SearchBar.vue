@@ -99,7 +99,7 @@ onMounted(async () => {
 }
 
 label {
-  --search-radius: 16px;
+  --search-radius: 12px;
   --border-width: 2px;
   position: relative;
   overflow: hidden;
