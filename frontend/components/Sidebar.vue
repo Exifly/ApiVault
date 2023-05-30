@@ -2,20 +2,25 @@
   <div class="custom-props mobile-first border-right" id="sidebar-wrapper">
     <div class="scrollbox">
       <div class="sidebar-heading ms-4">MENU</div>
-      <ul class="list-unstyled ps-0 text-black mx-4">
-        <li class="sidebar-text-wrapper mt-2 category-custom">
-          <router-link class="flex items-center gap-2 px-2" to="/">
+      <ul class="list-unstyled ps-0 text-black mx-4" role="tablist">
+        <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
+          <NuxtLink
+            class="flex items-center gap-2 px-2"
+            to="/"
+            title="Go back to the Homepage"
+          >
             <font-awesome-icon
               class=""
               width="12"
               height="12"
               icon="fa-solid fa-house"
-            />Home</router-link
+            />Home</NuxtLink
           >
         </li>
-        <li class="sidebar-text-wrapper mt-2 category-custom">
+        <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
           <a
             class="flex items-center gap-2 px-2"
+            title="Checkout our github repository"
             style="text-decoration: none"
             href="https://github.com/Exifly/ApiVault"
             target="_blank"
@@ -28,11 +33,12 @@
             />Repository</a
           >
         </li>
-        <li class="sidebar-text-wrapper mt-2 category-custom">
+        <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
           <a
             class="flex items-center gap-2 px-2"
+            title="Sponsor APIVault"
             style="text-decoration: none"
-            href="https://www.buymeacoffee.com/exifly"
+            href="https://ko-fi.com/apivault"
           >
             <font-awesome-icon
               class=""
@@ -42,9 +48,10 @@
             />Sponsor</a
           >
         </li>
-        <li class="sidebar-text-wrapper mt-2 category-custom">
-          <router-link
+        <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
+          <NuxtLink
             class="flex items-center gap-2 px-2"
+            title="Our contributors"
             style="text-decoration: none"
             to="/contributors"
           >
@@ -53,41 +60,44 @@
               width="12"
               height="12"
               icon="fa-solid fa-users"
-            />Contributors</router-link
+            />Contributors</NuxtLink
           >
         </li>
       </ul>
       <div class="sidebar-heading ms-4">CATEGORIES</div>
       <div class="list-group list-group-flush">
-        <ul class="list-unstyled ps-0 text-black mx-4">
+        <ul class="list-unstyled ps-0 text-black mx-4" role="tablist">
           <li
             class="sidebar-text-wrapper mt-2 category-custom"
+            role="tab"
             v-for="category in categoriesAttributes"
             :key="category"
           >
-            <router-link
+            <NuxtLink
               class="flex items-center gap-2 px-2"
-              :to="'/categories/' + category.name"
+              :title="`${category.name} API List`"
+              :to="`/categories/${category.name}`"
             >
               <font-awesome-icon
                 class=""
                 width="12"
                 height="12"
                 :icon="category.icon"
-              />{{ category.name }}</router-link
+              />{{ category.name }}</NuxtLink
             >
           </li>
           <hr />
-          <li class="sidebar-heading">INFO</li>
+          <li class="sidebar-heading" role="tab">INFO</li>
           <li
             class="sidebar-text-wrapper sidebar-info-text mt-2 category-custom"
+            role="tab"
           >
             API Fetched: <b>{{ api.count }}</b>
           </li>
           <li
             class="sidebar-text-wrapper sidebar-info-text mt-2 category-custom"
+            role="tab"
           >
-            <!-- N. Categories: <b>{{ categoriesAttributes.length }}</b> -->
             N. Categories: <b>{{ categoriesAttributes.length }}</b>
           </li>
         </ul>
