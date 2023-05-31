@@ -145,6 +145,7 @@ label > input {
   outline: none;
   border: none;
   background: transparent;
+  padding: 1rem 0;
 }
 
 @keyframes borderGradient {
