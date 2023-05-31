@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       title: "A free API database list for developers",
       meta: [
         { name: "keywords", content: "free api, apivault, api list, open-source, public APIs, software developer" },

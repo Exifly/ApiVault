@@ -1,7 +1,11 @@
 <template>
   <nav class="glass-nav navbar-custom navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
-      <NuxtLink to="/" class="navbar-text-wrapper navbar-brand">
+      <NuxtLink
+        to="/"
+        class="navbar-text-wrapper navbar-brand"
+        title="Go back to the Homepage"
+      >
         <img :src="logoPath" alt="logo" width="150" />
       </NuxtLink>
       <button
@@ -20,9 +24,11 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item navbar-text-wrapper mt-2">
+        <ul class="navbar-nav" role="tablist">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
+              title="Check out our github repository"
+              tabindex="1"
               class="navbar-text-wrapper flex items-center gap-2 active"
               aria-current="page"
               href="https://github.com/Exifly/ApiVault"
@@ -32,16 +38,19 @@
               Stars {{ stargazers }}
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
+              title="Submit your API"
+              tabindex="2"
               class="navbar-text-wrapper flex items-center gap-2"
               href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
             >
               <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
             </a>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2">
+          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <ToggleButton
+              title="Light mode Button"
               @click="setModeLocal"
               :theme="theme"
               class="flex items-center gap-2 ms-2"
@@ -51,7 +60,10 @@
           <div id="scrollb" class="scrollbox">
             <div class="d-block d-sm-none">
               <h5 class="navbar-text-wrapper navbar-header-wrapper">MENU</h5>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <NuxtLink
                   class="navbar-text-wrapper flex items-center gap-2"
                   to="/"
@@ -64,8 +76,12 @@
                   />Home</NuxtLink
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <a
+                  title="check out our github repository"
                   class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
                   href="https://github.com/Exifly/ApiVault"
@@ -78,11 +94,15 @@
                   />Repository</a
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <a
+                  title="Sponsor APIVault"
                   class="navbar-text-wrapper flex items-center gap-2"
                   style="text-decoration: none"
-                  href="https://www.buymeacoffee.com/exifly"
+                  href="https://ko-fi.com/apivault"
                 >
                   <font-awesome-icon
                     class=""
@@ -92,8 +112,12 @@
                   />Sponsor</a
                 >
               </li>
-              <li class="nav-item navbar-text-wrapper mt-2 category-custom">
+              <li
+                class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
+              >
                 <NuxtLink
+                  title="Our Contributors"
                   class="navbar-text-wrapper flex items-center gap-2"
                   to="/contributors"
                 >
@@ -111,10 +135,12 @@
               </h5>
               <li
                 class="nav-item navbar-text-wrapper mt-2 category-custom"
+                role="tab"
                 v-for="category in categoriesAttributes"
                 :key="category.name"
               >
                 <NuxtLink
+                  :title="category.name + ' APIs'"
                   class="navbar-text-wrapper flex items-center gap-2"
                   :to="'/categories/' + category.name"
                 >
@@ -145,7 +171,6 @@ import {
 } from "../utils/themeutils";
 
 const stargazers = await GithubServices.repoStars();
-console.log(stargazers);
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>
   process.client ? localStorage.getItem("APIVaultTheme")! : "light"

@@ -11,27 +11,29 @@
         <LoadingEffect />
       </div>
       <div class="row" v-if="showList">
-        <div
-          class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
-          v-for="api in apiSearched"
-          :key="api.id"
-        >
-          <a
-            class="text-white text-decoration-none"
-            :href="api.url"
-            target="_blank"
+        <TransitionGroup name="cards">
+          <div
+            class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+            v-for="api in apiSearched"
+            :key="api.id"
           >
-            <CardAPI
-              :title="api.name"
-              :subtitle="api.category"
-              :body="api.description"
-              :cors="api.cors"
-              :https="api.https"
-              :auth="api.auth"
-              :faviconSrc="api.url"
-            />
-          </a>
-        </div>
+            <a
+              class="text-white text-decoration-none"
+              :href="api.url"
+              target="_blank"
+            >
+              <CardAPI
+                :title="api.name"
+                :subtitle="api.category"
+                :body="api.description"
+                :cors="api.cors"
+                :https="api.https"
+                :auth="api.auth"
+                :faviconSrc="api.url"
+              />
+            </a>
+          </div>
+        </TransitionGroup>
       </div>
     </template>
     <template #footerArea>
@@ -44,6 +46,7 @@
 import { APIType } from "~/models/types";
 import ApivaultServices from "~/services/ApivaultServices";
 import { handleSearch } from "~/pages/functions/searchEngine";
+
 const layouts = "body-content";
 const route = useRoute();
 const categoryTitle = route.params.category as string;
@@ -55,6 +58,10 @@ const categorySearched = reactive({
   category: "",
 });
 const showList = ref(true);
+
+useHead({
+  title: `${route.params.category} APIs List`,
+});
 
 const handleSearchCategory = (val: string, title: string) => {
   handleSearch(
