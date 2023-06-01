@@ -1,14 +1,32 @@
 <h1 align="center">
-  <br>
-   APIVault 🛡️
+    <img src="https://raw.githubusercontent.com/Exifly/ApiVault/main/frontend/public/img/apivault-full-dark-nobg.png#gh-dark-mode-only" alt="apivault dark" width="200">
+    <img src="https://raw.githubusercontent.com/Exifly/ApiVault/main/frontend/public/img/apivault-full-light-nobg.png#gh-light-mode-only" alt="ApiVault" width="200">
   <br>
 </h1>
 
 ![screenshot](./assets/Hero.png)
 
 <p align="center">
+    <a href="https://github.com/Exifly/ApiVault/tree/main" alt="Stable">
+        <img src="https://img.shields.io/badge/stable-1.4.0-green?style=for-the-badge" /></a>
+    <a href="https://github.com/Exifly/ApiVault/tree/beta_v2.0.0-b1" alt="Beta">
+        <img src="https://img.shields.io/badge/beta-2.0.0-blue?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/exifly/apivault?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
+    <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a>
+    <a href="https://discord.gg/ShqYJynSnq" alt="Discord Server">
+        <img src="https://dcbadge.vercel.app/api/server/ShqYJynSnq" /></a>
+<br>    
+</p>
+
+<p align="center">
+  <a href="#prerequisites">Prerequisites</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#support">Support</a> •
   <a href="#license">License</a>
 </p>
@@ -17,61 +35,96 @@
   <a href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D">Click here to submit your API</a>
 </h1>
 
+<div align="center">
 
-## How To Use 
+  # Built with
+  [![Nuxt.js](https://img.shields.io/badge/nuxt.js-35495E?style=for-the-badge&logo=nuxtdotjs&logoColor=4FC08D)](https://nuxt.com/)
+  [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
+  [![Django](https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/start/overview/)
 
-### Frontend
-To clone and run this application in developer mode, you'll need [Git](https://git-scm.com) and [npm](http://npmjs.com) installed on your computer. From your command line:
 
+
+
+</div>
+
+<hr />
+
+# Prerequisites
+Before starting to use the software make sure you have <a href="https://www.docker.com/">docker</a> installed.
+
+# How To Use
+
+## Clone the repository
 ```bash
-# Clone this repository
-$ git clone https://github.com/exifly/ApiVault
-
-# Go into the repository
-$ cd ApiVault/frontend
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm run dev
+git clone https://github.com/exifly/ApiVault
 ```
 
 ## Set .env file
-Inside /frontend
+Inside root repository folder rename .env.dev file
 ```bash
-cat .env.sample > .env
+cat .env.dev > .env
 ```
 
-### Backend
-To clone and run this application in developer mode, you'll need [docker](https://www.docker.com/) installed on your computer. From your command line:
-
+Inside /frontend folder rename .env.sample file
 ```bash
-# Clone this repository
-$ git clone https://github.com/exifly/ApiVault
-
-# Go into the repository
-$ cd ApiVault/backend
-
-# Run docker-compose
-$ docker-compose up
-
+cd frontend
+cat .env.dev > .env
 ```
 
-## Credits 
+Same action inside /backend folder
+```bash
+cd backend
+cat .env.dev > .env
+```
+
+## Client/Server side using Docker
+```bash
+# Go into the root folder
+cd ApiVault
+
+# Run docker
+docker-compose up
+```
+
+## Important note:
+On first docker-compose launch, your terminal could tell you:
+```bash
+database_dev  | 2023-05-26 13:38:01.598 UTC [83] ERROR:  relation "vault_api" does not exist at character 232
+database_dev  | 2023-05-26 13:38:01.598 UTC [83] STATEMENT:  SELECT "vault_api"."id", "vault_api"."name", "vault_api"."auth", "vault_api"."category_id", "vault_api"."cors", "vault_api"."description", "vault_api"."https", "vault_api"."url", "vault_api"."view_count", "vault_api"."source" FROM "vault_api" LIMIT 21
+database_dev  | 2023-05-26 13:38:01.624 UTC [83] ERROR:  relation "vault_api" does not exist at character 232
+```
+or
+```bash
+server_dev    |   File "/usr/local/lib/python3.8/dist-packages/psycopg2/__init__.py", line 122, in connect
+server_dev    |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+server_dev    | psycopg2.OperationalError: connection to server at "database" (172.20.0.2), port 5432 failed: Connection refused
+server_dev    |         Is the server running on that host and accepting TCP/IP connections?
+```
+
+To fix those erros just stop it and relaunch `docker-compose up`
+
+**Note**:
+
+Please open an [Issue](https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=) if you see docker errors! (You can try fix on your own if you want)
+
+Now just go on **localhost:3000** on your browser.
+
+
+### Done
+
+<hr />
+
+# Credits 
 
 This software uses the following open source packages:
- 
-### Frameworks 🛠️
-- [![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](http://electron.atom.io/)
-- [![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.2.x/)
 
 ### Tools 🔧
-- [VueRouter](https://router.vuejs.org/)
 - [GSAP](https://greensock.com/gsap/)
 - [public-apis](https://github.com/public-apis/public-apis) (a portion of our data)
 
-## Contributing 
+<hr />
+
+# Contributing 
 
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
@@ -122,15 +175,25 @@ Thanks go to these wonderful people ✨:
 </b></sub></a><br />🥳</td>
        <td align="center"><a href="https://github.com/Badrnyali"><img src="https://avatars.githubusercontent.com/u/71897147?v=4" width="100px;" alt="Badrnyali"/><br /><sub><b>Badrnyali
          </b></sub></a><br />🥳</td>
+        <td align="center"><a href="https://github.com/gianmazzoran"><img src="https://avatars.githubusercontent.com/u/16735648?v=4" width="100px;" alt="bytemore"/><br /><sub><b>bytemore
+      </b></sub></a><br />🥳</td>
+        <td align="center"><a href="https://github.com/HassanTanveer"><img src="https://avatars.githubusercontent.com/u/57575219?v=4" width="100px;" alt="Hassan Tanveer"/><br /><sub><b>Hassan Tanveer
+      </b></sub></a><br />🥳</td>
+        <td align="center"><a href="https://github.com/cyberGHostJs"><img src="https://avatars.githubusercontent.com/u/105425922?v=4" width="100px;" alt="cyberGHostJs"/><br /><sub><b>cyberGHostJs
+      </b></sub></a><br />🥳</td>
+        <td align="center"><a href="https://github.com/et-c"><img src="https://avatars.githubusercontent.com/u/54663819?v=4" width="100px;" alt="et-c"/><br /><sub><b>et-c
+      </b></sub></a><br />🥳</td>
+        <td align="center"><a href="https://github.com/DomeT99"><img src="https://avatars.githubusercontent.com/u/85518808?v=4" width="100px;" alt="Domenico Tenace"/><br /><sub><b>Domenico Tenace
+      </b></sub></a><br />🥳</td>
     </tr>
   </tbody>
 </table>
 
 ## Support 
+Feel free to open issues and pull requests and **Don't forget to leave a star ⭐**
+If you want to support us with a coffee, that's how to do it! ❤️
 
-We would love to have you, feel free to open issues and pull requests and **Don't forget to leave a star ⭐**
-
-<a href="https://www.buymeacoffee.com/exifly" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T0LL2YG)
 
 ## License 
 ApiVault is licensed under the terms of **MIT License**. Check out [LICENSE](https://github.com/Exifly/ApiVault/blob/main/LICENSE) for details.

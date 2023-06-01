@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "release" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "release" ]
 
 jobs:
   build:
@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: frontend
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-        cache: 'npm'
-        cache-dependency-path: frontend/package-lock.json
-    - run: npm install
-    - run: npm run build --if-present
+        cache: 'yarn'
+        cache-dependency-path: '**/yarn.lock'
+    - run: yarn install
+    - run: yarn build --if-present

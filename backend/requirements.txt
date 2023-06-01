@@ -1,2 +1,12 @@
-Flask==2.2.5
-Flask-Cors==3.0.10
+django==4.*
+gunicorn
+django-environ
+djangorestframework
+requests
+django-filter
+django-cors-headers
+psycopg2-binary
+djangorestframework-simplejwt
+fiona==1.8.20
+django-cors-headers
+django-extensions

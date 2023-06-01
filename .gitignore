@@ -3,8 +3,22 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Docker production file
+docker-compose.prod.yml
+
+# Postgres and config
+config/
+.config/
+data-db
+data-db/
+.data-db/
+
 # C extensions
 *.so
+
+# Database and nuxt files
+data-db/
+frontend/.nuxt/
 
 # Distribution / packaging
 .Python
@@ -152,3 +166,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
