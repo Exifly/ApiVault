@@ -61,6 +61,12 @@ const showList = ref(true);
 
 useHead({
   title: `${route.params.category} APIs List`,
+  meta: [
+    {
+      name: "description",
+      content: `A List of your favourite ${route.params.category} APIs. For Free!`,
+    },
+  ],
 });
 
 const handleSearchCategory = (val: string, title: string) => {
