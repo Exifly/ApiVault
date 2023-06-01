@@ -24,7 +24,7 @@ class GithubService {
 
   async repoStars(): Promise<number> {
     const repo: globalThis.Ref<any> = ref(null);
-    const { data: fetchedData, error } = await useFetch<any>("https://api.github.com/repos/exifly/apivault");
+    const { data: fetchedData, error } = await useLazyFetch<any>("https://api.github.com/repos/exifly/apivault");
     if (!error) {
       let num: globalThis.Ref<any> = ref(0);
       return num.value;
