@@ -23,15 +23,15 @@
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   body: {
     type: String,
-    required: true,
+    required: false,
   },
   imageUrl: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 </script>
@@ -117,7 +117,6 @@ defineProps({
 
 .glass-card:hover {
   background-color: var(--bg-card-glass-hover);
-  scale: 1.01;
   transition: scale 0.1s ease-in-out;
 }
 </style>
