@@ -17,8 +17,6 @@ export default defineNuxtPlugin(nuxtApp => {
     measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
   };
 
-  console.log(firebaseConfig);
-
   firebase.initializeApp(firebaseConfig);
   firebase.analytics()
 })
