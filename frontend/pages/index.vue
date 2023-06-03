@@ -79,6 +79,15 @@ import { categoriesDict } from "~/utils/categoryMapping";
 import { TrendingCategory } from "~/models/types";
 import { APIType } from "~/models/types";
 
+// adding cookie script
+useHead({
+  script: [
+    {
+      src: "https://app.enzuzo.com/apps/enzuzo/static/js/__enzuzo-cookiebar.js?uuid=f59a7360-00b5-11ee-a49e-231d479eb14f",
+    },
+  ],
+});
+
 // layout name
 const layouts: string = "body-content";
 
