@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     siteUrl: 'https://apivault.dev',
     urls: async () => {
       return categoriesProperties.map(category => ({
-        loc: `/categories/${category.name}`,
+        loc: `/categories/${category.name.replace('\&', '\&amp;')}`,
         lastmod: new Date(),
         changefreq: 'daily',
         priority: 0.2,
