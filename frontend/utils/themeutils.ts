@@ -1,16 +1,22 @@
 export function setTheme(): string {
   const theme = localStorage.getItem("APIVaultTheme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-  if (process.client) {
-    if (theme !== "dark" && theme !== "light") {
-      if (prefersDark.matches) {
-        localStorage.setItem("APIVaultTheme", "dark");
-      } else {
-        localStorage.setItem("APIVaultTheme", "light");
-      }
+  
+  if (!theme || (theme !== "dark" && theme !== "light")) {
+    if (prefersDark.matches) {
+      localStorage.setItem("APIVaultTheme", "dark");
+      return "dark";
+    } else {
+      localStorage.setItem("APIVaultTheme", "light");
+      return "light";
     }
   }
-    return localStorage.getItem("APIVaultTheme")!;
+  
+  return theme;
+}
+
+export function setThemeValue(color: string): void {
+  if (process.client) localStorage.setItem("APIVaultTheme", color);
 }
 
 export const themeIcons: { [key: string]: string } = {
@@ -23,20 +29,15 @@ export const getThemeElements = (theme: globalThis.Ref<string>): boolean => {
 }
 
 export const setThemeLogoPath = (theme: globalThis.Ref<string>): string => {
-  if (theme.value === null || theme.value === undefined) {
-    return `/img/apivault-full-dark-nobg.png`;
-  }
-  return `/img/apivault-full-${theme.value}-nobg.png`;
+  const value = theme.value;
+  return value === null || value === undefined ? "/img/apivault-full-dark-nobg.png" : `/img/apivault-full-${value}-nobg.png`;
 }
 
+
 export const setLocalStorage = (theme: globalThis.Ref<string>): boolean => {
-  if (theme.value === "dark" || theme.value === undefined) {
-    theme.value = "light";
-    localStorage.setItem("APIVaultTheme", "light");
-    return false;
-  } else {
-    theme.value = "dark";
-    localStorage.setItem("APIVaultTheme", "dark");
-    return true;
-  }
+  const value = theme.value;
+  const newTheme = value === "dark" || value === undefined ? "light" : "dark";
+  theme.value = newTheme;
+  localStorage.setItem("APIVaultTheme", newTheme);
+  return newTheme === "dark";
 }

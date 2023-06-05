@@ -172,9 +172,7 @@ import {
 
 const stargazers = await GithubServices.repoStars();
 const categoriesAttributes = categoriesProperties;
-const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
-);
+const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
 
@@ -195,7 +193,7 @@ const setModeLocal = (): void => {
 };
 
 /**
-This is needed to set the dafault theme class for first
+This is needed to set the default theme class for first
 visit on the website.
 */
 useHead({

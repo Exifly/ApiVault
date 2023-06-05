@@ -1,6 +1,7 @@
 import { resolve } from "path";
 import { categoriesProperties } from "./utils/categoryMapping";
 
+
 export default defineNuxtConfig({
   components: true,
   alias: {
@@ -39,7 +40,7 @@ export default defineNuxtConfig({
     },
     head: {
       htmlAttrs: {
-        lang: 'en'
+        lang: 'en',
       },
       title: "A free API database list for developers",
       meta: [
