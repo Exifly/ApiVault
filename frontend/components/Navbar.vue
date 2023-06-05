@@ -170,8 +170,7 @@ import {
   setLocalStorage,
 } from "../utils/themeutils";
 
-// const stargazers = await GithubServices.repoStars();
-const stargazers: number = 220;
+const stargazers = await GithubServices.repoStars();
 const categoriesAttributes = categoriesProperties;
 const theme = useState("APIVaultTheme", () =>
   process.client ? localStorage.getItem("APIVaultTheme")! : "light"
