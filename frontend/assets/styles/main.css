@@ -22,6 +22,8 @@
   --hr-color: #919191;
   --card-attribute-color: #71e33c;
   --nav-item-hover:#f0f0f0;
+  --skeleton-primary-color: #333333; 
+  --skeleton-secondary-color: #3f3f3f;
 }
 
 .light {
@@ -45,6 +47,8 @@
   --hr-color: #454545;
   --card-attribute-color: #226d00;
   --nav-item-hover: #000;
+  --skeleton-primary-color: #ededed;
+  --skeleton-secondary-color: #dadada;
 }
 
 html {
@@ -104,6 +108,13 @@ hr {
 .api_count {
   color: var(--icon-text-color);
   opacity: 40%;
+}
+
+/* utils css */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* Responsive properties */
