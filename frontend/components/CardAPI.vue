@@ -142,6 +142,11 @@ onMounted(() => {
   justify-content: center;
 }
 
+.category-container:hover {
+  background: var(--bg-card-glass-hover);
+  transition: background 0.1s ease-in-out;
+}
+
 .glass-card {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
