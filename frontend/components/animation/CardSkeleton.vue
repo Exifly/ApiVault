@@ -93,7 +93,7 @@
   background-size: 650px 600px;
 }
 .details span::before {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 
 @keyframes shimmer {
