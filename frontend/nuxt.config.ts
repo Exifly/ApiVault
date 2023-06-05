@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { categoriesProperties } from "./utils/categoryMapping";
 
 export default defineNuxtConfig({
   components: true,
@@ -8,6 +9,29 @@ export default defineNuxtConfig({
   plugins: [
     '@/plugins/fontawesome',
   ],
+  modules: [
+    'nuxt-simple-sitemap',
+    [
+      '@nuxtjs/robots', 
+      { configPath: '~/config/robots.config' }
+    ]
+  ],
+  sitemap: {
+    siteUrl: 'https://apivault.dev',
+    urls: async () => {
+      return categoriesProperties.map(category => ({
+        loc: `/categories/${category.name}`,
+        lastmod: new Date(),
+        changefreq: 'daily',
+        priority: 0.2,
+      }))
+    },
+    defaults: {
+      changefreq: 'daily',
+      priority: 0.5,
+      lastmod: new Date()
+    }
+  },
   app: {
     pageTransition: {
       name: "page",
