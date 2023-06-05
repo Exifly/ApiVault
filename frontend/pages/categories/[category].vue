@@ -7,11 +7,18 @@
       <SearchBar @search:apiSearch="handleSearchCategory" />
     </template>
     <template #cardAreaContent>
-      <div class="row" v-if="isLoading">
-        <LoadingEffect />
-      </div>
       <div class="row" v-if="showList">
         <TransitionGroup name="cards">
+          <div class="wrapper" v-if="isLoading">
+            <div
+              class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+              style="height: 180px"
+              v-for="card in 9"
+              :key="card"
+            >
+              <AnimationCardSkeleton />
+            </div>
+          </div>
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
@@ -55,7 +62,7 @@ const isNullCategory = ref(null);
 const apiData: Ref<APIType[]> = ref([]);
 const apiSearched: Ref<APIType[]> = ref([]);
 const categorySearched = reactive({
-  category: "",
+  category: categoryTitle.toUpperCase(),
 });
 const showList = ref(true);
 
@@ -84,6 +91,8 @@ const handleSearchCategory = (val: string, title: string) => {
 onMounted(async () => {
   apiData.value = await ApivaultServices.apiCategoryData(route.params.category);
   isNullCategory.value ? apiData.value.length === 0 : false;
-  isLoading.value = false;
+  isLoading.value = true
+    ? apiData.value === null || apiData.value === undefined
+    : false;
 });
 </script>

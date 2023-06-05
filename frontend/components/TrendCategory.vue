@@ -18,7 +18,6 @@
   min-width: 3rem;
   max-width: 13rem;
   justify-content: center;
-  /* border: 1px solid var(--border-color-cards); */
 }
 
 .trend-category-container p {
