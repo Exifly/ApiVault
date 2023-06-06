@@ -176,7 +176,6 @@ const handleLoadMore = async () => {
 onBeforeMount(async () => {
   trendCategoriesList.value = await ApivaultServices.getTrendingCategories()!;
   apiData.value = await ApivaultServices.randomApis();
-  console.log(apiData.value);
   isLoading.value = true
     ? apiData.value === null || apiData.value === ""
     : false;
