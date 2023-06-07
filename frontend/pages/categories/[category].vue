@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout :name="layouts" :title="categorySearched.category">
     <template #heroAreaContent>
-      <Hero />
+      <Hero :heroTitle="heroTitle" />
     </template>
     <template #topAreaContent>
       <SearchBar @search:apiSearch="handleSearchCategory" />
@@ -57,6 +57,7 @@ import { handleSearch } from "~/pages/functions/searchEngine";
 const layouts = "body-content";
 const route = useRoute();
 const categoryTitle = route.params.category as string;
+const heroTitle = `Your Free and Public ${categoryTitle} API List`;
 const isLoading = ref(true);
 const isNullCategory = ref(null);
 const apiData: Ref<APIType[]> = ref([]);
