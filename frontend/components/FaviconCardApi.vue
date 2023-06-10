@@ -7,8 +7,7 @@
   />
 </template>
 
-<script setup>
-// TODO: convert to typescript
+<script lang="ts" setup>
 const props = defineProps({
   url: {
     type: String,

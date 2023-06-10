@@ -120,6 +120,12 @@ hr {
   flex-wrap: wrap;
 }
 
+.contrast-color {
+  background-color: var(--nav-item-hover) !important;
+  color: var(--bg-color) !important;
+  font-size: medium !important;
+}
+
 /* Responsive properties */
 @media (min-width: 1581px) {
   #__nuxt {
@@ -131,4 +137,10 @@ hr {
   body {
     background: var(--bg-color) !important;
   }
+}
+
+@media only screen and (max-width: 680px) {
+  .no-margin {
+    margin-left: 0 !important;
+  }  
 }

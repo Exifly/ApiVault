@@ -106,7 +106,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { reactive, onMounted } from "vue";
 import { categoriesProperties } from "~/utils/categoryMapping";
 import ApivaultServices from "~/services/ApivaultServices";

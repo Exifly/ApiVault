@@ -116,7 +116,7 @@ defineProps({
 }
 
 .glass-card:hover {
-  background-color: var(--bg-card-glass-hover);
+  border: solid 1px var(--icon-color);
   transition: scale 0.1s ease-in-out;
 }
 </style>
