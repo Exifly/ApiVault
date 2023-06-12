@@ -62,6 +62,8 @@ import {
   fas,
   faB,
   faUsers,
+  faHeartCircleCheck,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -148,7 +150,8 @@ library.add(
   faHouse,
   faHandHoldingDollar,
   faListOl,
-  faUsers
+  faUsers,
+  faHeart,
 );
 config.autoAddCss = false;
 

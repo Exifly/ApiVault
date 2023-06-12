@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { TrendingCategory, APIType } from '../models/types';
+import { TrendingCategory, APIType, GoogleOAauth2Config } from '../models/types';
 
 class ApivaultService {
 
@@ -33,6 +33,10 @@ class ApivaultService {
 
     getTrendingCategories(): Promise<TrendingCategory[]> {
         return this.axiosInstance.get(`${this.baseUrl}/categories/trending/`).then(res => res.data);
+    }
+
+    sendOAuthConfigToDjango(authToken: String): Promise<GoogleOAauth2Config> {
+        return this.axiosInstance.post(`${this.baseUrl}/oauth/google/`, {auth_token: authToken}).then(res => res.data);
     }
 
 }

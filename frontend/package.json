@@ -36,6 +36,8 @@
     "gsap": "^3.11.5",
     "next-auth": "4.21.1",
     "node-fetch": ">=2.6.7",
-    "scss": "^0.2.4"
+    "nuxt-vue3-google-signin": "^0.0.8",
+    "scss": "^0.2.4",
+    "vue3-google-login": "^2.0.15"
   }
 }

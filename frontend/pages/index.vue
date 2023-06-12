@@ -81,11 +81,29 @@
       </div>
       <div class="row mt-4">
         <LoadMoreButton
+          class="mb-4"
           v-if="showLoadMore"
           @click="handleLoadMore"
           :isLoading="isLoadingState"
         />
       </div>
+      <hr />
+      <section id="sponsorSection" class="sponsor-section">
+        <h1
+          id="title-sponsor"
+          class="text-wrapper mb-3"
+          style="text-align: center"
+        >
+          WE ARE SUPPORTED BY THOSE <br />
+          AMAZING FRIENDS
+        </h1>
+        <a href="#">
+          <GenericsButton class="mt-2 sponsor-button">
+            <font-awesome-icon class="me-2" :icon="['fas', 'heart']" /> Become a
+            sponsor
+          </GenericsButton>
+        </a>
+      </section>
     </template>
     <template #footerArea>
       <Footer />
@@ -187,12 +205,33 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.sponsor-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsor-section h1 {
+  font-size: 24px;
+}
+
+.sponsor-section .sponsor-button {
+  font-size: 14px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 600px) {
   #title-trending {
     display: none;
   }
   .trend-container {
     display: none !important;
+  }
+  .sponsor-section .sponsor-button {
+    font-size: 20px;
+    width: 100%;
   }
 }
 

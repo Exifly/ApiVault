@@ -21,10 +21,10 @@ const { isLoading } = defineProps({
   border: 1px solid var(--border-color-cards);
   color: var(--text-color);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 10%;
 }
 
 .load-more-button p {

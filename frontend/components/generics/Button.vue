@@ -10,8 +10,8 @@
   border-radius: 12px;
   border: 1px solid var(--border-color-cards);
   color: var(--text-color);
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 15px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -35,7 +35,7 @@
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 75%;
   }
 }
 

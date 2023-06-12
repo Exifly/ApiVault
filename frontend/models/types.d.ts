@@ -39,3 +39,22 @@ export interface FirebaseConfig {
   appId: string;
   measurementId: string;
 }
+
+export interface OAuthToken {
+  refresh: string;
+  access: string;
+}
+
+export interface GoogleOAauth2Config {
+  username: string;
+  email: string;
+  tokens: OAuthToken;
+}
+
+/* Global */
+declare global {
+  /* Abstractions */
+  interface Window {
+    handleCredentialResponse: () => void;
+  }
+}

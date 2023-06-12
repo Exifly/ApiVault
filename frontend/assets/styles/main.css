@@ -65,10 +65,13 @@ body {
   background: var(--bg-color) !important;
 }
 
-
 * {
   /* font-family: 'Titillium Web', sans-serif; */
   font-family: 'Barlow', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 hr {

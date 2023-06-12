@@ -61,12 +61,28 @@
             role="tab"
           >
             <!-- SET GOOGLE AUTH ENDPOINT -->
-            <a href="#">
-              <GenericsButton class="contrast-color">
-                <font-awesome-icon :icon="['fab', 'google']" />
-                Login
-              </GenericsButton>
-            </a>
+            <!-- <GoogleSignInButton
+              @success="handleLoginSuccess"
+              @error="handleLoginError"
+            ></GoogleSignInButton> -->
+            <GenericsButton
+              v-if="!isLogged"
+              class="contrast-color"
+              :disabled="!isReady"
+              @click="() => login()"
+            >
+              <font-awesome-icon :icon="['fab', 'google']" />
+              Login
+            </GenericsButton>
+            <GenericsButton
+              v-if="isLogged"
+              class="contrast-color"
+              :disabled="!isReady"
+              @click="() => logout()"
+            >
+              <font-awesome-icon :icon="['fab', 'google']" />
+              Logout
+            </GenericsButton>
           </li>
           <hr />
           <div id="scrollb" class="scrollbox">
@@ -173,6 +189,13 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  GoogleSignInButton,
+  useTokenClient,
+  type AuthCodeFlowSuccessResponse,
+  type AuthCodeFlowErrorResponse,
+  type CredentialResponse,
+} from "vue3-google-signin";
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubServices from "~/services/GithubServices";
 import {
@@ -188,6 +211,7 @@ const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
 const cookie = useCookie("sessionGoogle");
+const isLogged = ref<boolean>(false);
 
 /**
 Toggles the color scheme of the document body between light and dark mode.
@@ -215,20 +239,31 @@ useHead({
       return defaultTheme.value ? "" : "light";
     }),
   },
+  script: [
+    {
+      async: true,
+      src: "https://accounts.google.com/gsi/client",
+      defer: true,
+    },
+  ],
 });
 
-/*
-Get the code quert string from the google login url callback
-and store it as a cookie.
-*/
-const setGoogleSessionCookie = (cookieValue: string): void => {
-  const url = window.location.href;
-  const parsedUrl = new URL(url);
-  const queryString = parsedUrl.search;
-  const params = new URLSearchParams(queryString);
-  const code = params.get(cookieValue);
+const handleOnSuccess = (response: AuthCodeFlowSuccessResponse) => {
+  isLogged.value = true;
+  cookie.value = response.access_token;
+};
 
-  cookie.value = code;
+const handleOnError = (errorResponse: AuthCodeFlowErrorResponse) => {
+  console.log("Error: ", errorResponse);
+};
+
+const { isReady, login } = useTokenClient({
+  onSuccess: handleOnSuccess,
+  onError: handleOnError,
+});
+
+const checkLoggedIn = (): void => {
+  if (!cookie.value) isLogged.value = false;
 };
 
 onMounted(() => {
@@ -237,7 +272,7 @@ onMounted(() => {
   defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
-  setGoogleSessionCookie("code");
+  checkLoggedIn();
 });
 </script>
 
