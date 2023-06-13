@@ -24,7 +24,7 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav" role="tablist">
+        <ul class="navbar-nav align-items-center" role="tablist">
           <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
               title="Check out our github repository"
@@ -61,11 +61,18 @@
             role="tab"
           >
             <!-- SET GOOGLE AUTH ENDPOINT -->
-            <!-- <GoogleSignInButton
+            <GoogleSignInButton
+              style="margin-top: 8px"
+              v-if="!isLogged"
               @success="handleLoginSuccess"
               @error="handleLoginError"
-            ></GoogleSignInButton> -->
-            <GenericsButton
+              :auto-select="false"
+              theme="filled_black"
+              size="medium"
+              text="signin"
+              locale="en"
+            ></GoogleSignInButton>
+            <!-- <GenericsButton
               v-if="!isLogged"
               class="contrast-color"
               :disabled="!isReady"
@@ -73,16 +80,16 @@
             >
               <font-awesome-icon :icon="['fab', 'google']" />
               Login
-            </GenericsButton>
-            <GenericsButton
+            </GenericsButton> -->
+            <!-- <GenericsButton
               v-if="isLogged"
               class="contrast-color"
-              :disabled="!isReady"
               @click="() => logout()"
             >
               <font-awesome-icon :icon="['fab', 'google']" />
               Logout
-            </GenericsButton>
+            </GenericsButton> -->
+            <UserInfoMenu v-if="isLogged" @click="() => logout()" />
           </li>
           <hr />
           <div id="scrollb" class="scrollbox">
@@ -191,13 +198,11 @@
 <script lang="ts" setup>
 import {
   GoogleSignInButton,
-  useTokenClient,
-  type AuthCodeFlowSuccessResponse,
-  type AuthCodeFlowErrorResponse,
   type CredentialResponse,
 } from "vue3-google-signin";
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubServices from "~/services/GithubServices";
+import ApivaultServices from "~/services/ApivaultServices";
 import {
   getThemeElements,
   themeIcons,
@@ -210,7 +215,9 @@ const categoriesAttributes = categoriesProperties;
 const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
-const cookie = useCookie("sessionGoogle");
+const cookie = useCookie("sessionGoogle", {
+  maxAge: 60 * 60 * 48,
+});
 const isLogged = ref<boolean>(false);
 
 /**
@@ -248,23 +255,45 @@ useHead({
   ],
 });
 
-const handleOnSuccess = (response: AuthCodeFlowSuccessResponse) => {
+// handle success event
+const handleLoginSuccess = (response: CredentialResponse) => {
+  const { credential } = response;
   isLogged.value = true;
-  cookie.value = response.access_token;
+  cookie.value = credential;
 };
 
-const handleOnError = (errorResponse: AuthCodeFlowErrorResponse) => {
-  console.log("Error: ", errorResponse);
+// handle an error event
+const handleLoginError = () => {
+  console.error("Login failed");
 };
 
-const { isReady, login } = useTokenClient({
-  onSuccess: handleOnSuccess,
-  onError: handleOnError,
-});
+const logout = () => {
+  cookie.value = "";
+  isLogged.value = false;
+};
 
+/* checks if cookie.value is not an empty string */
 const checkLoggedIn = (): void => {
-  if (!cookie.value) isLogged.value = false;
+  isLogged.value = !!cookie.value && cookie.value !== "";
 };
+
+const decodeCookie = (): void => {
+  console.log(decodeURIComponent(cookie.value!));
+};
+
+/* decode the token and send it to django backend */
+const sendTokenToBackend = async (token: any) => {
+  let response = await ApivaultServices.sendOAuthConfigToDjango("").then(
+    (res) => {
+      console.log(res);
+    }
+  );
+};
+
+onBeforeMount(() => {
+  checkLoggedIn();
+  decodeCookie();
+});
 
 onMounted(() => {
   theme.value = setTheme();
@@ -272,7 +301,6 @@ onMounted(() => {
   defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
-  checkLoggedIn();
 });
 </script>
 
