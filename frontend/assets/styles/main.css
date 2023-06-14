@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
   --border-radius: 8px;
+
   /* Dark/Light mode variables */
   --bg-color: #0f0f0f;
   --bg-card-glass: #1d1d1d;
@@ -22,9 +23,11 @@
   --hr-color: #919191;
   --card-attribute-color: #71e33c;
   --nav-item-hover:#f0f0f0;
+  --skeleton-primary-color: #333333; 
+  --skeleton-secondary-color: #3f3f3f;
 }
 
-.light {
+html.light:root {
   /* Dark/Light mode variables */
   --bg-color: rgb(252, 252, 252);
   --bg-card-glass: #f5f5f5;
@@ -45,14 +48,18 @@
   --hr-color: #454545;
   --card-attribute-color: #226d00;
   --nav-item-hover: #000;
+  --skeleton-primary-color: #ededed;
+  --skeleton-secondary-color: #dadada;
 }
 
 html {
-  color-scheme: light dark;
   background-color: var(--bg-color) !important;
   height: 100%;
 }
 
+html.light {
+  color-scheme: light;
+}
 
 body {
   background: var(--bg-color) !important;
@@ -106,6 +113,19 @@ hr {
   opacity: 40%;
 }
 
+/* utils css */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contrast-color {
+  background-color: var(--nav-item-hover) !important;
+  color: var(--bg-color) !important;
+  font-size: medium !important;
+}
+
 /* Responsive properties */
 @media (min-width: 1581px) {
   #__nuxt {
@@ -117,4 +137,10 @@ hr {
   body {
     background: var(--bg-color) !important;
   }
+}
+
+@media only screen and (max-width: 680px) {
+  .no-margin {
+    margin-left: 0 !important;
+  }  
 }

@@ -8,32 +8,53 @@
     </template>
     <template #trendingCategories>
       <h1 id="title-trending" class="text-wrapper mb-3">TRENDING</h1>
-      <div class="trend-container mb-3">
-        <TrendCategory
-          v-for="category in trendCategoriesList"
-          :key="category.name"
-        >
-          <NuxtLink
-            :to="`/categories/${category.name}`"
-            class="text-wrapper"
-            style="text-decoration: none"
+      <div class="trend-container mb-3" v-if="!isLoading">
+        <TransitionGroup name="cards">
+          <TrendCategory
+            v-for="category in trendCategoriesList"
+            :key="category.name"
           >
-            <font-awesome-icon
-              class="me-2 icon-color"
-              width="12"
-              height="12"
-              :icon="categoriesDict[category.name]"
-            />{{ category.name }}
-            <span class="api_count mx-1">({{ category.api_count }})</span>
-          </NuxtLink>
-        </TrendCategory>
+            <NuxtLink
+              :to="`/categories/${category.name}`"
+              class="text-wrapper"
+              style="text-decoration: none"
+            >
+              <font-awesome-icon
+                class="me-2 icon-color"
+                width="12"
+                height="12"
+                :icon="categoriesDict[category.name]"
+              />{{ category.name }}
+              <span class="api_count mx-1">({{ category.api_count }})</span>
+            </NuxtLink>
+          </TrendCategory>
+        </TransitionGroup>
+      </div>
+      <div class="trend-container mb-3" v-else>
+        <TransitionGroup name="cards">
+          <TrendCategory
+            class="skeleton-box"
+            style="height: 30px"
+            v-for="category in 10"
+            :key="category"
+          />
+        </TransitionGroup>
         <hr />
       </div>
     </template>
     <template #cardAreaContent>
       <div class="row">
-        <LoadingEffect v-if="isLoading" />
         <TransitionGroup name="cards">
+          <div class="wrapper" v-if="isLoading">
+            <div
+              class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+              style="height: 180px"
+              v-for="card in 9"
+              :key="card"
+            >
+              <AnimationCardSkeleton />
+            </div>
+          </div>
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
@@ -79,6 +100,15 @@ import { categoriesDict } from "~/utils/categoryMapping";
 import { TrendingCategory } from "~/models/types";
 import { APIType } from "~/models/types";
 
+// adding cookie script
+useHead({
+  script: [
+    {
+      src: "https://app.enzuzo.com/apps/enzuzo/static/js/__enzuzo-cookiebar.js?uuid=f59a7360-00b5-11ee-a49e-231d479eb14f",
+    },
+  ],
+});
+
 // layout name
 const layouts: string = "body-content";
 
@@ -89,7 +119,7 @@ const apiData: any = ref([]);
 // search bar data
 const apiSearched: Ref<APIType[]> = ref([]);
 const categorySearched = reactive({
-  category: "",
+  category: "RANDOM",
 });
 
 // loading state animation
@@ -146,10 +176,12 @@ const handleLoadMore = async () => {
 onBeforeMount(async () => {
   trendCategoriesList.value = await ApivaultServices.getTrendingCategories()!;
   apiData.value = await ApivaultServices.randomApis();
+  isLoading.value = true
+    ? apiData.value === null || apiData.value === ""
+    : false;
 });
 
 onMounted(async () => {
-  isLoading.value = false;
   showList.value = true;
 });
 </script>

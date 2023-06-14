@@ -1,17 +1,24 @@
 <template>
   <NuxtLayout :name="layouts" :title="categorySearched.category">
     <template #heroAreaContent>
-      <Hero />
+      <Hero :heroTitle="heroTitle" />
     </template>
     <template #topAreaContent>
       <SearchBar @search:apiSearch="handleSearchCategory" />
     </template>
     <template #cardAreaContent>
-      <div class="row" v-if="isLoading">
-        <LoadingEffect />
-      </div>
       <div class="row" v-if="showList">
         <TransitionGroup name="cards">
+          <div class="wrapper" v-if="isLoading">
+            <div
+              class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
+              style="height: 180px"
+              v-for="card in 9"
+              :key="card"
+            >
+              <AnimationCardSkeleton />
+            </div>
+          </div>
           <div
             class="col-12 col-lg-4 col-md-6 mb-4 mb-md-4"
             v-for="api in apiSearched"
@@ -50,17 +57,24 @@ import { handleSearch } from "~/pages/functions/searchEngine";
 const layouts = "body-content";
 const route = useRoute();
 const categoryTitle = route.params.category as string;
+const heroTitle = `Your Free and Public ${categoryTitle} API List`;
 const isLoading = ref(true);
 const isNullCategory = ref(null);
 const apiData: Ref<APIType[]> = ref([]);
 const apiSearched: Ref<APIType[]> = ref([]);
 const categorySearched = reactive({
-  category: "",
+  category: categoryTitle.toUpperCase(),
 });
 const showList = ref(true);
 
 useHead({
   title: `${route.params.category} APIs List`,
+  meta: [
+    {
+      name: "description",
+      content: `A List of your favourite ${route.params.category} APIs. For Free!`,
+    },
+  ],
 });
 
 const handleSearchCategory = (val: string, title: string) => {
@@ -78,6 +92,8 @@ const handleSearchCategory = (val: string, title: string) => {
 onMounted(async () => {
   apiData.value = await ApivaultServices.apiCategoryData(route.params.category);
   isNullCategory.value ? apiData.value.length === 0 : false;
-  isLoading.value = false;
+  isLoading.value = true
+    ? apiData.value === null || apiData.value === undefined
+    : false;
 });
 </script>

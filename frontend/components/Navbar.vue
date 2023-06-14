@@ -56,6 +56,18 @@
               class="flex items-center gap-2 ms-2"
             />
           </li>
+          <li
+            class="no-margin nav-item navbar-text-wrapper ms-3 mt-1"
+            role="tab"
+          >
+            <!-- SET GOOGLE AUTH ENDPOINT -->
+            <a href="#">
+              <GenericsButton class="contrast-color">
+                <font-awesome-icon :icon="['fab', 'google']" />
+                Login
+              </GenericsButton>
+            </a>
+          </li>
           <hr />
           <div id="scrollb" class="scrollbox">
             <div class="d-block d-sm-none">
@@ -172,11 +184,10 @@ import {
 
 const stargazers = await GithubServices.repoStars();
 const categoriesAttributes = categoriesProperties;
-const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
-);
+const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
+const cookie = useCookie("sessionGoogle");
 
 /**
 Toggles the color scheme of the document body between light and dark mode.
@@ -195,7 +206,7 @@ const setModeLocal = (): void => {
 };
 
 /**
-This is needed to set the dafault theme class for first
+This is needed to set the default theme class for first
 visit on the website.
 */
 useHead({
@@ -206,12 +217,27 @@ useHead({
   },
 });
 
+/*
+Get the code quert string from the google login url callback
+and store it as a cookie.
+*/
+const setGoogleSessionCookie = (cookieValue: string): void => {
+  const url = window.location.href;
+  const parsedUrl = new URL(url);
+  const queryString = parsedUrl.search;
+  const params = new URLSearchParams(queryString);
+  const code = params.get(cookieValue);
+
+  cookie.value = code;
+};
+
 onMounted(() => {
   theme.value = setTheme();
   const isDarkTheme: boolean = theme.value === "dark" || theme.value === null;
   defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
   logoPath.value = setThemeLogoPath(theme);
+  setGoogleSessionCookie("code");
 });
 </script>
 
