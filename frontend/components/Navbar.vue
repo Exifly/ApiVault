@@ -74,7 +74,11 @@
               text="signin"
               locale="en"
             ></GoogleSignInButton>
-            <UserInfoMenu v-if="isLogged" @click="() => logout()" />
+            <UserInfoMenu
+              v-if="isLogged"
+              @click="() => logout()"
+              :username="user"
+            />
           </li>
           <hr />
           <div id="scrollb" class="scrollbox">
@@ -201,8 +205,13 @@ const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
 const cookie = useCookie("sessionGoogle", {
-  maxAge: 60 * 60 * 48,
+  maxAge: 60 * 60,
 });
+const accessTokenCookie = useCookie("accessToken", {
+  maxAge: 60 * 60 * 360,
+});
+const userCookie = useCookie("usernames");
+const user = ref();
 const isLogged = ref<boolean>(false);
 
 /**
@@ -241,10 +250,11 @@ useHead({
 });
 
 // handle success event
-const handleLoginSuccess = (response: CredentialResponse) => {
+const handleLoginSuccess = async (response: CredentialResponse) => {
   const { credential } = response;
   isLogged.value = true;
   cookie.value = credential;
+  await sendTokenToBackend(cookie.value!);
 };
 
 // handle an error event
@@ -255,6 +265,7 @@ const handleLoginError = () => {
 const logout = () => {
   cookie.value = "";
   isLogged.value = false;
+  userCookie.value = "";
 };
 
 /* checks if cookie.value is not an empty string */
@@ -266,18 +277,24 @@ const decodeCookie = (): void => {
   console.log(decodeURIComponent(cookie.value!));
 };
 
+/* wrapper function to override username information */
+const setUserInfo = () => {
+  user.value = userCookie.value;
+};
+
 /* decode the token and send it to django backend */
-const sendTokenToBackend = async (token: any) => {
-  let response = await ApivaultServices.sendOAuthConfigToDjango("").then(
-    (res) => {
-      console.log(res);
-    }
-  );
+const sendTokenToBackend = async (token: String) => {
+  await ApivaultServices.sendOAuthConfigToDjango(token).then((res) => {
+    accessTokenCookie.value = res.tokens.access;
+    userCookie.value = res.username;
+    setUserInfo();
+  });
 };
 
 onBeforeMount(() => {
   checkLoggedIn();
   decodeCookie();
+  user.value = userCookie.value;
 });
 
 onMounted(() => {
