@@ -39,16 +39,6 @@
             </a>
           </li>
           <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <a
-              title="Submit your API"
-              tabindex="2"
-              class="navbar-text-wrapper flex items-center gap-2"
-              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
-            >
-              <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-            </a>
-          </li>
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <ToggleButton
               title="Light mode Button"
               @click="setModeLocal"
@@ -56,8 +46,20 @@
               class="flex items-center gap-2 ms-2"
             />
           </li>
+          <li class="nav-item navbar-text-wrapper ms-2 mt-2" role="tab">
+            <GenericsButton :isInverted="true">
+              <a
+                title="Submit your API"
+                tabindex="2"
+                class="p-0 navbar-text-wrapper-inverted flex items-center gap-2"
+                href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
+              >
+                <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
+              </a>
+            </GenericsButton>
+          </li>
           <li
-            class="no-margin nav-item navbar-text-wrapper ms-3 mt-1"
+            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
             <!-- SET GOOGLE AUTH ENDPOINT -->
@@ -72,23 +74,6 @@
               text="signin"
               locale="en"
             ></GoogleSignInButton>
-            <!-- <GenericsButton
-              v-if="!isLogged"
-              class="contrast-color"
-              :disabled="!isReady"
-              @click="() => login()"
-            >
-              <font-awesome-icon :icon="['fab', 'google']" />
-              Login
-            </GenericsButton> -->
-            <!-- <GenericsButton
-              v-if="isLogged"
-              class="contrast-color"
-              @click="() => logout()"
-            >
-              <font-awesome-icon :icon="['fab', 'google']" />
-              Logout
-            </GenericsButton> -->
             <UserInfoMenu v-if="isLogged" @click="() => logout()" />
           </li>
           <hr />
@@ -324,6 +309,11 @@ onMounted(() => {
   text-decoration: none;
   padding: 0.3rem 0.2rem;
   border-radius: 5px;
+}
+
+.navbar-text-wrapper-inverted {
+  color: var(--bg-color) !important;
+  text-decoration: none;
 }
 
 .navbar-header-wrapper {
