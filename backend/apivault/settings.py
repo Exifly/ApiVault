@@ -197,12 +197,11 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'authsmtp.securemail.pro'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'noreply@apivault.it'
-# EMAIL_HOST_PASSWORD = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
-# EMAIL_USE_SSL = True
-# DEFAULT_FROM_EMAIL = '<noreply@apivault.it>'
 
 AUTH_USER_MODEL = "authentication.DefaultUser"
+
+GOOGLE_CLIENT_ID = "<GOOGLE_CLIENT_ID>"
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)

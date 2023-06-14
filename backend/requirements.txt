@@ -10,3 +10,4 @@ djangorestframework-simplejwt
 fiona==1.8.20
 django-cors-headers
 django-extensions
+google-api-python-client
