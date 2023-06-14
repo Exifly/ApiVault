@@ -62,7 +62,6 @@
             class="no-margin nav-item navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
-            <!-- SET GOOGLE AUTH ENDPOINT -->
             <GoogleSignInButton
               style="margin-top: 8px"
               v-if="!isLogged"
