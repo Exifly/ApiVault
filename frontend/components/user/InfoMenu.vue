@@ -1,7 +1,11 @@
 <template>
   <section class="user-info-container">
-    <p class="text-wrapper">Img</p>
-    <p class="text-wrapper">John Doe</p>
+    <GenericsButton>
+      <p class="text-wrapper">
+        John Doe
+        <font-awesome-icon class="ms-2" :icon="['fas', 'right-from-bracket']" />
+      </p>
+    </GenericsButton>
   </section>
 </template>
 
