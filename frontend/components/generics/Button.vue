@@ -1,13 +1,30 @@
 <template>
-  <button type="button" class="btn custom-button">
+  <button
+    type="button"
+    :class="[
+      'btn',
+      { 'custom-button': !isInverted },
+      { 'inverted-theme-color': isInverted },
+    ]"
+  >
     <slot />
   </button>
 </template>
 
+<script lang="ts" setup>
+defineProps({
+  isInverted: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
+</script>
+
 <style scoped>
 .custom-button {
   background: var(--bg-card-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color-cards);
   color: var(--text-color);
   font-weight: 400;
