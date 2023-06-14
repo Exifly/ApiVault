@@ -36,7 +36,7 @@ class ApivaultService {
     }
 
     sendOAuthConfigToDjango(authToken: String): Promise<GoogleOAauth2Config> {
-        return this.axiosInstance.post(`${this.baseUrl}/oauth/google/`, {auth_token: authToken}).then(res => res.data);
+        return this.axiosInstance.post(`${this.baseUrl}/auth/google/`, {auth_token: authToken}).then(res => res.data);
     }
 
 }
