@@ -15,7 +15,6 @@
   margin-left: 0;
   margin-right: 0.4vw;
   margin-bottom: 0.4rem;
-  min-width: 3rem;
   max-width: 13rem;
   justify-content: center;
 }
