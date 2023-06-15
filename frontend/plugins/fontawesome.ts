@@ -63,12 +63,12 @@ import {
   faB,
   faUsers,
   faHeartCircleCheck,
-  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
   faFlag,
   faFolderOpen,
+  faHeart
 } from "@fortawesome/free-regular-svg-icons";
 import {
   faEthereum,
