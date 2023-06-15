@@ -38,6 +38,9 @@
       <CardAttributes v-if="props.auth !== ''">
         {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
       >
+      <GenericsLikeButton
+        style="margin-left: auto !important; text-decoration: none"
+      />
     </div>
   </div>
 </template>
@@ -137,7 +140,6 @@ onMounted(() => {
   margin-left: 0;
   margin-right: 4px;
   margin-top: auto;
-  min-width: 3rem;
   max-width: 15rem;
   justify-content: center;
 }
