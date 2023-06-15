@@ -62,6 +62,8 @@ import {
   fas,
   faB,
   faUsers,
+  faHeartCircleCheck,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -74,12 +76,14 @@ import {
   faGithub,
   faGithubAlt,
   faGithubSquare,
+  faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 
 // This is important, we are going to let Nuxt worry about the CSS
 library.add(
   fas,
   faB,
+  faGoogle,
   faUserSecret,
   faFlag,
   faListUl,
@@ -146,7 +150,8 @@ library.add(
   faHouse,
   faHandHoldingDollar,
   faListOl,
-  faUsers
+  faUsers,
+  faHeart,
 );
 config.autoAddCss = false;
 

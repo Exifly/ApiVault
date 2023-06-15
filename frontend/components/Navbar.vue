@@ -24,7 +24,7 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav" role="tablist">
+        <ul class="navbar-nav align-items-center" role="tablist">
           <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <a
               title="Check out our github repository"
@@ -39,21 +39,44 @@
             </a>
           </li>
           <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <a
-              title="Submit your API"
-              tabindex="2"
-              class="navbar-text-wrapper flex items-center gap-2"
-              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
-            >
-              <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-            </a>
-          </li>
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <ToggleButton
               title="Light mode Button"
               @click="setModeLocal"
               :theme="theme"
               class="flex items-center gap-2 ms-2"
+            />
+          </li>
+          <li class="nav-item navbar-text-wrapper ms-2 mt-2" role="tab">
+            <GenericsButton :isInverted="true">
+              <a
+                title="Submit your API"
+                tabindex="2"
+                class="p-0 navbar-text-wrapper-inverted flex items-center gap-2"
+                href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
+              >
+                <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
+              </a>
+            </GenericsButton>
+          </li>
+          <li
+            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2"
+            role="tab"
+          >
+            <GoogleSignInButton
+              style="margin-top: 8px"
+              v-if="!isLogged"
+              @success="handleLoginSuccess"
+              @error="handleLoginError"
+              :auto-select="false"
+              theme="filled_black"
+              size="medium"
+              text="signin"
+              locale="en"
+            ></GoogleSignInButton>
+            <UserInfoMenu
+              v-if="isLogged"
+              @click="() => logout()"
+              :username="user"
             />
           </li>
           <hr />
@@ -161,8 +184,13 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  GoogleSignInButton,
+  type CredentialResponse,
+} from "vue3-google-signin";
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubServices from "~/services/GithubServices";
+import ApivaultServices from "~/services/ApivaultServices";
 import {
   getThemeElements,
   themeIcons,
@@ -175,6 +203,15 @@ const categoriesAttributes = categoriesProperties;
 const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
+const cookie = useCookie("sessionGoogle", {
+  maxAge: 60 * 60,
+});
+const accessTokenCookie = useCookie("accessToken", {
+  maxAge: 60 * 60 * 360,
+});
+const userCookie = useCookie("usernames");
+const user = ref();
+const isLogged = ref<boolean>(false);
 
 /**
 Toggles the color scheme of the document body between light and dark mode.
@@ -202,6 +239,61 @@ useHead({
       return defaultTheme.value ? "" : "light";
     }),
   },
+  script: [
+    {
+      async: true,
+      src: "https://accounts.google.com/gsi/client",
+      defer: true,
+    },
+  ],
+});
+
+// handle success event
+const handleLoginSuccess = async (response: CredentialResponse) => {
+  const { credential } = response;
+  isLogged.value = true;
+  cookie.value = credential;
+  await sendTokenToBackend(cookie.value!);
+};
+
+// handle an error event
+const handleLoginError = () => {
+  console.error("Login failed");
+};
+
+const logout = () => {
+  cookie.value = "";
+  isLogged.value = false;
+  userCookie.value = "";
+};
+
+/* checks if cookie.value is not an empty string */
+const checkLoggedIn = (): void => {
+  isLogged.value = !!cookie.value && cookie.value !== "";
+};
+
+const decodeCookie = (): void => {
+  console.log(decodeURIComponent(cookie.value!));
+};
+
+/* wrapper function to override username information */
+const setUserInfo = () => {
+  user.value = userCookie.value;
+};
+
+/* decode the token and send it to django backend */
+const sendTokenToBackend = async (token: String) => {
+  await ApivaultServices.sendOAuthConfigToDjango(token).then((res) => {
+    accessTokenCookie.value = res.tokens.access;
+    userCookie.value = res.username;
+    setUserInfo();
+  });
+};
+
+onBeforeMount(() => {
+  checkLoggedIn();
+  decodeCookie();
+  user.value = userCookie.value;
 });
 
 onMounted(() => {
@@ -233,6 +325,11 @@ onMounted(() => {
   text-decoration: none;
   padding: 0.3rem 0.2rem;
   border-radius: 5px;
+}
+
+.navbar-text-wrapper-inverted {
+  color: var(--bg-color) !important;
+  text-decoration: none;
 }
 
 .navbar-header-wrapper {

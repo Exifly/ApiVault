@@ -1,7 +1,6 @@
 import { resolve } from "path";
 import { categoriesProperties } from "./utils/categoryMapping";
 
-
 export default defineNuxtConfig({
   components: true,
   alias: {
@@ -12,11 +11,15 @@ export default defineNuxtConfig({
   ],
   modules: [
     'nuxt-simple-sitemap',
+    'nuxt-vue3-google-signin',
     [
       '@nuxtjs/robots', 
       { configPath: '~/config/robots.config' }
     ]
   ],
+  googleSignIn: {
+    clientId: import.meta.env.VITE_CLIENT_ID,
+  },
   sitemap: {
     siteUrl: 'https://apivault.dev',
     urls: async () => {
