@@ -7,9 +7,15 @@
 </template>
 
 <script lang="ts" setup>
-const isClicked = ref(false);
+/* 
+  It emit an event that will be handled by parent component (CardAPI) 
+  to understand if the like button is already clicked
+*/
+const emit = defineEmits(["like:isClicked"]);
+const isClicked = ref<boolean>(false);
 const toggleClicked = () => {
   isClicked.value = !isClicked.value;
+  emit("like:isClicked", isClicked.value);
 };
 </script>
 
@@ -29,17 +35,5 @@ const toggleClicked = () => {
 .clicked {
   animation: hearthBeat 0.2s steps(28) forwards;
   color: #ff3130;
-}
-
-@keyframes hearthBeat {
-  0% {
-    scale: 1.1;
-  }
-  50% {
-    scale: 1.3;
-  }
-  100% {
-    scale: 1;
-  }
 }
 </style>
