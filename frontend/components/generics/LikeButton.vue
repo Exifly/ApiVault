@@ -36,4 +36,16 @@ const toggleClicked = () => {
   animation: hearthBeat 0.2s steps(28) forwards;
   color: #ff3130;
 }
+
+@keyframes hearthBeat {
+  0% {
+    scale: 1.1;
+  }
+  50% {
+    scale: 1.3;
+  }
+  100% {
+    scale: 1;
+  }
+}
 </style>
