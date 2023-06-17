@@ -5,7 +5,7 @@ from vault.models import (
 )
 
 class APIAdmin(admin.ModelAdmin):
-   list_display = ('id', 'name', 'category', 'num_likes')
+   list_display = ('id', 'name', 'category', 'likes_count')
 
 admin.site.register(API, APIAdmin)
 admin.site.register(Category)

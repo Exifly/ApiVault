@@ -29,10 +29,9 @@ class API(models.Model):
    view_count = models.PositiveIntegerField(default=0)
    source = models.CharField(max_length=100, default="")
 
+   likes_count = models.PositiveIntegerField(default=0)
+
+
    def __str__(self):
       return self.name
    
-   @property
-   def num_likes(self):
-      # Compute the number of Likes associated with this API object
-      return self.like_set.count()
