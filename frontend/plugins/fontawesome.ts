@@ -62,13 +62,13 @@ import {
   fas,
   faB,
   faUsers,
-  faHeartCircleCheck,
-  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
   faFlag,
   faFolderOpen,
+  faHeart,
+  faBookmark
 } from "@fortawesome/free-regular-svg-icons";
 import {
   faEthereum,
@@ -152,6 +152,7 @@ library.add(
   faListOl,
   faUsers,
   faHeart,
+  faBookmark,
 );
 config.autoAddCss = false;
 

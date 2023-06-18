@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     ]
   ],
   googleSignIn: {
-    clientId: import.meta.env.VITE_CLIENT_ID,
+    clientId: import.meta.env.VITE_CLIENT_ID || "GOOGLE_CLIENT_ID",
   },
   sitemap: {
     siteUrl: 'https://apivault.dev',

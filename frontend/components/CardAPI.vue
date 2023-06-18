@@ -38,6 +38,14 @@
       <CardAttributes v-if="props.auth !== ''">
         {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
       >
+      <GenericsLikeButton
+        @like:isClicked="incrementLike"
+        style="margin-left: auto !important; text-decoration: none"
+      />
+      <GenericsLikeNumber :class="{ animate: animate }">
+        {{ like }}
+      </GenericsLikeNumber>
+      <GenericsBookmarkButton style="text-decoration: none" />
     </div>
   </div>
 </template>
@@ -45,7 +53,6 @@
 <script lang="ts" setup>
 import { categoriesProperties } from "~/utils/categoryMapping";
 import { CategoryObject } from "~/models/types";
-import { ref, onMounted } from "vue";
 
 const categoryMap: CategoryObject | CategoryObject[] = categoriesProperties;
 const props = defineProps({
@@ -86,6 +93,21 @@ if (!props.cors || props.cors === "unknown") {
   isNullProp.value = true;
 }
 
+/* Handle the isClicked event returned by LikeButton component */
+const like = ref<number>(0);
+const animate = ref<boolean>(false);
+const incrementLike = (isClickedEmit: boolean): void => {
+  if (isClickedEmit) {
+    like.value++;
+    animate.value = true;
+    setTimeout(() => {
+      animate.value = false;
+    }, 400);
+  } else {
+    like.value--;
+  }
+};
+
 const cat: any = ref("");
 /**
 Finds an element in the categoryMap array with a name property
@@ -111,6 +133,24 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.animate {
+  animation: moveUp 0.2s;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-45%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 #warnOrNot {
   background: var(--bg-attribute-warn) !important;
   color: var(--text-attribute-warn) !important;
@@ -137,7 +177,6 @@ onMounted(() => {
   margin-left: 0;
   margin-right: 4px;
   margin-top: auto;
-  min-width: 3rem;
   max-width: 15rem;
   justify-content: center;
 }
