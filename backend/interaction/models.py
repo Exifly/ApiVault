@@ -10,14 +10,12 @@ class Like(models.Model):
     class Meta:
         # Set a uniqueness constraint for the user-api combinations
         unique_together = ('user', 'api')
-        db_table = 'like'
 
 
-class Bookmark(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    api = models.ForeignKey(API, on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f"{self.user} - {self.api}"
 
-    class Meta:
-        unique_together = ('user', 'api')
-        db_table = 'bookmark'
+
+
+
+

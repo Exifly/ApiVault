@@ -55,12 +55,15 @@ INSTALLED_APPS = [
 
     'rest_framework_simplejwt',
     'rest_framework',
+    'drf_yasg',
 
     'corsheaders',
 
     'authentication',
     'interaction',
     'vault',
+
+
 ]
 
 MIDDLEWARE = [
@@ -113,6 +116,17 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     'SLIDING_TOKEN_LIFETIME': timedelta(days=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "JWT [Bearer {JWT}]": {
+            "name": "Authorization",
+            "type": "apiKey",
+            "in": "header",
+        }
+    },
+    "USE_SESSION_AUTH": False,
 }
 
 ROOT_URLCONF = 'apivault.urls'
