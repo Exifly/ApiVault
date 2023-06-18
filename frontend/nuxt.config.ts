@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { categoriesProperties } from "./utils/categoryMapping";
 
 export default defineNuxtConfig({
   components: true,
@@ -8,6 +9,33 @@ export default defineNuxtConfig({
   plugins: [
     '@/plugins/fontawesome',
   ],
+  modules: [
+    'nuxt-simple-sitemap',
+    'nuxt-vue3-google-signin',
+    [
+      '@nuxtjs/robots', 
+      { configPath: '~/config/robots.config' }
+    ]
+  ],
+  googleSignIn: {
+    clientId: import.meta.env.VITE_CLIENT_ID,
+  },
+  sitemap: {
+    siteUrl: 'https://apivault.dev',
+    urls: async () => {
+      return categoriesProperties.map(category => ({
+        loc: `/categories/${category.name.replace('\&', '\&amp;')}`,
+        lastmod: new Date(),
+        changefreq: 'daily',
+        priority: 0.2,
+      }))
+    },
+    defaults: {
+      changefreq: 'daily',
+      priority: 0.5,
+      lastmod: new Date()
+    }
+  },
   app: {
     pageTransition: {
       name: "page",
@@ -15,19 +43,19 @@ export default defineNuxtConfig({
     },
     head: {
       htmlAttrs: {
-        lang: 'en'
+        lang: 'en',
       },
       title: "A free API database list for developers",
       meta: [
-        { name: "keywords", content: "free api, apivault, api list, open-source, public APIs, software developer" },
-        { name: "description", content: "ApiVault - The largest collection of free public APIs, categorized for easy search." },
+        { name: "keywords", content: "free api, free api list, apivault, free apis for projects, open-source, public APIs, free apis for learning, free apis to use" },
+        { name: "description", content: "ApiVault - The largest collection of free and public APIs, categorized for easy search." },
         { name: "author", content: "exifly"},
         { name: "twitter:title", content: "A free API database list for developers"},
         { name: "twitter:description", content: "ApiVault - The largest collection of free public APIs, categorized for easy search."},
         { name: "twitter:url", content: "https://apivault.dev/"},
         { name: "twitter:card", content: "summary_large_image"},
         { name: "twitter:site", content: "apivault"},
-        { name: "twitter:keywords", content: "public APIs list, public APIs database, public APIs website, public APIs search, api, free api, database api, api list, list api, free api list, free api database, devresources, dev resources, developer resources, programming"},
+        { name: "twitter:keywords", content: "free api, free api list, apivault, free apis for projects, open-source, public APIs, free apis for learning, free apis to use"},
         { name: "twitter:image", content: "https://raw.githubusercontent.com/Exifly/ApiVault/main/assets/Hero.jpg"},
         { property: "og:title", content: "A free API database list for developers"},
         { property: "og:description", content: "ApiVault - The largest collection of free public APIs, categorized for easy search."},

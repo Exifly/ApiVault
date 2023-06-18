@@ -29,3 +29,32 @@ export interface GithubContributor {
   avatar_url: string;
   html_url: string;
 }
+
+export interface FirebaseConfig {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+  measurementId: string;
+}
+
+export interface OAuthToken {
+  refresh: string;
+  access: string;
+}
+
+export interface GoogleOAauth2Config {
+  username: string;
+  email: string;
+  tokens: OAuthToken;
+}
+
+/* Global */
+declare global {
+  /* Abstractions */
+  interface Window {
+    handleCredentialResponse: () => void;
+  }
+}

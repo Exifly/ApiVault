@@ -65,6 +65,24 @@
           >Sponsor</a
         >
       </li>
+      <li class="nav-item">
+        <NuxtLink
+          title="Apivault Cookie Policy"
+          tabindex="7"
+          to="/cookie-policy"
+          class="nav-link px-2 text-wrapper"
+          >Cookie Policy</NuxtLink
+        >
+      </li>
+      <li class="nav-item">
+        <NuxtLink
+          title="Apivault Privacy Policy"
+          tabindex="8"
+          to="/privacy-policy"
+          class="nav-link px-2 text-wrapper"
+          >Privacy Policy</NuxtLink
+        >
+      </li>
     </ul>
   </footer>
 </template>
