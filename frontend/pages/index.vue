@@ -67,6 +67,7 @@
               style="text-decoration: none"
             >
               <CardAPI
+                :id="api.id"
                 :title="api.name"
                 :subtitle="api.category"
                 :body="api.description"
@@ -74,6 +75,8 @@
                 :https="api.https"
                 :auth="api.auth"
                 :faviconSrc="api.url"
+                :likesCount="api.likes_count"
+                :isLikedByUser="api.liked_by_user"
               />
             </a>
           </div>

@@ -72,6 +72,7 @@
               size="medium"
               text="signin"
               locale="en"
+              shape="circle"
             ></GoogleSignInButton>
             <UserInfoMenu
               v-if="isLogged"
@@ -265,6 +266,7 @@ const logout = () => {
   cookie.value = "";
   isLogged.value = false;
   userCookie.value = "";
+  accessTokenCookie.value = "";
 };
 
 /* checks if cookie.value is not an empty string */
@@ -283,6 +285,7 @@ const setUserInfo = () => {
 
 /* decode the token and send it to django backend */
 const sendTokenToBackend = async (token: String) => {
+  // TODO: handle 401 from be
   await ApivaultServices.sendOAuthConfigToDjango(token).then((res) => {
     accessTokenCookie.value = res.tokens.access;
     userCookie.value = res.username;

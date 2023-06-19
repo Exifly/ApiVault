@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { TrendingCategory, APIType, GoogleOAauth2Config } from '../models/types';
 
+
 class ApivaultService {
 
     private readonly axiosInstance: AxiosInstance;
@@ -10,7 +11,7 @@ class ApivaultService {
         this.axiosInstance = axios.create({
             baseURL: this.baseUrl,
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
             }
         });
     }
@@ -19,8 +20,13 @@ class ApivaultService {
         return this.axiosInstance.get(`${this.baseUrl}/all/`).then(res => res.data);
     }
 
-    apiCategoryData(category: string | string[]): Promise<APIType[]> {
-        return this.axiosInstance.get(`${this.baseUrl}/category/${category}/`).then(res => res.data);
+    apiCategoryData(category: string | string[], authToken: string): Promise<APIType[]> {
+        if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/category/${category}/`).then(res => res.data);
+
+        let headers = {
+            'Authorization': `Bearer ${authToken}` 
+        }
+        return this.axiosInstance.get(`${this.baseUrl}/category/${category}/`, { headers: headers }).then(res => res.data);
     }
 
     randomApis(): Promise<APIType[]> {
@@ -37,6 +43,16 @@ class ApivaultService {
 
     sendOAuthConfigToDjango(authToken: String): Promise<GoogleOAauth2Config> {
         return this.axiosInstance.post(`${this.baseUrl}/auth/google/`, {auth_token: authToken}).then(res => res.data);
+    }
+
+    async incrementLike(apiId: number, authToken: string): Promise<Number> {
+        const headers = {
+            'Authorization': `Bearer ${authToken}`
+        };
+
+        return await this.axiosInstance.post(`${this.baseUrl}/interaction/like/${apiId}/`, {}, { headers: headers }).then(res => {
+          return res.status
+        }).catch(err => err.response.status);
     }
 
 }

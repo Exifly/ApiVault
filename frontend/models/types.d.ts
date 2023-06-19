@@ -21,6 +21,8 @@ export interface APIType {
   description: string;
   https: boolean;
   url: string;
+  likes_count: number;
+  liked_by_user: boolean;
 }
 
 export interface GithubContributor {

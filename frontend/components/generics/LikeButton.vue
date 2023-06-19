@@ -7,16 +7,31 @@
 </template>
 
 <script lang="ts" setup>
+const { likedByUser } = defineProps({
+  likedByUser: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
+})
+
 /* 
   It emit an event that will be handled by parent component (CardAPI) 
   to understand if the like button is already clicked
 */
 const emit = defineEmits(["like:isClicked"]);
 const isClicked = ref<boolean>(false);
+const authCookie = useCookie("accessToken");
+
 const toggleClicked = () => {
-  isClicked.value = !isClicked.value;
-  emit("like:isClicked", isClicked.value);
+  isClicked.value = !isClicked.value; 
+  console.log(likedByUser)
+  emit("like:isClicked", true);
 };
+
+onMounted(() => {
+  isClicked.value = likedByUser ? true : false;
+})
 </script>
 
 <style scoped>

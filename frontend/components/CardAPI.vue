@@ -30,16 +30,18 @@
     </div>
     <div class="card-body attributes-container">
       <CardAttributes v-if="isNullProp">
-        {{ props.cors ? "CORS" : null }}
+        {{ cors ? "CORS" : null }}
       </CardAttributes>
-      <CardAttributes :id="props.https ? 'none' : 'warnOrNot'">
-        {{ props.https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
+      <CardAttributes :id="https ? 'none' : 'warnOrNot'">
+        {{ https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
       >
-      <CardAttributes v-if="props.auth !== ''">
-        {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
+      <CardAttributes v-if="auth !== ''">
+        {{ auth !== "" ? `${auth}` : null }}</CardAttributes
       >
       <GenericsLikeButton
-        @like:isClicked="incrementLike"
+        @like:isClicked="likeInteractionHandler"
+        :likedByUser="likedByUser"
+        :isAuthState="isAuthState!"
         style="margin-left: auto !important; text-decoration: none"
       />
       <GenericsLikeNumber :class="{ animate: animate }">
@@ -53,9 +55,25 @@
 <script lang="ts" setup>
 import { categoriesProperties } from "~/utils/categoryMapping";
 import { CategoryObject } from "~/models/types";
+import ApivaultServices from "~/services/ApivaultServices";
 
 const categoryMap: CategoryObject | CategoryObject[] = categoriesProperties;
-const props = defineProps({
+let {
+  id,
+  title,
+  subtitle,
+  body,
+  cors,
+  https,
+  auth,
+  faviconSrc,
+  isLikedByUser,
+  likesCount,
+} = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -84,29 +102,64 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isLikedByUser: {
+    type: Boolean,
+    required: true,
+  },
+  likesCount: {
+    type: Number,
+    required: false,
+  },
 });
 
+let likedByUser = isLikedByUser;
+const emit = defineEmits(["auth:isAuth"]);
+const accessToken = useCookie("accessToken");
+const isAuthState = ref<boolean>(false);
 const isNullProp = ref<boolean>(false);
-if (!props.cors || props.cors === "unknown") {
+if (!cors || cors === "unknown") {
   isNullProp.value = false;
 } else {
   isNullProp.value = true;
 }
-
 /* Handle the isClicked event returned by LikeButton component */
-const like = ref<number>(0);
+const like = ref<number>(likesCount!);
 const animate = ref<boolean>(false);
-const incrementLike = (isClickedEmit: boolean): void => {
-  if (isClickedEmit) {
-    like.value++;
-    animate.value = true;
-    setTimeout(() => {
-      animate.value = false;
-    }, 400);
-  } else {
-    like.value--;
+// const incrementLike = async (isClickedEmit: boolean): Promise<void> => {
+//   if (isClickedEmit) {
+//     like.value++;
+//     animate.value = true;
+//     setTimeout(() => {
+//       animate.value = false;
+//     }, 400);
+//     const status = await ApivaultServices.incrementLike(id, accessToken.value!);
+//     if (status === 403) {
+//       like.value--;
+//       emit("auth:isAuth", false);
+//     } else if (status === 400) { 
+//       like.value--;
+//     } else {
+//       isAuthState.value = true;
+//     }
+//   }
+// };
+
+const likeInteractionHandler = async (isClickedEmit: boolean) => {
+  // TODO Remove emits
+  if (likedByUser) {
+    like.value--; // TODO: Attach backend delete 
+    likedByUser = false;
+    return;
   }
-};
+  const status = await ApivaultServices.incrementLike(id, accessToken.value!);
+  if (status === 201) {
+    like.value++;
+    likedByUser = true;
+  } else if (status === 401) {
+    likedByUser = false;
+    emit("auth:isAuth", false);
+  }
+}
 
 const cat: any = ref("");
 /**
@@ -118,9 +171,7 @@ property of the matching element.
 */
 const iconCategory = () =>
   Array.isArray(categoryMap)
-    ? categoryMap.find(
-        (el) => el.name === props.subtitle && (cat.value = el.icon)
-      )
+    ? categoryMap.find((el) => el.name === subtitle && (cat.value = el.icon))
     : categoryMap;
 
 const getFavicon = (url: string, size: number) => {

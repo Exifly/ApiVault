@@ -18,7 +18,7 @@ class APISerializer(serializers.ModelSerializer):
         user = None
         request = self.context.get("request")
         if request and hasattr(request, "user"):
-            user = request.user
+            user = request.user.id
 
         if user is not None:
             return obj.like_set.filter(user=user).exists()
