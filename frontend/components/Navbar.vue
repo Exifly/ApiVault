@@ -59,7 +59,7 @@
             </GenericsButton>
           </li>
           <li
-            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2"
+            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2 p-0"
             role="tab"
           >
             <GoogleSignInButton
@@ -160,13 +160,13 @@
               <li
                 class="nav-item navbar-text-wrapper mt-2 category-custom"
                 role="tab"
-                v-for="category in categoriesAttributes"
+                v-for="category in categoriesProperties"
                 :key="category.name"
               >
                 <NuxtLink
-                  :title="category.name + ' APIs'"
+                  :title="`${category.name} APIs`"
                   class="navbar-text-wrapper flex items-center gap-2"
-                  :to="'/categories/' + category.name"
+                  :to="`/categories/${category.name}`"
                 >
                   <font-awesome-icon
                     class=""
@@ -189,6 +189,7 @@ import {
   GoogleSignInButton,
   type CredentialResponse,
 } from "vue3-google-signin";
+
 import { categoriesProperties } from "../utils/categoryMapping";
 import GithubServices from "~/services/GithubServices";
 import ApivaultServices from "~/services/ApivaultServices";
@@ -200,10 +201,13 @@ import {
 } from "../utils/themeutils";
 
 const stargazers = await GithubServices.repoStars();
-const categoriesAttributes = categoriesProperties;
+
+/* Theme data definition */
 const theme = useTheme();
 const iconTheme = ref(themeIcons[theme.value]);
 const logoPath = ref(setThemeLogoPath(theme));
+
+/* Cookies definition */
 const cookie = useCookie("sessionGoogle", {
   maxAge: 60 * 60,
 });
@@ -211,6 +215,7 @@ const accessTokenCookie = useCookie("accessToken", {
   maxAge: 60 * 60 * 360,
 });
 const userCookie = useCookie("usernames");
+
 const user = ref();
 const isLogged = ref<boolean>(false);
 
@@ -223,7 +228,7 @@ based on the new color scheme. Returns the new value of iconTheme to display.
 let defaultTheme = ref<boolean>(true);
 const setModeLocal = (): void => {
   if (process.client) {
-    defaultTheme.value = setLocalStorage(theme);
+    setLocalStorage(theme);
     defaultTheme.value = getThemeElements(theme);
   }
   iconTheme.value = themeIcons[theme.value];
@@ -232,7 +237,7 @@ const setModeLocal = (): void => {
 
 /**
 This is needed to set the default theme class for first
-visit on the website.
+visit on the website and to inject google signin api script.
 */
 useHead({
   htmlAttrs: {
@@ -249,7 +254,7 @@ useHead({
   ],
 });
 
-// handle success event
+/* handle success event */
 const handleLoginSuccess = async (response: CredentialResponse) => {
   const { credential } = response;
   isLogged.value = true;
@@ -257,11 +262,12 @@ const handleLoginSuccess = async (response: CredentialResponse) => {
   await sendTokenToBackend(cookie.value!);
 };
 
-// handle an error event
+/* handle an error event */
 const handleLoginError = () => {
   console.error("Login failed");
 };
 
+/* reset all cookie value and data used for handling user state */
 const logout = () => {
   cookie.value = "";
   isLogged.value = false;
@@ -274,10 +280,6 @@ const checkLoggedIn = (): void => {
   isLogged.value = !!cookie.value && cookie.value !== "";
 };
 
-const decodeCookie = (): void => {
-  console.log(decodeURIComponent(cookie.value!));
-};
-
 /* wrapper function to override username information */
 const setUserInfo = () => {
   user.value = userCookie.value;
@@ -285,17 +287,19 @@ const setUserInfo = () => {
 
 /* decode the token and send it to django backend */
 const sendTokenToBackend = async (token: String) => {
-  // TODO: handle 401 from be
-  await ApivaultServices.sendOAuthConfigToDjango(token).then((res) => {
-    accessTokenCookie.value = res.tokens.access;
-    userCookie.value = res.username;
-    setUserInfo();
-  });
+  await ApivaultServices.sendOAuthConfigToDjango(token)
+    .then((res) => {
+      accessTokenCookie.value = res.tokens.access;
+      userCookie.value = res.username;
+      setUserInfo();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 onBeforeMount(() => {
   checkLoggedIn();
-  decodeCookie();
   user.value = userCookie.value;
 });
 
