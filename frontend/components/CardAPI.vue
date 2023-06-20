@@ -14,7 +14,7 @@
               class="mx-2 icon-color"
               width="12"
               height="12"
-              :icon="cat"
+              :icon="categoriesDict[subtitle]"
             />{{ subtitle }}
           </NuxtLink>
         </p>
@@ -29,14 +29,12 @@
       </p>
     </div>
     <div class="card-body attributes-container">
-      <CardAttributes v-if="isNullProp">
-        {{ cors ? "CORS" : null }}
-      </CardAttributes>
+      <CardAttributes v-if="cors"> CORS </CardAttributes>
       <CardAttributes :id="https ? 'none' : 'warnOrNot'">
         {{ https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
       >
       <CardAttributes v-if="auth !== ''">
-        {{ auth !== "" ? `${auth}` : null }}</CardAttributes
+        {{ auth?.toUpperCase() }}</CardAttributes
       >
       <GenericsLikeButton
         @like:isClicked="likeInteractionHandler"
@@ -53,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-import { categoriesProperties } from "~/utils/categoryMapping";
+import { categoriesProperties, categoriesDict } from "~/utils/categoryMapping";
 import { CategoryObject } from "~/models/types";
 import ApivaultServices from "~/services/ApivaultServices";
 
@@ -113,74 +111,53 @@ let {
 });
 
 let likedByUser = isLikedByUser;
+
+/* Definitions for auth handling */
 const emit = defineEmits(["auth:isAuth"]);
 const accessToken = useCookie("accessToken");
 const isAuthState = ref<boolean>(false);
-const isNullProp = ref<boolean>(false);
-if (!cors || cors === "unknown") {
-  isNullProp.value = false;
-} else {
-  isNullProp.value = true;
-}
+
 /* Handle the isClicked event returned by LikeButton component */
 const like = ref<number>(likesCount!);
 const animate = ref<boolean>(false);
-// const incrementLike = async (isClickedEmit: boolean): Promise<void> => {
-//   if (isClickedEmit) {
-//     like.value++;
-//     animate.value = true;
-//     setTimeout(() => {
-//       animate.value = false;
-//     }, 400);
-//     const status = await ApivaultServices.incrementLike(id, accessToken.value!);
-//     if (status === 403) {
-//       like.value--;
-//       emit("auth:isAuth", false);
-//     } else if (status === 400) { 
-//       like.value--;
-//     } else {
-//       isAuthState.value = true;
-//     }
-//   }
-// };
 
-const likeInteractionHandler = async (isClickedEmit: boolean) => {
-  // TODO Remove emits
+/* This event is needed to spawn the noAuth error message */
+const emitAuthError = () => {
+  likedByUser = false;
+  emit("auth:isAuth", false);
+};
+
+/* Handle interaction API (like/dislike) */
+const likeInteractionHandler = async () => {
+  let statusCode: Number;
   if (likedByUser) {
-    like.value--; // TODO: Attach backend delete 
-    likedByUser = false;
-    return;
+    statusCode = await ApivaultServices.dislike(id, accessToken.value!);
+  } else {
+    statusCode = await ApivaultServices.like(id, accessToken.value!);
   }
-  const status = await ApivaultServices.incrementLike(id, accessToken.value!);
-  if (status === 201) {
-    like.value++;
-    likedByUser = true;
-  } else if (status === 401) {
-    likedByUser = false;
-    emit("auth:isAuth", false);
+
+  switch (statusCode) {
+    case 201:
+      like.value++;
+      likedByUser = true;
+      break;
+    case 204:
+      like.value--;
+      likedByUser = false;
+      break;
+    case 401:
+      emitAuthError();
+      break;
+    default:
+      console.error(`Status: ${statusCode} not recognized`);
+      break;
   }
-}
+};
 
-const cat: any = ref("");
-/**
-Finds an element in the categoryMap array with a name property
-that matches the subtitle property passed in as a prop.
-If a match is found, sets the value of cat.value to the icon
-property of the matching element.
-@returns {String} icon
-*/
-const iconCategory = () =>
-  Array.isArray(categoryMap)
-    ? categoryMap.find((el) => el.name === subtitle && (cat.value = el.icon))
-    : categoryMap;
-
+/* Call google services api to get favicon image */
 const getFavicon = (url: string, size: number) => {
   return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 };
-
-onMounted(() => {
-  iconCategory?.();
-});
 </script>
 
 <style scoped>
