@@ -19,7 +19,7 @@ const toggleClicked = () => {
   background-size: 2900%;
   background-repeat: no-repeat;
   cursor: pointer;
-  color: white;
+  color: var(--text-color);
   padding: 0.3rem;
   text-decoration: none !important;
   min-width: 0 !important;
