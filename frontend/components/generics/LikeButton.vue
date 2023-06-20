@@ -2,7 +2,7 @@
   <font-awesome-icon
     :icon="isClicked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"
     :class="['mt-auto btn-like', { clicked: isClicked }]"
-    @click.prevent="toggleClicked"
+    @click.prevent="clickHandler"
   />
 </template>
 
@@ -11,9 +11,9 @@ const { likedByUser } = defineProps({
   likedByUser: {
     type: Boolean,
     required: false,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
 /* 
   It emit an event that will be handled by parent component (CardAPI) 
@@ -21,17 +21,15 @@ const { likedByUser } = defineProps({
 */
 const emit = defineEmits(["like:isClicked"]);
 const isClicked = ref<boolean>(false);
-const authCookie = useCookie("accessToken");
 
-const toggleClicked = () => {
-  isClicked.value = !isClicked.value; 
-  console.log(likedByUser)
+const clickHandler = () => {
+  isClicked.value = !isClicked.value;
   emit("like:isClicked", true);
 };
 
 onMounted(() => {
   isClicked.value = likedByUser ? true : false;
-})
+});
 </script>
 
 <style scoped>
@@ -40,7 +38,7 @@ onMounted(() => {
   background-size: 2900%;
   background-repeat: no-repeat;
   cursor: pointer;
-  color: white;
+  color: var(--text-color);
   padding: 0.3rem;
   text-decoration: none !important;
   min-width: 0 !important;
