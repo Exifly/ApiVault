@@ -26,6 +26,11 @@ const toggleClicked = () => {
   width: -20px;
 }
 
+.btn-like:hover {
+  transition: scale 0.1s linear;
+  transform: scale(1.1);
+}
+
 .clicked {
   animation: hearthBeat 0.2s steps(28) forwards;
   color: #ff9143;
