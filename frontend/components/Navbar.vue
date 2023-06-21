@@ -46,7 +46,7 @@
               class="flex items-center gap-2 ms-2"
             />
           </li>
-          <li class="nav-item navbar-text-wrapper ms-2 mt-2" role="tab">
+          <li class="navbar-text-wrapper ms-2 mt-2" role="tab">
             <GenericsButton :isInverted="true">
               <a
                 title="Submit your API"
@@ -59,7 +59,7 @@
             </GenericsButton>
           </li>
           <li
-            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2"
+            class="no-margin navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
             <GoogleSignInButton
@@ -73,10 +73,16 @@
               text="signin"
               locale="en"
             ></GoogleSignInButton>
-            <UserInfoMenu
+            <!-- <UserInfoMenu -->
+            <!--   v-if="isLogged" -->
+            <!--   @click="() => logout()" -->
+            <!--   :username="user" -->
+            <!-- /> -->
+
+            <!-- TODO: handle logout on new UserMenu component -->
+            <UserMenu 
               v-if="isLogged"
-              @click="() => logout()"
-              :username="user"
+             :username="user"
             />
           </li>
           <hr />
@@ -355,7 +361,6 @@ onMounted(() => {
   cursor: pointer;
   color: var(--nav-item-hover);
   background-color: var(--bg-card-glass-hover);
-  cursor: pointer;
   border-radius: 5px;
 }
 
