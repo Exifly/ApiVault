@@ -51,11 +51,9 @@
 </template>
 
 <script lang="ts" setup>
-import { categoriesProperties, categoriesDict } from "~/utils/categoryMapping";
-import { CategoryObject } from "~/models/types";
+import { categoriesDict } from "~/utils/categoryMapping";
 import ApivaultServices from "~/services/ApivaultServices";
 
-const categoryMap: CategoryObject | CategoryObject[] = categoriesProperties;
 let {
   id,
   title,
@@ -110,7 +108,7 @@ let {
   },
 });
 
-let likedByUser = isLikedByUser;
+let likedByUser = ref(isLikedByUser);
 
 /* Definitions for auth handling */
 const emit = defineEmits(["auth:isAuth"]);
@@ -123,14 +121,14 @@ const animate = ref<boolean>(false);
 
 /* This event is needed to spawn the noAuth error message */
 const emitAuthError = () => {
-  likedByUser = false;
+  likedByUser.value = false;
   emit("auth:isAuth", false);
 };
 
 /* Handle interaction API (like/dislike) */
 const likeInteractionHandler = async () => {
   let statusCode: Number;
-  if (likedByUser) {
+  if (likedByUser.value) {
     statusCode = await ApivaultServices.dislike(id, accessToken.value!);
   } else {
     statusCode = await ApivaultServices.like(id, accessToken.value!);
@@ -139,17 +137,18 @@ const likeInteractionHandler = async () => {
   switch (statusCode) {
     case 201:
       like.value++;
-      likedByUser = true;
+      likedByUser.value = true;
       break;
     case 204:
       like.value--;
-      likedByUser = false;
+      likedByUser.value = false;
       break;
     case 401:
       emitAuthError();
       break;
     default:
-      console.error(`Status: ${statusCode} not recognized`);
+      likedByUser.value = false;
+      console.error(`Status code error: ${statusCode}`);
       break;
   }
 };
