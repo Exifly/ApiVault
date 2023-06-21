@@ -55,7 +55,7 @@ sqlparse==0.4.4
 typing-extensions==4.6.3
 unattended-upgrades==0.1
 uritemplate==4.1.1
-urllib3==1.25.8
+urllib3==1.26.5
 drf-yasg
 google-api-python-client
 
