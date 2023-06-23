@@ -59,11 +59,12 @@
             </GenericsButton>
           </li>
           <li
+            style="padding: 0;"
             class="no-margin navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
             <GoogleSignInButton
-              style="margin-top: 8px"
+              style="margin: 0 !important;"
               v-if="!isLogged"
               @success="handleLoginSuccess"
               @error="handleLoginError"
@@ -73,14 +74,8 @@
               text="signin"
               locale="en"
             ></GoogleSignInButton>
-            <!-- <UserInfoMenu -->
-            <!--   v-if="isLogged" -->
-            <!--   @click="() => logout()" -->
-            <!--   :username="user" -->
-            <!-- /> -->
-
-            <!-- TODO: handle logout on new UserMenu component -->
             <UserMenu 
+              @event:sign_out="() => logout()"
               v-if="isLogged"
              :username="user"
             />
@@ -275,7 +270,7 @@ const logout = () => {
 
 /* checks if cookie.value is not an empty string */
 const checkLoggedIn = (): void => {
-  isLogged.value = !!cookie.value && cookie.value !== "";
+  isLogged.value = !!accessTokenCookie.value && accessTokenCookie.value !== "";
 };
 
 const decodeCookie = (): void => {
@@ -384,6 +379,9 @@ onMounted(() => {
   .scrollbox {
     overflow: scroll;
     height: 73vh !important;
+  }
+  .align-items-center {
+    align-items: normal !important;
   }
 }
 </style>
