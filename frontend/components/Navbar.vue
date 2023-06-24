@@ -46,7 +46,7 @@
               class="flex items-center gap-2 ms-2"
             />
           </li>
-          <li class="nav-item navbar-text-wrapper ms-2 mt-2" role="tab">
+          <li class="navbar-text-wrapper ms-2 mt-2" role="tab">
             <GenericsButton :isInverted="true">
               <a
                 title="Submit your API"
@@ -59,11 +59,12 @@
             </GenericsButton>
           </li>
           <li
-            class="no-margin nav-item navbar-text-wrapper ms-2 mt-2 p-0"
+            style="padding: 0;"
+            class="no-margin navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
             <GoogleSignInButton
-              style="margin-top: 8px"
+              style="margin: 0 !important;"
               v-if="!isLogged"
               @success="handleLoginSuccess"
               @error="handleLoginError"
@@ -74,10 +75,10 @@
               locale="en"
               shape="circle"
             ></GoogleSignInButton>
-            <UserInfoMenu
+            <UserMenu 
+              @event:sign_out="() => logout()"
               v-if="isLogged"
-              @click="() => logout()"
-              :username="user"
+             :username="user"
             />
           </li>
           <hr />
@@ -277,7 +278,7 @@ const logout = () => {
 
 /* checks if cookie.value is not an empty string */
 const checkLoggedIn = (): void => {
-  isLogged.value = !!cookie.value && cookie.value !== "";
+  isLogged.value = !!accessTokenCookie.value && accessTokenCookie.value !== "";
 };
 
 /* wrapper function to override username information */
@@ -362,7 +363,6 @@ onMounted(() => {
   cursor: pointer;
   color: var(--nav-item-hover);
   background-color: var(--bg-card-glass-hover);
-  cursor: pointer;
   border-radius: 5px;
 }
 
@@ -386,6 +386,9 @@ onMounted(() => {
   .scrollbox {
     overflow: scroll;
     height: 73vh !important;
+  }
+  .align-items-center {
+    align-items: normal !important;
   }
 }
 </style>

@@ -62,7 +62,7 @@ import {
   fas,
   faB,
   faUsers,
-  faTriangleExclamation,
+  faAnglesDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -154,7 +154,7 @@ library.add(
   faUsers,
   faHeart,
   faBookmark,
-  faTriangleExclamation
+  faAnglesDown,
 );
 config.autoAddCss = false;
 
