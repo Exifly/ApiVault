@@ -2,21 +2,34 @@
   <font-awesome-icon
     :icon="isClicked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"
     :class="['mt-auto btn-like', { clicked: isClicked }]"
-    @click.prevent="toggleClicked"
+    @click.prevent="clickHandler"
   />
 </template>
 
 <script lang="ts" setup>
+const { likedByUser } = defineProps({
+  likedByUser: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
+
 /* 
   It emit an event that will be handled by parent component (CardAPI) 
   to understand if the like button is already clicked
 */
 const emit = defineEmits(["like:isClicked"]);
 const isClicked = ref<boolean>(false);
-const toggleClicked = () => {
+
+const clickHandler = () => {
   isClicked.value = !isClicked.value;
-  emit("like:isClicked", isClicked.value);
+  emit("like:isClicked", true);
 };
+
+onMounted(() => {
+  isClicked.value = likedByUser ? true : false;
+});
 </script>
 
 <style scoped>
@@ -25,11 +38,16 @@ const toggleClicked = () => {
   background-size: 2900%;
   background-repeat: no-repeat;
   cursor: pointer;
-  color: white;
+  color: var(--text-color);
   padding: 0.3rem;
   text-decoration: none !important;
   min-width: 0 !important;
   width: -20px;
+}
+
+.btn-like:hover {
+  transition: scale 0.1s linear;
+  transform: scale(1.1)
 }
 
 .clicked {

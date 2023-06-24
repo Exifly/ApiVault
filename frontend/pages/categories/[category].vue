@@ -5,6 +5,11 @@
     </template>
     <template #topAreaContent>
       <SearchBar @search:apiSearch="handleSearchCategory" />
+      <Transition>
+        <GenericsToastNotification v-if="isAuth" class="mt-3">
+          You are not authorized to perform this action. Please signin!
+        </GenericsToastNotification>
+      </Transition>
     </template>
     <template #cardAreaContent>
       <div class="row" v-if="showList">
@@ -30,6 +35,8 @@
               target="_blank"
             >
               <CardAPI
+                @auth:isAuth="handleAuthState"
+                :id="api.id"
                 :title="api.name"
                 :subtitle="api.category"
                 :body="api.description"
@@ -37,6 +44,8 @@
                 :https="api.https"
                 :auth="api.auth"
                 :faviconSrc="api.url"
+                :likesCount="api.likes_count"
+                :isLikedByUser="api.liked_by_user"
               />
             </a>
           </div>
@@ -60,8 +69,10 @@ const categoryTitle = route.params.category as string;
 const heroTitle = `Your Free and Public ${categoryTitle} API List`;
 const isLoading = ref(true);
 const isNullCategory = ref(null);
+const isAuth = ref<boolean>(false);
 const apiData: Ref<APIType[]> = ref([]);
 const apiSearched: Ref<APIType[]> = ref([]);
+const accesToken = useCookie("accessToken") || null;
 const categorySearched = reactive({
   category: categoryTitle.toUpperCase(),
 });
@@ -77,6 +88,17 @@ useHead({
   ],
 });
 
+/* 
+  Handler for cardApi auth event emit (return false if user is not authorized) 
+  It's needed to handle the notification error
+*/
+const handleAuthState = (isAuthError: boolean) => {
+  if (!isAuthError) isAuth.value = true;
+  setTimeout(() => {
+    isAuth.value = false;
+  }, 4000);
+}
+
 const handleSearchCategory = (val: string, title: string) => {
   handleSearch(
     val,
@@ -90,7 +112,7 @@ const handleSearchCategory = (val: string, title: string) => {
 };
 
 onMounted(async () => {
-  apiData.value = await ApivaultServices.apiCategoryData(route.params.category);
+  apiData.value = await ApivaultServices.apiCategoryData(route.params.category, accesToken.value!);
   isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = true
     ? apiData.value === null || apiData.value === undefined

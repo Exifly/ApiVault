@@ -5,6 +5,11 @@
     </template>
     <template #topAreaContent>
       <SearchBar @search:apiSearch="handleSearchDashboard" />
+      <Transition>
+        <GenericsToastNotification v-if="isAuth" class="mt-3">
+          You are not authorized to perform this action. Please signin!
+        </GenericsToastNotification>
+      </Transition>
     </template>
     <template #trendingCategories>
       <h1 id="title-trending" class="text-wrapper mb-3">TRENDING</h1>
@@ -67,6 +72,8 @@
               style="text-decoration: none"
             >
               <CardAPI
+                @auth:isAuth="handleAuthState"
+                :id="api.id"
                 :title="api.name"
                 :subtitle="api.category"
                 :body="api.description"
@@ -74,6 +81,8 @@
                 :https="api.https"
                 :auth="api.auth"
                 :faviconSrc="api.url"
+                :likesCount="api.likes_count"
+                :isLikedByUser="api.liked_by_user"
               />
             </a>
           </div>
@@ -140,6 +149,21 @@ const categorySearched = reactive({
   category: "RANDOM",
 });
 
+/* auth state */
+const isAuth = ref<boolean>(false);
+const accessToken = useCookie("accessToken");
+
+/* 
+  Handler for cardApi auth event emit (return false if user is not authorized) 
+  It's needed to handle the notification error
+*/
+const handleAuthState = (isAuthError: boolean) => {
+  if (!isAuthError) isAuth.value = true;
+  setTimeout(() => {
+    isAuth.value = false;
+  }, 4000);
+};
+
 // loading state animation
 const isLoading = ref(true);
 const showList = ref(true);
@@ -174,7 +198,7 @@ const showLoadMore = computed(() => {
 const handleLoadMore = async () => {
   isLoadingState.value = true;
   setTimeout(async () => {
-    const newData = await ApivaultServices.randomApis();
+    const newData = await ApivaultServices.randomApis(accessToken.value!);
     const filteredData = newData.filter((newItem) => {
       return !apiData.value.some(
         (existingItem: any) => existingItem.url === newItem.url
@@ -193,7 +217,7 @@ const handleLoadMore = async () => {
 
 onBeforeMount(async () => {
   trendCategoriesList.value = await ApivaultServices.getTrendingCategories()!;
-  apiData.value = await ApivaultServices.randomApis();
+  apiData.value = await ApivaultServices.randomApis(accessToken.value!);
   isLoading.value = true
     ? apiData.value === null || apiData.value === ""
     : false;

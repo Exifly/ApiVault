@@ -14,7 +14,7 @@
               class="mx-2 icon-color"
               width="12"
               height="12"
-              :icon="cat"
+              :icon="categoriesDict[subtitle]"
             />{{ subtitle }}
           </NuxtLink>
         </p>
@@ -29,17 +29,17 @@
       </p>
     </div>
     <div class="card-body attributes-container">
-      <CardAttributes v-if="isNullProp">
-        {{ props.cors ? "CORS" : null }}
-      </CardAttributes>
-      <CardAttributes :id="props.https ? 'none' : 'warnOrNot'">
-        {{ props.https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
+      <CardAttributes v-if="cors"> CORS </CardAttributes>
+      <CardAttributes :id="https ? 'none' : 'warnOrNot'">
+        {{ https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
       >
-      <CardAttributes v-if="props.auth !== ''">
-        {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
+      <CardAttributes v-if="auth !== ''">
+        {{ auth?.toUpperCase() }}</CardAttributes
       >
       <GenericsLikeButton
-        @like:isClicked="incrementLike"
+        @like:isClicked="likeInteractionHandler"
+        :likedByUser="likedByUser"
+        :isAuthState="isAuthState!"
         style="margin-left: auto !important; text-decoration: none"
       />
       <GenericsLikeNumber :class="{ animate: animate }">
@@ -51,11 +51,25 @@
 </template>
 
 <script lang="ts" setup>
-import { categoriesProperties } from "~/utils/categoryMapping";
-import { CategoryObject } from "~/models/types";
+import { categoriesDict } from "~/utils/categoryMapping";
+import ApivaultServices from "~/services/ApivaultServices";
 
-const categoryMap: CategoryObject | CategoryObject[] = categoriesProperties;
-const props = defineProps({
+let {
+  id,
+  title,
+  subtitle,
+  body,
+  cors,
+  https,
+  auth,
+  faviconSrc,
+  isLikedByUser,
+  likesCount,
+} = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -84,52 +98,65 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isLikedByUser: {
+    type: Boolean,
+    required: true,
+  },
+  likesCount: {
+    type: Number,
+    required: false,
+  },
 });
 
-const isNullProp = ref<boolean>(false);
-if (!props.cors || props.cors === "unknown") {
-  isNullProp.value = false;
-} else {
-  isNullProp.value = true;
-}
+let likedByUser = ref(isLikedByUser);
+
+/* Definitions for auth handling */
+const emit = defineEmits(["auth:isAuth"]);
+const accessToken = useCookie("accessToken");
+const isAuthState = ref<boolean>(false);
 
 /* Handle the isClicked event returned by LikeButton component */
-const like = ref<number>(0);
+const like = ref<number>(likesCount!);
 const animate = ref<boolean>(false);
-const incrementLike = (isClickedEmit: boolean): void => {
-  if (isClickedEmit) {
-    like.value++;
-    animate.value = true;
-    setTimeout(() => {
-      animate.value = false;
-    }, 400);
+
+/* This event is needed to spawn the noAuth error message */
+const emitAuthError = () => {
+  likedByUser.value = false;
+  emit("auth:isAuth", false);
+};
+
+/* Handle interaction API (like/dislike) */
+const likeInteractionHandler = async () => {
+  let statusCode: Number;
+  if (likedByUser.value) {
+    statusCode = await ApivaultServices.dislike(id, accessToken.value!);
   } else {
-    like.value--;
+    statusCode = await ApivaultServices.like(id, accessToken.value!);
+  }
+
+  switch (statusCode) {
+    case 201:
+      like.value++;
+      likedByUser.value = true;
+      break;
+    case 204:
+      like.value--;
+      likedByUser.value = false;
+      break;
+    case 401:
+      emitAuthError();
+      break;
+    default:
+      likedByUser.value = false;
+      console.error(`Status code error: ${statusCode}`);
+      break;
   }
 };
 
-const cat: any = ref("");
-/**
-Finds an element in the categoryMap array with a name property
-that matches the subtitle property passed in as a prop.
-If a match is found, sets the value of cat.value to the icon
-property of the matching element.
-@returns {String} icon
-*/
-const iconCategory = () =>
-  Array.isArray(categoryMap)
-    ? categoryMap.find(
-        (el) => el.name === props.subtitle && (cat.value = el.icon)
-      )
-    : categoryMap;
-
+/* Call google services api to get favicon image */
 const getFavicon = (url: string, size: number) => {
   return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 };
-
-onMounted(() => {
-  iconCategory?.();
-});
 </script>
 
 <style scoped>

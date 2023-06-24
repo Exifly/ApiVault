@@ -19,11 +19,16 @@ const toggleClicked = () => {
   background-size: 2900%;
   background-repeat: no-repeat;
   cursor: pointer;
-  color: white;
+  color: var(--text-color);
   padding: 0.3rem;
   text-decoration: none !important;
   min-width: 0 !important;
   width: -20px;
+}
+
+.btn-like:hover {
+  transition: scale 0.1s linear;
+  transform: scale(1.1);
 }
 
 .clicked {

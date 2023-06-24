@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
+const { url } = defineProps({
   url: {
     type: String,
     required: true,
