@@ -45,7 +45,7 @@
       <GenericsLikeNumber :class="{ animate: animate }">
         {{ like }}
       </GenericsLikeNumber>
-      <GenericsBookmarkButton style="text-decoration: none" />
+      <!-- <GenericsBookmarkButton style="text-decoration: none" /> -->
     </div>
   </div>
 </template>
