@@ -47,15 +47,15 @@
             />
           </li>
           <li class="navbar-text-wrapper ms-2 mt-2" role="tab">
-            <GenericsButton :isInverted="true">
-              <a
-                title="Submit your API"
-                tabindex="2"
-                class="p-0 navbar-text-wrapper-inverted flex items-center gap-2"
-                href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
-              >
+            <GenericsButton :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
+              <!-- <a -->
+              <!--   title="Submit your API" -->
+              <!--   tabindex="2" -->
+              <!--   class="p-0 navbar-text-wrapper-inverted flex items-center gap-2" -->
+              <!--   href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D" -->
+              <!-- > -->
                 <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-              </a>
+              <!-- </a> -->
             </GenericsButton>
           </li>
           <li
@@ -183,6 +183,7 @@
       </div>
     </div>
   </nav>
+  <GenericsModal title="Submit your API" />
 </template>
 
 <script lang="ts" setup>
@@ -296,6 +297,7 @@ const sendTokenToBackend = async (token: String) => {
     })
     .catch((err) => {
       console.error(err);
+      isLogged.value = false;
     });
 };
 
