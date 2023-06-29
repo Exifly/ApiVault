@@ -5,14 +5,14 @@
       {{ username }}
       <font-awesome-icon class="ms-2" :icon="['fas', 'angles-down']" />
     </GenericsButton>
-    <ul class="dropdown-wrapper-override dropdown-animation dropdown-menu dropdown-menu-dark">
-      <li>
-        <NuxtLink class="wrapper-hover-effect dropdown-item" style="text-decoration: none !important;" to="/favourites">
-          <font-awesome-icon class="me-2" :icon="['fas', 'bookmark']" />
-          My bookmarks
-        </NuxtLink>
-      </li>
-      <hr class="m-1" />
+    <ul class="dropdown-wrapper-override dropdown-animation dropdown-menu dropdown-menu-dark" style="padding: 3px;">
+      <!-- <li> -->
+      <!--   <NuxtLink class="wrapper-hover-effect dropdown-item" style="text-decoration: none !important;" to="/favourites"> -->
+      <!--     <font-awesome-icon class="me-2" :icon="['fas', 'bookmark']" /> -->
+      <!--     My bookmarks -->
+      <!--   </NuxtLink> -->
+      <!-- </li> -->
+      <!-- <hr class="m-1" /> -->
       <li><a @click.prevent="sendLogoutEvent" class="wrapper-hover-effect dropdown-item" href="#">
         <font-awesome-icon class="me-2" :icon="['fas', 'right-from-bracket']" />
         Logout

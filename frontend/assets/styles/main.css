@@ -12,6 +12,7 @@
   --bg-trending-category: #222428;
   --bg-attribute-warn: #352919;
   --icon-color: #96a2b5e5;
+  --icon-gradient-theme-color-primary: #656565;
   --icon-text-color: #ffffffc2;
   --border-color-cards: rgb(255 255 255 / 6%);
   --nav-color: #1a1a1a;
@@ -39,6 +40,8 @@ html.light:root {
   --bg-trending-category: #4d4d4d14;
   --bg-attribute-warn: #352919;
   --icon-color: rgba(0, 0, 0, 0.8);
+  --icon-gradient-theme-color-primary: #FCB033;
+  --icon-gradient-theme-color-secondary: #FA8607;
   --icon-text-color: rgba(0, 0, 0, 0.8);
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;

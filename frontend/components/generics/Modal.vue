@@ -5,7 +5,7 @@
         <div class="py-0 custom-border modal-header">
           <h1 v-if="!successSubmit" class="ps-2 text-wrapper modal-title fs-5" id="submitApiModalLabel">{{ title }}</h1>
           <h1 v-else class="ps-2 text-wrapper modal-title fs-5" id="submitApiModalLabel">API Submitted</h1>
-          <GenericsButton class="m-0 mt-3 me-2" data-bs-dismiss="modal" aria-label="Close">
+          <GenericsButton class="mobile-wrapper-btn m-0 mt-3 me-2" data-bs-dismiss="modal" aria-label="Close">
             <font-awesome-icon :icon="['fas', 'xmark']" />
           </GenericsButton>
         </div>
@@ -15,11 +15,11 @@
           </div>
           <form v-else>
             <div class="input-group mb-3" style="justify-content: space-between;">
-              <div class="align-items-center">
+              <div class="mobile-wrapper-section align-items-center">
                 <label for="recipient-name" class="text-wrapper col-form-label">Name:</label>
                 <input v-model="name" type="text" placeholder="Your API name" class="inverted-input-box text-wrapper form-control" id="recipient-name" style="margin-right: 6rem;">
               </div>
-              <div class="align-items-center">
+              <div class="mobile-wrapper-section align-items-center">
               <label for="message-text" class="text-wrapper col-form-label">Auth:</label>
                 <select v-model="auth" placeholder="Choose Auth type" class="px-3 inverted-input-box text-wrapper form-select" aria-label="Select corse state">
                   <option value="" selected disabled>Choose an option</option>
@@ -44,7 +44,7 @@
               <input v-model="description" placeholder="Describe your API" type="text" class="text-wrapper inverted-input-box form-control" id="message-text">
             </div>
             <div id="space-between-form" class="input-group mb-0">
-              <div class="align-items-center">
+              <div class="mobile-wrapper-section align-items-center">
                 <label for="message-text" class="me-2 text-wrapper col-form-label primary">Has your API Cors enabled?:</label>
                 <select v-model="cors" placeholder="Choose an option" class="inverted-input-box text-wrapper form-select" aria-label="Select corse state">
                   <option value="" selected disabled>Choose an option</option>
@@ -53,7 +53,7 @@
                 </select>
               </div>
               <div class="text-wrapper align-items-center align-dividers">•</div>
-              <div class="align-items-center">
+              <div class="mobile-wrapper-section align-items-center">
                 <label for="message-text" class="me-2 text-wrapper col-form-label">Is your API Secure? (https):</label>
                 <select v-model="https" placeholder="Choose an option" class="inverted-input-box text-wrapper form-select" aria-label="Select corse state">
                   <option value="" selected disabled>Choose an option</option>
@@ -67,8 +67,8 @@
         </div>
         <div class="px-4 custom-border modal-footer">
           <p v-if="!successSubmit" class="text-wrapper" style="margin-right: auto; opacity: 70%;">All fields are mandatory!</p>
-          <GenericsButton class="m-1" data-bs-dismiss="modal">Close</GenericsButton>
-          <GenericsButton v-if="!successSubmit" style="position: relative;" @click.prevent="validateInput" :isInverted="true" :class="['text-wrapper-inverted dm-1', { tremor: !isValidInput }]">Submit your API</GenericsButton>
+          <GenericsButton class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Close</GenericsButton>
+          <GenericsButton class="mobile-werapper-footer-btn2" v-if="!successSubmit" style="position: relative;" @click.prevent="validateInput" :isInverted="true" :class="['text-wrapper-inverted dm-1', { tremor: !isValidInput }]">Submit your API</GenericsButton>
         </div>
       </div>
     </div>
@@ -179,5 +179,21 @@ onMounted(async () => {
   8.92857% { transform:translate(5px,0) }
   10.71429% { transform:translate(0,0) }
   100% { transform:translate(0,0) }
+}
+
+@media (max-width: 480px) {
+  .mobile-wrapper-btn {
+    width: 13%;
+  } 
+  .mobile-wrapper-section {
+    width: 100%;
+  }
+  .mobile-wrapper-footer-btn {
+    font-size: small;
+    width: 30%;
+  }
+  .mobile-werapper-footer-btn2 {
+    font-size: small;
+  }
 }
 </style>

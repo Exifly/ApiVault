@@ -117,5 +117,9 @@ onMounted(async () => {
   isLoading.value = true
     ? apiData.value === null || apiData.value === undefined
     : false;
+ 
+  if (apiSearched.value === null || apiSearched.value.length === 0) { 
+    apiSearched.value = apiData.value;
+  }
 });
 </script>

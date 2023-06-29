@@ -46,16 +46,9 @@
               class="flex items-center gap-2 ms-2"
             />
           </li>
-          <li class="navbar-text-wrapper ms-2 mt-2" role="tab">
-            <GenericsButton :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
-              <!-- <a -->
-              <!--   title="Submit your API" -->
-              <!--   tabindex="2" -->
-              <!--   class="p-0 navbar-text-wrapper-inverted flex items-center gap-2" -->
-              <!--   href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D" -->
-              <!-- > -->
+          <li class="mobile-wrapper navbar-text-wrapper ms-2 mt-2" role="tab" style="padding-bottom: 7px;">
+            <GenericsButton class="text-wrapper-inverted" :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
                 <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-              <!-- </a> -->
             </GenericsButton>
           </li>
           <li
@@ -70,15 +63,16 @@
               @error="handleLoginError"
               :auto-select="false"
               theme="filled_black"
-              size="medium"
+              size="large"
               text="signin"
               locale="en"
-              shape="circle"
+              shape="square"
             ></GoogleSignInButton>
             <UserMenu 
               @event:sign_out="() => logout()"
               v-if="isLogged"
              :username="user"
+             :profilePic="profilePicture"
             />
           </li>
           <hr />
@@ -202,6 +196,7 @@ import {
   setLocalStorage,
 } from "../utils/themeutils";
 
+const router = useRouter();
 const stargazers = await GithubServices.repoStars();
 
 /* Theme data definition */
@@ -262,6 +257,7 @@ const handleLoginSuccess = async (response: CredentialResponse) => {
   isLogged.value = true;
   cookie.value = credential;
   await sendTokenToBackend(cookie.value!);
+  router.push('/'); // force refresh the page to sync user data correctly
 };
 
 /* handle an error event */
@@ -287,11 +283,13 @@ const setUserInfo = () => {
   user.value = userCookie.value;
 };
 
+const profilePicture = ref<string>("");
 /* decode the token and send it to django backend */
 const sendTokenToBackend = async (token: String) => {
   await ApivaultServices.sendOAuthConfigToDjango(token)
     .then((res) => {
       accessTokenCookie.value = res.tokens.access;
+      profilePicture.value = res.picture;
       userCookie.value = res.username;
       setUserInfo();
     })
@@ -382,6 +380,10 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 680px) {
+  .mobile-wrapper {
+    margin-left: 0 !important;
+    padding-left: 0;
+  }
   .glass-nav {
     background-color: var(--bg-color);
   }

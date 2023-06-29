@@ -1,29 +1,27 @@
 <template>
-  <div class="search-bar text-black">
-    <label
-      ><font-awesome-icon
-        class="icon-color"
-        :icon="['fas', 'magnifying-glass']"
-        style="margin-left: 1em; margin-right: 1vw"
-      />
-      <input
-        v-model="apiInputSearch"
-        class="input-bar"
-        type="search"
-        placeholder="Search"
-      />
-      <p style="color: white !important" v-for="api in apis" :key="api">
-        <!-- {{ api.API }} -->
-      </p>
-    </label>
-  </div>
+  <form @submit.prevent="searchForApi">
+    <div class="search-bar text-black" >
+      <label
+        ><font-awesome-icon
+          class="icon-color"
+          :icon="['fas', 'magnifying-glass']"
+          style="margin-left: 1em; margin-right: 1vw"
+        />
+        <input
+          v-model="query"
+          class="input-bar"
+          type="search"
+          placeholder="Search"
+        />
+      </label>
+    </div>
+  </form>
 </template>
 
 <script lang="ts" setup>
 import ApivaultServices from "~/services/ApivaultServices";
 
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
-const apiInputSearch = ref("");
 
 /**
 Computes a filtered list of API data based on the value of apiInputSearch. 
@@ -32,23 +30,20 @@ with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a
 "search:apiSearch" event with a value of false.
 @returns {undefined}
 */
-let data: any[] = [];
-const apis = computed(() => {
-  if (apiInputSearch.value.length >= 3) {
-    const filteredData = data.filter(
-      (api: any) =>
-        api.name.toLowerCase().includes(apiInputSearch.value.toLowerCase()) ||
-        api.category.toLowerCase().includes(apiInputSearch.value.toLowerCase())
-    );
-    emit("search:apiSearch", filteredData, apiInputSearch);
-  } else {
-    emit("search:apiSearch", false);
-  }
-});
+const query = ref<string>("");
+const searchForApi = async () => {
+  if (query.value.length <= 3) return;
+  const response = await ApivaultServices.search(query.value);
 
-onMounted(async () => {
-  data = await ApivaultServices.allApis();
-});
+  switch (response.length) {
+    case 0:
+      emit("search:apiSearch", false);
+      break;
+    default:
+      emit("search:apiSearch", response, query.value);
+      break;
+  }
+}
 </script>
 
 <style scoped>
