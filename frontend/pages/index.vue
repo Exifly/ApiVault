@@ -204,7 +204,6 @@ const handleLoadMore = async () => {
         (existingItem: any) => existingItem.url === newItem.url
       );
     });
-    console.log(filteredData);
     if (filteredData.length === 0) {
       hasMoreData.value = false;
       isLoadingState.value = false;
