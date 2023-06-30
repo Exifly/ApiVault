@@ -14,7 +14,7 @@ def generate_username(name: str):
    username = "".join(name.split(' ')).lower()
    return username + str(random.randint(0, 1000))
 
-def register_social_user(email: str, name:str, picture:str):
+def register_social_user(email: str, name: str, picture: str):
    """
    Registers a social user.
 
