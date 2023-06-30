@@ -18,8 +18,8 @@ const icon = computed(() => {
 });
 
 onMounted(() => {
-  const isLight = localStorage.getItem("APIVaultTheme");
-  isActive.value = true ? isLight === "light" : false;
+  const isLight = useTheme();
+  isActive.value = true ? isLight.value === "light" : false;
 });
 </script>
 

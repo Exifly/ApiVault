@@ -22,7 +22,7 @@ RUN \
    apt-get install -y --no-install-recommends gdal-bin && \
    apt-get install -y --no-install-recommends gdal-bin && \
    apt-get install -y --no-install-recommends libgdal-dev && \
-   apt-get install -y python3-dev && \
+   apt-get install -y python3-dev libcairo2-dev pkg-config && \
    apt-get install -y libpq-dev && \
    apt-get install --reinstall build-essential -y && \
    apt-get clean && apt-get autoremove -y && \

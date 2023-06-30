@@ -32,35 +32,15 @@ with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a
 "search:apiSearch" event with a value of false.
 @returns {undefined}
 */
-let data: any = [];
+let data: any[] = [];
 const apis = computed(() => {
   if (apiInputSearch.value.length >= 3) {
-    emit(
-      "search:apiSearch",
-      data.filter(
-        (api: {
-          name: {
-            toLowerCase: () => {
-              (): any;
-              new (): any;
-              includes: { (arg0: string): number; new (): any };
-            };
-          };
-          category: {
-            toLowerCase: () => {
-              (): any;
-              new (): any;
-              includes: { (arg0: string): number; new (): any };
-            };
-          };
-        }) =>
-          api.name.toLowerCase().includes(apiInputSearch.value.toLowerCase()) |
-          api.category
-            .toLowerCase()
-            .includes(apiInputSearch.value.toLocaleLowerCase())
-      ),
-      apiInputSearch
+    const filteredData = data.filter(
+      (api: any) =>
+        api.name.toLowerCase().includes(apiInputSearch.value.toLowerCase()) ||
+        api.category.toLowerCase().includes(apiInputSearch.value.toLowerCase())
     );
+    emit("search:apiSearch", filteredData, apiInputSearch);
   } else {
     emit("search:apiSearch", false);
   }

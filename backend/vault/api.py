@@ -44,7 +44,7 @@ class RandomAPIListView(generics.ListAPIView):
    
 
 
-@method_decorator(cache_page(86400), name='get')
+# @method_decorator(cache_page(86400), name='get')
 class APIListView(generics.ListAPIView):
    """
    List all APIs.

@@ -14,18 +14,19 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center align-content-center">
+      <div class="row justify-content-center align-content-center mt-4">
         <div class="col-12 col-md-6">
-          <GenericsCard
-            class="glow-effect mt-2"
-            title="❤️ THANK YOU ❤️"
-            body="Thanks to everyone on this list! We are so happy to work with you! "
-            imageUrl="https://purepng.com/public/uploads/large/heart-icon-jst.png"
-            ><GenericsButton
-              class="glow-effect d-flex align-self-center justify-content-center"
+          <a
+            href="https://github.com/Exifly/ApiVault/graphs/contributors"
+            target="_blank"
+          >
+            <GenericsButton
+              class="d-flex align-self-center align-items-center justify-content-center"
             >
-              <font-awesome-icon :icon="['fab', 'github']" /> </GenericsButton
-          ></GenericsCard>
+              <font-awesome-icon class="me-2" :icon="['fab', 'github']" />
+              Become a contributor
+            </GenericsButton>
+          </a>
         </div>
       </div>
     </template>

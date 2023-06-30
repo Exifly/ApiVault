@@ -7,18 +7,16 @@
 ![screenshot](./assets/Hero.png)
 
 <p align="center">
-    <a href="https://github.com/Exifly/ApiVault/tree/main" alt="Stable">
-        <img src="https://img.shields.io/badge/stable-1.4.0-green?style=for-the-badge" /></a>
-    <a href="https://github.com/Exifly/ApiVault/tree/beta_v2.0.0-b1" alt="Beta">
-        <img src="https://img.shields.io/badge/beta-2.0.0-blue?style=for-the-badge" /></a>
+    <a href="https://github.com/Exifly/ApiVault/tree/release" alt="Stable">
+        <img src="https://img.shields.io/badge/stable-2.0.5-blue?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/contributors/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/actions/workflow/status/exifly/apivault/node.js.yml?style=for-the-badge" /></a>
-    <a href="https://discord.gg/ShqYJynSnq" alt="Discord Server">
-        <img src="https://dcbadge.vercel.app/api/server/ShqYJynSnq" /></a>
+    <a href="https://discord.gg/e4KbstNqtk" alt="Discord Server">
+        <img src="https://dcbadge.vercel.app/api/server/e4KbstNqtk" /></a>
 <br>    
 </p>
 

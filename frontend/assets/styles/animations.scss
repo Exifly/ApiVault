@@ -102,3 +102,44 @@
   filter: blur(100%);
 }
 // Nuxt Trantitions - End //
+
+// General skeleton loading animation - Start //
+.skeleton-box {
+  background-color: var(--skeleton-primary-color);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(#dadada80, 0) 0,
+    rgba(#dadada80, 0.2) 20%,
+    rgba(#dadada80, 0.5) 60%,
+    rgba(#dadada80, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: "";
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// General animations //
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
