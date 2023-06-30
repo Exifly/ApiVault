@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { TrendingCategory, APIType, GoogleOAauth2Config } from '../models/types';
+import { TrendingCategory, APIType, GoogleOAauth2Config, Category } from '../models/types';
 
 
 class ApivaultService {
@@ -36,12 +36,21 @@ class ApivaultService {
       return this.axiosInstance.get(`${this.baseUrl}/random/`, { headers: headers }).then(res => res.data)
     }
 
+    async search(query: String): Promise<APIType[]> {
+      return await this.axiosInstance.get(`${this.baseUrl}/search?query=${query}`).then(res => res.data).catch(err => err.response.status);
+    }
+
     countApis(): Promise<number> {
       return this.axiosInstance.get(`${this.baseUrl}/count/`).then(res => res.data.api_count)
     }
 
     getTrendingCategories(): Promise<TrendingCategory[]> {
       return this.axiosInstance.get(`${this.baseUrl}/categories/trending/`).then(res => res.data);
+    }
+
+    /* Not auth layer */
+    async categories(): Promise<Category[]> {
+      return this.axiosInstance.get(`${this.baseUrl}/categories/`).then(res => res.data);
     }
 
     /* Authentication Layer */
@@ -65,6 +74,27 @@ class ApivaultService {
       };
 
         return await this.axiosInstance.delete(`${this.baseUrl}/interaction/like/${apiId}/`, { headers: headers }).then(res => {
+          return res.status
+        }).catch(err => err.response.status);
+    }
+
+    async submitApi(authToken: string, name: string, auth: string, category: number, cors: boolean, description: string, https: boolean, url: string): Promise<Number> {
+      const headers = {
+        'Authorization': `Bearer ${authToken}`
+      }
+
+      const data = {
+        name: name,
+        auth: auth,
+        category: category,
+        cors: cors,
+        description: description,
+        https: https,
+        url: url
+      }
+
+      return await this.axiosInstance.post(`${this.baseUrl}/create/`, data, { headers: headers })
+        .then(res => {
           return res.status
         }).catch(err => err.response.status);
       }

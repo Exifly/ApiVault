@@ -13,7 +13,7 @@ export const handleSearch = (
     apiSearched.value = apiData.value;
     showList.value = true;
   } else if (val.length > 0) {
-    categorySearched.category = title.value.toUpperCase();
+    categorySearched.category = title.value;
     apiSearched.value = val;
     showList.value = true;
   } else {

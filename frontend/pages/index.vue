@@ -200,16 +200,15 @@ const handleLoadMore = async () => {
   setTimeout(async () => {
     const newData = await ApivaultServices.randomApis(accessToken.value!);
     const filteredData = newData.filter((newItem) => {
-      return !apiData.value.some(
+      return !apiSearched.value.some(
         (existingItem: any) => existingItem.url === newItem.url
       );
     });
-
     if (filteredData.length === 0) {
       hasMoreData.value = false;
       isLoadingState.value = false;
     } else {
-      apiData.value = [...apiData.value, ...filteredData];
+      apiSearched.value = [...apiSearched.value, ...filteredData];
       isLoadingState.value = false;
     }
   }, 200);
@@ -221,6 +220,10 @@ onBeforeMount(async () => {
   isLoading.value = true
     ? apiData.value === null || apiData.value === ""
     : false;
+
+  if (apiSearched.value === null || apiSearched.value.length === 0) { 
+    apiSearched.value = apiData.value;
+  }
 });
 
 onMounted(async () => {
