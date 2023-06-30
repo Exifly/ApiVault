@@ -2,6 +2,7 @@ from rest_framework_simplejwt import views as jwt_views
 from django.urls import path
 from .api import(
      GoogleSocialAuthView,
+     UserView
 )
 
 urlpatterns = [
@@ -12,5 +13,7 @@ urlpatterns = [
           name='token_verify'),
 
      path('google/', GoogleSocialAuthView.as_view()),
+     path('user/', UserView.as_view()),
+
 
 ]

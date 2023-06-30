@@ -9,7 +9,7 @@ from . import google
 class GoogleSocialAuthSerializer(serializers.Serializer):
     auth_token = serializers.CharField()
 
-    def validate_auth_token(self, auth_token):
+    def validate_auth_token(self, auth_token: str):
         user_data = google.Google.validate(auth_token)
         try:
             user_data['sub']
@@ -24,8 +24,9 @@ class GoogleSocialAuthSerializer(serializers.Serializer):
         user_id = user_data['sub']
         email = user_data['email']
         name = user_data['name']
+        picture = user_data['picture']
 
-        return register_social_user(email=email, name=name)
+        return register_social_user(email=email, name=name, picture=picture)
 
 
 # User serializer
@@ -41,12 +42,13 @@ class SafeUserSerializer(serializers.ModelSerializer):
     """A safe Serializer of the default django auth user model"""
     class Meta:
         model = DefaultUser
-        fields = ['first_name', 'last_name', 'email', 'is_verified']
+        fields = ['username', 'email', 'picture']
 
 
 
 class UserSerializerNotSafe(serializers.ModelSerializer):
-    """WARNING: Debug purpose only.
+    """
+    WARNING: Debug purpose only.
     DO NOT USE IT IN PRODUCTION"""
     class Meta:
         model = DefaultUser

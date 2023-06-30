@@ -1,1 +1,359 @@
-[{"model": "vault.category", "pk": 1, "fields": {"name": "Animals"}}, {"model": "vault.category", "pk": 2, "fields": {"name": "Anime"}}, {"model": "vault.category", "pk": 3, "fields": {"name": "Anti-Malware"}}, {"model": "vault.category", "pk": 4, "fields": {"name": "Art & Design"}}, {"model": "vault.category", "pk": 5, "fields": {"name": "Authentication & Authorization"}}, {"model": "vault.category", "pk": 6, "fields": {"name": "Blockchain"}}, {"model": "vault.category", "pk": 7, "fields": {"name": "Books"}}, {"model": "vault.category", "pk": 8, "fields": {"name": "Business"}}, {"model": "vault.category", "pk": 9, "fields": {"name": "Calendar"}}, {"model": "vault.category", "pk": 10, "fields": {"name": "Cloud Storage & File Sharing"}}, {"model": "vault.category", "pk": 11, "fields": {"name": "Continuous Integration"}}, {"model": "vault.category", "pk": 12, "fields": {"name": "Cryptocurrency"}}, {"model": "vault.category", "pk": 13, "fields": {"name": "Currency Exchange"}}, {"model": "vault.category", "pk": 14, "fields": {"name": "Data Validation"}}, {"model": "vault.category", "pk": 15, "fields": {"name": "Development"}}, {"model": "vault.category", "pk": 16, "fields": {"name": "Dictionaries"}}, {"model": "vault.category", "pk": 17, "fields": {"name": "Documents & Productivity"}}, {"model": "vault.category", "pk": 18, "fields": {"name": "Email"}}, {"model": "vault.category", "pk": 19, "fields": {"name": "Entertainment"}}, {"model": "vault.category", "pk": 20, "fields": {"name": "Environment"}}, {"model": "vault.category", "pk": 21, "fields": {"name": "Events"}}, {"model": "vault.category", "pk": 22, "fields": {"name": "Finance"}}, {"model": "vault.category", "pk": 23, "fields": {"name": "Food & Drink"}}, {"model": "vault.category", "pk": 24, "fields": {"name": "Games & Comics"}}, {"model": "vault.category", "pk": 25, "fields": {"name": "Geocoding"}}, {"model": "vault.category", "pk": 26, "fields": {"name": "Government"}}, {"model": "vault.category", "pk": 27, "fields": {"name": "Health"}}, {"model": "vault.category", "pk": 28, "fields": {"name": "Jobs"}}, {"model": "vault.category", "pk": 29, "fields": {"name": "Machine Learning"}}, {"model": "vault.category", "pk": 30, "fields": {"name": "Music"}}, {"model": "vault.category", "pk": 31, "fields": {"name": "News"}}, {"model": "vault.category", "pk": 32, "fields": {"name": "Open Data"}}, {"model": "vault.category", "pk": 33, "fields": {"name": "Open Source Projects"}}, {"model": "vault.category", "pk": 34, "fields": {"name": "Patent"}}, {"model": "vault.category", "pk": 35, "fields": {"name": "Personality"}}, {"model": "vault.category", "pk": 36, "fields": {"name": "Phone"}}, {"model": "vault.category", "pk": 37, "fields": {"name": "Photography"}}, {"model": "vault.category", "pk": 38, "fields": {"name": "Programming"}}, {"model": "vault.category", "pk": 39, "fields": {"name": "Science & Math"}}, {"model": "vault.category", "pk": 40, "fields": {"name": "Security"}}, {"model": "vault.category", "pk": 41, "fields": {"name": "Shopping"}}, {"model": "vault.category", "pk": 42, "fields": {"name": "Social"}}, {"model": "vault.category", "pk": 43, "fields": {"name": "Sports & Fitness"}}, {"model": "vault.category", "pk": 44, "fields": {"name": "Test Data"}}, {"model": "vault.category", "pk": 45, "fields": {"name": "Text Analysis"}}, {"model": "vault.category", "pk": 46, "fields": {"name": "Tracking"}}, {"model": "vault.category", "pk": 47, "fields": {"name": "Transportation"}}, {"model": "vault.category", "pk": 48, "fields": {"name": "URL Shorteners"}}, {"model": "vault.category", "pk": 49, "fields": {"name": "Vehicle"}}, {"model": "vault.category", "pk": 50, "fields": {"name": "Video"}}, {"model": "vault.category", "pk": 51, "fields": {"name": "Weather"}}]
+[
+   {
+      "model": "vault.category",
+      "pk": 1,
+      "fields": {
+         "name": "Animals"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 2,
+      "fields": {
+         "name": "Anime"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 3,
+      "fields": {
+         "name": "Anti-Malware"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 4,
+      "fields": {
+         "name": "Art & Design"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 5,
+      "fields": {
+         "name": "Authentication & Authorization"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 6,
+      "fields": {
+         "name": "Blockchain"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 7,
+      "fields": {
+         "name": "Books"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 8,
+      "fields": {
+         "name": "Business"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 9,
+      "fields": {
+         "name": "Calendar"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 10,
+      "fields": {
+         "name": "Cloud Storage & File Sharing"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 11,
+      "fields": {
+         "name": "Continuous Integration"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 12,
+      "fields": {
+         "name": "Cryptocurrency"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 13,
+      "fields": {
+         "name": "Currency Exchange"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 14,
+      "fields": {
+         "name": "Data Validation"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 15,
+      "fields": {
+         "name": "Development"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 16,
+      "fields": {
+         "name": "Dictionaries"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 17,
+      "fields": {
+         "name": "Documents & Productivity"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 18,
+      "fields": {
+         "name": "Email"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 19,
+      "fields": {
+         "name": "Entertainment"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 20,
+      "fields": {
+         "name": "Environment"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 21,
+      "fields": {
+         "name": "Events"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 22,
+      "fields": {
+         "name": "Finance"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 23,
+      "fields": {
+         "name": "Food & Drink"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 24,
+      "fields": {
+         "name": "Games & Comics"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 25,
+      "fields": {
+         "name": "Geocoding"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 26,
+      "fields": {
+         "name": "Government"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 27,
+      "fields": {
+         "name": "Health"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 28,
+      "fields": {
+         "name": "Jobs"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 29,
+      "fields": {
+         "name": "Machine Learning"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 30,
+      "fields": {
+         "name": "Music"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 31,
+      "fields": {
+         "name": "News"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 32,
+      "fields": {
+         "name": "Open Data"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 33,
+      "fields": {
+         "name": "Open Source Projects"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 34,
+      "fields": {
+         "name": "Patent"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 35,
+      "fields": {
+         "name": "Personality"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 36,
+      "fields": {
+         "name": "Phone"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 37,
+      "fields": {
+         "name": "Photography"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 38,
+      "fields": {
+         "name": "Programming"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 39,
+      "fields": {
+         "name": "Science & Math"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 40,
+      "fields": {
+         "name": "Security"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 41,
+      "fields": {
+         "name": "Shopping"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 42,
+      "fields": {
+         "name": "Social"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 43,
+      "fields": {
+         "name": "Sports & Fitness"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 44,
+      "fields": {
+         "name": "Test Data"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 45,
+      "fields": {
+         "name": "Text Analysis"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 46,
+      "fields": {
+         "name": "Tracking"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 47,
+      "fields": {
+         "name": "Transportation"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 48,
+      "fields": {
+         "name": "URL Shorteners"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 49,
+      "fields": {
+         "name": "Vehicle"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 50,
+      "fields": {
+         "name": "Video"
+      }
+   },
+   {
+      "model": "vault.category",
+      "pk": 51,
+      "fields": {
+         "name": "Weather"
+      }
+   }
+]

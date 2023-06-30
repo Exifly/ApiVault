@@ -11,6 +11,7 @@ class DefaultUser(AbstractUser):
 
    type = models.CharField(max_length=2, choices=Type.choices, default=Type.DEVELOPER)
    is_verified = models.BooleanField(default=False)
+   picture = models.URLField(null=True, blank=True)
 
    def tokens(self):
       refresh = RefreshToken.for_user(self)
