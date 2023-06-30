@@ -63,6 +63,7 @@ import {
   faB,
   faUsers,
   faAnglesDown,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFaceLaugh,
@@ -155,6 +156,7 @@ library.add(
   faHeart,
   faBookmark,
   faAnglesDown,
+  faXmark,
 );
 config.autoAddCss = false;
 

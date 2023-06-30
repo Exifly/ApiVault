@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   alias: {
     '@': resolve(__dirname, "/")
   },
+  routeRules: {
+    '/': { prerender: true },
+  },
   plugins: [
     '@/plugins/fontawesome',
   ],

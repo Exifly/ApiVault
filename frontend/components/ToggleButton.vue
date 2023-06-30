@@ -1,5 +1,5 @@
 <template>
-  <button class="toggle-button" :class="{ active: isActive }" @click="toggle">
+  <button class="mobile-toogle-wrapper toggle-button" :class="{ active: isActive }" @click="toggle">
     <span class="toggle-icon">
       <font-awesome-icon :icon="['fas', icon]" />
     </span>
@@ -19,7 +19,7 @@ const icon = computed(() => {
 
 onMounted(() => {
   const isLight = useTheme();
-  isActive.value = true ? isLight.value === "light" : false;
+  isActive.value = true ? isLight.value === "dark" : false;
 });
 </script>
 
@@ -36,7 +36,7 @@ onMounted(() => {
 }
 
 .toggle-button.active {
-  background-color: black;
+  background-color: #ccc;
 }
 
 .toggle-button.active .toggle-icon {
@@ -47,7 +47,7 @@ onMounted(() => {
   align-items: center;
   background-color: #fff;
   border-radius: 50%;
-  color: var(--icon-color);
+  color: var(--icon-gradient-theme-color-primary);
   display: flex;
   justify-content: center;
   height: 30px;
@@ -56,4 +56,11 @@ onMounted(() => {
   transition: transform 0.3s ease;
   width: 30px;
 }
+
+@media (max-width: 480px) {
+  .mobile-toogle-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
 </style>

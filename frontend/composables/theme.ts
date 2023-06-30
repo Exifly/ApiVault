@@ -1,4 +1,4 @@
 export const useTheme = () => {
   return useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
+  process.client ? localStorage.getItem("APIVaultTheme")! : "dark"
 )};

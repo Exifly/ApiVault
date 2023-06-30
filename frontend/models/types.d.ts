@@ -3,6 +3,11 @@ export interface CategoryObject {
   icon: string | string[];
 }
 
+export interface Category {
+  id: number;
+  name: string;
+}
+
 export interface CategoriesDict {
   [key: string]: string | string[];
 }
@@ -50,6 +55,7 @@ export interface OAuthToken {
 export interface GoogleOAauth2Config {
   username: string;
   email: string;
+  picture: string;
   tokens: OAuthToken;
 }
 
