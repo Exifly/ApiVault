@@ -3,18 +3,31 @@ from django.utils.decorators import method_decorator
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import permissions
 from rest_framework import generics
 from django.db.models import Count
-
+from rest_framework import status
+from django.db.models import Q
 from vault.serializers import(
-    CategorySerializer,
-    APISerializer
+   APICreateSerializer,
+   CategoryCountSerializer,
+   CategorySerializer,
+   APISerializer
 )
+
 from random import sample
 from vault.models import (
+   APIPending,
    Category,
    API
 )
+
+class APICreateView(generics.CreateAPIView):
+   permission_classes = [permissions.IsAuthenticated]
+   serializer_class = APICreateSerializer
+
+   def perform_create(self, serializer):
+      serializer.save(owner=self.request.user)
 
 
 class RandomAPIListView(generics.ListAPIView):
@@ -46,7 +59,7 @@ class TrendingCategoriesView(generics.ListAPIView):
    """
    API view that returns the top 10 categories by API count.
    """
-   serializer_class = CategorySerializer
+   serializer_class = CategoryCountSerializer
 
    def get_queryset(self):
          """
@@ -66,6 +79,15 @@ class CategoryAPIListView(generics.ListAPIView):
       category_name = self.kwargs['category_name']
       category = Category.objects.get(name=category_name)
       return API.objects.filter(category=category)
+   
+
+@method_decorator(cache_page(864000), name='get')
+class AllCategoryAPIListView(generics.ListAPIView):
+   """
+   List all Categories.
+   """
+   queryset = Category.objects.all()
+   serializer_class = CategorySerializer
     
 
 
@@ -103,4 +125,48 @@ class APIDetailView(RetrieveAPIView):
       return api
    
 
+class APISearchView(APIView):
+   """
+   API view for searching APIs by name and description.
+   """
+
+   def get(self, request):
+      query = request.query_params.get('query', '')
+
+      apis = API.objects.filter(
+         Q(name__icontains=query) |
+         Q(description__icontains=query) |
+         Q(category__name__icontains=query)
+      )
+
+      serializer = APISerializer(apis, many=True)
+
+      return Response(serializer.data, status=status.HTTP_200_OK)
+   
+
+class MyApiView(APIView):
+   """
+   Retrieve the approved APIs of the logged user.
+   """
+   permission_classes = [permissions.IsAuthenticated]
+
+
+   def get(self, request):
+      apis = API.objects.filter(owner=request.user)
+      serializer = APISerializer(apis, many=True)
+      return Response(serializer.data, status=status.HTTP_200_OK)
+   
+
+class MyPendingApiView(APIView):
+   """
+   Retrieve the approved APIs of the logged user.
+   """
+   permission_classes = [permissions.IsAuthenticated]
+
+
+   def get(self, request):
+      apis = APIPending.objects.filter(owner=request.user)
+      serializer = APISerializer(apis, many=True)
+      return Response(serializer.data, status=status.HTTP_200_OK)
+   
 

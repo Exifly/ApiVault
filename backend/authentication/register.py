@@ -2,7 +2,7 @@ from authentication.models import DefaultUser
 from django.contrib.auth import authenticate
 import random
 
-def generate_username(name):
+def generate_username(name: str):
    """
    Generates a username based on the given name.
    Args:
@@ -14,7 +14,7 @@ def generate_username(name):
    username = "".join(name.split(' ')).lower()
    return username + str(random.randint(0, 1000))
 
-def register_social_user(email, name):
+def register_social_user(email: str, name:str, picture:str):
    """
    Registers a social user.
 
@@ -36,7 +36,8 @@ def register_social_user(email, name):
          username=generate_username(name),
          email=email,
          password="pipposito",
-         is_verified=True
+         is_verified=True,
+         picture=picture
       )
 
    registered_user = authenticate(
@@ -47,5 +48,6 @@ def register_social_user(email, name):
    return {
       'username': registered_user.username,
       'email': registered_user.email,
+      'picture': picture,
       'tokens': registered_user.tokens()
    }

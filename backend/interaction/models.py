@@ -3,7 +3,7 @@ from apivault import settings
 from vault.models import API
 
 class Like(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_index=True)
     api = models.ForeignKey(API, on_delete=models.CASCADE, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
 

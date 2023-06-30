@@ -1,8 +1,15 @@
 from rest_framework import serializers
 from vault.models import(
+    APIPending,
     Category,
     API
 )
+
+class APICreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = APIPending
+        fields = ['name', 'auth', 'category', 'cors', 'description', 'https', 'url', 'owner']
+        read_only_fields = ['owner']
 
 
 class APISerializer(serializers.ModelSerializer):
@@ -18,16 +25,29 @@ class APISerializer(serializers.ModelSerializer):
         user = None
         request = self.context.get("request")
         if request and hasattr(request, "user"):
-            user = request.user
+            user = request.user.id
 
         if user is not None:
             return obj.like_set.filter(user=user).exists()
         return False
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class APICreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = APIPending
+        fields = ['name', 'auth', 'category', 'cors', 'description', 'https', 'url']
+
+
+class CategoryCountSerializer(serializers.ModelSerializer):
     api_count = serializers.IntegerField()
 
     class Meta:
         model = Category
         fields = ['name', 'api_count']
+
+
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ['id', 'name']

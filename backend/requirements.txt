@@ -57,4 +57,3 @@ unattended-upgrades==0.1
 uritemplate==4.1.1
 urllib3==1.25.8
 drf-yasg
-google-api-python-client
