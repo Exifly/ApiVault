@@ -45,7 +45,7 @@
             </div>
             <div id="space-between-form" class="input-group mb-0">
               <div class="mobile-wrapper-section align-items-center">
-                <label for="message-text" class="me-2 text-wrapper col-form-label primary">Has your API Cors enabled?:</label>
+                <label for="message-text" class="me-2 text-wrapper col-form-label primary">Does your API use CORS?:</label>
                 <select v-model="cors" placeholder="Choose an option" class="inverted-input-box text-wrapper form-select" aria-label="Select corse state">
                   <option value="" selected disabled>Choose an option</option>
                   <option value="true" >Yes</option>
@@ -54,7 +54,7 @@
               </div>
               <div class="text-wrapper align-items-center align-dividers">•</div>
               <div class="mobile-wrapper-section align-items-center">
-                <label for="message-text" class="me-2 text-wrapper col-form-label">Is your API Secure? (https):</label>
+                <label for="message-text" class="me-2 text-wrapper col-form-label">Is your API HTTPS?:</label>
                 <select v-model="https" placeholder="Choose an option" class="inverted-input-box text-wrapper form-select" aria-label="Select corse state">
                   <option value="" selected disabled>Choose an option</option>
                   <option value="true" >Yes</option>
