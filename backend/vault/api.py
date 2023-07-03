@@ -125,25 +125,23 @@ class APIDetailView(RetrieveAPIView):
       return api
    
 
-class APISearchView(APIView):
+class APISearchView(generics.ListAPIView):
    """
    API view for searching APIs by name and description.
    """
+   serializer_class = APISerializer
 
-   def get(self, request):
-      query = request.query_params.get('query', '')
 
-      apis = API.objects.filter(
+   def get_queryset(self):
+      query = self.request.query_params.get('query', '')
+
+      return API.objects.filter(
          Q(name__icontains=query) |
          Q(description__icontains=query) |
          Q(category__name__icontains=query)
       )
 
-      serializer = APISerializer(apis, many=True)
-
-      return Response(serializer.data, status=status.HTTP_200_OK)
    
-
 class MyApiView(APIView):
    """
    Retrieve the approved APIs of the logged user.
