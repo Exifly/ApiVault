@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { TrendingCategory, APIType, GoogleOAauth2Config, Category } from '../models/types';
+import { TrendingCategory, APIType, GoogleOAauth2Config, Category, User } from '../models/types';
 
 
 class ApivaultService {
@@ -100,6 +100,13 @@ class ApivaultService {
           return res.status
         }).catch(err => err.response.status);
       }
+    
+    async userInfo(authToken: string): Promise<User> {
+      const headers = {
+        'Authorization': `Bearer ${authToken}`
+      }
+      return await this.axiosInstance.get(`${this.baseUrl}/auth/user/`, { headers: headers }).then(res => res.data);
+    }
   }
 
 export default new ApivaultService();
