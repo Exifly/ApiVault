@@ -257,7 +257,7 @@ const handleLoginSuccess = async (response: CredentialResponse) => {
   isLogged.value = true;
   cookie.value = credential;
   await sendTokenToBackend(cookie.value!);
-  router.push('/'); // force refresh the page to sync user data correctly
+  router.go(0); // force refresh the page to sync user data correctly
 };
 
 /* handle an error event */
