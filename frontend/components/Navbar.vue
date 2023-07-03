@@ -72,7 +72,6 @@
               @event:sign_out="() => logout()"
               v-if="isLogged"
              :username="user"
-             :profilePic="profilePicture"
             />
           </li>
           <hr />
@@ -271,6 +270,7 @@ const logout = () => {
   isLogged.value = false;
   userCookie.value = "";
   accessTokenCookie.value = "";
+  router.go(0);
 };
 
 /* checks if cookie.value is not an empty string */
@@ -283,13 +283,11 @@ const setUserInfo = () => {
   user.value = userCookie.value;
 };
 
-const profilePicture = ref<string>("");
 /* decode the token and send it to django backend */
 const sendTokenToBackend = async (token: String) => {
   await ApivaultServices.sendOAuthConfigToDjango(token)
     .then((res) => {
       accessTokenCookie.value = res.tokens.access;
-      profilePicture.value = res.picture;
       userCookie.value = res.username;
       setUserInfo();
     })

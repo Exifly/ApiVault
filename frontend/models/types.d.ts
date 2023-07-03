@@ -59,6 +59,12 @@ export interface GoogleOAauth2Config {
   tokens: OAuthToken;
 }
 
+export interface User {
+  username: string;
+  email: string;
+  picture: string;
+}
+
 /* Global */
 declare global {
   /* Abstractions */
