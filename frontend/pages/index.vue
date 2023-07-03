@@ -96,7 +96,7 @@
           :isLoading="isLoadingState"
         />
       </div>
-      <hr />
+      <!-- <hr />
       <section id="sponsorSection" class="sponsor-section">
         <h1
           id="title-sponsor"
@@ -112,7 +112,7 @@
             sponsor
           </GenericsButton>
         </a>
-      </section>
+      </section> -->
     </template>
     <template #footerArea>
       <Footer />
