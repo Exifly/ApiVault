@@ -22,6 +22,7 @@
 import ApivaultServices from "~/services/ApivaultServices";
 
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
+const accessToken = useCookie("accessToken");
 
 /**
 Computes a filtered list of API data based on the value of apiInputSearch. 
@@ -33,7 +34,7 @@ with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a
 const query = ref<string>("");
 const searchForApi = async () => {
   if (query.value.length <= 3) return;
-  const response = await ApivaultServices.search(query.value);
+  const response = await ApivaultServices.search(query.value, accessToken.value!);
 
   switch (response.length) {
     case 0:

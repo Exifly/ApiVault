@@ -36,8 +36,10 @@ class ApivaultService {
       return this.axiosInstance.get(`${this.baseUrl}/random/`, { headers: headers }).then(res => res.data)
     }
 
-    async search(query: String): Promise<APIType[]> {
-      return await this.axiosInstance.get(`${this.baseUrl}/search?query=${query}`).then(res => res.data).catch(err => err.response.status);
+    async search(query: String, authToken: String): Promise<APIType[]> {
+      if (authToken === "" || !authToken) return await this.axiosInstance.get(`${this.baseUrl}/search?query=${query}`).then(res => res.data).catch(err => err.response.status);
+      let headers = { 'Authorization': `Bearer ${authToken}` }
+      return await this.axiosInstance.get(`${this.baseUrl}/search?query=${query}`, { headers: headers }).then(res => res.data).catch(err => err.response.status);
     }
 
     countApis(): Promise<number> {
