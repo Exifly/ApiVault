@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <GenericsButton class="font-size-sm" data-bs-toggle="dropdown" aria-expanded="false">
-      <img class="img-properties me-2" :src="profilePic" height="24" width="24">
+      <img class="img-properties me-2" :src="defaultPic" height="24" width="24">
       {{ username }}
       <font-awesome-icon class="ms-2" :icon="['fas', 'angles-down']" />
     </GenericsButton>
@@ -28,17 +28,13 @@
 </template>
 
 <script lang="ts" setup>
-const defaultPic = "/img/user/user-default-img.png";
+import ApivaultServices from "~/services/ApivaultServices";
+const defaultPic = ref<string>("/img/user/user-default-img.png");
 
 let { username } = defineProps({
   username: {
     type: String,
     required: true,
-  },
-  profilePic: {
-    type: String,
-    required: false,
-    default: defaultPic, 
   }
 })
 
@@ -46,6 +42,12 @@ const emit = defineEmits(['event:sign_out']);
 const sendLogoutEvent = () => {
   emit('event:sign_out');
 }
+
+const accessToken = useCookie("accessToken");
+onMounted(async () => {
+  let userInfo = await ApivaultServices.userInfo(accessToken.value!);
+  defaultPic.value = userInfo.picture;
+})
 
 </script>
 
