@@ -26,19 +26,6 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center" role="tablist">
           <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <a
-              title="Check out our github repository"
-              tabindex="1"
-              class="navbar-text-wrapper flex items-center gap-2 active"
-              aria-current="page"
-              href="https://github.com/Exifly/ApiVault"
-              target="_blank"
-            >
-              <font-awesome-icon :icon="['fab', 'github']" />
-              Stars {{ stargazers }}
-            </a>
-          </li>
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
             <ToggleButton
               title="Light mode Button"
               @click="setModeLocal"
@@ -187,7 +174,6 @@ import {
 } from "vue3-google-signin";
 
 import { categoriesProperties } from "../utils/categoryMapping";
-import GithubServices from "~/services/GithubServices";
 import ApivaultServices from "~/services/ApivaultServices";
 import {
   getThemeElements,
@@ -197,7 +183,6 @@ import {
 } from "../utils/themeutils";
 
 const router = useRouter();
-const stargazers = await GithubServices.repoStars();
 
 /* Theme data definition */
 const theme = useTheme();

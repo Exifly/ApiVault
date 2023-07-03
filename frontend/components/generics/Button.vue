@@ -46,10 +46,10 @@ defineProps({
 @media only screen and (max-width: 680px) {
   .custom-button {
     background: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-color);
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 14px;
     margin-left: auto;
     margin-right: auto;
     width: 75%;
