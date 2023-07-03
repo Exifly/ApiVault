@@ -5,7 +5,7 @@
         <div class="py-0 custom-border modal-header">
           <h1 v-if="!successSubmit" class="ps-2 text-wrapper modal-title fs-5" id="submitApiModalLabel">{{ title }}</h1>
           <h1 v-else class="ps-2 text-wrapper modal-title fs-5" id="submitApiModalLabel">API Submitted</h1>
-          <GenericsButton class="mobile-wrapper-btn m-0 mt-3 me-2" data-bs-dismiss="modal" aria-label="Close">
+          <GenericsButton @click.prevent="restoreSuccessState" class="mobile-wrapper-btn m-0 mt-3 me-2" data-bs-dismiss="modal" aria-label="Close">
             <font-awesome-icon :icon="['fas', 'xmark']" />
           </GenericsButton>
         </div>
@@ -36,7 +36,8 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="message-text" class="text-wrapper col-form-label">Url:</label>
+              <label v-if="isValidUrl" for="message-text" class="text-wrapper col-form-label">Url:</label>
+              <label v-else for="message-text" class="col-form-label" style="color: red;">Url is not valid!</label>
               <input v-model="url" placeholder="Documentation URL" type="text" class="text-wrapper inverted-input-box form-control" id="message-text">
             </div>
             <div class="mb-3">
@@ -67,8 +68,14 @@
         </div>
         <div class="px-4 custom-border modal-footer">
           <p v-if="!successSubmit" class="text-wrapper" style="margin-right: auto; opacity: 70%;">All fields are mandatory!</p>
-          <GenericsButton class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Close</GenericsButton>
-          <GenericsButton class="mobile-werapper-footer-btn2" v-if="!successSubmit" style="position: relative;" @click.prevent="validateInput" :isInverted="true" :class="['text-wrapper-inverted dm-1', { tremor: !isValidInput }]">Submit your API</GenericsButton>
+          <p v-else class="text-wrapper" style="margin-right: auto; opacity: 70%;">Your API will be reviewed soon!</p>
+          <GenericsButton @click.prevent="restoreSuccessState" class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Close</GenericsButton>
+          <GenericsButton 
+            class="mobile-werapper-footer-btn2" 
+            v-if="!successSubmit" style="position: relative;" 
+            @click.prevent="validateInput" 
+            :isInverted="true" 
+            :class="['text-wrapper-inverted dm-1', { tremor: !isValidInput }]">Submit your API</GenericsButton>
         </div>
       </div>
     </div>
@@ -85,6 +92,7 @@ defineProps({
   },
 })
 
+const regex = new RegExp('/^(https?):\/\/([^\s\/$.?#].[^\s]*)\.[^\s]{2,}|www\.([^\s\/$.?#].[^\s]*)\.[^\s]{2,}$');
 const accessToken = useCookie('accessToken');
 const name = ref<string>("");
 const description = ref<string>("");
@@ -94,11 +102,18 @@ const category = ref<number>(0);
 const cors = ref<boolean>(false);
 const https = ref<boolean>(false);
 const successSubmit = ref<boolean>(false);
+const isValidUrl = ref<boolean>(true);
 
 const isValidInput = ref<boolean>(true);
 const shakeAnimationState = ref<boolean>(false);
 const validateInput = () => {
-  if (name.value === "" || description.value === "" || auth.value === "" || url.value === "" || category.value === null || cors.value === null || https.value === null) {
+  if (regex.exec(url.value) === null) { 
+    isValidUrl.value = false;
+    setTimeout(() => {
+      isValidUrl.value = true;
+    }, 4000);
+  };
+  if (name.value === "" || description.value === "" || url.value === "" || category.value === null || cors.value === null || https.value === null) {
     isValidInput.value = false;
     setTimeout(() => {
       isValidInput.value = true;
@@ -107,6 +122,12 @@ const validateInput = () => {
     return;
   }
   submitApi();
+}
+
+const restoreSuccessState = () => {
+  setTimeout(() => {
+    successSubmit.value = false;
+  }, 1000);
 }
 
 const submitApi = async () => {
@@ -126,7 +147,7 @@ const submitApi = async () => {
       successSubmit.value = true;
       break;
     case 400:
-      alert("Something gone wrong.");
+      console.error("Something gone wrong.");
       break;
     default:
       break;
