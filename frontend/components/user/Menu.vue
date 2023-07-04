@@ -12,7 +12,13 @@
       <!--     My bookmarks -->
       <!--   </NuxtLink> -->
       <!-- </li> -->
-      <!-- <hr class="m-1" /> -->
+      <li>
+        <NuxtLink class="wrapper-hover-effect dropdown-item" style="text-decoration: none !important;" to="/user/apis">
+          <font-awesome-icon class="me-2" :icon="['fas', 'circle-user']" />
+          My APIs
+        </NuxtLink>
+      </li>
+      <hr class="m-1" />
       <li><a @click.prevent="sendLogoutEvent" class="wrapper-hover-effect dropdown-item" href="#">
         <font-awesome-icon class="me-2" :icon="['fas', 'right-from-bracket']" />
         Logout

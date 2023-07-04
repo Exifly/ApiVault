@@ -29,6 +29,22 @@
               class=""
               width="12"
               height="12"
+              :icon="['fas', 'star']"
+            />Stars {{ stargazers }}</a
+          >
+        </li>
+        <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
+          <a
+            class="flex items-center gap-2 px-2"
+            title="Checkout our github repository"
+            style="text-decoration: none"
+            href="https://github.com/Exifly/ApiVault"
+            target="_blank"
+          >
+            <font-awesome-icon
+              class=""
+              width="12"
+              height="12"
               :icon="['fab', 'github']"
             />Repository</a
           >
@@ -110,7 +126,9 @@
 import { reactive, onMounted } from "vue";
 import { categoriesProperties } from "~/utils/categoryMapping";
 import ApivaultServices from "~/services/ApivaultServices";
+import GithubServices from "~/services/GithubServices";
 
+const stargazers = await GithubServices.repoStars().catch(er => 0);
 const categoriesAttributes = categoriesProperties;
 const api = reactive({
   count: 0,

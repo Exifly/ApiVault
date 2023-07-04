@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" id="submitApiModal" tabindex="-1" aria-labelledby="submitApiModalLabel" aria-hidden="true">
+  <div  class="modal fade" id="submitApiModal" tabindex="-1" aria-labelledby="submitApiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="custom-border-radius glass-card modal-content">
         <div class="py-0 custom-border modal-header">
@@ -9,7 +9,7 @@
             <font-awesome-icon :icon="['fas', 'xmark']" />
           </GenericsButton>
         </div>
-        <div class="modal-body p-4 pt-2">
+        <div v-if="!notAuth" class="modal-body p-4 pt-2">
           <div v-if="successSubmit">
             <AnimationSuccessCheckmark />
           </div>
@@ -66,9 +66,15 @@
           </form>
         <p v-if="!isValidInput" class="m-0 mt-3 error-validation">Some fields are empty!!</p>
         </div>
-        <div class="px-4 custom-border modal-footer">
+        <div v-else class="modal-body p-4 pt-2">
+          <h3 class="text-wrapper"> Please login to submit a new Api </h3>
+        </div>
+        <div v-if="!notAuth" class="px-4 custom-border modal-footer">
           <p v-if="!successSubmit" class="text-wrapper" style="margin-right: auto; opacity: 70%;">All fields are mandatory!</p>
           <p v-else class="text-wrapper" style="margin-right: auto; opacity: 70%;">Your API will be reviewed soon!</p>
+          <NuxtLink to="/user/apis">
+            <GenericsButton v-if="successSubmit" @click="restoreSuccessState" class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Check APIs</GenericsButton>
+          </NuxtLink>
           <GenericsButton @click.prevent="restoreSuccessState" class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Close</GenericsButton>
           <GenericsButton 
             class="mobile-werapper-footer-btn2" 
@@ -76,6 +82,9 @@
             @click.prevent="validateInput" 
             :isInverted="true" 
             :class="['text-wrapper-inverted dm-1', { tremor: !isValidInput }]">Submit your API</GenericsButton>
+        </div>
+        <div v-else class="px-4 custom-border modal-footer">
+          <GenericsButton @click.prevent="restoreSuccessState" class="mobile-wrapper-footer-btn m-1" data-bs-dismiss="modal">Close</GenericsButton>
         </div>
       </div>
     </div>
@@ -103,6 +112,7 @@ const cors = ref<boolean>(false);
 const https = ref<boolean>(false);
 const successSubmit = ref<boolean>(false);
 const isValidUrl = ref<boolean>(true);
+const notAuth = ref<boolean>(false);
 
 const isValidInput = ref<boolean>(true);
 const shakeAnimationState = ref<boolean>(false);
@@ -156,6 +166,7 @@ const submitApi = async () => {
 
 const categories = ref<Category[]>();
 onMounted(async () => {
+  if (accessToken.value === "" || accessToken.value === null) notAuth.value = true;
   categories.value = await ApivaultServices.categories();
 })
 </script>
