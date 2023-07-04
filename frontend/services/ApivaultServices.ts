@@ -79,27 +79,6 @@ class ApivaultService {
       }).catch(err => err.response.status);
   }
 
-  async submitApi(authToken: string, name: string, auth: string, category: number, cors: boolean, description: string, https: boolean, url: string): Promise<Number> {
-    const headers = {
-      'Authorization': `Bearer ${authToken}`
-    }
-
-    const data = {
-      name: name,
-      auth: auth,
-      category: category,
-      cors: cors,
-      description: description,
-      https: https,
-      url: url
-    }
-
-    return await this.axiosInstance.post(`${this.baseUrl}/create/`, data, { headers: headers })
-      .then(res => {
-        return res.status
-      }).catch(err => err.response.status);
-    }
-
   async pendingApis(authToken: string): Promise<APIType[]> {
     const headers = {
       'Authorization': `Bearer ${authToken}`
@@ -137,14 +116,13 @@ class ApivaultService {
       .then(res => {
         return res.status
       }).catch(err => err.response.status);
-    }
+  }
     
-    async userInfo(authToken: string): Promise<User> {
-      const headers = {
-        'Authorization': `Bearer ${authToken}`
-      }
-      return await this.axiosInstance.get(`${this.baseUrl}/auth/user/`, { headers: headers }).then(res => res.data);
+  async userInfo(authToken: string): Promise<User> {
+    const headers = {
+      'Authorization': `Bearer ${authToken}`
     }
+    return await this.axiosInstance.get(`${this.baseUrl}/auth/user/`, { headers: headers }).then(res => res.data);
   }
 }
 
