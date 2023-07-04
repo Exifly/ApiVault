@@ -25,17 +25,9 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center" role="tablist">
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <ToggleButton
-              title="Light mode Button"
-              @click="setModeLocal"
-              :theme="theme"
-              class="flex items-center gap-2 ms-2"
-            />
-          </li>
           <li class="mobile-wrapper navbar-text-wrapper ms-2 mt-2" role="tab" style="padding-bottom: 7px;">
             <GenericsButton class="text-wrapper-inverted" :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
-                <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
+                <font-awesome-icon class="me-2" :icon="['fas', 'folder-plus']" /> Submit API
             </GenericsButton>
           </li>
           <li
@@ -174,19 +166,8 @@ import {
 
 import { categoriesProperties } from "../utils/categoryMapping";
 import ApivaultServices from "~/services/ApivaultServices";
-import {
-  getThemeElements,
-  themeIcons,
-  setThemeLogoPath,
-  setLocalStorage,
-} from "../utils/themeutils";
 
 const router = useRouter();
-
-/* Theme data definition */
-const theme = useTheme();
-const iconTheme = ref(themeIcons[theme.value]);
-const logoPath = ref(setThemeLogoPath(theme));
 
 /* Cookies definition */
 const cookie = useCookie("sessionGoogle", {
@@ -201,31 +182,10 @@ const user = ref();
 const isLogged = ref<boolean>(false);
 
 /**
-Toggles the color scheme of the document body between light and dark mode.
-Updates the values of iconThemeText, theme, logoPath, and iconTheme
-based on the new color scheme. Returns the new value of iconTheme to display.
-@returns {String} - The new value of iconTheme to display
-*/
-let defaultTheme = ref<boolean>(true);
-const setModeLocal = (): void => {
-  if (process.client) {
-    setLocalStorage(theme);
-    defaultTheme.value = getThemeElements(theme);
-  }
-  iconTheme.value = themeIcons[theme.value];
-  logoPath.value = setThemeLogoPath(theme);
-};
-
-/**
 This is needed to set the default theme class for first
 visit on the website and to inject google signin api script.
 */
 useHead({
-  htmlAttrs: {
-    class: computed(() => {
-      return defaultTheme.value ? "" : "light";
-    }),
-  },
   script: [
     {
       async: true,
@@ -287,12 +247,14 @@ onBeforeMount(() => {
   user.value = userCookie.value;
 });
 
+const theme = useTheme();
+const iconTheme = ref();
+const logoPath = computed(() => {
+  return theme.value === "light" ? "/img/apivault-full-light-nobg.png" : "/img/apivault-full-dark-nobg.png";
+});
+
 onMounted(() => {
-  theme.value = setTheme();
-  const isDarkTheme: boolean = theme.value === "dark" || theme.value === null;
-  defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
-  logoPath.value = setThemeLogoPath(theme);
 });
 </script>
 

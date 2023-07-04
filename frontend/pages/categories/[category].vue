@@ -100,15 +100,14 @@ const handleAuthState = (isAuthError: boolean) => {
 }
 
 const handleSearchCategory = (val: string, title: string) => {
-  handleSearch(
-    val,
-    title,
-    apiData,
-    apiSearched,
-    categorySearched,
-    categoryTitle.toUpperCase(),
-    showList
-  );
+  if (title === undefined) {
+    apiSearched.value = apiData.value;
+    showList.value = true;
+  } else if (val.length > 0) {
+    categorySearched.category = title.toUpperCase();
+    apiSearched.value = val as any;
+    showList.value = true;
+  } 
 };
 
 onMounted(async () => {

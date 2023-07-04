@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="layouts" title="Pending APIs">
+  <NuxtLayout :name="layouts" title="PENDING APIs">
     <template #topAreaContent>
       <Transition>
         <GenericsToastNotification v-if="isAuth" class="mt-3">
@@ -50,13 +50,14 @@
                 :faviconSrc="api.url"
                 :likesCount="api.likes_count"
                 :isLikedByUser="api.liked_by_user"
+                :isPending="true"
               />
             </a>
           </div>
         </TransitionGroup>
       </div>
       <!-- My APIs section -->
-      <h1 class="text-wrapper">My APIs</h1>
+      <h1 class="text-wrapper">MY APIs</h1>
       <hr v-if="!noApiFound" />
       <GenericsButton
         data-bs-toggle="modal" data-bs-target="#submitApiModal"
