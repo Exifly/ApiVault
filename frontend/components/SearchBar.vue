@@ -1,8 +1,10 @@
 <template>
   <form @submit.prevent="searchForApi">
     <div class="search-bar text-black" >
-      <label
-        ><font-awesome-icon
+      <label>
+        <LoadingEffectSmall v-if="loadingState" class="ms-2" />
+        <font-awesome-icon
+          v-else
           class="icon-color"
           :icon="['fas', 'magnifying-glass']"
           style="margin-left: 1em; margin-right: 1vw"
@@ -23,25 +25,29 @@ import ApivaultServices from "~/services/ApivaultServices";
 
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
 const accessToken = useCookie("accessToken");
+const loadingState = ref<boolean>(false);
 
 /**
 Computes a filtered list of API data based on the value of apiInputSearch. 
 If apiInputSearch has at least 4 characters, emits a "search:apiSearch" event 
 with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a 
-"search:apiSearch" event with a value of false.
+"search:apiSearch" event with a false value.
 @returns {undefined}
 */
 const query = ref<string>("");
 const searchForApi = async () => {
-  if (query.value.length <= 3) return;
+  loadingState.value = true;
+  if (query.value.length < 3) { loadingState.value = false; return };
   const response = await ApivaultServices.search(query.value, accessToken.value!);
 
   switch (response.length) {
     case 0:
       emit("search:apiSearch", false);
+      loadingState.value = false;
       break;
     default:
       emit("search:apiSearch", response, query.value);
+      loadingState.value = false;
       break;
   }
 }
