@@ -172,17 +172,16 @@ const showList = ref(true);
 let isLoadingState = ref(false);
 let hasMoreData = ref(true);
 
-// wrapper for handleSearch function
+
 const handleSearchDashboard = (val: string, title: string) => {
-  handleSearch(
-    val,
-    title,
-    apiData,
-    apiSearched,
-    categorySearched,
-    "RANDOM",
-    showList
-  );
+  if (title === undefined) {
+    apiSearched.value = apiData.value;
+    showList.value = true;
+  } else if (val.length > 0) {
+    categorySearched.category = title.toUpperCase();
+    apiSearched.value = val as any;
+    showList.value = true;
+  } 
 };
 
 // this computed property is used for manage the data state for load more

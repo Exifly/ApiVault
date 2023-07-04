@@ -30,7 +30,7 @@
               width="12"
               height="12"
               :icon="['fas', 'star']"
-            />Stars {{ stargazers }}</a
+            />{{ stargazers }} Stars </a
           >
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">

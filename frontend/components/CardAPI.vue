@@ -36,13 +36,13 @@
       <CardAttributes v-if="auth !== ''">
         {{ auth?.toUpperCase() }}</CardAttributes
       >
-      <GenericsLikeButton
+      <GenericsLikeButton v-if="!isPending"
         @like:isClicked="likeInteractionHandler"
         :likedByUser="likedByUser"
         :isAuthState="isAuthState!"
         style="margin-left: auto !important; text-decoration: none"
       />
-      <GenericsLikeNumber :class="{ animate: animate }">
+      <GenericsLikeNumber v-if="!isPending" :class="{ animate: animate }">
         {{ like }}
       </GenericsLikeNumber>
       <!-- <GenericsBookmarkButton style="text-decoration: none" /> -->
@@ -106,6 +106,10 @@ let {
     type: Number,
     required: false,
   },
+  isPending: {
+    type: Boolean,
+    required: false,
+  }
 });
 
 let likedByUser = ref(isLikedByUser);

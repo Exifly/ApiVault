@@ -84,7 +84,10 @@ label {
   align-items: center;
   border-radius: var(--search-radius);
   border: 1px solid transparent;
-  background-color: var(--bg-input-field);
+  background-color: var(--bg-card-glass);
+  border-color: var(--bg-card-glass-border);
+  border-style: solid;
+  border-width: max(1px, 0.0625rem);
   color: #6c757d;
   cursor: text;
   display: grid;
