@@ -64,7 +64,7 @@ const searchForApi = async () => {
 }
 .search-bar {
   align-items: center;
-  border-radius: 16px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -81,7 +81,7 @@ const searchForApi = async () => {
 }
 
 label {
-  --search-radius: 12px;
+  --search-radius: 8px;
   --border-width: 2px;
   position: relative;
   overflow: hidden;
