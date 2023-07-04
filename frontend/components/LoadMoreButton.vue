@@ -17,7 +17,7 @@ const { isLoading } = defineProps({
 <style scoped>
 .load-more-button {
   background: var(--bg-card-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color-cards);
   color: var(--text-color);
   font-weight: 600;
@@ -40,7 +40,7 @@ const { isLoading } = defineProps({
 @media only screen and (max-width: 680px) {
   .load-more-button {
     background: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-color);
     font-weight: 600;
     font-size: 20px;

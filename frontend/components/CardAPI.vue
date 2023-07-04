@@ -217,7 +217,7 @@ const getFavicon = (url: string, size: number) => {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color-cards);
   transition-property: scale, background-color;
   transition: 0.3s ease !important;
@@ -270,7 +270,7 @@ const getFavicon = (url: string, size: number) => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
   }
 }
 
@@ -279,7 +279,7 @@ const getFavicon = (url: string, size: number) => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
   }
 }
 
