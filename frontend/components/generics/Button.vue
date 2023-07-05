@@ -52,7 +52,7 @@ defineProps({
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    /* width: 75%; */
   }
 }
 
