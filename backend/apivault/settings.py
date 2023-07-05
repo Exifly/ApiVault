@@ -199,10 +199,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    BASE_DIR / "media",
-    '/var/www/media/',
-]
 
 
 # Default primary key field type
@@ -214,7 +210,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "authentication.DefaultUser"
 
-GOOGLE_CLIENT_ID = "<GOOGLE_CLIENT_ID>"
+GOOGLE_CLIENT_ID = "64963022344-iv3em0agnmlcvohcjcrq4j4h485pkee1.apps.googleusercontent.com"
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
