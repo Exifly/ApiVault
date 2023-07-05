@@ -26,7 +26,7 @@ defineProps({
   visibility: hidden;
 }
 .switch input[type=checkbox]:checked + label {
-  background: green;
+  background: #ff3131ad;
 }
 .switch input[type=checkbox]:checked + label::after {
   left: calc(100% - 4px);
