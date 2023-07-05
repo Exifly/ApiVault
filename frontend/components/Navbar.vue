@@ -24,36 +24,33 @@
         /></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav" role="tablist">
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <a
-              title="Check out our github repository"
-              tabindex="1"
-              class="navbar-text-wrapper flex items-center gap-2 active"
-              aria-current="page"
-              href="https://github.com/Exifly/ApiVault"
-              target="_blank"
-            >
-              <font-awesome-icon :icon="['fab', 'github']" />
-              Stars {{ stargazers }}
-            </a>
+        <ul class="navbar-nav align-items-center" role="tablist">
+          <li class="mobile-wrapper navbar-text-wrapper ms-2 mt-2" role="tab" style="padding-bottom: 7px;">
+            <GenericsButton class="text-wrapper-inverted" :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
+                <font-awesome-icon class="me-2" :icon="['fas', 'folder-plus']" /> Submit API
+            </GenericsButton>
           </li>
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <a
-              title="Submit your API"
-              tabindex="2"
-              class="navbar-text-wrapper flex items-center gap-2"
-              href="https://github.com/Exifly/ApiVault/issues/new?assignees=&labels=add+api&template=add-your-api.md&title=%5BAPIFT%5D"
-            >
-              <font-awesome-icon :icon="['fas', 'angles-right']" /> Submit API
-            </a>
-          </li>
-          <li class="nav-item navbar-text-wrapper mt-2" role="tab">
-            <ToggleButton
-              title="Light mode Button"
-              @click="setModeLocal"
-              :theme="theme"
-              class="flex items-center gap-2 ms-2"
+          <li
+            style="padding: 0;"
+            class="no-margin navbar-text-wrapper ms-2 mt-2"
+            role="tab"
+          >
+            <GoogleSignInButton
+              style="margin: 0 !important;"
+              v-if="!isLogged"
+              @success="handleLoginSuccess"
+              @error="handleLoginError"
+              :auto-select="false"
+              theme="filled_black"
+              size="large"
+              text="signin"
+              locale="en"
+              shape="square"
+            ></GoogleSignInButton>
+            <UserMenu 
+              @event:sign_out="() => logout()"
+              v-if="isLogged"
+             :username="user"
             />
           </li>
           <hr />
@@ -136,13 +133,13 @@
               <li
                 class="nav-item navbar-text-wrapper mt-2 category-custom"
                 role="tab"
-                v-for="category in categoriesAttributes"
+                v-for="category in categoriesProperties"
                 :key="category.name"
               >
                 <NuxtLink
-                  :title="category.name + ' APIs'"
+                  :title="`${category.name} APIs`"
                   class="navbar-text-wrapper flex items-center gap-2"
-                  :to="'/categories/' + category.name"
+                  :to="`/categories/${category.name}`"
                 >
                   <font-awesome-icon
                     class=""
@@ -158,60 +155,106 @@
       </div>
     </div>
   </nav>
+  <GenericsModal title="Submit your API" />
 </template>
 
 <script lang="ts" setup>
-import { categoriesProperties } from "../utils/categoryMapping";
-import GithubServices from "~/services/GithubServices";
 import {
-  getThemeElements,
-  themeIcons,
-  setThemeLogoPath,
-  setLocalStorage,
-} from "../utils/themeutils";
+  GoogleSignInButton,
+  type CredentialResponse,
+} from "vue3-google-signin";
 
-const stargazers = await GithubServices.repoStars();
-const categoriesAttributes = categoriesProperties;
-const theme = useState("APIVaultTheme", () =>
-  process.client ? localStorage.getItem("APIVaultTheme")! : "light"
-);
-const iconTheme = ref(themeIcons[theme.value]);
-const logoPath = ref(setThemeLogoPath(theme));
+import { categoriesProperties } from "../utils/categoryMapping";
+import ApivaultServices from "~/services/ApivaultServices";
 
-/**
-Toggles the color scheme of the document body between light and dark mode.
-Updates the values of iconThemeText, theme, logoPath, and iconTheme
-based on the new color scheme. Returns the new value of iconTheme to display.
-@returns {String} - The new value of iconTheme to display
-*/
-let defaultTheme = ref<boolean>(true);
-const setModeLocal = (): void => {
-  if (process.client) {
-    defaultTheme.value = setLocalStorage(theme);
-    defaultTheme.value = getThemeElements(theme);
-  }
-  iconTheme.value = themeIcons[theme.value];
-  logoPath.value = setThemeLogoPath(theme);
-};
+const router = useRouter();
+
+/* Cookies definition */
+const cookie = useCookie("sessionGoogle", {
+  maxAge: 60 * 60,
+});
+const accessTokenCookie = useCookie("accessToken", {
+  maxAge: 60 * 60 * 360,
+});
+const userCookie = useCookie("usernames");
+
+const user = ref();
+const isLogged = ref<boolean>(false);
 
 /**
-This is needed to set the dafault theme class for first
-visit on the website.
+This is needed to set the default theme class for first
+visit on the website and to inject google signin api script.
 */
 useHead({
-  htmlAttrs: {
-    class: computed(() => {
-      return defaultTheme.value ? "" : "light";
-    }),
-  },
+  script: [
+    {
+      async: true,
+      src: "https://accounts.google.com/gsi/client",
+      defer: true,
+    },
+  ],
+});
+
+/* handle success event */
+const handleLoginSuccess = async (response: CredentialResponse) => {
+  const { credential } = response;
+  isLogged.value = true;
+  cookie.value = credential;
+  await sendTokenToBackend(cookie.value!);
+  router.go(0); // force refresh the page to sync user data correctly
+};
+
+/* handle an error event */
+const handleLoginError = () => {
+  console.error("Login failed");
+};
+
+/* reset all cookie value and data used for handling user state */
+const logout = () => {
+  cookie.value = "";
+  isLogged.value = false;
+  userCookie.value = "";
+  accessTokenCookie.value = "";
+  router.go(0);
+};
+
+/* checks if cookie.value is not an empty string */
+const checkLoggedIn = (): void => {
+  isLogged.value = !!accessTokenCookie.value && accessTokenCookie.value !== "";
+};
+
+/* wrapper function to override username information */
+const setUserInfo = () => {
+  user.value = userCookie.value;
+};
+
+/* decode the token and send it to django backend */
+const sendTokenToBackend = async (token: String) => {
+  await ApivaultServices.sendOAuthConfigToDjango(token)
+    .then((res) => {
+      accessTokenCookie.value = res.tokens.access;
+      userCookie.value = res.username;
+      setUserInfo();
+    })
+    .catch((err) => {
+      console.error(err);
+      isLogged.value = false;
+    });
+};
+
+onBeforeMount(() => {
+  checkLoggedIn();
+  user.value = userCookie.value;
+});
+
+const theme = useTheme();
+const iconTheme = ref();
+const logoPath = computed(() => {
+  return theme.value === "light" ? "/img/apivault-full-light-nobg.png" : "/img/apivault-full-dark-nobg.png";
 });
 
 onMounted(() => {
-  theme.value = setTheme();
-  const isDarkTheme: boolean = theme.value === "dark" || theme.value === null;
-  defaultTheme.value = isDarkTheme;
   iconTheme.value = themeIcons[theme.value];
-  logoPath.value = setThemeLogoPath(theme);
 });
 </script>
 
@@ -237,6 +280,11 @@ onMounted(() => {
   border-radius: 5px;
 }
 
+.navbar-text-wrapper-inverted {
+  color: var(--bg-color) !important;
+  text-decoration: none;
+}
+
 .navbar-header-wrapper {
   font-weight: 600;
 }
@@ -260,7 +308,6 @@ onMounted(() => {
   cursor: pointer;
   color: var(--nav-item-hover);
   background-color: var(--bg-card-glass-hover);
-  cursor: pointer;
   border-radius: 5px;
 }
 
@@ -278,12 +325,19 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 680px) {
+  .mobile-wrapper {
+    margin-left: 0 !important;
+    padding-left: 0;
+  }
   .glass-nav {
     background-color: var(--bg-color);
   }
   .scrollbox {
     overflow: scroll;
     height: 73vh !important;
+  }
+  .align-items-center {
+    align-items: normal !important;
   }
 }
 </style>

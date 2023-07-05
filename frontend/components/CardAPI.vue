@@ -14,7 +14,7 @@
               class="mx-2 icon-color"
               width="12"
               height="12"
-              :icon="cat"
+              :icon="categoriesDict[subtitle]"
             />{{ subtitle }}
           </NuxtLink>
         </p>
@@ -29,26 +29,47 @@
       </p>
     </div>
     <div class="card-body attributes-container">
-      <CardAttributes v-if="isNullProp">
-        {{ props.cors ? "CORS" : null }}
-      </CardAttributes>
-      <CardAttributes :id="props.https ? 'none' : 'warnOrNot'">
-        {{ props.https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
+      <CardAttributes v-if="cors"> CORS </CardAttributes>
+      <CardAttributes :id="https ? 'none' : 'warnOrNot'">
+        {{ https ? "HTTPS" : "Not HTTPS" }}</CardAttributes
       >
-      <CardAttributes v-if="props.auth !== ''">
-        {{ props.auth !== "" ? `${props.auth}` : null }}</CardAttributes
+      <CardAttributes v-if="auth !== ''">
+        {{ auth?.toUpperCase() }}</CardAttributes
       >
+      <GenericsLikeButton v-if="!isPending"
+        @like:isClicked="likeInteractionHandler"
+        :likedByUser="likedByUser"
+        :isAuthState="isAuthState!"
+        style="margin-left: auto !important; text-decoration: none"
+      />
+      <GenericsLikeNumber v-if="!isPending" :class="{ animate: animate }">
+        {{ like }}
+      </GenericsLikeNumber>
+      <!-- <GenericsBookmarkButton style="text-decoration: none" /> -->
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { categoriesProperties } from "~/utils/categoryMapping";
-import { CategoryObject } from "~/models/types";
-import { ref, onMounted } from "vue";
+import { categoriesDict } from "~/utils/categoryMapping";
+import ApivaultServices from "~/services/ApivaultServices";
 
-const categoryMap: CategoryObject | CategoryObject[] = categoriesProperties;
-const props = defineProps({
+let {
+  id,
+  title,
+  subtitle,
+  body,
+  cors,
+  https,
+  auth,
+  faviconSrc,
+  isLikedByUser,
+  likesCount,
+} = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -77,40 +98,90 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isLikedByUser: {
+    type: Boolean,
+    required: true,
+  },
+  likesCount: {
+    type: Number,
+    required: false,
+  },
+  isPending: {
+    type: Boolean,
+    required: false,
+  }
 });
 
-const isNullProp = ref<boolean>(false);
-if (!props.cors || props.cors === "unknown") {
-  isNullProp.value = false;
-} else {
-  isNullProp.value = true;
-}
+let likedByUser = ref(isLikedByUser);
 
-const cat: any = ref("");
-/**
-Finds an element in the categoryMap array with a name property
-that matches the subtitle property passed in as a prop.
-If a match is found, sets the value of cat.value to the icon
-property of the matching element.
-@returns {String} icon
-*/
-const iconCategory = () =>
-  Array.isArray(categoryMap)
-    ? categoryMap.find(
-        (el) => el.name === props.subtitle && (cat.value = el.icon)
-      )
-    : categoryMap;
+/* Definitions for auth handling */
+const emit = defineEmits(["auth:isAuth"]);
+const accessToken = useCookie("accessToken");
+const isAuthState = ref<boolean>(false);
 
+/* Handle the isClicked event returned by LikeButton component */
+const like = ref<number>(likesCount!);
+const animate = ref<boolean>(false);
+
+/* This event is needed to spawn the noAuth error message */
+const emitAuthError = () => {
+  likedByUser.value = false;
+  emit("auth:isAuth", false);
+};
+
+/* Handle interaction API (like/dislike) */
+const likeInteractionHandler = async () => {
+  let statusCode: Number;
+  if (likedByUser.value) {
+    statusCode = await ApivaultServices.dislike(id, accessToken.value!);
+  } else {
+    statusCode = await ApivaultServices.like(id, accessToken.value!);
+  }
+
+  switch (statusCode) {
+    case 201:
+      like.value++;
+      likedByUser.value = true;
+      break;
+    case 204:
+      like.value--;
+      likedByUser.value = false;
+      break;
+    case 401:
+      emitAuthError();
+      break;
+    default:
+      likedByUser.value = false;
+      console.error(`Status code error: ${statusCode}`);
+      break;
+  }
+};
+
+/* Call google services api to get favicon image */
 const getFavicon = (url: string, size: number) => {
   return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 };
-
-onMounted(() => {
-  iconCategory?.();
-});
 </script>
 
 <style scoped>
+.animate {
+  animation: moveUp 0.2s;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-45%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 #warnOrNot {
   background: var(--bg-attribute-warn) !important;
   color: var(--text-attribute-warn) !important;
@@ -137,16 +208,20 @@ onMounted(() => {
   margin-left: 0;
   margin-right: 4px;
   margin-top: auto;
-  min-width: 3rem;
   max-width: 15rem;
   justify-content: center;
+}
+
+.category-container:hover {
+  background: var(--bg-card-glass-hover);
+  transition: background 0.1s ease-in-out;
 }
 
 .glass-card {
   backdrop-filter: blur(16px) saturate(200%);
   -webkit-backdrop-filter: blur(16px) saturate(200%);
   background-color: var(--bg-card-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color-cards);
   transition-property: scale, background-color;
   transition: 0.3s ease !important;
@@ -199,7 +274,7 @@ onMounted(() => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
   }
 }
 
@@ -208,7 +283,7 @@ onMounted(() => {
     backdrop-filter: blur(16px) saturate(200%);
     -webkit-backdrop-filter: blur(16px) saturate(200%);
     background-color: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
   }
 }
 

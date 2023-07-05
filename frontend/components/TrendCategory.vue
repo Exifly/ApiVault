@@ -11,11 +11,13 @@
   align-self: center;
   border-radius: 4px;
   background: var(--bg-card-glass);
+  border-color: var(--bg-card-glass-border);
+  border-style: solid;
+  border-width: max(1px, 0.0625rem);
   color: var(--card-attribute-color);
   margin-left: 0;
   margin-right: 0.4vw;
   margin-bottom: 0.4rem;
-  min-width: 3rem;
   max-width: 13rem;
   justify-content: center;
 }
@@ -39,7 +41,7 @@ p {
 @media only screen and (max-width: 600px) {
   .trend-category-container {
     border-radius: 4px;
-    background: var(--bg-trending-category);
+    background: var(--bg-card-glass);
     color: var(--card-attribute-color);
     margin-left: 0;
     margin-right: 4vw;

@@ -1,17 +1,34 @@
 <template>
-  <button type="button" class="btn custom-button">
+  <button
+    type="button"
+    :class="[
+      'btn',
+      { 'custom-button': !isInverted },
+      { 'inverted-theme-color': isInverted },
+    ]"
+  >
     <slot />
   </button>
 </template>
 
+<script lang="ts" setup>
+defineProps({
+  isInverted: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
+</script>
+
 <style scoped>
 .custom-button {
   background: var(--bg-card-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color-cards);
   color: var(--text-color);
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 15px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -22,19 +39,20 @@
 }
 
 .custom-button:hover {
-  background-color: var(--bg-card-glass-hover);
+  border: solid 1px var(--icon-color);
+  transition: scale 0.1s ease-in-out;
 }
 
 @media only screen and (max-width: 680px) {
   .custom-button {
     background: var(--bg-card-glass);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-color);
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 14px;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 75%;
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="row">
     <div>
       <h1 class="text-wrapper page-title">
-        Your Gateway to a World of Public APIs.
+        {{ heroTitle }}
       </h1>
       <h5 class="text-wrapper">
         This tool is completely free and Open-Source!
@@ -10,6 +10,16 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+const { heroTitle } = defineProps({
+  heroTitle: {
+    type: String,
+    required: false,
+    default: "Your Gateway To A World Of Public APIs.",
+  },
+});
+</script>
 
 <style scoped>
 .hero-flex {

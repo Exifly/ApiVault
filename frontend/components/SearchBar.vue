@@ -1,74 +1,56 @@
 <template>
-  <div class="search-bar text-black">
-    <label
-      ><font-awesome-icon
-        class="icon-color"
-        :icon="['fas', 'magnifying-glass']"
-        style="margin-left: 1em; margin-right: 1vw"
-      />
-      <input
-        v-model="apiInputSearch"
-        class="input-bar"
-        type="search"
-        placeholder="Search"
-      />
-      <p style="color: white !important" v-for="api in apis" :key="api">
-        <!-- {{ api.API }} -->
-      </p>
-    </label>
-  </div>
+  <form @submit.prevent="searchForApi">
+    <div class="search-bar text-black" >
+      <label>
+        <LoadingEffectSmall v-if="loadingState" class="ms-2" />
+        <font-awesome-icon
+          v-else
+          class="icon-color"
+          :icon="['fas', 'magnifying-glass']"
+          style="margin-left: 1em; margin-right: 1vw"
+        />
+        <input
+          v-model="query"
+          class="input-bar"
+          type="search"
+          placeholder="Search"
+        />
+      </label>
+    </div>
+  </form>
 </template>
 
 <script lang="ts" setup>
 import ApivaultServices from "~/services/ApivaultServices";
 
 const emit = defineEmits(["search:apiSearch", "search:apiSearchTitle"]);
-const apiInputSearch = ref("");
+const accessToken = useCookie("accessToken");
+const loadingState = ref<boolean>(false);
 
 /**
 Computes a filtered list of API data based on the value of apiInputSearch. 
 If apiInputSearch has at least 4 characters, emits a "search:apiSearch" event 
 with the filtered list of APIs and the apiInputSearch object. Otherwise, emits a 
-"search:apiSearch" event with a value of false.
+"search:apiSearch" event with a false value.
 @returns {undefined}
 */
-let data: any = [];
-const apis = computed(() => {
-  if (apiInputSearch.value.length >= 3) {
-    emit(
-      "search:apiSearch",
-      data.filter(
-        (api: {
-          name: {
-            toLowerCase: () => {
-              (): any;
-              new (): any;
-              includes: { (arg0: string): number; new (): any };
-            };
-          };
-          category: {
-            toLowerCase: () => {
-              (): any;
-              new (): any;
-              includes: { (arg0: string): number; new (): any };
-            };
-          };
-        }) =>
-          api.name.toLowerCase().includes(apiInputSearch.value.toLowerCase()) |
-          api.category
-            .toLowerCase()
-            .includes(apiInputSearch.value.toLocaleLowerCase())
-      ),
-      apiInputSearch
-    );
-  } else {
-    emit("search:apiSearch", false);
-  }
-});
+const query = ref<string>("");
+const searchForApi = async () => {
+  loadingState.value = true;
+  if (query.value.length < 3) { loadingState.value = false; return };
+  const response = await ApivaultServices.search(query.value, accessToken.value!);
 
-onMounted(async () => {
-  data = await ApivaultServices.allApis();
-});
+  switch (response.length) {
+    case 0:
+      emit("search:apiSearch", false);
+      loadingState.value = false;
+      break;
+    default:
+      emit("search:apiSearch", response, query.value);
+      loadingState.value = false;
+      break;
+  }
+}
 </script>
 
 <style scoped>
@@ -82,7 +64,7 @@ onMounted(async () => {
 }
 .search-bar {
   align-items: center;
-  border-radius: 16px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -99,7 +81,7 @@ onMounted(async () => {
 }
 
 label {
-  --search-radius: 12px;
+  --search-radius: 8px;
   --border-width: 2px;
   position: relative;
   overflow: hidden;
@@ -108,7 +90,10 @@ label {
   align-items: center;
   border-radius: var(--search-radius);
   border: 1px solid transparent;
-  background-color: var(--bg-input-field);
+  background-color: var(--bg-card-glass);
+  border-color: var(--bg-card-glass-border);
+  border-style: solid;
+  border-width: max(1px, 0.0625rem);
   color: #6c757d;
   cursor: text;
   display: grid;

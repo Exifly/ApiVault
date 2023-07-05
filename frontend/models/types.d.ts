@@ -3,6 +3,11 @@ export interface CategoryObject {
   icon: string | string[];
 }
 
+export interface Category {
+  id: number;
+  name: string;
+}
+
 export interface CategoriesDict {
   [key: string]: string | string[];
 }
@@ -21,6 +26,8 @@ export interface APIType {
   description: string;
   https: boolean;
   url: string;
+  likes_count: number;
+  liked_by_user: boolean;
 }
 
 export interface GithubContributor {
@@ -38,4 +45,30 @@ export interface FirebaseConfig {
   messagingSenderId: string;
   appId: string;
   measurementId: string;
+}
+
+export interface OAuthToken {
+  refresh: string;
+  access: string;
+}
+
+export interface GoogleOAauth2Config {
+  username: string;
+  email: string;
+  picture: string;
+  tokens: OAuthToken;
+}
+
+export interface User {
+  username: string;
+  email: string;
+  picture: string;
+}
+
+/* Global */
+declare global {
+  /* Abstractions */
+  interface Window {
+    handleCredentialResponse: () => void;
+  }
 }

@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
   --border-radius: 8px;
+
   /* Dark/Light mode variables */
-  --bg-color: #0f0f0f;
-  --bg-card-glass: #1d1d1d;
+  --bg-color: #080808;
+  --bg-card-glass: #151515;
   --bg-card-glass-hover: #343434;
-  --bg-input-field: #1d1d1d;
+  --bg-card-glass-border: #080808;
   --bg-card-attribute: #72eb3a08;
+  --bg-inverted: #f5f5f5;
+  --bg-input-field: #1d1d1d;
   --bg-trending-category: #222428;
   --bg-attribute-warn: #352919;
   --icon-color: #96a2b5e5;
+  --icon-gradient-theme-color-primary: #656565;
   --icon-text-color: #ffffffc2;
   --border-color-cards: rgb(255 255 255 / 6%);
   --nav-color: #1a1a1a;
   --text-color: #e7e7e7;
+  --text-color-inverted: #000000;
   --text-card-color: rgba(255, 255, 255, 0.8);
   --text-color-sidebar: #c1c1c1;
   --text-color-hover: #f2f2f2;
@@ -26,20 +30,25 @@
   --skeleton-secondary-color: #3f3f3f;
 }
 
-.light {
+html.light:root {
   /* Dark/Light mode variables */
   --bg-color: rgb(252, 252, 252);
-  --bg-card-glass: #f5f5f5;
+  --bg-card-glass: #f6f8fa;
+  --bg-card-glass-border: #d0d7de;
   --bg-card-glass-hover: rgba(236, 236, 236, 0.916);
-  --bg-input-field: #ededed;
   --bg-card-attribute: #72eb3a08;
+  --bg-inverted: #1d1d1d;
+  --bg-input-field: #ededed;
   --bg-trending-category: #4d4d4d14;
   --bg-attribute-warn: #352919;
   --icon-color: rgba(0, 0, 0, 0.8);
+  --icon-gradient-theme-color-primary: #FCB033;
+  --icon-gradient-theme-color-secondary: #FA8607;
   --icon-text-color: rgba(0, 0, 0, 0.8);
   --border-color-cards: rgba(48, 48, 48, 0.125);
   --nav-color: #ffffff;
   --text-color: #000000;
+  --text-color-inverted: #e7e7e7;
   --text-card-color: rgba(0, 0, 0, 0.8);
   --text-color-sidebar: #373737;
   --text-color-hover: #313131;
@@ -52,20 +61,25 @@
 }
 
 html {
-  color-scheme: light dark;
   background-color: var(--bg-color) !important;
   height: 100%;
 }
 
+html.light {
+  color-scheme: light;
+}
 
 body {
   background: var(--bg-color) !important;
 }
 
-
 * {
   /* font-family: 'Titillium Web', sans-serif; */
   font-family: 'Barlow', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 hr {
@@ -74,6 +88,14 @@ hr {
 
 .text-wrapper {
   color: var(--text-color-hover) !important;
+}
+
+.text-wrapper-inverted {
+  color: var(--text-color-inverted) !important;
+}
+
+.text-danger {
+  color: red;
 }
 
 #__nuxt {
@@ -117,6 +139,29 @@ hr {
   flex-wrap: wrap;
 }
 
+.contrast-color {
+  background-color: var(--nav-item-hover) !important;
+  color: var(--bg-color) !important;
+  font-size: medium !important;
+}
+
+.inverted-theme-color {
+  backdrop-filter: blur(16px) saturate(200%);
+  background: var(--bg-inverted) !important;
+  font-weight: 400;
+  font-size: 15px;
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+}
+
+.inverted-theme-color:hover {
+  border: solid 1px var(--bg-color);
+  transition: scale 0.1s ease-in-out;
+}
+
+.no-hover:hover {
+  opacity: 1 !important;
+}
+
 /* Responsive properties */
 @media (min-width: 1581px) {
   #__nuxt {
@@ -128,4 +173,10 @@ hr {
   body {
     background: var(--bg-color) !important;
   }
+}
+
+@media only screen and (max-width: 680px) {
+  .no-margin {
+    margin-left: 0 !important;
+  }  
 }

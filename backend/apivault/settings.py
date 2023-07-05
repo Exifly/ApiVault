@@ -55,12 +55,15 @@ INSTALLED_APPS = [
 
     'rest_framework_simplejwt',
     'rest_framework',
+    'drf_yasg',
 
     'corsheaders',
 
     'authentication',
     'interaction',
     'vault',
+
+
 ]
 
 MIDDLEWARE = [
@@ -68,7 +71,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -113,6 +116,17 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     'SLIDING_TOKEN_LIFETIME': timedelta(days=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "JWT [Bearer {JWT}]": {
+            "name": "Authorization",
+            "type": "apiKey",
+            "in": "header",
+        }
+    },
+    "USE_SESSION_AUTH": False,
 }
 
 ROOT_URLCONF = 'apivault.urls'
@@ -185,10 +199,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    BASE_DIR / "media",
-    '/var/www/media/',
-]
 
 
 # Default primary key field type
@@ -197,12 +207,11 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'authsmtp.securemail.pro'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'noreply@apivault.it'
-# EMAIL_HOST_PASSWORD = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
-# EMAIL_USE_SSL = True
-# DEFAULT_FROM_EMAIL = '<noreply@apivault.it>'
 
 AUTH_USER_MODEL = "authentication.DefaultUser"
+
+GOOGLE_CLIENT_ID = "64963022344-iv3em0agnmlcvohcjcrq4j4h485pkee1.apps.googleusercontent.com"
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
