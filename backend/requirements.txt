@@ -14,7 +14,7 @@ dbus-python==1.2.16
 defusedxml==0.7.1
 distro-info===0.23ubuntu1
 dj-rest-auth==4.0.1
-Django==4.2.2
+Django==4.2.3
 django-allauth==0.54.0
 django-cors-headers==4.0.0
 django-environ==0.10.0
