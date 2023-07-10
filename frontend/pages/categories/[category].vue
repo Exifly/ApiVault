@@ -59,9 +59,8 @@
 </template>
 
 <script lang="ts" setup>
-import { APIType } from "~/models/types";
-import ApivaultServices from "~/services/ApivaultServices";
-import { handleSearch } from "~/pages/functions/searchEngine";
+import { APIType } from "../../models/types";
+import ApivaultServices from "../../services/ApivaultServices";
 
 const layouts = "body-content";
 const route = useRoute();
