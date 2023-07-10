@@ -194,7 +194,7 @@ If you want to support us with a coffee, that's how to do it! ❤️
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T0LL2YG)
 
 ## License 
-ApiVault is licensed under the terms of **MIT License**. Check out [LICENSE](https://github.com/Exifly/ApiVault/blob/main/LICENSE) for details.
+ApiVault is licensed under the terms of **CC BY-NC-ND 4.0**. Check out [LICENSE](https://github.com/Exifly/ApiVault/blob/main/LICENSE) for details.
 
 <br>
 
