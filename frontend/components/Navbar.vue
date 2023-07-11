@@ -25,18 +25,28 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center" role="tablist">
-          <li class="mobile-wrapper navbar-text-wrapper ms-2 mt-2" role="tab" style="padding-bottom: 7px;">
-            <GenericsButton class="text-wrapper-inverted" :isInverted="true" data-bs-toggle="modal" data-bs-target="#submitApiModal">
-                <font-awesome-icon class="me-2" :icon="['fas', 'folder-plus']" /> Submit API
+          <li
+            class="mobile-wrapper navbar-text-wrapper ms-2 mt-2"
+            role="tab"
+            style="padding-bottom: 7px"
+          >
+            <GenericsButton
+              class="text-wrapper-inverted"
+              :isInverted="true"
+              data-bs-toggle="modal"
+              data-bs-target="#submitApiModal"
+            >
+              <font-awesome-icon class="me-2" :icon="['fas', 'folder-plus']" />
+              Submit API
             </GenericsButton>
           </li>
           <li
-            style="padding: 0;"
+            style="padding: 0"
             class="no-margin navbar-text-wrapper ms-2 mt-2"
             role="tab"
           >
             <GoogleSignInButton
-              style="margin: 0 !important;"
+              style="margin: 0 !important"
               v-if="!isLogged"
               @success="handleLoginSuccess"
               @error="handleLoginError"
@@ -47,10 +57,10 @@
               locale="en"
               shape="square"
             ></GoogleSignInButton>
-            <UserMenu 
+            <UserMenu
               @event:sign_out="() => logout()"
               v-if="isLogged"
-             :username="user"
+              :username="user"
             />
           </li>
           <hr />
@@ -250,7 +260,9 @@ onBeforeMount(() => {
 const theme = useTheme();
 const iconTheme = ref();
 const logoPath = computed(() => {
-  return theme.value === "light" ? "/img/apivault-full-light-nobg.png" : "/img/apivault-full-dark-nobg.png";
+  return theme.value === "light"
+    ? "/img/apivault-full-light-nobg.png"
+    : "/img/apivault-full-dark-nobg.png";
 });
 
 onMounted(() => {
