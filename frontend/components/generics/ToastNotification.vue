@@ -16,7 +16,7 @@
           alt="..."
         />
         <strong class="me-auto text-wrapper">Notification</strong>
-        <small>just now</small>
+        <small class="text-wrapper">just now</small>
         <button
           type="button"
           class="btn-close"
