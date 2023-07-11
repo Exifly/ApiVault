@@ -1,15 +1,13 @@
 <template>
   <NuxtLayout :name="layouts" :title="categorySearched.category">
     <template #heroAreaContent>
+      <GenericsToastNotification v-if="isAuth" class="mt-3">
+        You are not authorized to perform this action. Please signin!
+      </GenericsToastNotification>
       <Hero />
     </template>
     <template #topAreaContent>
       <SearchBar @search:apiSearch="handleSearchDashboard" />
-      <Transition>
-        <GenericsToastNotification v-if="isAuth" class="mt-3">
-          You are not authorized to perform this action. Please signin!
-        </GenericsToastNotification>
-      </Transition>
     </template>
     <template #trendingCategories>
       <h1 id="title-trending" class="text-wrapper mb-3">TRENDING</h1>
@@ -172,7 +170,6 @@ const showList = ref(true);
 let isLoadingState = ref(false);
 let hasMoreData = ref(true);
 
-
 const handleSearchDashboard = (val: string, title: string) => {
   if (title === undefined) {
     apiSearched.value = apiData.value;
@@ -181,7 +178,7 @@ const handleSearchDashboard = (val: string, title: string) => {
     categorySearched.category = title.toUpperCase();
     apiSearched.value = val as any;
     showList.value = true;
-  } 
+  }
 };
 
 // this computed property is used for manage the data state for load more
@@ -220,7 +217,7 @@ onBeforeMount(async () => {
     ? apiData.value === null || apiData.value === ""
     : false;
 
-  if (apiSearched.value === null || apiSearched.value.length === 0) { 
+  if (apiSearched.value === null || apiSearched.value.length === 0) {
     apiSearched.value = apiData.value;
   }
 });
