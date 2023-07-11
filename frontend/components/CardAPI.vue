@@ -36,10 +36,11 @@
       <CardAttributes v-if="auth !== ''">
         {{ auth?.toUpperCase() }}</CardAttributes
       >
-      <GenericsLikeButton v-if="!isPending"
+      <GenericsLikeButton
+        v-if="!isPending"
         @like:isClicked="likeInteractionHandler"
         :likedByUser="likedByUser"
-        :isAuthState="isAuthState!"
+        :isAuthState="isAuthState"
         style="margin-left: auto !important; text-decoration: none"
       />
       <GenericsLikeNumber v-if="!isPending" :class="{ animate: animate }">
@@ -109,7 +110,7 @@ let {
   isPending: {
     type: Boolean,
     required: false,
-  }
+  },
 });
 
 let likedByUser = ref(isLikedByUser);

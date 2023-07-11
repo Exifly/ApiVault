@@ -119,14 +119,14 @@
 </template>
 
 <script lang="ts" setup>
-import { handleSearch } from "~/pages/functions/searchEngine";
 import ApivaultServices from "~/services/ApivaultServices";
 import { categoriesDict } from "~/utils/categoryMapping";
 import { TrendingCategory } from "~/models/types";
 import { APIType } from "~/models/types";
 
-// adding cookie script
+// adding cookie consent script
 useHead({
+  title: "Apivault - Your gateway to a world of public APIs.",
   script: [
     {
       src: "https://app.enzuzo.com/apps/enzuzo/static/js/__enzuzo-cookiebar.js?uuid=f59a7360-00b5-11ee-a49e-231d479eb14f",
