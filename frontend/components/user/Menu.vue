@@ -1,11 +1,23 @@
 <template>
   <div class="dropdown">
-    <GenericsButton class="font-size-sm" data-bs-toggle="dropdown" aria-expanded="false">
-      <img class="img-properties me-2" :src="defaultPic" height="24" width="24">
+    <GenericsButton
+      class="font-size-sm"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <img
+        class="img-properties me-2"
+        :src="defaultPic"
+        height="24"
+        width="24"
+      />
       {{ username }}
       <font-awesome-icon class="ms-2" :icon="['fas', 'angles-down']" />
     </GenericsButton>
-    <ul class="mx-auto dropdown-wrapper-override dropdown-animation dropdown-menu dropdown-menu-dark" style="padding: 10px; width: 100%;">
+    <ul
+      class="mx-auto dropdown-wrapper-override dropdown-animation dropdown-menu dropdown-menu-dark"
+      style="padding: 10px; width: 100%"
+    >
       <li class="wrapper-hover-effect dropdown-item py-2">
         <p disabled class="m-0 text-header">
           <font-awesome-icon class="me-2" :icon="['fas', 'circle-user']" />
@@ -13,14 +25,25 @@
         </p>
       </li>
       <li class="py-2">
-        <NuxtLink class="ms-0 wrapper-hover-effect dropdown-item" style="text-decoration: none !important;" to="/user/apis">
+        <NuxtLink
+          class="ms-0 wrapper-hover-effect dropdown-item"
+          style="text-decoration: none !important"
+          to="/user/apis"
+        >
           <font-awesome-icon class="me-1" :icon="['fas', 'code']" />
           My APIs
         </NuxtLink>
       </li>
       <li class="py-2">
-        <a @click.prevent="sendLogoutEvent" class="wrapper-hover-effect dropdown-item" href="#">
-          <font-awesome-icon class="me-2" :icon="['fas', 'right-from-bracket']" />
+        <a
+          @click.prevent="sendLogoutEvent"
+          class="wrapper-hover-effect dropdown-item"
+          href="#"
+        >
+          <font-awesome-icon
+            class="me-2"
+            :icon="['fas', 'right-from-bracket']"
+          />
           Logout
         </a>
       </li>
@@ -31,12 +54,19 @@
           Utils
         </p>
       </li>
-      <li id="theme-mode" class="d-flex py-2 wrapper-hover-effect dropdown-item">
+      <li
+        id="theme-mode"
+        class="d-flex py-2 wrapper-hover-effect dropdown-item"
+      >
         <p class="py-2 m-0 text-wrapper">
           <font-awesome-icon class="me-2" :icon="['fas', 'moon']" />
           Dark mode
         </p>
-        <GenericsToggle :checked="isChecked" @click.prevent="setModeLocal" style="transform: scale(0.8); margin-top: 4px"/>
+        <GenericsToggle
+          :checked="isChecked"
+          @click.prevent="setModeLocal"
+          style="transform: scale(0.8); margin-top: 4px"
+        />
       </li>
     </ul>
   </div>
@@ -56,8 +86,8 @@ let { username } = defineProps({
   username: {
     type: String,
     required: true,
-  }
-})
+  },
+});
 
 const isChecked = ref(true);
 
@@ -77,18 +107,18 @@ const setModeLocal = (): void => {
   logoPath.value = setThemeLogoPath(theme);
 };
 
-const emit = defineEmits(['event:sign_out']);
+const emit = defineEmits(["event:sign_out"]);
 const sendLogoutEvent = () => {
-  emit('event:sign_out');
-}
+  emit("event:sign_out");
+};
 
 useHead({
   htmlAttrs: {
     class: computed(() => {
-      return defaultTheme.value ? "" : "light"
+      return defaultTheme.value ? "" : "light";
     }),
   },
-})
+});
 
 const accessToken = useCookie("accessToken");
 onMounted(async () => {
@@ -96,12 +126,13 @@ onMounted(async () => {
   defaultPic.value = userInfo.picture;
 
   if (process.client) {
-    document.querySelector('.dropdown').addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
+    document
+      .querySelector(".dropdown")!
+      .addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
   }
-})
-
+});
 </script>
 
 <style scoped>
