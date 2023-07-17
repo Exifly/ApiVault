@@ -1,4 +1,13 @@
 <template>
+  <GenericsButton
+    id="bottom-feedback-button"
+    class="text-wrapper-inverted"
+    :isInverted="true"
+    data-bs-toggle="modal"
+    data-bs-target="#feedbackModal"
+  >
+    Feedback
+  </GenericsButton>
   <div class="flex-adjust container p-4 overflow-hidden">
     <div class="hero container">
       <div class="row">
@@ -44,6 +53,12 @@ const { title, isNullCategory } = defineProps({
 </script>
 
 <style scoped>
+#bottom-feedback-button {
+  bottom: 10px;
+  font-size: 13px;
+  position: fixed;
+  right: 10px;
+}
 .hero {
   display: flex;
   flex-direction: column;
