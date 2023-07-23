@@ -1,5 +1,5 @@
-from django.db import models
 from apivault import settings
+from django.db import models
 from vault.models import API
 
 class Like(models.Model):
@@ -16,6 +16,12 @@ class Like(models.Model):
         return f"{self.user} - {self.api}"
 
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=30, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    message = models.TextField(max_length=150, null=False, blank=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, db_index=True, blank=True, null=True, on_delete=models.CASCADE)
 
-
-
+    def __str__(self):
+        username = "Anonymous" if self.name is None else self.name
+        return f"{username} - {self.message}"
