@@ -21,7 +21,7 @@
             class="ps-2 text-wrapper modal-title fs-5"
             id="feedbackModalLabel"
           >
-            API Submitted
+            Feedback Submitted
           </h1>
           <GenericsButton
             @click.prevent="restoreSuccessState"
@@ -87,7 +87,7 @@
           </p>
         </div>
         <div v-else class="modal-body p-4 pt-2">
-          <h3 class="text-wrapper">Please login to submit a new Api</h3>
+          <h3 class="text-wrapper">Please login to submit a Feed</h3>
         </div>
         <div v-if="!notAuth" class="px-4 custom-border modal-footer">
           <p
@@ -95,7 +95,7 @@
             class="text-wrapper"
             style="margin-right: auto; opacity: 70%"
           >
-            All fields are mandatory!
+            Fields with * are mandatory!
           </p>
           <p
             v-else
@@ -150,14 +150,12 @@ const accessToken = useCookie("accessToken");
 const name = ref<string>("");
 const description = ref<string>("");
 const email = ref<string>("");
-const url = ref<string>("");
 const successSubmit = ref<boolean>(false);
-const isValidUrl = ref<boolean>(true);
 const notAuth = ref<boolean>(false);
 
 const isValidInput = ref<boolean>(true);
 const shakeAnimationState = ref<boolean>(false);
-const validateInput = () => {
+const validateInput = async () => {
   if (name.value === "" || description.value === "" || email.value === "") {
     isValidInput.value = false;
     setTimeout(() => {
@@ -166,7 +164,14 @@ const validateInput = () => {
     }, 4000);
     return;
   }
-  // submitFeedback();
+  // TODO: handle error codes
+  let statuscode = await ApivaultServices.submitFeedback(
+    accessToken.value!,
+    name.value,
+    email.value,
+    description.value
+  );
+  successSubmit.value = true;
 };
 
 const restoreSuccessState = () => {
