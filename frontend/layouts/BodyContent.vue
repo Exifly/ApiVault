@@ -58,6 +58,7 @@ const { title, isNullCategory } = defineProps({
   font-size: 13px;
   position: fixed;
   right: 10px;
+  z-index: 1;
 }
 .hero {
   display: flex;
