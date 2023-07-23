@@ -2,7 +2,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import status, permissions
 from rest_framework.response import Response
+from .serializers import FeedbackSerializer
 from rest_framework.views import APIView
+from rest_framework import generics
 from vault.models import API
 from .models import(
     Like,
@@ -33,3 +35,12 @@ class LikeAPIView(APIView):
       return Response({'detail': 'You have not liked this API yet.'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+class FeedbackView(generics.CreateAPIView):
+   """
+   View to handle user feedbacks
+   """
+   permission_classes = [permissions.IsAuthenticated]
+   serializer_class = FeedbackSerializer
+
+   def perform_create(self, serializer):
+      serializer.save(user=self.request.user)
