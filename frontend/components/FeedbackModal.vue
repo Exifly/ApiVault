@@ -85,6 +85,13 @@
           <p v-if="!isValidInput" class="m-0 mt-3 error-validation">
             Some fields are empty!!
           </p>
+          <p
+            v-if="error"
+            class="text-wrapper"
+            style="color: red; margin-right: auto; opacity: 70%"
+          >
+            An error occurred, please try again later.
+          </p>
         </div>
         <div v-else class="modal-body p-4 pt-2">
           <h3 class="text-wrapper">Please login to submit a Feed</h3>
@@ -152,6 +159,7 @@ const description = ref<string>("");
 const email = ref<string>("");
 const successSubmit = ref<boolean>(false);
 const notAuth = ref<boolean>(false);
+const error = ref<boolean>(false);
 
 const isValidInput = ref<boolean>(true);
 const shakeAnimationState = ref<boolean>(false);
@@ -164,14 +172,19 @@ const validateInput = async () => {
     }, 4000);
     return;
   }
-  // TODO: handle error codes
-  let statuscode = await ApivaultServices.submitFeedback(
+
+  await ApivaultServices.submitFeedback(
     accessToken.value!,
     name.value,
     email.value,
     description.value
-  );
-  successSubmit.value = true;
+  )
+    .then(() => {
+      successSubmit.value = true;
+    })
+    .catch(() => {
+      error.value = true;
+    });
 };
 
 const restoreSuccessState = () => {
