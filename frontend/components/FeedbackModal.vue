@@ -69,9 +69,17 @@
             </div>
             <div class="mb-3 mt-4">
               <label
+                v-if="!textTooLong"
                 for="message-text"
                 class="text-wrapper modal-title-head col-form-label"
                 >Message: *</label
+              >
+              <label
+                v-else
+                for="message-text"
+                class="text-wrapper modal-title-head col-form-label"
+                style="color: red !important;"
+                >Message: *  <br />(-{{ description.length - 150 }})</label
               >
               <textarea
                 rows="10"
@@ -84,6 +92,9 @@
           </form>
           <p v-if="!isValidInput" class="m-0 mt-3 error-validation">
             Some fields are empty!!
+          </p>
+          <p v-else-if="textTooLong" class="m-0 mt-3 error-validation">
+            Text too long!!
           </p>
           <p
             v-if="error"
@@ -154,15 +165,25 @@ import ApivaultServices from "~/services/ApivaultServices";
 import { Category } from "~/models/types";
 
 const accessToken = useCookie("accessToken");
+
+// modal fields
 const name = ref<string>("");
 const description = ref<string>("");
 const email = ref<string>("");
+
+// error/success states
+const textTooLong = ref<boolean>(false);
 const successSubmit = ref<boolean>(false);
 const notAuth = ref<boolean>(false);
 const error = ref<boolean>(false);
-
 const isValidInput = ref<boolean>(true);
 const shakeAnimationState = ref<boolean>(false);
+
+/** 
+ * This function handle the feedback input validation
+ * 
+ * @return Void
+ */
 const validateInput = async () => {
   if (name.value === "" || description.value === "" || email.value === "") {
     isValidInput.value = false;
@@ -172,6 +193,8 @@ const validateInput = async () => {
     }, 4000);
     return;
   }
+
+  if (textTooLong) return;
 
   await ApivaultServices.submitFeedback(
     accessToken.value!,
@@ -192,6 +215,11 @@ const restoreSuccessState = () => {
     successSubmit.value = false;
   }, 1000);
 };
+
+onUpdated(() => {
+  if (Number(description.value.length) > 150) textTooLong.value = true
+  else textTooLong.value = false;
+})
 
 const categories = ref<Category[]>();
 onMounted(async () => {
