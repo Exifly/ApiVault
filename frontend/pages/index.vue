@@ -116,7 +116,6 @@
       <Footer />
     </template>
   </NuxtLayout>
-  <FeedbackModal />
 </template>
 
 <script lang="ts" setup>
