@@ -124,6 +124,26 @@ class ApivaultService {
     }
     return await this.axiosInstance.get(`${this.baseUrl}/auth/user/`, { headers: headers }).then(res => res.data);
   }
+
+  async submitFeedback(authToken: string, name: string, email: string, message: string): Promise<Number> {
+    if (authToken === "" || authToken === undefined) {
+      return 401;
+    }
+    
+    const headers = {
+      'Authorization': `Bearer ${authToken}`
+    }
+
+    const body = {
+      name: name,
+      email: email,
+      message: message
+    }
+
+    return await this.axiosInstance.post(`${this.baseUrl}/interaction/feedback/`, body, { headers: headers })
+    .then(res => res.data.status)
+    .catch(er => er.data.status);
+  }
 }
 
 export default new ApivaultService();
