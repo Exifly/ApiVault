@@ -90,7 +90,6 @@ class AllCategoryAPIListView(generics.ListAPIView):
    serializer_class = CategorySerializer
     
 
-
 class APICountView(APIView):
     """
     API view that returns the count of API objects in the database.
