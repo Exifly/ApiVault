@@ -8,7 +8,7 @@
 
 <p align="center">
     <a href="https://github.com/Exifly/ApiVault/tree/release" alt="Stable">
-        <img src="https://img.shields.io/badge/stable-2.0.5-blue?style=for-the-badge" /></a>
+        <img src="https://img.shields.io/badge/stable-2.1.0-blue?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/contributors/exifly/apivault?style=for-the-badge" /></a>
     <a href="https://github.com/exifly/apivault/pulse" alt="Activity">
