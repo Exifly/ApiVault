@@ -42,6 +42,11 @@ share/python-wheels/
 MANIFEST
 *.log
 
+# django static files (they will be generated directly on the server)
+./backend/static/*
+static/*
+static/
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
