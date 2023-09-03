@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 
     'rest_framework_simplejwt',
     'rest_framework',
+    'drf_spectacular',
     'drf_yasg',
 
     'corsheaders',
@@ -84,6 +85,14 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'ApiVault',
+    'DESCRIPTION': 'Your gateway to a world of public APIs',
+    'VERSION': '2.1.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 SIMPLE_JWT = {
