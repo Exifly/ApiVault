@@ -12,9 +12,12 @@
       </Transition>
     </template>
     <template #cardAreaContent>
-      <div class="api-filters mb-4">
-        <FilterDropdown />
+    <h1 class="text-wrapper d-flex">{{ categorySearched.category }}
+      <div class="api-filters ms-auto mb-2 h6">
+        <FilterDropdown @filter:option="handleFilterSelection" />
       </div>
+    </h1>
+    <hr />
       <div class="row" v-if="showList">
         <TransitionGroup name="cards">
           <div class="wrapper" v-if="isLoading">
@@ -90,6 +93,7 @@ useHead({
   ],
 });
 
+
 /* 
   Handler for cardApi auth event emit (return false if user is not authorized) 
   It's needed to handle the notification error
@@ -112,10 +116,21 @@ const handleSearchCategory = (val: string, title: string) => {
   }
 };
 
-onMounted(async () => {
+/* Handle filter selection event */
+const filter = ref<string>();
+function handleFilterSelection(filterValue: string) {
+  filter.value = filterValue; 
+  fillApiCards(filter.value);
+}
+
+async function fillApiCards(filter: string) {
+  if (filter === undefined) {
+    filter = "name"
+  }   
   apiData.value = await ApivaultServices.apiCategoryData(
     route.params.category,
-    accesToken.value!
+    accesToken.value!,
+    filter
   );
   isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = true
@@ -125,6 +140,12 @@ onMounted(async () => {
   if (apiSearched.value === null || apiSearched.value.length === 0) {
     apiSearched.value = apiData.value;
   }
+
+  if (filter) { apiSearched.value = apiData.value };
+}
+
+onMounted(async () => {
+  await fillApiCards(filter.value!);
 });
 </script>
 

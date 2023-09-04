@@ -46,6 +46,8 @@
       </div>
     </template>
     <template #cardAreaContent>
+      <h1 class="text-wrapper">{{ categorySearched.category }}</h1>
+      <hr />
       <div class="row">
         <TransitionGroup name="cards">
           <div class="wrapper" v-if="isLoading">
