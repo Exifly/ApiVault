@@ -196,6 +196,7 @@ const validateInput = async () => {
 
   if (textTooLong) return;
 
+  console.log("RTEST")
   await ApivaultServices.submitFeedback(
     accessToken.value!,
     name.value,
