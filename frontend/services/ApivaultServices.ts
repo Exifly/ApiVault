@@ -19,12 +19,12 @@ class ApivaultService {
     return this.axiosInstance.get(`${this.baseUrl}/all/`).then(res => res.data);
   }
 
-  apiCategoryData(category: string | string[], authToken: string): Promise<APIType[]> {
-    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/category/${category}/`).then(res => res.data);
+  apiCategoryData(category: string | string[], authToken: string, orderBy: string): Promise<APIType[]> {
+    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/category/${category}/?order=${orderBy}`).then(res => res.data);
     let headers = {
         'Authorization': `Bearer ${authToken}` 
     }
-    return this.axiosInstance.get(`${this.baseUrl}/category/${category}/`, { headers: headers }).then(res => res.data);
+    return this.axiosInstance.get(`${this.baseUrl}/category/${category}/?order=${orderBy}`, { headers: headers }).then(res => res.data);
   }
 
   randomApis(authToken: string): Promise<APIType[]> {

@@ -1,19 +1,22 @@
 <template>
-  <label for="message-text" class="text-wrapper">ORDER</label>
   <select
     v-model="order"
-    placeholder="Choose order"
-    class="px-3 text-wrapper inverted-input-box api-filter-select"
+    class="ps-1 px-3 text-wrapper inverted-input-box api-filter-select"
     aria-label="Select corse state"
+    @change="orderApis"
   >
-    <option selected value="0">A - Z</option>
-    <option value="1">Z - A</option>
-    <option value="2">LIKE</option>
+    <option selected value="name">Alphabetical</option>
+    <option value="-likes_count">Likes</option>
   </select>
 </template>
 
 <script lang="ts" setup>
-const order = ref(0);
+const order = ref<string>();
+const emit = defineEmits(["filter:option"]);
+
+function orderApis() {
+  emit("filter:option", order.value);
+}
 </script>
 
 <style scoped>
