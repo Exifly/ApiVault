@@ -73,6 +73,11 @@ body {
   background: var(--bg-color) !important;
 }
 
+body.modal-open bg {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
 * {
   /* font-family: 'Titillium Web', sans-serif; */
   font-family: 'Barlow', sans-serif;

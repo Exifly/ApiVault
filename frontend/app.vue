@@ -24,9 +24,12 @@ export default {
 <script lang="ts" setup>
 onMounted(() => {
   if (process.client) {
-    if (localStorage.getItem("APIVaultTheme") === "" || localStorage.getItem("APIVaultTheme") === null) {
+    if (
+      localStorage.getItem("APIVaultTheme") === "" ||
+      localStorage.getItem("APIVaultTheme") === null
+    ) {
       localStorage.setItem("APIVaultTheme", "dark");
     }
   }
-})
+});
 </script>

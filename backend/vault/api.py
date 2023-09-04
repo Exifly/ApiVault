@@ -2,6 +2,7 @@ from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
+from apivault.mixins import ApiFilterMixin
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import generics
@@ -17,7 +18,6 @@ from vault.serializers import(
 
 from random import sample
 from vault.models import (
-   APIPending,
    Category,
    API
 )
@@ -69,16 +69,18 @@ class TrendingCategoriesView(generics.ListAPIView):
    
 
 
-class CategoryAPIListView(generics.ListAPIView):
+class CategoryAPIListView(ApiFilterMixin, generics.ListAPIView):
    """
    API view that returns the APIs based on the category.
    """
    serializer_class = APISerializer
+   allowed_order_field = ['name', '-likes_count']
 
    def get_queryset(self):
       category_name = self.kwargs['category_name']
       category = Category.objects.get(name=category_name)
-      return API.objects.filter(category=category)
+      queryset = API.objects.filter(category=category)
+      return self.apply_ordering(queryset)
    
 
 @method_decorator(cache_page(864000), name='get')
@@ -89,7 +91,6 @@ class AllCategoryAPIListView(generics.ListAPIView):
    queryset = Category.objects.all()
    serializer_class = CategorySerializer
     
-
 
 class APICountView(APIView):
     """
@@ -148,7 +149,6 @@ class MyApiView(APIView):
    """
    permission_classes = [permissions.IsAuthenticated]
 
-
    def get(self, request):
       apis = API.objects.filter(owner=request.user)
       serializer = APISerializer(apis, many=True)
@@ -161,9 +161,8 @@ class MyPendingApiView(APIView):
    """
    permission_classes = [permissions.IsAuthenticated]
 
-
    def get(self, request):
-      apis = APIPending.objects.filter(owner=request.user)
+      apis = API.objects.filter(owner=request.user)
       serializer = APISerializer(apis, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
    
