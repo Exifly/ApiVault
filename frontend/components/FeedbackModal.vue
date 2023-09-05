@@ -91,7 +91,7 @@
             </div>
           </form>
           <p v-if="!isValidInput" class="m-0 mt-3 error-validation">
-            Some fields are empty!!
+            Email field cannot be empty!
           </p>
           <p v-else-if="textTooLong" class="m-0 mt-3 error-validation">
             Text too long!!
@@ -185,7 +185,7 @@ const shakeAnimationState = ref<boolean>(false);
  * @return Void
  */
 const validateInput = async () => {
-  if (name.value === "" || description.value === "" || email.value === "") {
+  if (description.value === "") {
     isValidInput.value = false;
     setTimeout(() => {
       isValidInput.value = true;
@@ -194,9 +194,8 @@ const validateInput = async () => {
     return;
   }
 
-  if (textTooLong) return;
+  if (textTooLong.value) return;
 
-  console.log("RTEST")
   await ApivaultServices.submitFeedback(
     accessToken.value!,
     name.value,

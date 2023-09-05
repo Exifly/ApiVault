@@ -126,10 +126,6 @@ class ApivaultService {
   }
 
   async submitFeedback(authToken: string, name: string, email: string, message: string): Promise<Number> {
-    if (authToken === "" || authToken === undefined) {
-      return 401;
-    }
-    
     const headers = {
       'Authorization': `Bearer ${authToken}`
     }
