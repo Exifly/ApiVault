@@ -12,6 +12,12 @@
       </Transition>
     </template>
     <template #cardAreaContent>
+    <h1 class="text-wrapper d-flex">{{ categorySearched.category }}
+      <div class="api-filters ms-auto mb-2 h6">
+        <FilterDropdown @filter:option="handleFilterSelection" />
+      </div>
+    </h1>
+    <hr />
       <div class="row" v-if="showList">
         <TransitionGroup name="cards">
           <div class="wrapper" v-if="isLoading">
@@ -87,6 +93,7 @@ useHead({
   ],
 });
 
+
 /* 
   Handler for cardApi auth event emit (return false if user is not authorized) 
   It's needed to handle the notification error
@@ -96,7 +103,7 @@ const handleAuthState = (isAuthError: boolean) => {
   setTimeout(() => {
     isAuth.value = false;
   }, 4000);
-}
+};
 
 const handleSearchCategory = (val: string, title: string) => {
   if (title === undefined) {
@@ -106,18 +113,46 @@ const handleSearchCategory = (val: string, title: string) => {
     categorySearched.category = title.toUpperCase();
     apiSearched.value = val as any;
     showList.value = true;
-  } 
+  }
 };
 
-onMounted(async () => {
-  apiData.value = await ApivaultServices.apiCategoryData(route.params.category, accesToken.value!);
+/* Handle filter selection event */
+const filter = ref<string>();
+function handleFilterSelection(filterValue: string) {
+  filter.value = filterValue; 
+  fillApiCards(filter.value);
+}
+
+async function fillApiCards(filter: string) {
+  if (filter === undefined) {
+    filter = "name"
+  }   
+  apiData.value = await ApivaultServices.apiCategoryData(
+    route.params.category,
+    accesToken.value!,
+    filter
+  );
   isNullCategory.value ? apiData.value.length === 0 : false;
   isLoading.value = true
     ? apiData.value === null || apiData.value === undefined
     : false;
- 
-  if (apiSearched.value === null || apiSearched.value.length === 0) { 
+
+  if (apiSearched.value === null || apiSearched.value.length === 0) {
     apiSearched.value = apiData.value;
   }
+
+  if (filter) { apiSearched.value = apiData.value };
+}
+
+onMounted(async () => {
+  await fillApiCards(filter.value!);
 });
 </script>
+
+<style scoped>
+.api-filters {
+  display: flex;
+  flex-direction: column;
+  width: 8rem;
+}
+</style>

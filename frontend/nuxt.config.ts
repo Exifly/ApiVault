@@ -48,7 +48,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: "A free API database list for developers",
+      title: "Apivault - A free API list for developers",
       meta: [
         { name: "keywords", content: "free api, free api list, apivault, free apis for projects, open-source, public APIs, free apis for learning, free apis to use" },
         { name: "description", content: "ApiVault - The largest collection of free and public APIs, categorized for easy search." },

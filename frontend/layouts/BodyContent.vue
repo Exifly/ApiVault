@@ -24,8 +24,6 @@
         <slot name="topAreaContent"></slot>
       </div>
     </div>
-    <h1 class="text-wrapper">{{ title }}</h1>
-    <hr />
     <h5 class="text-wrapper" v-if="isNullCategory">
       No Api's found for this category.. Sorry!!
     </h5>

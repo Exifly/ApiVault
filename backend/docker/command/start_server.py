@@ -1,5 +1,9 @@
 import subprocess
+import time
 import os
+
+print('Starting server...')
+time.sleep(25)
 
 SERVER_PORT = 9001
 SERVER_HOST = "0.0.0.0"
