@@ -2,16 +2,16 @@
   <select
     v-model="order"
     class="ps-1 px-3 text-wrapper inverted-input-box api-filter-select"
-    aria-label="Select corse state"
+    aria-label="Filter"
     @change="orderApis"
   >
-    <option selected value="name">Alphabetical</option>
+    <option value="name" selected>Alphabetical</option>
     <option value="-likes_count">Likes</option>
   </select>
 </template>
 
 <script lang="ts" setup>
-const order = ref<string>();
+const order = ref<string>("name");
 const emit = defineEmits(["filter:option"]);
 
 function orderApis() {
