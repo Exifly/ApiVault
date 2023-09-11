@@ -18,8 +18,9 @@ from vault.serializers import(
 
 from random import sample
 from vault.models import (
-   Category,
-   API
+    APIPending,
+    Category,
+    API
 )
 
 class APICreateView(generics.CreateAPIView):
@@ -157,12 +158,12 @@ class MyApiView(APIView):
 
 class MyPendingApiView(APIView):
    """
-   Retrieve the approved APIs of the logged user.
+   Retrieve the pending APIs of the logged user.
    """
    permission_classes = [permissions.IsAuthenticated]
 
    def get(self, request):
-      apis = API.objects.filter(owner=request.user)
+      apis = APIPending.objects.filter(owner=request.user)
       serializer = APISerializer(apis, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
    
