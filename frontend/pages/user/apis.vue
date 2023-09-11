@@ -8,6 +8,7 @@
       </Transition>
     </template>
     <template #cardAreaContent>
+      <h1 id="title-trending" class="text-wrapper mb-3">PENDING APIs</h1>
       <hr />
       <GenericsButton
         data-bs-toggle="modal" data-bs-target="#submitApiModal"
@@ -155,8 +156,10 @@ const handleAuthState = (isAuthError: boolean) => {
 const router = useRouter();
 onMounted(async () => {
   if (!accessToken.value || accessToken.value === null || accessToken.value === "") router.push('/');
+
   pendingApis.value = await ApivaultServices.pendingApis(accessToken.value!);
   myApis.value = await ApivaultServices.myApis(accessToken.value!);
+
   if (pendingApis.value.length === 0) noPendingApiFound.value = true;
   if (myApis.value.length === 0) noApiFound.value = true;
 
