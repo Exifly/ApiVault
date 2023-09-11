@@ -66,7 +66,7 @@
                 >
                   <option value="" selected disabled>Choose an option</option>
                   <option value="apiKey">API Key</option>
-                  <option value="oauth">OAuth</option>
+                  <option value="OAuth">OAuth</option>
                 </select>
               </div>
             </div>
