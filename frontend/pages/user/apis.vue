@@ -8,6 +8,7 @@
       </Transition>
     </template>
     <template #cardAreaContent>
+      <hr />
       <GenericsButton
         data-bs-toggle="modal" data-bs-target="#submitApiModal"
         v-if="noPendingApiFound"
