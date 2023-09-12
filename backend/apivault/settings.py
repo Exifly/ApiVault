@@ -31,7 +31,7 @@ MEDIA_URL = ''
 SECRET_KEY = 'django-insecure-pnadu&92%d==xohx_27-z%is=nb7c&s!ph7#1r$i0d#oxttgh5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
