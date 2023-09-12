@@ -46,6 +46,7 @@
       </div>
     </template>
     <template #cardAreaContent>
+      <FeedsPanel :isLoading="isLoading" />
       <h1 class="text-wrapper">{{ categorySearched.category }}</h1>
       <hr />
       <div class="row">
