@@ -22,11 +22,11 @@ CMD_RUNSERVER: str = f"gunicorn apivault.wsgi -b :{SERVER_PORT}"
 
 os.chdir(SHELL_DIRECTORY)
 
-subprocess.call(CMD_MAKE_MIGRATIONS, shell=True)
+# subprocess.call(CMD_MAKE_MIGRATIONS, shell=True)
 subprocess.call(CMD_MIGRATE_AUTH, shell=True)
 subprocess.call(CMD_MIGRATE, shell=True)
-subprocess.call(CMD_LOAD_CATEGORIES, shell=True)
-subprocess.call(CMD_LOAD_APIS, shell=True)
+# subprocess.call(CMD_LOAD_CATEGORIES, shell=True)
+# subprocess.call(CMD_LOAD_APIS, shell=True)
 
 subprocess.call(CMD_STATIC, shell=True)
 subprocess.call(CMD_RUNSERVER, shell=True)
