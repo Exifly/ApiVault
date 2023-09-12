@@ -35,14 +35,14 @@ def register_social_user(email: str, name: str, picture: str):
       user = DefaultUser.objects.create_user(
          username=generate_username(name),
          email=email,
-         password="pipposito",
+         password="<PASSWORD>",
          is_verified=True,
          picture=picture
       )
 
    registered_user = authenticate(
       username=user.username,
-      password="pipposito"
+      password="<PASSWORD>"
    )
 
    return {

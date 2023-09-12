@@ -30,8 +30,8 @@
               width="12"
               height="12"
               :icon="['fas', 'star']"
-            />{{ stargazers }} Stars </a
-          >
+            />{{ stargazers }} Stars
+          </a>
         </li>
         <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
           <a
@@ -87,7 +87,7 @@
             class="sidebar-text-wrapper mt-2 category-custom"
             role="tab"
             v-for="category in categoriesAttributes"
-            :key="category"
+            :key="category.name"
           >
             <NuxtLink
               class="flex items-center gap-2 px-2"
@@ -128,7 +128,7 @@ import { categoriesProperties } from "~/utils/categoryMapping";
 import ApivaultServices from "~/services/ApivaultServices";
 import GithubServices from "~/services/GithubServices";
 
-const stargazers = await GithubServices.repoStars().catch(er => 0);
+const stargazers = ref();
 const categoriesAttributes = categoriesProperties;
 const api = reactive({
   count: 0,
@@ -136,6 +136,7 @@ const api = reactive({
 
 onMounted(async () => {
   api.count = await ApivaultServices.countApis();
+  stargazers.value = await GithubServices.repoStars().catch((er) => 0);
 });
 </script>
 

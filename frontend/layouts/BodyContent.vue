@@ -1,5 +1,14 @@
 <template>
   <div class="flex-adjust container p-4 overflow-hidden">
+    <GenericsButton
+      id="bottom-feedback-button"
+      class="text-wrapper-inverted"
+      :isInverted="true"
+      data-bs-toggle="modal"
+      data-bs-target="#feedbackModal"
+      >
+      Feedback
+    </GenericsButton>
     <div class="hero container">
       <div class="row">
         <div id="hero-column" class="col-12 col-lg-12 col-md-12">
@@ -15,8 +24,6 @@
         <slot name="topAreaContent"></slot>
       </div>
     </div>
-    <h1 class="text-wrapper">{{ title }}</h1>
-    <hr />
     <h5 class="text-wrapper" v-if="isNullCategory">
       No Api's found for this category.. Sorry!!
     </h5>
@@ -25,6 +32,7 @@
       <hr />
       <slot name="footerArea"></slot>
     </div>
+    <FeedbackModal />
   </div>
 </template>
 
@@ -44,6 +52,14 @@ const { title, isNullCategory } = defineProps({
 </script>
 
 <style scoped>
+#bottom-feedback-button {
+  bottom: 10px;
+  font-size: 13px;
+  position: fixed;
+  right: 10px;
+  z-index: 1;
+}
+
 .hero {
   display: flex;
   flex-direction: column;

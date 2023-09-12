@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
-import "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import { FirebaseConfig } from '~/models/types';
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -17,6 +17,6 @@ export default defineNuxtPlugin(nuxtApp => {
     measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
   };
 
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics()
+  const app = initializeApp(firebaseConfig);
+  getAnalytics(app);
 })

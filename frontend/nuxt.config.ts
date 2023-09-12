@@ -48,7 +48,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: "A free API database list for developers",
+      title: "Apivault - A free API list for developers",
       meta: [
         { name: "keywords", content: "free api, free api list, apivault, free apis for projects, open-source, public APIs, free apis for learning, free apis to use" },
         { name: "description", content: "ApiVault - The largest collection of free and public APIs, categorized for easy search." },
@@ -59,12 +59,12 @@ export default defineNuxtConfig({
         { name: "twitter:card", content: "summary_large_image"},
         { name: "twitter:site", content: "apivault"},
         { name: "twitter:keywords", content: "free api, free api list, apivault, free apis for projects, open-source, public APIs, free apis for learning, free apis to use"},
-        { name: "twitter:image", content: "https://raw.githubusercontent.com/Exifly/ApiVault/main/assets/Hero.jpg"},
+        { name: "twitter:image", content: "https://raw.githubusercontent.com/Exifly/ApiVault/main/assets/Hero.png"},
         { property: "og:title", content: "A free API database list for developers"},
         { property: "og:description", content: "ApiVault - The largest collection of free public APIs, categorized for easy search."},
         { property: "og:site_name", content: "APIVault"},
         { property: "og:url", content: "https://apivault.dev/"},
-        { property: "og:image", content: "https://raw.githubusercontent.com/Exifly/ApiVault/main/assets/Hero.jpg" },
+        { property: "og:image", content: "https://raw.githubusercontent.com/Exifly/ApiVault/main/assets/Hero.png" },
         { property: "og:type", content: "website"}
       ]
     }

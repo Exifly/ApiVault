@@ -1,5 +1,9 @@
 import subprocess
+import time
 import os
+
+print('Starting server...')
+time.sleep(25)
 
 SERVER_PORT = 9001
 SERVER_HOST = "0.0.0.0"
@@ -23,4 +27,5 @@ subprocess.call(CMD_MAKE_MIGRATIONS, shell=True)
 subprocess.call(CMD_MIGRATE_AUTH, shell=True)
 subprocess.call(CMD_MIGRATE, shell=True)
 subprocess.call(CMD_LOAD_FIXTURES, shell=True)
+subprocess.call("python3 manage.py collectstatic --noinput", shell=True)
 subprocess.call(CMD_RUNSERVER, shell=True)

@@ -1,21 +1,43 @@
-MIT License
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
 
-Copyright (c) 2023 ApiVault
+Creative Commons Corporation ("Creative Commons") is not a law firm and does not provide legal services. Distributing this license does not create an attorney-client relationship. Creative Commons provides this information on an "as-is" basis. Creative Commons makes no warranties regarding the information provided, and disclaims liability for damages resulting from its use.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+License
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The authors of the work (hereinafter referred to as "you" or "the authors") grant you the non-exclusive rights to use the described work under the following terms:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Title: Apivault
+Authors: Giovanni D'Andrea, Flavio Adamo
+
+1. Definitions
+
+a. "Derivative Works" means any work that is based on or derived from the original work, including the work based on the original work and expressing the original author's views or opinions.
+b. "Commercial Use" means use of the work for any purpose that is primarily intended for or directed toward commercial advantage or private monetary compensation.
+c. "Licenses Granted" are the additional restrictions that apply to the work under this license.
+
+2. License Grant
+
+Subject to the terms and conditions of this license, the authors grant you a worldwide, non-exclusive, non-sublicensable, revocable, and royalty-free license to:
+
+a. Reproduce, distribute, and publicly communicate the work, including derivative works, under the terms of this license.
+b. Attribute the authors as suggested by the authors or requested by them.
+
+3. Restrictions
+
+This license is subject to the following restrictions:
+
+a. NonCommercial Use: You may not use the work for Commercial Use.
+b. No Derivative Works: You may not modify, adapt, or build upon the original work to create a Derivative Work.
+c. License Application: Any use or distribution of the work or derivative works must be made in compliance with the terms of this license and must attribute the authors as suggested by the authors or requested by them.
+
+4. Other Conditions
+
+a. Waivers: The authors provide the work "as is" and make no warranties regarding the work, express or implied, and disclaim liability for damages resulting from using the work.
+b. Limitation of Liability: In no event will the authors be liable to you or any third party for any damages, including any lost profits, lost savings, or other incidental or consequential damages arising out of the use or inability to use the work, even if advised of the possibility of such damages.
+c. Termination of License: Any use or distribution of the work in violation of the terms of this license will automatically terminate your rights under this license, without prejudice to any legal rights and remedies the authors may have.
+
+Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with the authors regarding the work or any separate legal agreements between you and the authors.
+
+This license is governed and interpreted under the laws of the state where the authors have their primary residence, without giving effect to any principles of conflicts of law.
+
+The complete and official version of the CC BY-NC-ND 4.0 license can be found at the following address: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
