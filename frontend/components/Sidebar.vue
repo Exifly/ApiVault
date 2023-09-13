@@ -3,6 +3,9 @@
     <div class="scrollbox">
       <div class="sidebar-heading ms-4">MENU</div>
       <ul class="list-unstyled ps-0 text-black mx-4" role="tablist">
+        <li class="mt-2 category-custom" role="tab">
+          <ProductHuntBadge />
+        </li>
         <li class="sidebar-text-wrapper mt-2 category-custom" role="tab">
           <NuxtLink
             class="flex items-center gap-2 px-2"
