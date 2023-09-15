@@ -1,6 +1,8 @@
 <template>
   <NuxtLayout :name="layouts" title="WONDERFUL PEOPLE">
     <template #cardAreaContent>
+      <h1 class="text-wrapper">WONDERFUL PEOPLE</h1>
+      <hr />
       <div class="row align-content-center">
         <LoadingEffect v-if="isLoading" />
         <div
