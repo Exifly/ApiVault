@@ -34,7 +34,7 @@ services:
       - DB_USER=apivault
       - DB_PASSWORD=apivault
       - DB_PORT=5432
-      - DEBUG=true
+      - DEBUG=${DEBUG}
     depends_on:
       - db_postgis_apivault
     volumes:
