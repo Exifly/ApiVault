@@ -34,7 +34,7 @@ services:
       - DB_USER=apivault
       - DB_PASSWORD=apivault
       - DB_PORT=5432
-      - DEBUG=true
+      - DEBUG=${DEBUG}
     command: sh -c "python3 backend/docker/command/start_server.py"
     networks:
       apivault-network:
