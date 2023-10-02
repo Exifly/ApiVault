@@ -2,6 +2,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework import status
+from rest_framework.throttling import UserRateThrottle
 from .serializer import (
     GoogleSocialAuthSerializer,
     SafeUserSerializer
@@ -9,7 +10,9 @@ from .serializer import (
 
 class GoogleSocialAuthView(GenericAPIView):
 
+
     serializer_class = GoogleSocialAuthSerializer
+    throttle_classes = [UserRateThrottle]
 
     def post(self, request):
         """
@@ -25,6 +28,7 @@ class GoogleSocialAuthView(GenericAPIView):
 class UserView(GenericAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = SafeUserSerializer
+    throttle_classes = [UserRateThrottle]
 
     def get(self, request):
         """
