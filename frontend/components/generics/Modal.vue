@@ -7,7 +7,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-centered">
-      <div class="custom-border-radius glass-card modal-content">
+      <div class="custom-border-radius glass-card modal-content w-auto">
         <div class="py-0 custom-border modal-header">
           <h1
             v-if="!successSubmit"
@@ -37,10 +37,7 @@
             <AnimationSuccessCheckmark />
           </div>
           <form v-else>
-            <div
-              class="input-group mb-3"
-              style="justify-content: space-between"
-            >
+            <div class="input-group mb-3 gap-3">
               <div class="mobile-wrapper-section align-items-center">
                 <label for="recipient-name" class="text-wrapper col-form-label"
                   >Name:</label
@@ -51,7 +48,7 @@
                   placeholder="Your API name"
                   class="inverted-input-box text-wrapper form-control"
                   id="recipient-name"
-                  style="margin-right: 6rem"
+                  style="margin-right: 1rem"
                 />
               </div>
               <div class="mobile-wrapper-section align-items-center">
