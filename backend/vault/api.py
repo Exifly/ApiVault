@@ -1,5 +1,6 @@
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
+from rest_framework.throttling import UserRateThrottle
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
 from apivault.mixins import ApiFilterMixin
@@ -36,6 +37,7 @@ class RandomAPIListView(generics.ListAPIView):
    API view that returns 9 random APIs.
    """
    serializer_class = APISerializer
+   throttle_classes = [UserRateThrottle]
 
    def get_queryset(self):
       """
@@ -50,6 +52,7 @@ class APIListView(generics.ListAPIView):
    """
    List all APIs.
    """
+   throttle_classes = [UserRateThrottle]
    queryset = API.objects.all()
    serializer_class = APISerializer
 
@@ -61,6 +64,7 @@ class TrendingCategoriesView(generics.ListAPIView):
    API view that returns the top 10 categories by API count.
    """
    serializer_class = CategoryCountSerializer
+   throttle_classes = [UserRateThrottle]
 
    def get_queryset(self):
          """
@@ -75,6 +79,7 @@ class CategoryAPIListView(ApiFilterMixin, generics.ListAPIView):
    API view that returns the APIs based on the category.
    """
    serializer_class = APISerializer
+   throttle_classes = [UserRateThrottle]
    allowed_order_field = ['name', '-likes_count']
 
    def get_queryset(self):
@@ -89,6 +94,7 @@ class AllCategoryAPIListView(generics.ListAPIView):
    """
    List all Categories.
    """
+   throttle_classes = [UserRateThrottle]
    queryset = Category.objects.all()
    serializer_class = CategorySerializer
     
@@ -97,6 +103,7 @@ class APICountView(APIView):
     """
     API view that returns the count of API objects in the database.
     """
+    throttle_classes = [UserRateThrottle]
     def get(self, request):
         """
         Handle GET request and return the count of API objects.
@@ -113,6 +120,7 @@ class APIDetailView(RetrieveAPIView):
    """
    Retrieve details of a single API.
    """
+   throttle_classes = [UserRateThrottle]
    queryset = API.objects.all()
    serializer_class = APISerializer
 
@@ -132,6 +140,7 @@ class APISearchView(generics.ListAPIView):
    API view for searching APIs by name and description.
    """
    serializer_class = APISerializer
+   throttle_classes = [UserRateThrottle]
 
 
    def get_queryset(self):
@@ -149,6 +158,7 @@ class MyApiView(APIView):
    Retrieve the approved APIs of the logged user.
    """
    permission_classes = [permissions.IsAuthenticated]
+   throttle_classes = [UserRateThrottle]
 
    def get(self, request):
       apis = API.objects.filter(owner=request.user)
@@ -161,6 +171,7 @@ class MyPendingApiView(APIView):
    Retrieve the pending APIs of the logged user.
    """
    permission_classes = [permissions.IsAuthenticated]
+   throttle_classes = [UserRateThrottle]
 
    def get(self, request):
       apis = APIPending.objects.filter(owner=request.user)
