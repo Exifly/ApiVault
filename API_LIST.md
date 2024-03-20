@@ -457,7 +457,7 @@
 | [ScreenshotAPI.net](https://screenshotapi.net/) | Create pixel-perfect website screenshots | apiKey | True | yes |
 | [Serialif Color](https://color.serialif.com/) | Color conversion, complementary, grayscale and contrasted text |  | True | no |
 | [serpstack](https://serpstack.com/) | Real-Time & Accurate Google Search Results API | apiKey | True | yes |
-| [Sheetsu](https://sheetsu.com/) | Easy google sheets integration | apiKey | True | unknown |
+| [Sheet2API](https://sheet2api.com/) | Easy google sheets integration | apiKey | True | unknown |
 | [SHOUTCLOUD](http://shoutcloud.io/) | ALL-CAPS AS A SERVICE |  | False | unknown |
 | [Sonar](https://github.com/Cgboal/SonarSearch) | Project Sonar DNS Enumeration API |  | True | yes |
 | [SonarQube](https://sonarcloud.io/web_api) | SonarQube REST APIs to detect bugs, code smells & security vulnerabilities | OAuth | True | unknown |
