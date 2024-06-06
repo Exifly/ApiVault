@@ -16,9 +16,12 @@ export default defineNuxtConfig({
     'nuxt-simple-sitemap',
     'nuxt-vue3-google-signin',
     [
-      '@nuxtjs/robots', 
+      '@nuxtjs/robots',
       { configPath: '~/config/robots.config' }
-    ]
+    ],
+    ['@nuxtjs/google-adsense', {
+      id: import.meta.env.VITE_ADSENSE_CLIENT_ID || "AD_ID"
+    }]
   ],
   googleSignIn: {
     clientId: import.meta.env.VITE_CLIENT_ID || "GOOGLE_CLIENT_ID",
@@ -71,7 +74,7 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/styles/bootstrap.scss',
-    '~/assets/styles/main.css', 
+    '~/assets/styles/main.css',
     '~/assets/styles/normalize.css',
     '~/assets/styles/animations.scss',
     '@fortawesome/fontawesome-svg-core/styles.css'

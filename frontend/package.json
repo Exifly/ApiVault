@@ -25,6 +25,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@nuxtjs/google-adsense": "^3.0.0",
     "@nuxtjs/robots": "^3.0.0",
     "@popperjs/core": "^2.11.7",
     "axios": "^1.3.5",
