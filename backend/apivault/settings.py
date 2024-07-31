@@ -226,3 +226,6 @@ GOOGLE_CLIENT_ID = "64963022344-iv3em0agnmlcvohcjcrq4j4h485pkee1.apps.googleuser
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+CSRF_TRUSTED_ORIGINS = ['https://*.apivault.dev', 'http://localhost']
+
