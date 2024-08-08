@@ -104,6 +104,12 @@ server_dev    |         Is the server running on that host and accepting TCP/IP 
 ```
 
 To fix those erros just stop it and relaunch `docker-compose up`
+## Other error, note:
+If you get this error:
+```bash
+=> ERROR [server 6/6] RUN pip3 install -r requirements.txt &&     pip3 install --upgrade requests &&     pip3 install numpy -U  
+```
+you must update distro-info from version `distro-info===0.23ubuntu1` to `distro-info==1.0` into `backend/requirements.txt`
 
 **Note**:
 
