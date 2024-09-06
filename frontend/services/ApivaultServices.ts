@@ -16,23 +16,23 @@ class ApivaultService {
   }
 
   allApis(): Promise<APIType[]> {
-    return this.axiosInstance.get(`${this.baseUrl}/all/`).then(res => res.data);
+    return this.axiosInstance.get(`${this.baseUrl}/all`).then(res => res.data);
   }
 
   apiCategoryData(category: string | string[], authToken: string, orderBy: string): Promise<APIType[]> {
-    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/category/${category}/?order=${orderBy}`).then(res => res.data);
+    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/category/${category}?order=${orderBy}`).then(res => res.data);
     let headers = {
         'Authorization': `Bearer ${authToken}` 
     }
-    return this.axiosInstance.get(`${this.baseUrl}/category/${category}/?order=${orderBy}`, { headers: headers }).then(res => res.data);
+    return this.axiosInstance.get(`${this.baseUrl}/category/${category}?order=${orderBy}`, { headers: headers }).then(res => res.data);
   }
 
   randomApis(authToken: string): Promise<APIType[]> {
-    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/random/`).then(res => res.data)
+    if (authToken === "" || !authToken) return this.axiosInstance.get(`${this.baseUrl}/random`).then(res => res.data)
     let headers = {
       'Authorization': `Bearer ${authToken}` 
     }
-    return this.axiosInstance.get(`${this.baseUrl}/random/`, { headers: headers }).then(res => res.data)
+    return this.axiosInstance.get(`${this.baseUrl}/random`, { headers: headers }).then(res => res.data)
   }
 
   async search(query: String, authToken: String): Promise<APIType[]> {
@@ -42,16 +42,16 @@ class ApivaultService {
   }
 
   countApis(): Promise<number> {
-    return this.axiosInstance.get(`${this.baseUrl}/count/`).then(res => res.data.api_count)
+    return this.axiosInstance.get(`${this.baseUrl}/count`).then(res => res.data.api_count)
   }
 
   getTrendingCategories(): Promise<TrendingCategory[]> {
-    return this.axiosInstance.get(`${this.baseUrl}/categories/trending/`).then(res => res.data);
+    return this.axiosInstance.get(`${this.baseUrl}/categories/trending`).then(res => res.data);
   }
 
   /* Not auth layer */
   async categories(): Promise<Category[]> {
-    return this.axiosInstance.get(`${this.baseUrl}/categories/`).then(res => res.data);
+    return this.axiosInstance.get(`${this.baseUrl}/categories`).then(res => res.data);
   }
 
   /* Authentication Layer */
@@ -64,7 +64,7 @@ class ApivaultService {
         'Authorization': `Bearer ${authToken}`
     };
 
-      return await this.axiosInstance.post(`${this.baseUrl}/interaction/like/${apiId}/`, {}, { headers: headers }).then(res => {
+      return await this.axiosInstance.post(`${this.baseUrl}/interaction/like/${apiId}`, {}, { headers: headers }).then(res => {
         return res.status
       }).catch(err => err.response.status);
   }
@@ -74,7 +74,7 @@ class ApivaultService {
         'Authorization': `Bearer ${authToken}`
     };
 
-      return await this.axiosInstance.delete(`${this.baseUrl}/interaction/like/${apiId}/`, { headers: headers }).then(res => {
+      return await this.axiosInstance.delete(`${this.baseUrl}/interaction/like/${apiId}`, { headers: headers }).then(res => {
         return res.status
       }).catch(err => err.response.status);
   }
@@ -84,7 +84,7 @@ class ApivaultService {
       'Authorization': `Bearer ${authToken}`
     }
 
-    return await this.axiosInstance.get(`${this.baseUrl}/pending/my_api/`, { headers: headers })
+    return await this.axiosInstance.get(`${this.baseUrl}/pending/my_api`, { headers: headers })
     .then(res => {
         return res.data
       }).catch(er => console.error(er));
@@ -94,7 +94,7 @@ class ApivaultService {
     const headers = {
       'Authorization': `Bearer ${authToken}`
     }
-    return await this.axiosInstance.get(`${this.baseUrl}/my_api/`, { headers: headers }).then(res => res.data);
+    return await this.axiosInstance.get(`${this.baseUrl}/my_api`, { headers: headers }).then(res => res.data);
   }
 
   async submitApi(authToken: string, name: string, auth: string, category: number, cors: boolean, description: string, https: boolean, url: string): Promise<Number> {
@@ -112,7 +112,7 @@ class ApivaultService {
       url: url
     }
 
-    return await this.axiosInstance.post(`${this.baseUrl}/create/`, data, { headers: headers })
+    return await this.axiosInstance.post(`${this.baseUrl}/create`, data, { headers: headers })
       .then(res => {
         return res.status
       }).catch(err => err.response.status);
@@ -136,7 +136,7 @@ class ApivaultService {
       message: message
     }
 
-    return await this.axiosInstance.post(`${this.baseUrl}/interaction/feedback/`, body, { headers: headers })
+    return await this.axiosInstance.post(`${this.baseUrl}/interaction/feedback`, body, { headers: headers })
     .then(res => res.data.status)
     .catch(er => er.data.status);
   }

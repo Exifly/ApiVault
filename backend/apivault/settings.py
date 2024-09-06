@@ -20,7 +20,8 @@ env = environ.Env(DEBUG=(bool, False), )
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
 MEDIA_ROOT = ''
 MEDIA_URL = ''
 
@@ -31,7 +32,7 @@ MEDIA_URL = ''
 SECRET_KEY = 'django-insecure-pnadu&92%d==xohx_27-z%is=nb7c&s!ph7#1r$i0d#oxttgh5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 
 ALLOWED_HOSTS = ['*']
@@ -205,8 +206,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
@@ -224,3 +226,6 @@ GOOGLE_CLIENT_ID = "64963022344-iv3em0agnmlcvohcjcrq4j4h485pkee1.apps.googleuser
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+CSRF_TRUSTED_ORIGINS = ['https://*.apivault.dev', 'http://localhost']
+
