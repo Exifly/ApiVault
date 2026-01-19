@@ -1019,6 +1019,7 @@
 | [Dialogflow](https://cloud.google.com/dialogflow/docs/) | Natural Language Processing | apiKey | True | unknown |
 | [EXUDE-API](http://uttesh.com/exude-api/) | Used for the primary ways for filtering the stopping, stemming words from the text data |  | True | yes |
 | [Hirak FaceAPI](https://faceapi.hirak.site/) | Face detection, face recognition with age estimation/gender estimation, accurate, no quota limits | apiKey | True | unknown |
+| [HOL Registry Broker](https://hol.org/docs/registry-broker/) | Unified discovery + chat for AI agents & MCP servers | apiKey | True | yes |
 | [Imagga](https://imagga.com/) | Image Recognition Solutions like Tagging, Visual Search, NSFW moderation | apiKey | True | unknown |
 | [Inferdo](https://rapidapi.com/user/inferdo) | Computer Vision services like Facial detection, Image labeling, NSFW classification | apiKey | True | unknown |
 | [IPS Online](https://docs.identity.ps/docs) | Face and License Plate Anonymization | apiKey | True | unknown |
