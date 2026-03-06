@@ -510,6 +510,7 @@
 | [Monday](https://api.developer.monday.com/docs) | Programmatically access and update data inside a monday.com account | apiKey | True | unknown |
 | [Notion](https://developers.notion.com/docs/getting-started) | Integrate with Notion | OAuth | True | unknown |
 | [PandaDoc](https://developers.pandadoc.com) | DocGen and eSignatures API | apiKey | True | no |
+| [ParseFlow](https://api-ebon-tau-30.vercel.app) | Invoice and document parser API — extract structured data from PDFs and images | apiKey | True | yes |
 | [Pocket](https://getpocket.com/developer/) | Bookmarking service | OAuth | True | unknown |
 | [Podio](https://developers.podio.com) | File sharing and productivity | OAuth | True | unknown |
 | [PrexView](https://prexview.com) | Data from XML or JSON to PDF, HTML or Image | apiKey | True | unknown |
