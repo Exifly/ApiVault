@@ -1293,7 +1293,7 @@
 | [Classify](https://classify-web.herokuapp.com/#/api) | Encrypting & decrypting text messages |  | True | yes |
 | [Complete Criminal Checks](https://completecriminalchecks.com/Developers) | Provides data of offenders from all U.S. States and Pureto Rico | apiKey | True | yes |
 | [CRXcavator](https://crxcavator.io/apidocs) | Chrome extension risk scoring | apiKey | True | unknown |
-| [Dehash.lt](https://github.com/Dehash-lt/api) | Hash decryption MD5, SHA1, SHA3, SHA256, SHA384, SHA512 |  | True | unknown |
+| [V-Agent-Lens](https://v-agent-lens.streamlit.app) | Sovereign agentic traffic monitor & security interrogation for 2026. | True |
 | [EmailRep](https://docs.emailrep.io/) | Email address threat and risk prediction |  | True | unknown |
 | [Escape](https://github.com/polarspetroll/EscapeAPI) | An API for escaping different kind of queries |  | True | no |
 | [FilterLists](https://filterlists.com) | Lists of filters for adblockers and firewalls |  | True | unknown |
