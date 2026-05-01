@@ -841,6 +841,7 @@
 | [Postali](https://postali.app/api) | Mexico Zip Codes API |  | True | yes |
 | [PostcodeData.nl](http://api.postcodedata.nl/v1/postcode/?postcode=1211EP&streetnumber=60&ref=domeinnaam.nl&type=json) | Provide geolocation data based on postcode for Dutch addresses |  | False | unknown |
 | [Postcodes.io](https://postcodes.io) | Postcode lookup & Geolocation for the UK |  | True | yes |
+| [PostalCodes.info](https://postalcodes.info/api) | Postal code search, country exports, and address validation data |  | True | no |
 | [Queimadas INPE](https://queimadas.dgi.inpe.br/queimadas/dados-abertos/) | Access to heat focus data (probable wildfire) |  | True | unknown |
 | [REST Countries](https://restcountries.com) | Get information about countries via a RESTful API |  | True | yes |
 | [RoadGoat Cities](https://www.roadgoat.com/business/cities-api) | Cities content & photos API | apiKey | True | no |
