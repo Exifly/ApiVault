@@ -61,7 +61,10 @@
                   class="px-3 inverted-input-box text-wrapper form-select"
                   aria-label="Select corse state"
                 >
-                  <option value="" selected disabled>Choose an option</option>
+                  <option :value="null" selected disabled>
+                    Choose an option
+                  </option>
+                  <option value="">No Auth</option>
                   <option value="apiKey">API Key</option>
                   <option value="OAuth">OAuth</option>
                 </select>
@@ -237,7 +240,7 @@ const regex = new RegExp(
 const accessToken = useCookie("accessToken");
 const name = ref<string>("");
 const description = ref<string>("");
-const auth = ref<string>("");
+const auth = ref<string | null>(null);
 const url = ref<string>("");
 const category = ref<number>(0);
 const cors = ref<boolean>(false);
@@ -259,6 +262,7 @@ const validateInput = () => {
     name.value === "" ||
     description.value === "" ||
     url.value === "" ||
+    auth.value === null ||
     category.value === null ||
     cors.value === null ||
     https.value === null
@@ -283,7 +287,7 @@ const submitApi = async () => {
   const resp = await ApivaultServices.submitApi(
     accessToken.value!,
     name.value,
-    auth.value,
+    auth.value ?? "",
     category.value,
     cors.value,
     description.value,

@@ -1385,6 +1385,7 @@
 | [Tumblr](https://www.tumblr.com/docs/en/api/v2) | Read and write Tumblr Data | OAuth | True | unknown |
 | [Twitch](https://dev.twitch.tv/docs) | Game Streaming API | OAuth | True | unknown |
 | [Twitter](https://developer.twitter.com/en/docs) | Read and write Twitter data | OAuth | True | no |
+| [Xquik](https://docs.xquik.com/api-reference/overview) | X data API for search, profiles, media, monitors, webhooks, MCP, and posting. Not affiliated with X Corp. | apiKey | True | no |
 | [vk](https://vk.com/dev/sites) | Read and write vk data | OAuth | True | unknown |
 
 # Sports & Fitness

@@ -22893,5 +22893,21 @@
          "view_count": 0,
          "likes_count": 0
       }
+   },
+   {
+      "model": "vault.api",
+      "pk": 1432,
+      "fields": {
+         "name": "Xquik",
+         "auth": "apiKey",
+         "category": 42,
+         "cors": false,
+         "description": "X data API for search, profiles, media, monitors, webhooks, MCP, and posting. Not affiliated with X Corp.",
+         "https": true,
+         "url": "https://docs.xquik.com/api-reference/overview",
+         "view_count": 0,
+         "owner": null,
+         "likes_count": 0
+      }
    }
 ]
